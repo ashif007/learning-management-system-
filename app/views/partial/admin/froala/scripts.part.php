@@ -1,37 +1,37 @@
-    <script src="{{asset('plugins/datatables/jquery.dataTables.min.js')}}"></script>
-    <script src="{{asset('plugins/datatables/dataTables.bootstrap.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('js/froala_editor.min.js')}}"></script>
+<!-- Include Code Mirror. -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/mode/xml/xml.min.js"></script>
 
-    <!-- Include Code Mirror. -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/mode/xml/xml.min.js"></script>
+<!-- Include Plugins. -->
 
-    <!-- Include Plugins. -->
-    <script type="text/javascript" src="{{asset('js/plugins/align.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('js/plugins/char_counter.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('js/plugins/code_beautifier.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('js/plugins/code_view.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('js/plugins/colors.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('js/plugins/emoticons.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('js/plugins/entities.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('js/plugins/file.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('js/plugins/font_family.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('js/plugins/font_size.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('js/plugins/fullscreen.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('js/plugins/image.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('js/plugins/image_manager.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('js/plugins/inline_style.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('js/plugins/line_breaker.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('js/plugins/link.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('js/plugins/lists.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('js/plugins/paragraph_format.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('js/plugins/paragraph_style.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('js/plugins/quick_insert.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('js/plugins/quote.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('js/plugins/table.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('js/plugins/save.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('js/plugins/url.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('js/plugins/video.min.js')}}"></script>
+<?php resource('js','froala_editor.min')?>
+<?php resource('js','plugins/align.min')?>
+<?php resource('js','plugins/char_counter.min')?>
+<?php resource('js','plugins/code_beautifier.min')?>
+<?php resource('js','plugins/code_view.min')?>
+<?php resource('js','plugins/colors.min')?>
+<?php resource('js','plugins/emoticons.min')?>
+<?php resource('js','plugins/entities.min')?>
+<?php resource('js','plugins/file.min')?>
+<?php resource('js','plugins/font_family.min')?>
+<?php resource('js','plugins/font_size.min')?>
+<?php resource('js','plugins/fullscreen.min')?>
+<?php resource('js','plugins/image.min')?>
+<?php resource('js','plugins/image_manager.min')?>
+<?php resource('js','plugins/inline_style.min')?>
+<?php resource('js','plugins/line_breaker.min')?>
+<?php resource('js','plugins/link.min')?>
+<?php resource('js','plugins/lists.min')?>
+<?php resource('js','plugins/paragraph_format.min')?>
+<?php resource('js','plugins/paragraph_style.min')?>
+<?php resource('js','plugins/quick_insert.min')?>
+<?php resource('js','plugins/quote.min')?>
+<?php resource('js','plugins/table.min')?>
+<?php resource('js','plugins/save.min')?>
+<?php resource('js','plugins/url.min')?>
+<?php resource('js','plugins/video.min')?>
+
+
     <script>
         $(function () {
             $('textarea#articlebody').froalaEditor({
@@ -39,7 +39,7 @@
                 imageUploadParam: 'image',
 
                 // Set the image upload URL.
-                imageUploadURL: 'http://inform-me.app/ajax_upload',
+                imageUploadURL: 'http://lms.dev/ajax_upload',
 
                 // Additional upload params.
                 imageUploadParams: {id: 'my_editor'},
@@ -60,14 +60,14 @@
                 imageManagerScrollOffset: 10,
 
                 // Set the load images request URL.
-                imageManagerLoadURL: "http://inform-me.app/ajax_index",
+                imageManagerLoadURL: "http://lms.dev/ajax_index",
 
                 // Set the load images request type.
                 imageManagerLoadMethod: "GET",
 
 
                 // Set the delete image request URL.
-                imageManagerDeleteURL: "http://inform-me.app/ajax_delete",
+                imageManagerDeleteURL: "http://lms.dev/ajax_delete",
 
                 // Set the delete image request type.
                 imageManagerDeleteMethod: "POST",

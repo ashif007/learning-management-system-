@@ -24,10 +24,12 @@
 <?php resource('js','app.min')?>
 <?php resource('js','plugins/slimScroll/jquery.slimscroll.min')?>
 <?php resource('js','plugins/fastclick/fastclick.min')?>
+<?php resource('js','plugins/datatables/jquery.dataTables.min')?>
+<?php resource('js','plugins/datatables/dataTables.bootstrap.min')?>
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
      user experience. Slimscroll is required when using the
      fixed layout. -->
-
+<?php partial('admin/froala/scripts')?>
 </body>
 </html>

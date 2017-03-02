@@ -14,4 +14,4 @@
 
             });
  </script>
- <script src="{{asset('plugins/jquery.tabledit.js')}}"></script>
+ <script src="<?php asset('plugins/jquery.tabledit.js')?>"></script>

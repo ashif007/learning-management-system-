@@ -22,7 +22,10 @@ function redirect($url, $data=[], $statusCode = 303)
     header('Location: ' . $url, true, $statusCode);
     die();
 }
-
+function asset($path)
+{
+    echo public_dir()."/$path";
+}
 function resource($type, $name)
 {
     if ($type == 'css') {
