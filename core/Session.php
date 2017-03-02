@@ -4,29 +4,12 @@ use App\Models\User;
 
 class Session
 {
-    protected static $message;
-
-    public static function setFlash($message)
+    public static function has($key)
     {
-        self::$message=$message;
-    }
-
-    public static function hasFlash()
-    {
-        return !is_null(self::$message);
-    }
-
-    public static function flash()
-    {
-        $message=Self::$message;
-        echo
-        "<div class=\"ui positive message transition hidden\">
-                <i class=\"close icon\"></i>
-                <div class=\"header\">
-                        {$message}
-                </div>
-          </div>";
-        self::$message=null;
+        if(isset($_SESSION[$key])){
+            return true;
+        }
+        return false;
     }
 
     public static function set($key,$value)

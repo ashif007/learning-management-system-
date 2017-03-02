@@ -35,7 +35,7 @@ function resource($type, $name)
     return public_dir()."${type}/${name}.${type}";
 }
 function html_image($name,$option=['class'=>'','id'=>'']){
-    echo '<img src="' . public_dir()."images/${name}" . '" class="'.$option['class'].'" id="'.$option['id'].'">';
+    echo '<img src="' . public_dir()."img/${name}" . '" class="'.$option['class'].'" id="'.$option['id'].'">';
 }
 function uploaded_image($name,$option=['class'=>'','id'=>'']){
     echo '<img src="' . "/uploads/${name}" . '" class="'.$option['class'].'" id="'.$option['id'].'">';

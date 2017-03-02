@@ -6,9 +6,9 @@ use App\Core\RSS;
 
 class PagesController extends Controller {
 
-    public function home()
+    public function admin()
     {
-        return view('pages/index');
+        return view('admin/layout');
     }
 
 
