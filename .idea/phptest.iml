@@ -3,6 +3,7 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/froala/wysiwyg-editor-php-sdk" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/heroku/heroku-buildpack-php" />
     </content>
     <orderEntry type="inheritedJdk" />
@@ -21,10 +22,12 @@
       <library name="PHP" type="php">
         <CLASSES>
           <root url="file://$MODULE_DIR$/vendor/composer" />
+          <root url="file://$MODULE_DIR$/vendor/froala/wysiwyg-editor-php-sdk" />
           <root url="file://$MODULE_DIR$/vendor/heroku/heroku-buildpack-php" />
         </CLASSES>
         <SOURCES>
           <root url="file://$MODULE_DIR$/vendor/composer" />
+          <root url="file://$MODULE_DIR$/vendor/froala/wysiwyg-editor-php-sdk" />
           <root url="file://$MODULE_DIR$/vendor/heroku/heroku-buildpack-php" />
         </SOURCES>
       </library>

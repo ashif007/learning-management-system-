@@ -4,8 +4,64 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "bb8cd896ce8f20af23c2d7535c365970",
-    "packages": [],
+    "content-hash": "b4ba9a2ecaa0f670b3184f1033af998b",
+    "packages": [
+        {
+            "name": "froala/wysiwyg-editor-php-sdk",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/froala/wysiwyg-editor-php-sdk.git",
+                "reference": "ded457dbb030a92bd071194cf40c6aeabcbe5c81"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/froala/wysiwyg-editor-php-sdk/zipball/ded457dbb030a92bd071194cf40c6aeabcbe5c81",
+                "reference": "ded457dbb030a92bd071194cf40c6aeabcbe5c81",
+                "shasum": ""
+            },
+            "type": "php-plugin",
+            "extra": {
+                "installer-name": "FroalaEditor"
+            },
+            "autoload": {
+                "psr-0": {
+                    "FroalaEditor": "lib/"
+                },
+                "psr-4": {
+                    "FroalaEditor\\": "lib/FroalaEditor"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Froala Labs",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "PHP SDK for Froala WYSIWYG Editor",
+            "homepage": "https://www.froala.com/wysiwyg-editor",
+            "keywords": [
+                "editor",
+                "froala",
+                "html",
+                "php",
+                "php rich text editor",
+                "php rte",
+                "php wysiwyg",
+                "rich editor",
+                "rich text editor",
+                "rte",
+                "sdk",
+                "text",
+                "wysiwyg"
+            ],
+            "time": "2016-10-24T12:55:49+00:00"
+        }
+    ],
     "packages-dev": [
         {
             "name": "heroku/heroku-buildpack-php",
@@ -62,6 +118,7 @@
     "platform": {
         "php": "~7.0@beta",
         "ext-pdo": "*",
+        "ext-fileinfo": "*",
         "ext-gettext": "*"
     },
     "platform-dev": []

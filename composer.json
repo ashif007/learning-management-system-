@@ -2,7 +2,9 @@
     "require": {
         "php":"~7.0@beta",
         "ext-PDO": "*",
-        "ext-gettext": "*"
+        "ext-fileinfo":"*",
+        "ext-gettext": "*",
+        "froala/wysiwyg-editor-php-sdk" : "*"
     },
     "require-dev": {
         "heroku/heroku-buildpack-php": "*"

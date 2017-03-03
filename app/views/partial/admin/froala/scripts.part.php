@@ -36,41 +36,42 @@
         $(function () {
             $('textarea#articlebody').froalaEditor({
                 // Set the image upload parameter.
-                imageUploadParam: 'image',
+//                imageUploadParam: 'image',
 
                 // Set the image upload URL.
-                imageUploadURL: 'http://lms.dev/ajax_upload',
+                imageUploadURL: '/image_upload',
+                fileUploadURL: '/upload_file',
 
                 // Additional upload params.
-                imageUploadParams: {id: 'my_editor'},
+//                imageUploadParams: {id: 'my_editor'},
+////
+////                // Set request type.
+//                imageUploadMethod: 'POST',
+//
+//                // Set max image size to 5MB.
+//                imageMaxSize: 5 * 1024 * 1024,
+//
+//                // Allow to upload PNG and JPG.
+//                imageAllowedTypes: ['jpeg', 'jpg', 'png'],
+//
+//                // Set page size.
+//                imageManagerPageSize: 20,
 
-                // Set request type.
-                imageUploadMethod: 'POST',
-
-                // Set max image size to 5MB.
-                imageMaxSize: 5 * 1024 * 1024,
-
-                // Allow to upload PNG and JPG.
-                imageAllowedTypes: ['jpeg', 'jpg', 'png'],
-
-                // Set page size.
-                imageManagerPageSize: 20,
-
-                // Set a scroll offset (value in pixels).
-                imageManagerScrollOffset: 10,
+//                // Set a scroll offset (value in pixels).
+//                imageManagerScrollOffset: 10,
 
                 // Set the load images request URL.
-                imageManagerLoadURL: "http://lms.dev/ajax_index",
+                imageManagerLoadURL: "/image_load",
 
                 // Set the load images request type.
-                imageManagerLoadMethod: "GET",
+//                imageManagerLoadMethod: "GET",
 
 
                 // Set the delete image request URL.
-                imageManagerDeleteURL: "http://lms.dev/ajax_delete",
+                imageManagerDeleteURL: "/delete_image",
 
-                // Set the delete image request type.
-                imageManagerDeleteMethod: "POST",
+//                // Set the delete image request type.
+//                imageManagerDeleteMethod: "POST",
 
             })
             $("#indextable").DataTable();
