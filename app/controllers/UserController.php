@@ -22,7 +22,7 @@ class UserController extends Controller implements ResourceInterface
     public function index()
     {
        $users=User::all();
-        return view('users/index',['users'=>$users]);
+       return view('users/index',['users'=>$users]);
     }
 
     public function create()
@@ -66,7 +66,7 @@ class UserController extends Controller implements ResourceInterface
             $user->created_at = date("Y-m-d H:i:s");
             $user->updated_at = date("Y-m-d H:i:s");
             $user->save();
-            Session::setFlash("User Added Successfully");
+            Session::set('message',"User Added Successfully");
             redirect('users');
         }
     }
@@ -107,7 +107,6 @@ class UserController extends Controller implements ResourceInterface
             $user->username = $request->get('username');
             $user->email = $request->get('email');
             $user->password = password_hash($request->get('password'), PASSWORD_DEFAULT);
-            $user->address = $request->get('address');
             if($request->getFile('image')){
                 unlink("uploads/{$user->image}");
                 try {
@@ -123,7 +122,7 @@ class UserController extends Controller implements ResourceInterface
             $user->created_at = date("Y-m-d H:i:s");
             $user->updated_at = date("Y-m-d H:i:s");
             $user->update();
-            Session::setFlash("User Updated Successfully");
+            Session::set('message',"User Updated Successfully");
             redirect('/users');
         }
     }
@@ -132,7 +131,7 @@ class UserController extends Controller implements ResourceInterface
     {
         $user=User::retrieveByPK($id);
         $user->delete();
-        Session::setFlash("User Deleted Successfully");
+        Session::set('message',"User Deleted Successfully");
         redirect('/users');
     }
 }

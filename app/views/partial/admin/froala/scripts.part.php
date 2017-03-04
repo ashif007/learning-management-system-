@@ -40,7 +40,7 @@
 
                 // Set the image upload URL.
                 imageUploadURL: '/image_upload',
-                fileUploadURL: '/upload_file',
+                fileUploadURL: '/file_upload',
 
                 // Additional upload params.
 //                imageUploadParams: {id: 'my_editor'},
@@ -73,7 +73,28 @@
 //                // Set the delete image request type.
 //                imageManagerDeleteMethod: "POST",
 
-            })
+            });
+            // Catch the file being removed.
+            $('.selector').on('froalaEditor.file.removed', function (e, editor, $img) {
+                $.ajax({
+                    // Request method.
+                    method: 'POST',
+
+                    // Request URL.
+                    url: '/delete_file',
+
+                    // Request params.
+                    data: {
+                        src: $img.attr('src')
+                    }
+                })
+                    .done (function (data) {
+                        console.log ('File was deleted');
+                    })
+                    .fail (function (err) {
+                        console.log ('File delete problem: ' + JSON.stringify(err));
+                    })
+            });
             $("#indextable").DataTable();
         });
     </script>
