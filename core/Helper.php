@@ -1,6 +1,4 @@
 <?php
-
-
 function public_dir(){
     return "/public/";
 }
@@ -9,13 +7,11 @@ function view($view, $data = [])
     extract($data);
     return require "app/views/{$view}.view.php";
 }
-
 function partial($part, $data = [])
 {
     extract($data);
     return require "app/views/partial/{$part}.part.php";
 }
-
 function redirect($url, $data=[], $statusCode = 303)
 {
     \App\Core\Session::set('response' , $data);
@@ -58,7 +54,6 @@ function html_link($url,$text,$option=[]){
     }
     echo '<a href="' .$url. '" '.$options.'">'.$text."</a>";
 }
-
 function method_field($method)
 {
     echo '<input type="hidden" name="_method" value=' . $method . ' />';
@@ -78,15 +73,12 @@ function start_form($method, $action, $option = [])
         echo '<form action="' . $action . '" method="post" '.$options.'">';
         method_field($method);
         csrf_field();
-
     }
 }
-
 function close_form()
 {
     echo '</form>';
 }
-
 function generateCSRF()
 {
     if (empty($_SESSION['token'])) {
@@ -94,7 +86,6 @@ function generateCSRF()
     }
     return $_SESSION['token'];
 }
-
 function verifyCSRF($request)
 {
     if ($request->getCSRF()) {
@@ -105,12 +96,10 @@ function verifyCSRF($request)
         }
     }
 }
-
 function csrf_field()
 {
     echo '<input type="hidden" name="_token" value=' . generateCSRF() . ' />';
 }
-
 function getErrors()
 {
     $errors = false;
@@ -123,7 +112,6 @@ function getErrors()
     }
     return $errors;
 }
-
 function getResponse()
 {
     $response = false;
@@ -132,7 +120,6 @@ function getResponse()
     }
     return $response;
 }
-
 function upload_file($fieldname)
 {
     try {
@@ -150,16 +137,6 @@ function delete_file($file)
         var_dump($e->getMessage());
     }
 }
-function onFilesRemoveCallback($removed_files)
-{
-    foreach ($removed_files as $key => $value) {
-        $file = '../uploads/' . $value;
-        if (file_exists($file)) {
-            unlink($file);
-        }
-    }
-    return $removed_files;
-}
 
 function toJson($data)
 {
@@ -167,9 +144,10 @@ function toJson($data)
     header('Content-Type: application/json');
     echo utf8_encode(json_encode($data));
 }
- function session_id_field(){
+function session_id_field(){
     echo '<input type = "hidden" name="PHPSESSID" value="'.session_id().'"/>';
  }
+
 function parseOpt($array){
     $r =[];
     foreach ($array as $key=>$value)
@@ -177,5 +155,16 @@ function parseOpt($array){
     return implode(" ",$r);
 }
 
-
-
+function dispalyForDebug($data)
+{
+    if (gettype($data) == "array")
+    {
+        echo "<pre>".print_r($data,true)."</pre>";
+    }
+    else
+    {
+        echo "<pre>";
+        var_dump($data);
+        echo "</pre>";
+    }
+}
