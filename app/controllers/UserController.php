@@ -22,12 +22,12 @@ class UserController extends Controller implements ResourceInterface
     public function index()
     {
        $users=User::all();
-       return view('users/index',['users'=>$users]);
+       return view('admin/users/index',['users'=>$users]);
     }
 
     public function create()
     {
-       return view('users/create');
+       return view('admin/users/create');
     }
 
     public function store(Request $request)
