@@ -15,7 +15,7 @@ class AjaxController extends Controller
     public function image_load()
     {
         try {
-            $response = FroalaEditor_Image::getList('/uploads/');
+            $response = \FroalaEditor_Image::getList('/uploads/');
             echo stripslashes(json_encode($response));
         } catch (Exception $e) {
             http_response_code(404);
@@ -36,7 +36,7 @@ class AjaxController extends Controller
             )
         );
         try {
-            $response = FroalaEditor_Image::upload('/uploads/');
+            $response = \FroalaEditor_Image::upload('/uploads/');
             echo stripslashes(json_encode($response));
         } catch (Exception $e) {
             http_response_code(404);
@@ -46,7 +46,7 @@ class AjaxController extends Controller
     public function delete_image()
     {
         try {
-            $response = FroalaEditor_Image::delete($_POST['src']);
+            $response = \FroalaEditor_Image::delete($_POST['src']);
             echo stripslashes(json_encode('Success'));
         } catch (Exception $e) {
             http_response_code(404);
@@ -63,7 +63,7 @@ class AjaxController extends Controller
 //        )
 //    );
         try {
-            $response = FroalaEditor_File::upload('/uploads/');
+            $response = \FroalaEditor_File::upload('/uploads/');
             echo stripslashes(json_encode($response));
         } catch (Exception $e) {
             http_response_code(404);
@@ -73,7 +73,7 @@ class AjaxController extends Controller
     public function delete_file()
     {
         try {
-            $response = FroalaEditor_File::upload('/uploads/');
+            $response = \FroalaEditor_File::delete('/uploads/');
             echo stripslashes(json_encode($response));
         } catch (Exception $e) {
             http_response_code(404);

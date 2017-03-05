@@ -12,6 +12,7 @@
 <section class="content">
     <h1>Hello</h1>
     <form action="" method="post">
+<!--        Place your content here-->
         <textarea id="articlebody">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aspernatur beatae enim fuga ipsam nisi ut. Animi, at fuga. Aut distinctio dolores id laboriosam laudantium, modi reprehenderit? Libero veniam, vitae?</textarea>
 
     </form>
