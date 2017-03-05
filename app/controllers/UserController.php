@@ -27,7 +27,8 @@ class UserController extends Controller implements ResourceInterface
 
     public function create()
     {
-       return view('admin/users/create');
+        $users=User::all();
+       return view('admin/users/create',['users'=>$users]);
     }
 
     public function store(Request $request)
@@ -80,51 +81,53 @@ class UserController extends Controller implements ResourceInterface
     public function edit($id)
     {
         $user=User::retrieveByPK($id);
-        return view('users/edit',['user'=>$user]);
+        return view('admin/users/edit',['user'=>$user]);
     }
 
     public function update(Request $request, $id)
     {
-
         $user=User::retrieveByPK($id);
-        $errors = $this->validator->validate($request, [
-            'firstname' => 'required',
-            'lastname' => 'required',
-            'username' => 'required',
-            'email' => 'required|email',
-            'password' => 'required|min:8',
-            'confirm' => 'required|min:8'
-        ]);
-        if ($request->get('password') !== $request->get('confirm')) {
-            $errors['login'] = "Password not match";
-        }
-        if ($errors) {
-            $request->saveToSession($errors);
-            redirect('users/'.$user->id.'/edit', $request->getLastFromSession());
-        } else {
-            $user->firstname = $request->get('firstname');
-            $user->lastname = $request->get('lastname');
-            $user->username = $request->get('username');
-            $user->email = $request->get('email');
-            $user->password = password_hash($request->get('password'), PASSWORD_DEFAULT);
-            if($request->getFile('image')){
-                unlink("uploads/{$user->image}");
-                try {
-                    $files = upload($request->getfile("image"));
-                    $user->image = $files['metas'][0]['name'];
-                } catch (\Exception $e) {
-                    $e->getMessage();
-                }
+        if(verifyCSRF($request)){
+            $errors = $this->validator->validate($request, [
+                'firstname' => 'required',
+                'lastname' => 'required',
+                'username' => 'required',
+                'email' => 'required|email',
+                'password' => 'required|min:8',
+                'confirm' => 'required|min:8'
+            ]);
+            if ($request->get('password') !== $request->get('confirm')) {
+                $errors['confirm'] = "Password not match";
             }
-            $user->gender = $request->get('gender');
-            $user->country = $request->get('country');
-            $user->role = $request->get('role');
-            $user->created_at = date("Y-m-d H:i:s");
-            $user->updated_at = date("Y-m-d H:i:s");
-            $user->update();
-            Session::set('message',"User Updated Successfully");
-            redirect('/users');
+            if ($errors) {
+                $request->saveToSession($errors);
+                redirect('users/'.$user->id.'/edit', $request->getLastFromSession());
+            } else {
+                $user->firstname = $request->get('firstname');
+                $user->lastname = $request->get('lastname');
+                $user->username = $request->get('username');
+                $user->email = $request->get('email');
+                $user->password = password_hash($request->get('password'), PASSWORD_DEFAULT);
+                if($request->getFile('image')){
+                    unlink("/uploads/{$user->image}");
+                    try {
+                        $files = upload($request->getfile("image"));
+                        $user->image = $files['metas'][0]['name'];
+                    } catch (\Exception $e) {
+                        $e->getMessage();
+                    }
+                }
+                $user->gender = $request->get('gender');
+                $user->country = $request->get('country');
+                $user->role = $request->get('role');
+                $user->created_at = date("Y-m-d H:i:s");
+                $user->updated_at = date("Y-m-d H:i:s");
+                $user->update();
+                Session::set('message',"User Updated Successfully");
+                redirect('/users');
+            }
         }
+
     }
 
     public function destroy($id)

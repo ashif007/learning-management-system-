@@ -111,14 +111,14 @@ $fields=$request['fields'];
                                         </div>
                                         <div class="form-group">
                                             <label for="gender">Gender</label>
-                                            <select name="gender" id="">
+                                            <select name="gender" id="" class="form-control">
                                                 <option value="male">Male</option>
                                                 <option value="female">Female</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label for="country">Country</label>
-                                            <select name="country" id="">
+                                            <select name="country" id="" class="form-control">
                                                 <option value="egypt">Egypt</option>
                                                 <option value="other">Other</option>
                                             </select>
@@ -171,7 +171,7 @@ $fields=$request['fields'];
                                         </div>
                                         <div class="form-group">
                                             <label for="role">Role</label>
-                                            <select name="role" id="">
+                                            <select name="role" id="" class="form-control">
                                                 <option value="student">Student</option>
                                                 <option value="teacher">Teacher</option>
                                                 <option value="admin">Admin</option>
@@ -179,7 +179,7 @@ $fields=$request['fields'];
                                         </div>
                                         <div class="form-group">
                                             <label for="confirm">Is Baned</label>
-                                            <input type="checkbox" name="isbaned" class="form-control">
+                                            <input type="checkbox" name="isbaned" >
                                         </div>
 
                                     </div>
@@ -203,6 +203,7 @@ $fields=$request['fields'];
                     </div>
 
                 </div>
+                <?php close_form()?>
                 <!-- /.modal-content -->
             </div>
             <!-- /.modal-dialog -->
