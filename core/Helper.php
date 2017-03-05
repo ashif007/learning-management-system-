@@ -1,6 +1,4 @@
 <?php
-
-
 function public_dir(){
     return "/public/";
 }
@@ -9,13 +7,11 @@ function view($view, $data = [])
     extract($data);
     return require "app/views/{$view}.view.php";
 }
-
 function partial($part, $data = [])
 {
     extract($data);
     return require "app/views/partial/{$part}.part.php";
 }
-
 function redirect($url, $data=[], $statusCode = 303)
 {
     \App\Core\Session::set('response' , $data);
@@ -46,12 +42,10 @@ function uploaded_image($name,$option=['class'=>'','id'=>'']){
 function html_link($url,$text,$option=['class'=>'','id'=>'']){
     echo '<a href="' .$url. '" class="'.$option['class'].'" id="'.$option['id'].'">'.$text."</a>";
 }
-
 function method_field($method)
 {
     echo '<input type="hidden" name="_method" value=' . $method . ' />';
 }
-
 function start_form($method, $action, $option = ['class'=>''])
 {
     if ($method === 'post' || $method === 'get') {
@@ -61,15 +55,12 @@ function start_form($method, $action, $option = ['class'=>''])
         echo '<form action="' . $action . '" method="post" class="' . $option['class'].'">';
         method_field($method);
         csrf_field();
-
     }
 }
-
 function close_form()
 {
     echo '</form>';
 }
-
 function generateCSRF()
 {
     if (empty($_SESSION['token'])) {
@@ -77,7 +68,6 @@ function generateCSRF()
     }
     return $_SESSION['token'];
 }
-
 function verifyCSRF($request)
 {
     if ($request->getCSRF()) {
@@ -88,12 +78,10 @@ function verifyCSRF($request)
         }
     }
 }
-
 function csrf_field()
 {
     echo '<input type="hidden" name="_token" value=' . generateCSRF() . ' />';
 }
-
 function getErrors()
 {
     $errors = false;
@@ -106,7 +94,6 @@ function getErrors()
     }
     return $errors;
 }
-
 function getResponse()
 {
     $response = false;
@@ -115,7 +102,6 @@ function getResponse()
     }
     return $response;
 }
-
 function upload_file($fieldname)
 {
     try {
@@ -143,16 +129,27 @@ function onFilesRemoveCallback($removed_files)
     }
     return $removed_files;
 }
-
 function toJson($data)
 {
     header('Access-Control-Allow-Origin: null');
     header('Content-Type: application/json');
     echo utf8_encode(json_encode($data));
 }
- function session_id_field(){
+function session_id_field(){
     echo '<input type = "hidden" name="PHPSESSID" value="'.session_id().'"/>';
- }
+}
 
 
-
+function dispalyForDebug($data)
+{
+    if (gettype($data) == "array")
+    {
+        echo "<pre>".print_r($data,true)."</pre>";
+    }
+    else
+    {
+        echo "<pre>";
+        var_dump($data);
+        echo "</pre>";
+    }
+}
