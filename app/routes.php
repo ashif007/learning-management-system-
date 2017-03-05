@@ -1,5 +1,6 @@
 <?php
 $router->resource('users','UserController');
+$router->resource('cats','CategoryController');
 $router->get('admin','PagesController@admin');
 $router->post('test',function ($request){
 });

@@ -9,7 +9,17 @@
 namespace App\Models;
 
 
-class Category
+use App\Core\DB\ORM;
+
+class Category extends ORM
 {
+    protected static $table="category";
+    protected static $pk="id";
+
+    public function courses()
+    {
+        return Course::retrieveByField("cid",$this->id);
+    }
+
 
 }
