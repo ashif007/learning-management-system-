@@ -1,226 +1,343 @@
-@extends('admin.layout')
-@section('title','governorates')
-@section('page-heading',$governorate->name)
-@section('styles')
-    <link rel="stylesheet" href="{{asset('css/main.css')}}">
-@stop
-@section('content')
+<?php partial('admin/header')?>
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Users
+        <small>description</small>
+    </h1>
+    breadcrumb
+</section>
+<!-- Main content -->
+<section class="content">
+
     <div class="row">
-        <div class="col-lg-3 col-xs-6">
-            <!-- small box -->
-            <div class="small-box bg-aqua">
-                <div class="inner">
-                    <h3>{{$governorate->cities()->get()->count()}}</h3>
-                    <p>Cities</p>
-                </div>
-                <div class="icon">
-                    <i class="ion ion-flag"></i>
-                </div>
-                <a href="{{route('cities.index')}}" class="small-box-footer">View all cities<i class="fa fa-arrow-circle-right"></i></a>
-            </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-            <!-- small box -->
-            <div class="small-box bg-green">
-                <div class="inner">
-                    <h3>{{$governorate->divisions()->get()->count()}}</h3>
-                    <p>Divisions</p>
-                </div>
-                <div class="icon">
-                    <i class="ion ion-stats-bars"></i>
-                </div>
-                <a href="{{route('divisions.index')}}" class="small-box-footer">View all <i class="fa fa-arrow-circle-right"></i></a>
-            </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-            <!-- small box -->
-            <div class="small-box bg-yellow">
-                <div class="inner">
-                    <h3>{{$governorate->units()->get()->count()}}</h3>
-                    <p>Units</p>
-                </div>
-                <div class="icon">
-                    <i class="ion ion-person-add"></i>
-                </div>
-                <a href="{{route('units.index')}}" class="small-box-footer">View all <i class="fa fa-arrow-circle-right"></i></a>
-            </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-            <!-- small box -->
-            <div class="small-box bg-red">
-                <div class="inner">
-                    <h3>{{$governorate->locations()->get()->count()}}</h3>
-                    <p>Locations</p>
-                </div>
-                <div class="icon">
-                    <i class="ion ion-pie-graph"></i>
-                </div>
-                <a href="#" class="small-box-footer">View all <i class="fa fa-arrow-circle-right"></i></a>
-            </div>
-        </div>
-        <!-- ./col -->
-    </div>
-    <div class="nav-tabs-custom">
-        <ul class="nav nav-tabs">
-            <li class="active"><a href="#details" data-toggle="tab" aria-expanded="true">Details</a></li>
-            <li class=""><a href="#map" data-toggle="tab" aria-expanded="false">Map</a></li>
-            <li class=""><a href="#cities" data-toggle="tab" aria-expanded="false">Cities</a></li>
-            <li class=""><a href="#places" data-toggle="tab" aria-expanded="false">Places</a></li>
-            <li class=""><a href="#tourism" data-toggle="tab" aria-expanded="false">Tourism</a></li>
-            <li class=""><a href="#photos" data-toggle="tab" aria-expanded="false">Photos</a></li>
-            <li class=""><a href="#about" data-toggle="tab" aria-expanded="false">About</a></li>
-            <li class=""><a href="#history" data-toggle="tab" aria-expanded="false">History</a></li>
-        </ul>
-        <div class="tab-content">
-            <div class="tab-pane active" id="details">
-                <div class="row">
-                    <div class="col-sm-3">
-                        <img src="{{asset($governorate->photos()->where('tag','=','logos')->first()['url'])}}" alt="" class="img-responsive">
-                    </div>
-                    <div class="col-sm-3">
-                        <h5>Name: <span class="text-green">{{$governorate->name}}</span></h5>
-                        <h5>Capital: <span class="text-green">{{$governorate->capital}}</span></h5>
-                        <h5>Description: <span class="text-green">{{$governorate->description}}</span></h5>
-                        <hr>
-                        <h5>Number of cities: <span class="text-green">{{$governorate->citiis}}</span></h5>
-                        <h5>Number of divisions: <span class="text-green">{{$governorate->divisions}}</span></h5>
-                        <h5>Number of units: <span class="text-green">{{$governorate->units}}</span></h5>
-                        <hr>
-                    </div>
-                    <div class="col-sm-3">
-                        <h5>Area: <span class="text-green">{{$governorate->area}}</span></h5>
-                        <h5>Population: <span class="text-green">{{$governorate->population}}</span></h5>
-                        <h5>Population density: <span class="text-green">{{$governorate->p_density_rate}} person/km</span></h5>
-                        <hr>
-                        <h5>Phone Code: <span class="text-green">{{$governorate->code}}</span></h5>
-                        <h5>Time Zone: <span class="text-green">{{$governorate->time_zone}}</span></h5>
-                        <h5>Website: <a href="{{$governorate->website}}">{{$governorate->website}}</a></h5>
-                    </div>
-                    <div class="col-md-3">
-                        <h5>Creation date: <span class="text-green">{{$governorate->creation_date}}</span></h5>
-                        <h5>Nation Day:<span class="text-green"> {{$governorate->national_day}}</span></h5>
-                    </div>
-                </div>
-            </div>
-            <!-- /.tab-pane -->
-            <div class="tab-pane" id="map">
-                <!-- The timeline -->
-               Map is her
-            </div>
-            <!-- /.tab-pane -->
+        <div class="col-md-3">
 
-            <div class="tab-pane" id="cities">
-                <div class="box box-primary">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">All Cities in {{$governorate->name}}</h3>
-                    </div>
-                    <div class="box-body">
-                        @foreach($governorate->cities()->get()->chunk(4) as $chunk)
-                            <div class="row">
-                                @foreach($chunk as $city)
-                                    <div class="col-sm-4 col-lg-3">
-                                        <div class="box box-widget widget-user">
-                                            <div class="box box-widget widget-user">
-                                                <!-- Add the bg color to the header using any of the bg-* classes -->
-                                                <div class="widget-user-header bg-yellow "style=" background: url('{{asset($city->photos()->where('name','=',$city->name."_flag")->first()['path'])}}') center center;">
-                                                    <!-- /.widget-user-image -->
-                                                    <h3 class="widget-user-username">{{$city->name}}</h3>
-                                                    <h5 class="widget-user-desc">{{$city->governorate['name']}}</h5>
-                                                </div>
-                                                <div class="box-footer no-padding">
-                                                    <ul class="nav nav-stacked">
-                                                        <li><a href="#">Units <span class="pull-right badge bg-red">{{$city->units}}</span></a></li>
-                                                        <li><a href="#">Divisions <span class="pull-right badge bg-red">{{$city->divisions}}</span></a></li>
-                                                        <li><a href="#">Population <span class="pull-right badge bg-blue">{{$city->population}}</span></a></li>
-                                                    </ul>
-                                                    <a href="{{route('cities.show',$city->id)}}" class="btn btn-info btn-block">view Details</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
+           <?php partial('admin/user',['user'=>$user])?>
+
+            <!-- About Me Box -->
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">About Me</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <strong><i class="fa fa-book margin-r-5"></i> Education</strong>
+                    <p class="text-muted">
+                        B.S. in Computer Science from the University of Tennessee at Knoxville
+                    </p>
+
+                    <hr>
+
+                    <strong><i class="fa fa-map-marker margin-r-5"></i> Location</strong>
+
+                    <p class="text-muted">Malibu, California</p>
+
+                    <hr>
+
+                    <strong><i class="fa fa-pencil margin-r-5"></i> Skills</strong>
+
+                    <p>
+                        <span class="label label-danger">UI Design</span>
+                        <span class="label label-success">Coding</span>
+                        <span class="label label-info">Javascript</span>
+                        <span class="label label-warning">PHP</span>
+                        <span class="label label-primary">Node.js</span>
+                    </p>
+
+                    <hr>
+
+                    <strong><i class="fa fa-file-text-o margin-r-5"></i> Notes</strong>
+
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-9">
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#activity" data-toggle="tab">Activity</a></li>
+                    <li><a href="#timeline" data-toggle="tab">Timeline</a></li>
+                    <li><a href="#settings" data-toggle="tab">Settings</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="active tab-pane" id="activity">
+                        <!-- Post -->
+                        <div class="post">
+                            <div class="user-block">
+                                <img class="img-circle img-bordered-sm" src="../../dist/img/user1-128x128.jpg" alt="user image">
+                                <span class="username">
+                          <a href="#">Jonathan Burke Jr.</a>
+                          <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
+                        </span>
+                                <span class="description">Shared publicly - 7:30 PM today</span>
                             </div>
-                        @endforeach
-                    </div>
+                            <!-- /.user-block -->
+                            <p>
+                                Lorem ipsum represents a long-held tradition for designers,
+                                typographers and the like. Some people hate it and argue for
+                                its demise, but others ignore the hate as they create awesome
+                                tools to help create filler text for everyone from bacon lovers
+                                to Charlie Sheen fans.
+                            </p>
+                            <ul class="list-inline">
+                                <li><a href="#" class="link-black text-sm"><i class="fa fa-share margin-r-5"></i> Share</a></li>
+                                <li><a href="#" class="link-black text-sm"><i class="fa fa-thumbs-o-up margin-r-5"></i> Like</a>
+                                </li>
+                                <li class="pull-right">
+                                    <a href="#" class="link-black text-sm"><i class="fa fa-comments-o margin-r-5"></i> Comments
+                                        (5)</a></li>
+                            </ul>
 
-                    <div class="box-footer">
+                            <input class="form-control input-sm" type="text" placeholder="Type a comment">
+                        </div>
+                        <!-- /.post -->
 
-                    </div>
-                </div>
-            </div>
-            <!-- /.tab-pane -->
-            <div class="tab-pane" id="places">
-                <!-- The timeline -->
-                Places is here
-            </div>
-            <div class="tab-pane" id="tourism">
-                @if($governorate->articles->count()>0)
-                    @foreach($governorate->articles()->where('type','=','tourism_'.$governorate->name)->get() as $article)
-                        <h3>{{$article->title}}</h3>
-                        {!! \GrahamCampbell\Markdown\Facades\Markdown::convertToHtml($article->body) !!}
-                    @endforeach
-                @endif
-            </div>
-            <div class="tab-pane" id="photos">
-                <!-- The timeline -->
-                @if($governorate->photos->count()>0)
-                    <ul class="items-row row portfolio filtrable clearfix isotope" id="portfolioContainer" style="position: relative; overflow: hidden;">
-                        @foreach($governorate->photos->chunk(4) as $chunk)
-                            <div class="row">
-                                @foreach($chunk as $photo)
-                                    <div class="item isotope-item video col-sm-3" >
-                                        <div class="portfolio_item_image portfolio-content">
-                                            <img alt="" src="{{asset($photo->url)}}">
-                                            <div class="overlay text-center">
-                                                <a class="folio-detail prettyPhoto " title="" data-gal="prettyPhoto[gal]" href="{{asset($photo->url)}}"><i class="fa fa-plus"></i></a>
-                                                <h2>{{$photo->name}}</h2>
-                                                <p>{{$photo->tag}}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
+                        <!-- Post -->
+                        <div class="post clearfix">
+                            <div class="user-block">
+                                <img class="img-circle img-bordered-sm" src="../../dist/img/user7-128x128.jpg" alt="User Image">
+                                <span class="username">
+                          <a href="#">Sarah Ross</a>
+                          <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
+                        </span>
+                                <span class="description">Sent you a message - 3 days ago</span>
                             </div>
-                        @endforeach
-                    </ul>
-                @endif
-            </div>
-            <div class="tab-pane" id="about">
-                @if($governorate->articles->count()>0)
-                    @foreach($governorate->articles()->where('type','=','about_'.$governorate->name)->get() as $article)
-                        <h3>{{$article->title}}</h3>
-                        {!! \GrahamCampbell\Markdown\Facades\Markdown::convertToHtml($article->body) !!}
-                    @endforeach
-                @endif
+                            <!-- /.user-block -->
+                            <p>
+                                Lorem ipsum represents a long-held tradition for designers,
+                                typographers and the like. Some people hate it and argue for
+                                its demise, but others ignore the hate as they create awesome
+                                tools to help create filler text for everyone from bacon lovers
+                                to Charlie Sheen fans.
+                            </p>
 
+                            <form class="form-horizontal">
+                                <div class="form-group margin-bottom-none">
+                                    <div class="col-sm-9">
+                                        <input class="form-control input-sm" placeholder="Response">
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <button type="submit" class="btn btn-danger pull-right btn-block btn-sm">Send</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- /.post -->
+
+                        <!-- Post -->
+                        <div class="post">
+                            <div class="user-block">
+                                <img class="img-circle img-bordered-sm" src="../../dist/img/user6-128x128.jpg" alt="User Image">
+                                <span class="username">
+                          <a href="#">Adam Jones</a>
+                          <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
+                        </span>
+                                <span class="description">Posted 5 photos - 5 days ago</span>
+                            </div>
+                            <!-- /.user-block -->
+                            <div class="row margin-bottom">
+                                <div class="col-sm-6">
+                                    <img class="img-responsive" src="../../dist/img/photo1.png" alt="Photo">
+                                </div>
+                                <!-- /.col -->
+                                <div class="col-sm-6">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <img class="img-responsive" src="../../dist/img/photo2.png" alt="Photo">
+                                            <br>
+                                            <img class="img-responsive" src="../../dist/img/photo3.jpg" alt="Photo">
+                                        </div>
+                                        <!-- /.col -->
+                                        <div class="col-sm-6">
+                                            <img class="img-responsive" src="../../dist/img/photo4.jpg" alt="Photo">
+                                            <br>
+                                            <img class="img-responsive" src="../../dist/img/photo1.png" alt="Photo">
+                                        </div>
+                                        <!-- /.col -->
+                                    </div>
+                                    <!-- /.row -->
+                                </div>
+                                <!-- /.col -->
+                            </div>
+                            <!-- /.row -->
+
+                            <ul class="list-inline">
+                                <li><a href="#" class="link-black text-sm"><i class="fa fa-share margin-r-5"></i> Share</a></li>
+                                <li><a href="#" class="link-black text-sm"><i class="fa fa-thumbs-o-up margin-r-5"></i> Like</a>
+                                </li>
+                                <li class="pull-right">
+                                    <a href="#" class="link-black text-sm"><i class="fa fa-comments-o margin-r-5"></i> Comments
+                                        (5)</a></li>
+                            </ul>
+
+                            <input class="form-control input-sm" type="text" placeholder="Type a comment">
+                        </div>
+                        <!-- /.post -->
+                    </div>
+                    <!-- /.tab-pane -->
+                    <div class="tab-pane" id="timeline">
+                        <!-- The timeline -->
+                        <ul class="timeline timeline-inverse">
+                            <!-- timeline time label -->
+                            <li class="time-label">
+                        <span class="bg-red">
+                          10 Feb. 2014
+                        </span>
+                            </li>
+                            <!-- /.timeline-label -->
+                            <!-- timeline item -->
+                            <li>
+                                <i class="fa fa-envelope bg-blue"></i>
+
+                                <div class="timeline-item">
+                                    <span class="time"><i class="fa fa-clock-o"></i> 12:05</span>
+
+                                    <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3>
+
+                                    <div class="timeline-body">
+                                        Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
+                                        weebly ning heekya handango imeem plugg dopplr jibjab, movity
+                                        jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
+                                        quora plaxo ideeli hulu weebly balihoo...
+                                    </div>
+                                    <div class="timeline-footer">
+                                        <a class="btn btn-primary btn-xs">Read more</a>
+                                        <a class="btn btn-danger btn-xs">Delete</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- END timeline item -->
+                            <!-- timeline item -->
+                            <li>
+                                <i class="fa fa-user bg-aqua"></i>
+
+                                <div class="timeline-item">
+                                    <span class="time"><i class="fa fa-clock-o"></i> 5 mins ago</span>
+
+                                    <h3 class="timeline-header no-border"><a href="#">Sarah Young</a> accepted your friend request
+                                    </h3>
+                                </div>
+                            </li>
+                            <!-- END timeline item -->
+                            <!-- timeline item -->
+                            <li>
+                                <i class="fa fa-comments bg-yellow"></i>
+
+                                <div class="timeline-item">
+                                    <span class="time"><i class="fa fa-clock-o"></i> 27 mins ago</span>
+
+                                    <h3 class="timeline-header"><a href="#">Jay White</a> commented on your post</h3>
+
+                                    <div class="timeline-body">
+                                        Take me to your leader!
+                                        Switzerland is small and neutral!
+                                        We are more like Germany, ambitious and misunderstood!
+                                    </div>
+                                    <div class="timeline-footer">
+                                        <a class="btn btn-warning btn-flat btn-xs">View comment</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- END timeline item -->
+                            <!-- timeline time label -->
+                            <li class="time-label">
+                        <span class="bg-green">
+                          3 Jan. 2014
+                        </span>
+                            </li>
+                            <!-- /.timeline-label -->
+                            <!-- timeline item -->
+                            <li>
+                                <i class="fa fa-camera bg-purple"></i>
+
+                                <div class="timeline-item">
+                                    <span class="time"><i class="fa fa-clock-o"></i> 2 days ago</span>
+
+                                    <h3 class="timeline-header"><a href="#">Mina Lee</a> uploaded new photos</h3>
+
+                                    <div class="timeline-body">
+                                        <img src="http://placehold.it/150x100" alt="..." class="margin">
+                                        <img src="http://placehold.it/150x100" alt="..." class="margin">
+                                        <img src="http://placehold.it/150x100" alt="..." class="margin">
+                                        <img src="http://placehold.it/150x100" alt="..." class="margin">
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- END timeline item -->
+                            <li>
+                                <i class="fa fa-clock-o bg-gray"></i>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /.tab-pane -->
+
+                    <div class="tab-pane" id="settings">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label for="inputName" class="col-sm-2 control-label">Name</label>
+
+                                <div class="col-sm-10">
+                                    <input type="email" class="form-control" id="inputName" placeholder="Name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputEmail" class="col-sm-2 control-label">Email</label>
+
+                                <div class="col-sm-10">
+                                    <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputName" class="col-sm-2 control-label">Name</label>
+
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="inputName" placeholder="Name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputExperience" class="col-sm-2 control-label">Experience</label>
+
+                                <div class="col-sm-10">
+                                    <textarea class="form-control" id="inputExperience" placeholder="Experience"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputSkills" class="col-sm-2 control-label">Skills</label>
+
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="inputSkills" placeholder="Skills">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox"> I agree to the <a href="#">terms and conditions</a>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="submit" class="btn btn-danger">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /.tab-pane -->
+                </div>
+                <!-- /.tab-content -->
             </div>
-            <div class="tab-pane" id="history">
-                @if($governorate->articles->count()>0)
-                    @foreach($governorate->articles()->where('type','=','history_'.$governorate->name)->get() as $article)
-                        <h3>{{$article->title}}</h3>
-                        {!! \GrahamCampbell\Markdown\Facades\Markdown::convertToHtml($article->body) !!}
-                    @endforeach
-                @endif
-            </div>
+            <!-- /.nav-tabs-custom -->
         </div>
-        <!-- /.tab-content -->
+        <!-- /.col -->
     </div>
-@stop
-@section('scripts')
-    <script src="{{asset('plugins/jquery.isotope.min.js')}}"></script>
-    <script src="{{asset('plugins/jquery.prettyPhoto.js')}}"></script>
-    <script>
-        $(function () {
-            //prettyPhoto
-            if (jQuery().prettyPhoto) {
-                jQuery("a[data-gal^='prettyPhoto']").prettyPhoto({
-                    hook: 'data-gal',
-                    theme: 'facebook' /* light_rounded / dark_rounded / light_square / dark_square / facebook / pp_default*/
-                });
-            }
-        });
-    </script>
+    <!-- /.row -->
 
-@stop
+    <div style="padding: 10px 0px; text-align: center;"><div class="text-muted">Excuse the ads! We need some help to keep our site up.</div><script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><div class="visible-xs visible-sm"><!-- AdminLTE --><ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-4495360934352473" data-ad-slot="5866534244"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div><div class="hidden-xs hidden-sm"><!-- Home large leaderboard --><ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4495360934352473" data-ad-slot="1170479443"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></section>
+<?php partial('admin/footer')?>
+

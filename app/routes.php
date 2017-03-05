@@ -1,14 +1,12 @@
 <?php
 $router->resource('users','UserController');
 $router->get('admin','PagesController@admin');
-$router->post('test',function ($request){
-});
-$router->get('test',function ($request){
-   echo '<form action="/test" method="post" enctype="multipart/form-data">
-    Select image to upload:
-    <input type="file" name="file" id="fileToUpload">
-    <input type="submit" value="Upload Image" name="submit">
-</form>';
+$router->get('login','AuthController@showlogin');
+$router->get('register','AuthController@showregister');
+
+$router->post('salama',function (){
+    upload_file('file');
+    var_dump($_FILES);
 });
 //Editor Api
 $router->get('image_load','AjaxController@image_load');
