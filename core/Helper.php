@@ -49,7 +49,7 @@ function method_field($method)
 function start_form($method, $action, $option = ['class'=>''])
 {
     if ($method === 'post' || $method === 'get') {
-        echo '<form action="' . $action . '" method="' . $method . '" >';
+        echo '<form action="' . $action . '" method="' . $method . '"   enctype="multipart/form-data" >';
         csrf_field();
     } else {
         echo '<form action="' . $action . '" method="post" class="' . $option['class'].'">';
@@ -105,6 +105,7 @@ function getResponse()
 function upload_file($fieldname)
 {
     try {
+
         $response = \FroalaEditor\Utils\DiskManagement::upload('/uploads/',['fieldname' => "$fieldname"]);
     } catch (Exception $e) {
         var_dump($e->getMessage());

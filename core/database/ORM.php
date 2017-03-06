@@ -377,6 +377,7 @@ abstract class ORM
         try{
             $stmt = self::getConnection()->prepare($sql);
             $stmt->execute($params);
+
             // set our PK (if exists)
             if (self::getConnection()->lastInsertId())
                 $this->{self::getTablePk()} = self::getConnection()->lastInsertId();

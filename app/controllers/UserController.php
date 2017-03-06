@@ -57,6 +57,7 @@ class UserController extends Controller implements ResourceInterface
             $user->address = $request->get('address');
             try {
                 $files = upload($request->getfile("image"));
+                dispalyForDebug($files);die();
                 $user->image = $files['metas'][0]['name'];
             } catch (\Exception $e) {
                 $e->getMessage();

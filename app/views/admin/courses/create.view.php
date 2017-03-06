@@ -1,13 +1,13 @@
 <?php partial('admin/header')?>
 <?php
 $request=\App\Core\Session::get('request');
-$error=$request['errors'];
+$errors=$request['errors'];
 $fields=$request['fields'];
 ?>
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        Users
+        Courses
         <small>description</small>
     </h1>
     breadcrumb
@@ -20,37 +20,33 @@ $fields=$request['fields'];
 
     <div class="box box-primary">
         <div class="box-header with-border">
-            <h3 class="box-title">All Users</h3>
-            <button class="btn btn-primary pull-right" data-toggle="modal" data-target="#AddUser">
-                Add new
+            <h3 class="box-title">All Courses</h3>
+            <button class="btn btn-primary pull-right" id="addBt" data-toggle="modal" data-target="#AddCat">
+                Add new Course
             </button>
         </div>
         <div class="box-body">
             <table id="indextable" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>User Name</th>
-                    <th>Email</th>
-                    <th>Gender</th>
+                    <th>Title</th>
+                    <th>start</th>
+                    <th>end</th>
                     <th>Edit</th>
                     <th>View</th>
                     <th>Delete</th>
                 </tr>
                 </thead>
                 <tbody>
-                <?php foreach ($users as $user):?>
+                <?php foreach ($courses as $course):?>
                 <tr>
-                    <td><?= $user->firstname?></td>
-                    <td><?= $user->lastname?></td>
-                    <td><?= $user->username?></td>
-                    <td><?= $user->email?></td>
-                    <td><?= $user->gender?></td>
-                    <td><a href="/users/<?=$user->id?>/edit"><span class="fa fa-edit"></span></a></td>
-                    <td><a href="/users/<?=$user->id?>"><span class="fa fa-book"></span></a></td>
+                    <td><?= $course->title?></td>
+                    <td><?= $course->start?></td>
+                    <td><?= $course->end?></td>
+                    <td><a href="/courses/<?=$course->id?>/edit"><span class="fa fa-edit"></span></a></td>
+                    <td><a href="/courses/<?=$course->id?>"><span class="fa fa-book"></span></a></td>
                     <td>
-                        <?php start_form('delete',"/users/$user->id")?>
+                        <?php start_form('delete',"/courses/$course->id")?>
                         <button type="submit" style="border: none;background-color: rgba(0,0,0,0); color:#9f191f">
                             <span class="fa fa-remove"></span>
                         </button>
@@ -61,11 +57,9 @@ $fields=$request['fields'];
                 </tbody>
                 <tfoot>
                 <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>User Name</th>
-                    <th>Email</th>
-                    <th>Gender</th>
+                    <th>Title</th>
+                    <th>start</th>
+                    <th>end</th>
                     <th>Edit</th>
                     <th>View</th>
                     <th>Delete</th>
@@ -77,15 +71,15 @@ $fields=$request['fields'];
         <div class="box-footer">
         </div>
     </div>
-    <div class="modal fade" id="AddUser" tabindex="-1" role="dialog" aria-labelledby="Add New User" aria-hidden="true" >
+    <div class="modal fade" id="AddCat" tabindex="-1" role="dialog" aria-labelledby="Add New Cat" aria-hidden="true" >
         <div class="modal-dialog" style="width:60%">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span></button>
-                    <h4 class="modal-title">Add New User</h4>
+                    <h4 class="modal-title">Add New Course</h4>
                 </div>
-                <?php start_form('post',"/users")?>
+                <?php start_form('post',"/courses")?>
                 <div class="box box-solid">
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -102,86 +96,38 @@ $fields=$request['fields'];
                                 <div id="basicinfo" class="panel-collapse collapse in">
                                     <div class="box-body">
                                         <div class="form-group">
-                                            <label for="firstname">First Name</label>
-                                            <input type="text" name="firstname" class="form-control">
+                                            <label for="title">title</label>
+                                            <input type="text" name="title" class="form-control">
                                         </div>
                                         <div class="form-group">
-                                            <label for="lastname">Last Name</label>
-                                            <input type="text" name="lastname" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="gender">Gender</label>
-                                            <select name="gender" id="" class="form-control">
-                                                <option value="male">Male</option>
-                                                <option value="female">Female</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="country">Country</label>
-                                            <select name="country" id="" class="form-control">
-                                                <option value="egypt">Egypt</option>
-                                                <option value="other">Other</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="panel box box-primary">
-                                <div class="box-header with-border">
-                                    <h4 class="box-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#logininfo">
-                                            Login Info
-                                        </a>
-                                    </h4>
-                                </div>
-                                <div id="logininfo" class="panel-collapse collapse in">
-                                    <div class="box-body">
-                                        <div class="form-group">
-                                            <label for="username">User Name</label>
-                                            <input type="text" name="username" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="email">Email</label>
-                                            <input type="text" name="email" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="password">Password</label>
-                                            <input type="password" name="password" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="confirm">Confirm Password</label>
-                                            <input type="password" name="confirm" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="panel box box-primary">
-                                <div class="box-header with-border">
-                                    <h4 class="box-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#profileinfo">
-                                            Profile Info
-                                        </a>
-                                    </h4>
-                                </div>
-                                <div id="profileinfo" class="panel-collapse collapse in">
-                                    <div class="box-body">
-                                        <div class="form-group">
-                                            <label for="image">Profile Photo</label>
+                                            <label for="image">image</label>
                                             <input type="file" name="image" class="form-control">
                                         </div>
                                         <div class="form-group">
-                                            <label for="role">Role</label>
-                                            <select name="role" id="" class="form-control">
-                                                <option value="student">Student</option>
-                                                <option value="teacher">Teacher</option>
-                                                <option value="admin">Admin</option>
+                                            <label for="desc">Description</label>
+                                            <textarea id="desc" name="desc" class="form-control"></textarea>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="date">start</label>
+                                            <input type="date" name="start" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="date">end</label>
+                                            <input type="date" name="end" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="cat">Category</label>
+                                            <select name="cat" id="cat" class="form-control">
+                                                <?php foreach ($cats as $cat):?>
+                                                    <option value="<?= $cat->id ?>"><?= $cat->name ?></option>
+                                                <?php endforeach?>
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <label for="confirm">Is Baned</label>
-                                            <input type="checkbox" name="isbaned" >
+                                            <label for="rank">Rate</label>
+                                            <input type="number" id="rank" name="rank" class="form-control">
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
@@ -189,8 +135,8 @@ $fields=$request['fields'];
                         <?php if(count($errors)>0):?>
                         <div class="alert alert-danger">
                             <ul>
-                                <?php foreach ($errors as $filed=>$error):?>
-                                <li><strong><?= $field?></strong><?= $error?></li>
+                                <?php foreach ($errors as $field=>$error):?>
+                                <li><strong><?= $field.' ' ?></strong><?= ' '.$error[0] ?></li>
                                 <?php endforeach;?>
                             </ul>
                         </div>
@@ -209,9 +155,13 @@ $fields=$request['fields'];
             <!-- /.modal-dialog -->
         </div>
     </div>
-
-</section>
+    </section>
 <!-- /.content -->
+
 <?php partial('admin/footer')?>
 
-
+<?php if(count($errors)>0):?>
+<script>
+     document.getElementById('addBt').click();
+</script>
+<?php \App\Core\Session::delete('request'); endif;?>

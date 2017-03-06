@@ -1,8 +1,10 @@
 <?php
 $router->resource('users','UserController');
+$router->resource('courses', 'CoursesController');
 $router->get('admin','PagesController@admin');
 $router->post('test',function ($request){
 });
+
 $router->get('test',function ($request){
    echo '<form action="/test" method="post" enctype="multipart/form-data">
     Select image to upload:
