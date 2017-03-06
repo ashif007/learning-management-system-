@@ -14,7 +14,7 @@ class AuthController extends Controller
     public function showlogin()
     {
         if (Session::isLogin()) {
-            redirect('posts');
+            redirect('/home');
         }
         return view('auth/login');
 

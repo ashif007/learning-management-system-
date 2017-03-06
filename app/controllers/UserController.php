@@ -33,50 +33,58 @@ class UserController extends Controller implements ResourceInterface
 
     public function store(Request $request)
     {
-        $errors = $this->validator->validate($request, [
-            'firstname' => 'required',
-            'lastname' => 'required',
-            'username' => 'required',
-            'email' => 'required|email',
-            'password' => 'required|min:8',
-            'confirm' => 'required|min:8'
-        ]);
-        if ($request->get('password') !== $request->get('confirm')) {
-            $errors['login'] = "Password not match";
-        }
-        if ($errors) {
-            $request->saveToSession($errors);
-            redirect('users/create', $request->getLastFromSession());
-        } else {
-            $user = new User();
-            $user->firstname = $request->get('firstname');
-            $user->lastname = $request->get('lastname');
-            $user->username = $request->get('username');
-            $user->email = $request->get('email');
-            $user->password = password_hash($request->get('password'), PASSWORD_DEFAULT);
-            $user->address = $request->get('address');
-            try {
-                $files = upload($request->getfile("image"));
-                dispalyForDebug($files);die();
-                $user->image = $files['metas'][0]['name'];
-            } catch (\Exception $e) {
-                $e->getMessage();
+        if(verifyCSRF($request)){
+            $errors = $this->validator->validate($request, [
+                'firstname' => 'required',
+                'lastname' => 'required',
+                'username' => 'required',
+                'email' => 'required|email',
+                'password' => 'required|min:8',
+                'confirm' => 'required|min:8'
+            ]);
+            if ($request->get('password') !== $request->get('confirm')) {
+                $errors['login'] = "Password not match";
             }
-            $user->gender = $request->get('gender');
-            $user->country = $request->get('country');
-            $user->role = $request->get('role');
-            $user->created_at = date("Y-m-d H:i:s");
-            $user->updated_at = date("Y-m-d H:i:s");
-            $user->save();
-            Session::set('message',"User Added Successfully");
-            redirect('users');
+            if(!empty(User::retrieveByEmail($request->get('email')))){
+                Session::set('error',"User already exists");
+                redirect('/users/create', $request->getLastFromSession());
+            }else {
+                if ($errors) {
+                    $request->saveToSession($errors);
+                    Session::set('error', "non valid data");
+                    redirect('/users/create', $request->getLastFromSession());
+                } else {
+                    $user = new User();
+                    $user->firstname = $request->get('firstname');
+                    $user->lastname = $request->get('lastname');
+                    $user->username = $request->get('username');
+                    $user->email = $request->get('email');
+                    $user->password = password_hash($request->get('password'), PASSWORD_DEFAULT);
+                    $user->image = upload_file("image");
+                    $user->gender = $request->get('gender');
+                    $user->country = $request->get('country');
+                    $user->role = $request->get('role');
+                    if ($request->get('isbaned')) {
+                        $user->isbaned = 1;
+                    } else {
+                        $user->isbaned = 0;
+                    }
+                    $user->created_at = date("Y-m-d H:i:s");
+                    $user->updated_at = date("Y-m-d H:i:s");
+                    $user->save();
+
+                    Session::set('message', "User Added Successfully");
+                    redirect("/users/$user->id");
+                }
+            }
         }
+
     }
 
     public function show($id)
     {
         $user=User::retrieveByPK($id);
-        return view('users/show',['user'=>$user]);
+        return view('admin/users/show',['user'=>$user]);
     }
 
     public function edit($id)
@@ -110,17 +118,17 @@ class UserController extends Controller implements ResourceInterface
                 $user->email = $request->get('email');
                 $user->password = password_hash($request->get('password'), PASSWORD_DEFAULT);
                 if($request->getFile('image')){
-                    unlink("/uploads/{$user->image}");
-                    try {
-                        $files = upload($request->getfile("image"));
-                        $user->image = $files['metas'][0]['name'];
-                    } catch (\Exception $e) {
-                        $e->getMessage();
-                    }
+                    delete_file($user->image);
+                    $user->image = upload_file("image");
                 }
                 $user->gender = $request->get('gender');
                 $user->country = $request->get('country');
                 $user->role = $request->get('role');
+                if($request->get('isbaned')){
+                    $user->isbaned=1;
+                }else{
+                    $user->isbaned=0;
+                }
                 $user->created_at = date("Y-m-d H:i:s");
                 $user->updated_at = date("Y-m-d H:i:s");
                 $user->update();

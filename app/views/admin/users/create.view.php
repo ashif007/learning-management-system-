@@ -1,8 +1,9 @@
 <?php partial('admin/header')?>
 <?php
 $request=\App\Core\Session::get('request');
-$error=$request['errors'];
+$errors=$request['errors'];
 $fields=$request['fields'];
+\App\Core\Session::delete('request');
 ?>
 <!-- Content Header (Page header) -->
 <section class="content-header">
@@ -14,9 +15,6 @@ $fields=$request['fields'];
 </section>
 <!-- Main content -->
 <section class="content">
-
-
-
 
     <div class="box box-primary">
         <div class="box-header with-border">
@@ -85,7 +83,7 @@ $fields=$request['fields'];
                         <span aria-hidden="true">×</span></button>
                     <h4 class="modal-title">Add New User</h4>
                 </div>
-                <?php start_form('post',"/users")?>
+                <?php start_form('post',"/users",['enctype'=>"multipart/form-data"])?>
                 <div class="box box-solid">
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -103,11 +101,11 @@ $fields=$request['fields'];
                                     <div class="box-body">
                                         <div class="form-group">
                                             <label for="firstname">First Name</label>
-                                            <input type="text" name="firstname" class="form-control">
+                                            <input type="text" name="firstname" class="form-control" value="<?= isset($fields['firstname'])?$fields['firstname']:''?>" >
                                         </div>
                                         <div class="form-group">
                                             <label for="lastname">Last Name</label>
-                                            <input type="text" name="lastname" class="form-control">
+                                            <input type="text" name="lastname" class="form-control" value="<?= isset($fields['lastname'])?$fields['lastname']:''?>">
                                         </div>
                                         <div class="form-group">
                                             <label for="gender">Gender</label>
@@ -138,11 +136,11 @@ $fields=$request['fields'];
                                     <div class="box-body">
                                         <div class="form-group">
                                             <label for="username">User Name</label>
-                                            <input type="text" name="username" class="form-control">
+                                            <input type="text" name="username" class="form-control" value="<?= isset($fields['username'])?$fields['username']:''?>">
                                         </div>
                                         <div class="form-group">
                                             <label for="email">Email</label>
-                                            <input type="text" name="email" class="form-control">
+                                            <input type="text" name="email" class="form-control" value="<?= isset($fields['email'])?$fields['email']:''?>">
                                         </div>
                                         <div class="form-group">
                                             <label for="password">Password</label>
@@ -189,8 +187,10 @@ $fields=$request['fields'];
                         <?php if(count($errors)>0):?>
                         <div class="alert alert-danger">
                             <ul>
-                                <?php foreach ($errors as $filed=>$error):?>
-                                <li><strong><?= $field?></strong><?= $error?></li>
+                                <?php foreach ($errors as $errors):?>
+                                    <?php foreach ($errors as $error):?>
+                                        <p><?=$error?></p>
+                                    <?php endforeach;?>
                                 <?php endforeach;?>
                             </ul>
                         </div>

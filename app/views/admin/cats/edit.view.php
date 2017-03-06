@@ -19,6 +19,7 @@ $fields=$request['fields'];
         <ul class="nav nav-tabs">
             <li><h4 style="padding-left: 10px"><?=$user->username?></h4></li>
             <li ><a href="#details" data-toggle="tab">Details</a></li>
+            <li ><a href="#courses" data-toggle="tab">Courses</a></li>
             <li><a href="#requests" data-toggle="tab">Requests</a></li>
             <li class="dropdown pull-right">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
@@ -102,6 +103,10 @@ $fields=$request['fields'];
             </div>
             <!-- /.tab-pane -->
             <div class="tab-pane" id="requests">
+
+            </div>
+            <!-- /.tab-pane -->
+            <div class="tab-pane" id="comments">
 
             </div>
         </div>

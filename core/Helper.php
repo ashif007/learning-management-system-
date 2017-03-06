@@ -33,26 +33,45 @@ function resource($type, $name)
     }
     return public_dir()."${type}/${name}.${type}";
 }
-function html_image($name,$option=['class'=>'','id'=>'']){
-    echo '<img src="' . public_dir()."img/${name}" . '" class="'.$option['class'].'" id="'.$option['id'].'">';
+function html_image($name,$option=[]){
+    $options='';
+    if(!empty($option)){
+        $options=parseOpt($option);
+    }
+    echo '<img src="' . public_dir()."img/${name}" . '" '.$options.'">';
 }
-function uploaded_image($name,$option=['class'=>'','id'=>'']){
-    echo '<img src="' . "/uploads/${name}" . '" class="'.$option['class'].'" id="'.$option['id'].'">';
+function uploaded_image($name,$option=[]){
+    $options='';
+    if(!empty($option)){
+        $options=parseOpt($option);
+    }
+    echo '<img src="' . "/uploads/${name}" . '" '.$options.'">';
 }
-function html_link($url,$text,$option=['class'=>'','id'=>'']){
-    echo '<a href="' .$url. '" class="'.$option['class'].'" id="'.$option['id'].'">'.$text."</a>";
+function html_link($url,$text,$option=[]){
+    $options='';
+    if(!empty($option)){
+        $options=parseOpt($option);
+    }
+    echo '<a href="' .$url. '" '.$options.'">'.$text."</a>";
 }
 function method_field($method)
 {
     echo '<input type="hidden" name="_method" value=' . $method . ' />';
 }
-function start_form($method, $action, $option = ['class'=>''])
+
+function start_form($method, $action, $option = [])
 {
+    $options='';
+    if(!empty($option)){
+        $options=parseOpt($option);
+    }
+
     if ($method === 'post' || $method === 'get') {
         echo '<form action="' . $action . '" method="' . $method . '"   enctype="multipart/form-data" >';
+
         csrf_field();
     } else {
-        echo '<form action="' . $action . '" method="post" class="' . $option['class'].'">';
+        echo '<form action="' . $action . '" method="post" '.$options.'">';
         method_field($method);
         csrf_field();
     }
@@ -120,16 +139,7 @@ function delete_file($file)
         var_dump($e->getMessage());
     }
 }
-function onFilesRemoveCallback($removed_files)
-{
-    foreach ($removed_files as $key => $value) {
-        $file = '../uploads/' . $value;
-        if (file_exists($file)) {
-            unlink($file);
-        }
-    }
-    return $removed_files;
-}
+
 function toJson($data)
 {
     header('Access-Control-Allow-Origin: null');
@@ -138,8 +148,14 @@ function toJson($data)
 }
 function session_id_field(){
     echo '<input type = "hidden" name="PHPSESSID" value="'.session_id().'"/>';
-}
+ }
 
+function parseOpt($array){
+    $r =[];
+    foreach ($array as $key=>$value)
+        $r[]=$key."=".'"'.$value.'"';
+    return implode(" ",$r);
+}
 
 function dispalyForDebug($data)
 {

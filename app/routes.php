@@ -4,13 +4,20 @@ $router->resource('courses', 'CoursesController');
 $router->get('admin','PagesController@admin');
 $router->post('test',function ($request){
 });
-
-$router->get('test',function ($request){
-   echo '<form action="/test" method="post" enctype="multipart/form-data">
+$router->resource('cats','CategoryController');
+$router->get('login','AuthController@showlogin');
+$router->get('register','AuthController@showregister');
+$router->get('test',function ($request) {
+    echo '<form action="/test" method="post" enctype="multipart/form-data">
     Select image to upload:
     <input type="file" name="file" id="fileToUpload">
     <input type="submit" value="Upload Image" name="submit">
 </form>';
+});
+
+$router->post('salama',function (){
+    upload_file('file');
+    var_dump($_FILES);
 });
 //Editor Api
 $router->get('image_load','AjaxController@image_load');
