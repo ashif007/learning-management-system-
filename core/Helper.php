@@ -2,6 +2,9 @@
 function public_dir(){
     return "/public/";
 }
+function views_dir(){
+    return "/app/views/";
+}
 function view($view, $data = [])
 {
     extract($data);
