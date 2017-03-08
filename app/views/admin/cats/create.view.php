@@ -7,7 +7,7 @@ $fields=$request['fields'];
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        Users
+        Category
         <small>description</small>
     </h1>
     breadcrumb
@@ -18,8 +18,8 @@ $fields=$request['fields'];
 
     <div class="box box-primary">
         <div class="box-header with-border">
-            <h3 class="box-title">All Users</h3>
-            <button class="btn btn-primary pull-right" data-toggle="modal" data-target="#AddUser">
+            <h3 class="box-title">All Categories</h3>
+            <button class="btn btn-primary pull-right" id="add" data-toggle="modal" data-target="#AddUser">
                 Add new
             </button>
         </div>
@@ -64,7 +64,7 @@ $fields=$request['fields'];
         <div class="box-footer">
         </div>
     </div>
-    <div class="modal fade" id="AddUser" tabindex="-1" role="dialog" aria-labelledby="Add New User" aria-hidden="true" >
+    <div class="modal fade" id="AddUser" tabindex="-1" role="dialog" aria-labelledby="Add New Cat" aria-hidden="true" >
         <div class="modal-dialog" style="width:60%">
             <div class="modal-content">
                 <div class="modal-header">
@@ -92,8 +92,6 @@ $fields=$request['fields'];
                                             <label for="name">Name</label>
                                             <input type="text" name="name" class="form-control">
                                         </div>
-
-
                                     </div>
                                 </div>
                             </div>
@@ -126,5 +124,13 @@ $fields=$request['fields'];
 </section>
 <!-- /.content -->
 <?php partial('admin/footer')?>
+
+<?php if(count($errors)>0):?>
+    <script>
+        document.getElementById('add').click();
+    </script>
+    <?php \App\Core\Session::delete('request');
+endif;
+?>
 
 

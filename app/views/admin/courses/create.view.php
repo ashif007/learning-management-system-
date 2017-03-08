@@ -156,7 +156,7 @@ $fields=$request['fields'];
         </div>
     </div>
     </section>
-<!-- /.content -->
+    <!-- /.content -->
 
 <?php partial('admin/footer')?>
 
@@ -164,4 +164,6 @@ $fields=$request['fields'];
 <script>
      document.getElementById('addBt').click();
 </script>
-<?php \App\Core\Session::delete('request'); endif;?>
+<?php \App\Core\Session::delete('request');
+ endif;
+ ?>

@@ -45,7 +45,7 @@ class CoursesController extends Controller implements ResourceInterface
 
         if ($errors) {
             $request->saveToSession($errors);
-
+            dispalyForDebug();
             redirect('courses/create', ['errors'=>$request->getLastFromSession()]);
         }else {
 
@@ -56,7 +56,7 @@ class CoursesController extends Controller implements ResourceInterface
             $course->end = $request->get('end');
             $course->cid = $request->get('cat');
             $course->rate = $request->get('rank');
-            $course->tid =2; // dummy
+            $course->tid =1; // dummy
             $course->image ="dumy";
 
 //            try {

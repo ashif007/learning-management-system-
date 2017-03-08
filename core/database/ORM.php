@@ -392,6 +392,7 @@ abstract class ORM
             $this->postInsert();
         }catch (\Exception $e){
             $e->getMessage();
+//            dispalyForDebug($e);die();
         }
 
 
