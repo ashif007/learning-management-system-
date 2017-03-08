@@ -13,7 +13,7 @@ $fields=$request['fields'];
     breadcrumb
 </section>
 <!-- Main content -->
-<section class="content">0
+<section class="content">
     <div class="box box-primary">
         <div class="box-header with-border">
             <h3 class="box-title">All Courses</h3>
@@ -152,13 +152,14 @@ $fields=$request['fields'];
         </div>
     </div>
     </section>
-<!-- /.content -->
+    <!-- /.content -->
 
 <?php partial('admin/footer')?>
 <script src="<?php echo views_dir(); ?>admin/courses/course.js" type="text/javascript" ></script>
 <?php if(count($errors)>0):?>
 <script>
-    console.log(jquery);
      document.getElementById('addBt').click();
 </script>
-<?php \App\Core\Session::delete('request'); endif;?>
+<?php \App\Core\Session::delete('request');
+ endif;
+ ?>

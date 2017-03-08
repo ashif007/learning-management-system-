@@ -13,6 +13,7 @@ use App\Core\Controller;
 use App\Core\Request;
 use App\Core\ResourceInterface;
 use App\Models\Category;
+use App\Core\Session;
 
 class CategoryController extends Controller implements ResourceInterface
 {
@@ -33,44 +34,35 @@ class CategoryController extends Controller implements ResourceInterface
 
     public function store(Request $request)
     {
+        //$cats=Category::all();
+        //return view('admin/cats/create',['cats'=>$cats]);
+
+
         $errors = $this->validator->validate($request, [
-            'title' => 'required',
-            'desc' => 'required',
-            'start' => 'required',
-            'end' => 'required',
-            'cat' => 'required',
-            'rank' => 'required',
+            'name' => 'required',
+
         ]);
+
+
 
         if ($errors) {
             $request->saveToSession($errors);
-
-            redirect('courses/create', ['errors'=>$request->getLastFromSession()]);
+            dispalyForDebug();
+            redirect('cats/create', ['errors'=>$request->getLastFromSession()]);
         }else {
 
-            $course = new Course();
-            $course->title = $request->get('title');
-            $course->description = $request->get('desc');
-            $course->start = $request->get('start');
-            $course->end = $request->get('end');
-            $course->cid = $request->get('cat');
-            $course->rate = $request->get('rank');
-            $course->tid =2; // dummy
-            $course->image ="dumy";
+            $category = new Category();
+            $category->name = $request->get('name');
 
-//            try {
-//                dispalyForDebug($request->getfile("image"));
-//                die();
-//                $files = upload($request->getfile("image"));
-//                $course->image = $files['metas'][0]['name'];
-//            } catch (\Exception $e) {
-//                $e->getMessage();
-//            }
-            // dispalyForDebug($course);die();
-            $course->save();
-            Session::set('message',"User Added Successfully");
-            redirect('courses/create');
+
+            // dispalyForDebug($category);die();
+            $category->save();
+            Session::set('message',"Category Added Successfully");
+            redirect('cats/create');
         }
+
+        dispalyForDebug($errors);die();
+
 
     }
 

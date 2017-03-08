@@ -1,7 +1,7 @@
 <html>
 <?php
 $request=\App\Core\Session::get('request');
-$error=$request['errors'];
+$errors=$request['errors'];
 $fields=$request['fields'];
 ?>
 <head>

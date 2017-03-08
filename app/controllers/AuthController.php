@@ -14,7 +14,7 @@ class AuthController extends Controller
     public function showlogin()
     {
         if (Session::isLogin()) {
-            redirect('/home');
+            redirect('/users');
         }
         return view('auth/login');
 
@@ -47,7 +47,7 @@ class AuthController extends Controller
                 $request->saveToSession($errors);
                 redirect('/login', $request->getLastFromSession());
             } else {
-                redirect('/posts');
+                redirect('/');
             }
         } else {
             echo "not allowed";
@@ -71,42 +71,34 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
-        $errors = $this->validator->validate($request, [
-            'firstname' => 'required',
-            'lastname' => 'required',
-            'username' => 'required',
-            'email' => 'required|email',
-            'password' => 'required|min:8',
-            'confirm' => 'required|min:8'
-        ]);
-        if ($request->get('password') !== $request->get('confirm')) {
-            $errors['login'] = "Password not match";
-        }
-        if ($errors) {
-            $request->saveToSession($errors);
-            redirect('/register', $request->getLastFromSession());
-        } else {
-            $user = new User();
-            $user->firstname = $request->get('firstname');
-            $user->lastname = $request->get('lastname');
-            $user->username = $request->get('username');
-            $user->email = $request->get('email');
-            $user->password = password_hash($request->get('password'), PASSWORD_DEFAULT);
-            $user->address = $request->get('address');
-            try {
-                $files = upload($request->getfile("image"));
-                $user->image = $files['metas'][0]['name'];
-            } catch (\Exception $e) {
-                $e->getMessage();
+        if (verifyCSRF($request)) {
+            $errors = $this->validator->validate($request, [
+                'username' => 'required',
+                'email' => 'required|email',
+                'password' => 'required|min:8',
+                'confirm' => 'required|min:8'
+            ]);
+            if ($request->get('password') !== $request->get('confirm')) {
+                $errors['login'] = "Password not match";
             }
-            $user->gender = $request->get('gender');
-            $user->country = $request->get('country');
-            $user->role = $request->get('role');
-            $user->created_at = date("Y-m-d H:i:s");
-            $user->updated_at = date("Y-m-d H:i:s");
-            $user->save();
-            redirect('/login');
+            if (!empty(User::retrieveByEmail($request->get('email')))) {
+                Session::set('error', "User already exists");
+                redirect('/users/create', $request->getLastFromSession());
+            } else {
+                if ($errors) {
+                    $request->saveToSession($errors);
+                    redirect('/users/create', $request->getLastFromSession());
+                } else {
+                    $user = new User();
+                    $user->username = $request->get('username');
+                    $user->email = $request->get('email');
+                    $user->password = password_hash($request->get('password'), PASSWORD_DEFAULT);
+                    $user->created_at = date("Y-m-d H:i:s");
+                    $user->updated_at = date("Y-m-d H:i:s");
+                    $user->save();
+                    redirect("/login");
+                }
+            }
         }
-
     }
 }
