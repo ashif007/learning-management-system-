@@ -9,7 +9,10 @@
 namespace App\Models;
 
 
-class Comment
+use App\Core\App;
+use App\Core\DB\ORM;
+
+class Comment extends ORM
 {
     protected static $table='comments';
     protected static $pk='id';
@@ -17,5 +20,12 @@ class Comment
     public function user()
     {
         return User::retrieveByPK($this->uid);
+    }
+
+    public function model()
+    {
+        $model=explode(":",$this->mid)[0];
+        $modelid=explode(":",$this->mid)[1];
+        return $model::retrieveByPK($modelid);
     }
 }

@@ -3,7 +3,6 @@ $router->resource('users','UserController');
 $router->resource('courses', 'CoursesController');
 $router->get('admin','PagesController@admin');
 $router->resource('cats','CategoryController');
-
 //Authentication routes
 $router->get('login','AuthController@showlogin');
 $router->get('register','AuthController@showregister');
