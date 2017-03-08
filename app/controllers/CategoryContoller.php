@@ -13,6 +13,7 @@ use App\Core\Controller;
 use App\Core\Request;
 use App\Core\ResourceInterface;
 use App\Models\Category;
+use App\Core\Session;
 
 class CategoryController extends Controller implements ResourceInterface
 {
@@ -33,6 +34,34 @@ class CategoryController extends Controller implements ResourceInterface
 
     public function store(Request $request)
     {
+
+
+        $errors = $this->validator->validate($request, [
+            'name' => 'required',
+
+        ]);
+
+
+
+        if ($errors) {
+            $request->saveToSession($errors);
+            dispalyForDebug();
+            redirect('cats/create', ['errors'=>$request->getLastFromSession()]);
+        }else {
+
+            $category = new Category();
+            $category->name = $request->get('name');
+
+
+            // dispalyForDebug($category);die();
+            $category->save();
+            Session::set('message',"Category Added Successfully");
+            redirect('cats/create');
+        }
+
+
+        dispalyForDebug($errors);die();
+
 
     }
 

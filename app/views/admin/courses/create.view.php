@@ -156,7 +156,7 @@ $fields=$request['fields'];
         </div>
     </div>
     </section>
-<!-- /.content -->
+    <!-- /.content -->
 
 <?php partial('admin/footer')?>
 <script src="<?php echo views_dir(); ?>admin/courses/course.js" type="text/javascript" ></script>
@@ -165,4 +165,6 @@ $fields=$request['fields'];
     console.log(jquery);
      document.getElementById('addBt').click();
 </script>
-<?php \App\Core\Session::delete('request'); endif;?>
+<?php \App\Core\Session::delete('request');
+ endif;
+ ?>

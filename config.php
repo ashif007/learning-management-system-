@@ -2,8 +2,8 @@
 return [
     'database'=>[
         'name'=>'lms',
-        'username'=>'root',
-        'password'=>'root',
+        'username'=>'hanan',
+        'password'=>'os37',
         'connection'=>'mysql:host=localhost;',
         'options'=>[
             PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION
