@@ -27,6 +27,7 @@ class CoursesController extends Controller implements ResourceInterface
 
     public function create()
     {
+        dispalyForDebug($mail = new \PHPMailer());die();
         $courses = Course::all();
         $cats = Category::all();
         return view('admin/courses/create',['courses'=>$courses, 'cats'=>$cats]);
@@ -120,6 +121,7 @@ class CoursesController extends Controller implements ResourceInterface
             Session::set('message',"Course Updated Successfully");
             redirect('/courses/create');
         }
+
     }
 
     public function destroy($id)
