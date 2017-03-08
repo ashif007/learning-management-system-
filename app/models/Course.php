@@ -12,12 +12,12 @@ use App\Core\DB\ORM;
 
 class Course extends ORM
 {
-    protected static $table="courses";
+    protected static $table="course";
     protected static $pk="id";
     
     public function students()
     {
-        
+
     }
     
     public function teacher()
