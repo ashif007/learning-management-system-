@@ -56,24 +56,19 @@ class CoursesController extends Controller implements ResourceInterface
             $course->end = $request->get('end');
             $course->cid = $request->get('cat');
             $course->rate = $request->get('rank');
-            $course->tid =1; // dummy
-            $course->image ="dumy";
+            $course->tid =2; // dummy
 
-//            try {
-//                dispalyForDebug($request->getfile("image"));
-//                die();
-//                $files = upload($request->getfile("image"));
-//                $course->image = $files['metas'][0]['name'];
-//            } catch (\Exception $e) {
-//                $e->getMessage();
-//            }
-           // dispalyForDebug($course);die();
+            try {
+                $image = uploadFile("image",$_SERVER["DOCUMENT_ROOT"]."/uploads/","",time(),getImageTypes());
+                $course->image = $image['name'];
+            } catch (\Exception $e) {
+                $e->getMessage();
+            }
             $course->save();
             Session::set('message',"User Added Successfully");
             redirect('courses/create');
         }
 
-        dispalyForDebug($errors);die();
 
     }
 
@@ -95,6 +90,9 @@ class CoursesController extends Controller implements ResourceInterface
     public function destroy($id)
     {
         // TODO: Implement destroy() method.
+        $course=Course::retrieveByPK($id);
+        $course->delete();
+        Session::set('message',"Course Deleted Successfully");
     }
 
 

@@ -47,7 +47,7 @@ $fields=$request['fields'];
                     <td><a href="/courses/<?=$course->id?>"><span class="fa fa-book"></span></a></td>
                     <td>
                         <?php start_form('delete',"/courses/$course->id")?>
-                        <button type="submit" style="border: none;background-color: rgba(0,0,0,0); color:#9f191f">
+                        <button type="submit" class="delete" style="border: none;background-color: rgba(0,0,0,0); color:#9f191f">
                             <span class="fa fa-remove"></span>
                         </button>
                         <?php close_form()?>
@@ -159,9 +159,10 @@ $fields=$request['fields'];
     <!-- /.content -->
 
 <?php partial('admin/footer')?>
-
+<script src="<?php echo views_dir(); ?>admin/courses/course.js" type="text/javascript" ></script>
 <?php if(count($errors)>0):?>
 <script>
+    console.log(jquery);
      document.getElementById('addBt').click();
 </script>
 <?php \App\Core\Session::delete('request');

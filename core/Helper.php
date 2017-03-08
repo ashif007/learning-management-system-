@@ -2,6 +2,9 @@
 function public_dir(){
     return "/public/";
 }
+function views_dir(){
+    return "/app/views/";
+}
 function view($view, $data = [])
 {
     extract($data);
@@ -170,3 +173,63 @@ function dispalyForDebug($data)
         echo "</pre>";
     }
 }
+
+
+function uploadFile($file_name,$path,$changefilename,$plusname,$type)
+{
+    $filename = $_FILES[$file_name]['name'];
+    $filetype = explode(".",$filename);
+    $filesize = $_FILES[$file_name]['size'];
+    $filetmp  = $_FILES[$file_name]['tmp_name'];
+    $type     = explode("|",$type);
+    if (count($filetype)>2)
+    {
+        $_SESSION['error']= " $filename تنبية أمنى : برجأ التأكد من أمتداد الملف المرفوع وازالة ال (.) الزائدة فى ملف ";
+    }
+    else
+    {
+
+        if ($changefilename=="")
+        {
+            $changename =$plusname.$filename;
+        }
+        else
+        {
+            $changename = $changefilename.'_'.$plusname.$filename;
+        }
+
+        $pathphender = $path.$changename;
+        if (in_array($filetype[1],$type))
+        {
+
+                if (copy($filetmp,$pathphender))
+                {
+                    $upload_status['name'] =$changename;
+                    $upload_status['url']  =$pathphender;
+                    $upload_status['size'] =$filesize;
+                    $upload_status['type'] =$filetype;
+                    $upload_status['state']="true";
+                }
+                else
+                {
+                    echo $_SERVER["DOCUMENT_ROOT"];
+                    $upload_status['name']=$changename;
+                    $upload_status['url'] =$pathphender;
+                    $upload_status['size']=$filesize;
+                    $upload_status['type']=$filetype;
+                    $upload_status['state']="false";
+                    $_SESSION['error']    = $upload_status['name']."لم يتم رفع الملف بنجاح برجاء معاودة المحاولة";
+                }
+                return $upload_status;
+        }
+        else
+        {
+            $_SESSION['error']="تحميل ملف $filename ($filetype[1])لم يكتمل امتداد هذا الملف غير مسموح بية امتداد هذا الملف هو  ";
+        }
+    }
+}
+
+function getImageTypes(){
+    return "gif|Gif|ico|ICO|jpg|JPG|jpeg|JPEG|BNG|png|PNG";
+}
+

@@ -37,7 +37,7 @@ $fields=$request['fields'];
         <form method="POST" action="/register">
             <?php csrf_field()?>
             <div class="form-group has-feedback <?= isset($errors['name']) ? ' has-error' : '' ?>">
-                <input type="text" class="form-control" placeholder="Full name" name="name" value="<?= $fields['name'] ?>">
+                <input type="text" class="form-control" placeholder="User name" name="username" value="<?= $fields['name'] ?>">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
                 <?php if(count($errors)>0):?>
                     <span class="help-block">
@@ -64,7 +64,7 @@ $fields=$request['fields'];
                 <?php endif;?>
             </div>
             <div class="form-group has-feedback <?= isset($errors['confirm']) ? ' has-error' : '' ?>">
-                <input type="password" class="form-control" placeholder="Retype password" name="password_confirmation">
+                <input type="password" class="form-control" placeholder="Retype password" name="confirm">
                 <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
                 <?php if(count($errors)>0):?>
                     <span class="help-block">

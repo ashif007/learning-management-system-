@@ -24,6 +24,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     -->
     <?php resource('css','skins/skin-blue.min')?>
     <link rel="stylesheet" href="<?php asset('js/plugins/datatables/dataTables.bootstrap.css')?>">
+
     <?php partial('admin/froala/styles')?>
 
 </head>
