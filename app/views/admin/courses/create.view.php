@@ -13,11 +13,7 @@ $fields=$request['fields'];
     breadcrumb
 </section>
 <!-- Main content -->
-<section class="content">
-
-
-
-
+<section class="content">0
     <div class="box box-primary">
         <div class="box-header with-border">
             <h3 class="box-title">All Courses</h3>
