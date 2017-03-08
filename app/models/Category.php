@@ -21,5 +21,10 @@ class Category extends ORM
         return Course::retrieveByField("cid",$this->id);
     }
 
+    public function user()
+    {
+        return User::retrieveByPK($this->uid);
+    }
+
 
 }

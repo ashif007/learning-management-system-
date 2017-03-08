@@ -1,27 +1,3 @@
-<div class="post">
-    <div class="user-block">
-        <img class="img-circle img-bordered-sm" src="" alt="user image">
-        <span class="username">
-            <a href="/users/<?= $req->user()->id?>"><?= $req->user()->username?>.</a>
-            <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
-        </span>
-        <span class="description"></span>
-    </div>
-    <!-- /.user-block -->
-    <p>
-        <?= $req->body?>
-    </p>
-    <ul class="list-inline">
-        </li>
-        <li class="pull-right">
-            <a href="#" class="link-black text-sm"><i class="fa fa-comments-o margin-r-5"></i> Comments
-                </a></li>
-    </ul>
-
-</div>
-
-
-
 <div class="box box-widget">
     <div class="box-header with-border">
         <div class="user-block">

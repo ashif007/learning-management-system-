@@ -14,19 +14,9 @@ class User extends ORM
 {
     protected static $table="users";
     protected static $pk="id";
-    
-    public function courses()
-    {
-        
-    }
-    
-    public function links()
-    {
-        
-    }
 
     public function requests()
     {
-        
+        return Request::retrieveByField('uid',$this->id);
     }
 }

@@ -27,7 +27,7 @@ CREATE TABLE `category` (
   `name` varchar(75) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `name` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,12 +39,14 @@ DROP TABLE IF EXISTS `comments`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `comments` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `model_id` int(11) NOT NULL,
-  `model_name` varchar(100) NOT NULL,
-  `text` text NOT NULL,
+  `uid` int(11) NOT NULL,
+  `mid` varchar(50) NOT NULL,
+  `body` longtext NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `fk_comments_1_idx` (`uid`),
+  CONSTRAINT `fk_comments_1` FOREIGN KEY (`uid`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -58,7 +60,7 @@ DROP TABLE IF EXISTS `course`;
 CREATE TABLE `course` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `cid` int(5) NOT NULL,
-  `image` varchar(75) NOT NULL,
+  `image` varchar(255) NOT NULL,
   `start` timestamp NULL DEFAULT NULL,
   `end` timestamp NULL DEFAULT NULL,
   `title` varchar(255) NOT NULL,
@@ -74,26 +76,7 @@ CREATE TABLE `course` (
   KEY `teacher_id` (`tid`),
   CONSTRAINT `course_ibfk_1` FOREIGN KEY (`cid`) REFERENCES `category` (`id`),
   CONSTRAINT `course_ibfk_2` FOREIGN KEY (`tid`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `links`
---
-
-DROP TABLE IF EXISTS `links`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `links` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `model_id` int(11) NOT NULL,
-  `model_name` varchar(100) NOT NULL,
-  `link` text NOT NULL,
-  `description` text NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -106,6 +89,8 @@ DROP TABLE IF EXISTS `material`;
 CREATE TABLE `material` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `cid` int(10) NOT NULL,
+  `link` varchar(255) NOT NULL,
+  `status` varchar(50) NOT NULL DEFAULT 'show',
   `name` varchar(255) NOT NULL,
   `type` enum('pdf','ppt','word','video') NOT NULL,
   `description` text NOT NULL,
@@ -119,20 +104,20 @@ CREATE TABLE `material` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `student_course`
+-- Table structure for table `requests`
 --
 
-DROP TABLE IF EXISTS `student_course`;
+DROP TABLE IF EXISTS `requests`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `student_course` (
-  `cid` int(11) NOT NULL,
-  `sid` int(11) NOT NULL,
-  `status` varchar(45) DEFAULT NULL,
-  KEY `fk_student_course_1_idx` (`cid`),
-  KEY `fk_student_course_2_idx` (`sid`),
-  CONSTRAINT `fk_student_course_1` FOREIGN KEY (`cid`) REFERENCES `course` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_student_course_2` FOREIGN KEY (`sid`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+CREATE TABLE `requests` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` int(11) NOT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `body` longtext,
+  PRIMARY KEY (`id`),
+  KEY `fk_requests_1_idx` (`uid`),
+  CONSTRAINT `fk_requests_1` FOREIGN KEY (`uid`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -158,7 +143,7 @@ CREATE TABLE `users` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -170,4 +155,4 @@ CREATE TABLE `users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-03-05 16:40:53
+-- Dump completed on 2017-03-08  7:09:41
