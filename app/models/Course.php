@@ -14,11 +14,7 @@ class Course extends ORM
 {
     protected static $table="course";
     protected static $pk="id";
-    
-    public function students()
-    {
 
-    }
     
     public function teacher()
     {
@@ -27,6 +23,6 @@ class Course extends ORM
 
     public function materials()
     {
-        
+        return Course::retrieveByPK($this->uid);
     }
 }

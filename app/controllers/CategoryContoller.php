@@ -34,8 +34,6 @@ class CategoryController extends Controller implements ResourceInterface
 
     public function store(Request $request)
     {
-        //$cats=Category::all();
-        //return view('admin/cats/create',['cats'=>$cats]);
 
 
         $errors = $this->validator->validate($request, [
@@ -60,6 +58,7 @@ class CategoryController extends Controller implements ResourceInterface
             Session::set('message',"Category Added Successfully");
             redirect('cats/create');
         }
+
 
         dispalyForDebug($errors);die();
 

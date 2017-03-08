@@ -20,12 +20,12 @@ class CommentController extends Controller implements ResourceInterface
 
     public function index()
     {
-        return view('404');
+        return view('errors/404');
     }
 
     public function create()
     {
-        return view('404');
+        return view('errors/404');
     }
 
     public function store(Request $request)
@@ -37,22 +37,22 @@ class CommentController extends Controller implements ResourceInterface
         $comment->created_at = date("Y-m-d H:i:s");
         $comment->updated_at = date("Y-m-d H:i:s");
         $comment->save();
-        redirect("/posts/".$comment->post()->id);
+        redirect("".$comment->post()->id);
     }
 
     public function show($id)
     {
-        return view('404');
+        return view('errors/404');
     }
 
     public function edit($id)
     {
-        return view('404');
+        return view('errors/404');
     }
 
     public function update(Request $request, $id)
     {
-        return view('404');
+        return view('errors/404');
     }
 
     public function destroy($id)
