@@ -129,7 +129,6 @@ class UserController extends Controller implements ResourceInterface
                 }else{
                     $user->isbaned=0;
                 }
-                $user->created_at = date("Y-m-d H:i:s");
                 $user->updated_at = date("Y-m-d H:i:s");
                 $user->update();
                 Session::set('message',"User Updated Successfully");

@@ -1,8 +1,9 @@
 <?php partial('admin/header')?>
 <?php
 $request=\App\Core\Session::get('request');
-$error=$request['errors'];
+$errors=$request['errors'];
 $fields=$request['fields'];
+\App\Core\Session::delete('request');
 ?>
 <!-- Content Header (Page header) -->
 <section class="content-header">
@@ -117,7 +118,7 @@ $fields=$request['fields'];
                         <span aria-hidden="true">×</span></button>
                     <h4 class="modal-title">Edit <?= $user->name?> Info</h4>
                 </div>
-                <?php start_form('put',"/users/$user->id")?>
+                <?php start_form('put',"/users/$user->id",['enctype'=>"multipart/form-data"])?>
                 <div class="box box-solid">
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -222,8 +223,10 @@ $fields=$request['fields'];
                         <?php if(count($errors)>0):?>
                             <div class="alert alert-danger">
                                 <ul>
-                                    <?php foreach ($errors as $filed=>$error):?>
-                                        <li><strong><?= $field?></strong><?= $error?></li>
+                                    <?php foreach ($errors as $errors):?>
+                                        <?php foreach ($errors as $error):?>
+                                            <p><?=$error?></p>
+                                        <?php endforeach;?>
                                     <?php endforeach;?>
                                 </ul>
                             </div>
