@@ -20,29 +20,44 @@
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
                 <!-- User Account Menu -->
-                <?php if(\App\Core\Session::isLogin()):?>
-                    <li class="dropdown user user-menu">
+                <li class="dropdown user user-menu">
                     <!-- Menu Toggle Button -->
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <!-- The user image in the navbar-->
-                        <img src="<?= \App\Core\Session::getLoginUser()->image?>" alt="" class="user-image">
-                        <span class="hidden-xs"><?php \App\Core\Session::getLoginUser()->username?></span>
+                        <?php html_image('user2-160x160.jpg',['class'=>'user-image','id'=>''])?>
                         <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                        <span class="hidden-xs">Alexander Pierce</span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- The user image in the menu -->
                         <li class="user-header">
-                            <img src="<?= \App\Core\Session::getLoginUser()->image?>" alt="" class="img-circle">
+                            <?php html_image('user2-160x160.jpg',['class'=>'img-circle','id'=>''])?>
+
+
                             <p>
-                                <?=\App\Core\Session::getLoginUser()->email?>
-                                <small>Member since <?=\App\Core\Session::getLoginUser()->created_at?></small>
+                                Inform Me - Web Developer
+                                <small>Member since Nov. 2012</small>
                             </p>
                         </li>
                         <!-- Menu Body -->
+                        <li class="user-body">
+                            <div class="row">
+                                <div class="col-xs-4 text-center">
+                                    <a href="#">Followers</a>
+                                </div>
+                                <div class="col-xs-4 text-center">
+                                    <a href="#">Sales</a>
+                                </div>
+                                <div class="col-xs-4 text-center">
+                                    <a href="#">Friends</a>
+                                </div>
+                            </div>
+                            <!-- /.row -->
+                        </li>
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="/users/<?=\App\Core\Session::getLoginUser()->id?>" class="btn btn-default btn-flat">Profile</a>
+                                <a href="#" class="btn btn-default btn-flat">Profile</a>
                             </div>
                             <div class="pull-right">
                                 <a href="/logout" class="btn btn-default btn-flat">Sign out</a>
@@ -50,27 +65,16 @@
                         </li>
                     </ul>
                 </li>
-
                 <!-- Control Sidebar Toggle Button -->
-                    <?php if(\App\Core\Session::getLoginUser()->role=="admin"):?>
-                        <li>
-                            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-                        </li>
-                    <?php endif;?>
-                <?php else:?>
-                    <li>
-                        <a href="/login"><i class="fa fa-sign-in"></i> Login</a>
-                    </li>
-                    <li>
-                        <a href="/register"><i class="fa fa-user-plus"></i> Register</a>
-                    </li>
-                <?php endif;?>
+                <li>
+                    <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+                </li>
             </ul>
         </div>
-        <form action="/search" method="get" style="margin-top:.6em">
+        <form action="#" method="get" style="margin-top:.6em">
             <div class="input-group input-group-sm">
                 <input type="text" name="q" class="form-control" placeholder="Search...">
-                <span class="input-group-btn">
+              <span class="input-group-btn">
                 <button type="submit" name="search" id="search-btn" class="btn btn-primary btn-flat"><i class="fa fa-search"></i>
                 </button>
               </span>

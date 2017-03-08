@@ -1,13 +1,20 @@
 <?php
+//Resources routes
 $router->resource('users','UserController');
 $router->resource('courses', 'CoursesController');
-$router->get('admin','PagesController@admin');
 $router->resource('cats','CategoryController');
+
+//Pages routes
+$router->get('','PagesController@home');
+$router->get('about','PagesController@about');
+$router->get('contact','PagesController@contact');
+$router->get('admin','PagesController@admin');
+
 //Authentication routes
 $router->get('login','AuthController@showlogin');
 $router->get('register','AuthController@showregister');
 $router->post('login','AuthController@login');
-$router->post('logout','AuthController@login');
+$router->get('logout','AuthController@logout');
 $router->post('register','AuthController@login');
 //Editor Api
 $router->get('image_load','AjaxController@image_load');

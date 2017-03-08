@@ -31,13 +31,13 @@ class CommentController extends Controller implements ResourceInterface
     public function store(Request $request)
     {
         $comment=new Comment();
-        $comment->content=$request->get('content');
-        $comment->pid=$request->get('pid');
+        $comment->content=$request->get('body');
+        $comment->mid=$request->get('mid');
         $comment->uid=Session::getLoginUser()->id;
         $comment->created_at = date("Y-m-d H:i:s");
         $comment->updated_at = date("Y-m-d H:i:s");
         $comment->save();
-        redirect("".$comment->post()->id);
+        redirect($request->get('url'));
     }
 
     public function show($id)
@@ -59,6 +59,6 @@ class CommentController extends Controller implements ResourceInterface
     {
        $comment=Comment::retrieveByPK($id);
        $comment->delete();
-       redirect("/posts/".$comment->post()->id);
+//       redirect("/posts/".$comment->post()->id);
     }
 }

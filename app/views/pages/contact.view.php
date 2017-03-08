@@ -1,0 +1,1 @@
+<h1>Some day i will a beautiful Contact Page</h1>
