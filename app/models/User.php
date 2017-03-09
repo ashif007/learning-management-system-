@@ -17,6 +17,6 @@ class User extends ORM
 
     public function requests()
     {
-        return Request::retrieveByField('uid',$this->id);
+        return UserRequest::retrieveByField('uid',$this->id);
     }
 }

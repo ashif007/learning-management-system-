@@ -4,80 +4,118 @@ namespace App\Controllers;
 
 use App\Core\Controller;
 use App\Core\Request;
+use App\Models\UserRequest;
 use App\Core\ResourceInterface;
 use App\Core\Session;
-use App\Models\UserRequest;
-use function partial;
-use function redirect;
-use function view;
 
 /**
  * LMS by the forge team
  */
+class RequestController extends Controller implements ResourceInterface
+{
 
-class RequestController extends Controller implements ResourceInterface {
 
-	function index() {
+    public function index()
+    {
+        $reqs = UserRequest::all();
+        return view('admin/requests/index', ['reqs' => $reqs]);
+    }
 
-		partial('admin/header');
-		view('request/request');
-		partial('admin/footer');
-	}
-
-	function send(Request $request) {
-		$errors = $this->validator->validate($request, [
-				'title'       => 'required|min:15',
-				'description' => 'required|min:20',
-			]);
-		if ($errors) {
-			$request->saveToSession($errors);
-			redirect('/request', ['errors' => $request->getLastFromSession()]);
-		} else {
-			$user_request = new UserRequest();
-
-			$user_request->title       = $request->get('title');
-			$user_request->description = $request->get('description');
-			print($user_request->description);
-			print($user_request->title);
-			$user_request->save();
-			Session::set('message', "Your Request has been sent ");
-			redirect('/request');
-			// dispalyForDebug($request);
-		}
-
-	}
-        
-        //To list all user request to the admin
-        function requset_list(){
-            // check for the user role??
-            $user_requests = UserRequest::all();            
-            partial('admin/header');
-            view('request/allrequests',['user_requests'=>$user_requests]);
-            partial('admin/footer');            
+    public function create()
+    {
+        if (Session::isLogin()) {
+            $reqs = UserRequest::all();
+            return view('admin/requests/create', ['reqs' => $reqs]);
+        } else {
+            return view('errors/503', ['message' => "You are not allowed to be here!"]);
         }
-        
-	function show($id) {
-		
-	}
-
-    public function create() {
-        
     }
 
-    public function destroy($id) {
-        
+    public function store(Request $request)
+    {
+        if (Session::isLogin()) {
+            if (verifyCSRF($request)) {
+                $errors = $this->validator->validate($request, [
+                    'title' => 'required',
+                    'body' => 'required'
+                ]);
+
+                if ($errors) {
+                    $request->saveToSession($errors);
+                    Session::set('error', "none valid data");
+                    redirect('/requests/create', $request->getLastFromSession());
+                } else {
+                    $req = new UserRequest();
+                    $req->title = $request->get('title');
+                    $req->body = $request->get('body');
+                    $req->uid = Session::getLoginUser()->id;
+                    $req->created_at = date("Y-m-d H:i:s");
+                    $req->updated_at = date("Y-m-d H:i:s");
+                    $req->save();
+                    Session::set('message', "Request Added Successfully");
+                    redirect("/requests/$req->id");
+                }
+            } else {
+                return view('errors/503', ['message' => "You are not allowed to be here!"]);
+            }
+        }
     }
 
-    public function edit($id) {
-        
+    public function show($id)
+    {
+        $req = UserRequest::retrieveByPK($id);
+        return view('admin/requests/show', ['req' => $req]);
+
     }
 
-    public function store(Request $request) {
-        
+    public function edit($id)
+    {
+        if (Session::isLogin()) {
+            $req = UserRequest::retrieveByPK($id);
+            return view('admin/requests/edit', ['req' => $req]);
+        } else {
+            return view('errors/503',['message'=>"You are not allowed to be here!"]);
+        }
     }
 
-    public function update(Request $request, $id) {
-        
+    public function update(Request $request, $id)
+    {
+        if (Session::isLogin()) {
+            if (verifyCSRF($request)) {
+                $errors = $this->validator->validate($request, [
+                    'title' => 'required',
+                    'body' => 'required'
+                ]);
+
+                if ($errors) {
+                    $request->saveToSession($errors);
+                    Session::set('error', "none valid data");
+                    redirect('/requests/create', $request->getLastFromSession());
+                } else {
+                    $req = UserRequest::retrieveByPK($id);
+                    $req->title = $request->get('title');
+                    $req->body = $request->get('body');
+                    $req->uid = Session::getLoginUser()->id;
+                    $req->updated_at = date("Y-m-d H:i:s");
+                    $req->update();
+                    Session::set('message', "Request Updated Successfully");
+                    redirect("/requests/$req->id");
+                }
+            } else {
+                return view('errors/503', ['message' => "You are not allowed to be here!"]);
+            }
+        }
     }
 
+    public function destroy($id)
+    {
+        if (Session::isLogin()) {
+            $req = UserRequest::retrieveByPK($id);
+            $req->delete();
+            Session::set('message', "Request Deleted Successfully");
+            redirect('/requests');
+        }else{
+            return view("errors/503",['message'=>"You are not allowed to be here!"]);
+        }
+    }
 }

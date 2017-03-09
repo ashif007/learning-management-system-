@@ -33,7 +33,8 @@ $fields=$request['fields'];
             <div class="tab-pane active" id="details">
                 <div class="row">
                     <div class="col-sm-3">
-                        <img src="<?php asset($users->image)?>" alt="" class="img-responsive">                    </div>
+                        <img src="<?php asset($users->image)?>" alt="" class="img-responsive">
+                    </div>
                     <div class="col-sm-3">
                         <h5>First Name: <span class="text-green"><?=$user->firstname?></span></h5>
                         <h5>Last Name: <span class="text-green"><?=$user->lastname?></span></h5>

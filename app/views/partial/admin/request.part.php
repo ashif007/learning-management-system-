@@ -36,7 +36,7 @@
         <?php start_form('post','/comments/')?>
         <form class="form-horizontal">
             <input type="hidden" name="uid" value="<?= \App\Core\Session::getLoginUser()->id?>">
-            <input type="hidden" name="mid" value="<?="Request:$req->id"?>">
+            <input type="hidden" name="mid" value="<?="UserRequest:$req->id"?>">
             <input type="hidden" name="url" value="/users/<?=$req->user()->id?>">
             <div class="form-group margin-bottom-none">
                 <div class="col-sm-9">
