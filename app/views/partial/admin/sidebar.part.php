@@ -16,7 +16,7 @@
         <ul class="sidebar-menu">
             <!-- Optionally, you can add icons to the links -->
             <?php if(\App\Core\Session::isLogin()&&\App\Core\Session::getLoginUser()->role=="admin"):?>
-                <li><a href="/dashboard"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+                <li><a href="/admin"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
                 <li class="treeview">
                     <a href="#"><i class="fa fa-edit"></i> <span>Manage</span> <i class="fa fa-angle-left pull-right"></i></a>
                     <ul class="treeview-menu">
@@ -28,7 +28,7 @@
                 </li>
             <?php endif;?>
 
-            <li><a href="/home"><i class="fa fa-home"></i> <span>Home</span></a></li>
+            <li><a href="/"><i class="fa fa-home"></i> <span>Home</span></a></li>
             <li><a href="/courses"><i class="fa fa-book"></i> <span>Courses</span></a></li>
             <li><a href="/users"><i class="fa fa-users"></i> <span>Students</span></a></li>
             <li><a href="/materials"><i class="fa fa-book"></i> <span>Materials</span></a></li>

@@ -28,7 +28,7 @@
 
             <p>
                <?=$message?>
-                Meanwhile, you may <a href="/home">return to your profile</a> or try using the search form.
+                Meanwhile, you may <a href="/">return to home page</a> or try using the search form.
             </p>
 
             <form class="search-form" action="/search">
