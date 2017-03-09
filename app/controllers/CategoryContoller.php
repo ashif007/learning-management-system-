@@ -84,5 +84,8 @@ class CategoryController extends Controller implements ResourceInterface
     public function destroy($id)
     {
         // TODO: Implement destroy() method.
+        $category=Category::retrieveByPK($id);
+        $category->delete();
+        Session::set('message',"Category Deleted Successfully");
     }
 }

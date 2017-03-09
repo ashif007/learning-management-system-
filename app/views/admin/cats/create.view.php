@@ -42,7 +42,7 @@ $fields=$request['fields'];
                     <td><a href="/cats/<?=$cat->id?>"><span class="fa fa-book"></span></a></td>
                     <td>
                         <?php start_form('delete',"/cats/$cat->id")?>
-                        <button type="submit" style="border: none;background-color: rgba(0,0,0,0); color:#9f191f">
+                        <button type="submit" class="delete" style="border: none;background-color: rgba(0,0,0,0); color:#9f191f">
                             <span class="fa fa-remove"></span>
                         </button>
                         <?php close_form()?>
@@ -124,7 +124,7 @@ $fields=$request['fields'];
 </section>
 <!-- /.content -->
 <?php partial('admin/footer')?>
-
+<script src="<?php echo views_dir(); ?>admin/cats/cats.js" type="text/javascript" ></script>
 <?php if(count($errors)>0):?>
     <script>
         document.getElementById('add').click();
