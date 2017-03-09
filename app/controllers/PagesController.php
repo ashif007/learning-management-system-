@@ -2,13 +2,29 @@
 namespace App\Controllers;
 use App\Core\App;
 use App\Core\Controller;
+use App\Core\Request;
 use App\Core\RSS;
+use App\Core\Session;
+use App\Models\Course;
+use App\Models\Material;
+use App\Models\User;
+use App\Models\UserRequest;
 
 class PagesController extends Controller {
 
     public function admin()
     {
-        return view('admin/layout');
+
+        if(Session::isLogin()&&Session::getLoginUser()->role=="admin"){
+            $users=User::all();
+            $reqs=UserRequest::all();
+            $materials=Material::all();
+            $courses=Course::all();
+            return view('admin/dashboard',['users'=>$users,'reqs'=>$reqs,'courses'=>$courses,'materials'=>$materials]);
+        }else{
+            return view("errors/503",['message'=>"You are not allowed to be here!"]);
+        }
+
     }
 
     public function home()
