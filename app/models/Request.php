@@ -13,7 +13,7 @@ use App\Core\DB\ORM;
 
 class Request extends ORM
 {
-    protected static $table='request';
+    protected static $table='requests';
     protected static $pk='id';
 
 
@@ -24,7 +24,7 @@ class Request extends ORM
 
 
     public function comments(){
-        $mid="Request".$this->id;
+        $mid="Request:".$this->id;
         return Comment::retrieveByMid($mid);
     }
 }

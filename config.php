@@ -1,9 +1,9 @@
 <?php
 return [
     'database'=>[
-        'name'=>'lms',
-        'username'=>'hanan',
-        'password'=>'os37',
+        'name'=>'salamadb',
+        'username'=>'root',
+        'password'=>'terminator',
         'connection'=>'mysql:host=localhost;',
         'options'=>[
             PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION

@@ -9,7 +9,9 @@
 namespace App\Models;
 
 
-class Material
+use App\Core\DB\ORM;
+
+class Material extends ORM
 {
     protected static $table='material';
     protected static $pk='id';
@@ -25,7 +27,7 @@ class Material
     }
 
     public function comments(){
-        $mid="Material".$this->id;
+        $mid="Material:".$this->id;
         return Comment::retrieveByMid($mid);
     }
 }

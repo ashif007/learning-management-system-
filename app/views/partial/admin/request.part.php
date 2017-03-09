@@ -10,7 +10,7 @@
     <div class="box-body">
         <!-- post text -->
         <p><?= $req->body?></p>
-        <span class="pull-right text-muted"><?=count($req->comments())?></span>
+        <span class="pull-right text-muted"><?=count($req->comments())?> Comments</span>
     </div>
     <!-- /.box-body -->
     <div class="box-footer box-comments">
@@ -36,14 +36,14 @@
         <?php start_form('post','/comments/')?>
         <form class="form-horizontal">
             <input type="hidden" name="uid" value="<?= \App\Core\Session::getLoginUser()->id?>">
-            <input type="hidden" name="mid" value="Request">
-            <input type="hidden" name="mname" value="<?= $req->id?>">
+            <input type="hidden" name="mid" value="<?="Request:$req->id"?>">
+            <input type="hidden" name="url" value="/users/<?=$req->user()->id?>">
             <div class="form-group margin-bottom-none">
                 <div class="col-sm-9">
                     <input class="form-control input-sm" placeholder="Comment" name="body">
                 </div>
                 <div class="col-sm-3">
-                    <button type="submit" class="btn btn-danger pull-right btn-block btn-sm">Comment</button>
+                    <button type="submit" class="btn btn-primary pull-right btn-block btn-sm">Comment</button>
                 </div>
             </div>
         </form>

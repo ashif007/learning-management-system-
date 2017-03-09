@@ -142,7 +142,6 @@ function delete_file($file)
         var_dump($e->getMessage());
     }
 }
-
 function toJson($data)
 {
     header('Access-Control-Allow-Origin: null');
