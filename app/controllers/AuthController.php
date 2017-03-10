@@ -83,11 +83,11 @@ class AuthController extends Controller
             }
             if (!empty(User::retrieveByEmail($request->get('email')))) {
                 Session::set('error', "User already exists");
-                redirect('/users/create', $request->getLastFromSession());
+                redirect('/register', $request->getLastFromSession());
             } else {
                 if ($errors) {
                     $request->saveToSession($errors);
-                    redirect('/users/create', $request->getLastFromSession());
+                    redirect('/register', $request->getLastFromSession());
                 } else {
                     $user = new User();
                     $user->username = $request->get('username');
@@ -95,7 +95,17 @@ class AuthController extends Controller
                     $user->password = password_hash($request->get('password'), PASSWORD_DEFAULT);
                     $user->created_at = date("Y-m-d H:i:s");
                     $user->updated_at = date("Y-m-d H:i:s");
+                   // dispalyForDebug($user);
                     $user->save();
+                    die();
+                    $subject = "Welcome TO Our Learning Platform";
+                    $body = "Hi <b>$user->username</b> <br/>
+                             Your login Information is:<br/>
+                             <h3>email: <b>$user->email</b> </h3>
+                             <h3>user : <b>$user->username</b> </h3>
+                             <h3>creation date : <b>$user->created_at</b></h3>
+                            ";
+                    sendMail($user->email,$user->username,$subject,$body);
                     redirect("/login");
                 }
             }

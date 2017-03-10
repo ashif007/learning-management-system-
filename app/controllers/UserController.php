@@ -18,13 +18,16 @@ use App\Models\User;
 
 class UserController extends Controller implements ResourceInterface
 {
-
     public function index()
     {
-        $users = User::all();
-        return view('admin/users/index', ['users' => $users]);
-    }
+        if (Session::isLogin()&&Session::getLoginUser()->role == 'admin') {
 
+            $users = User::all();
+            return view('admin/users/index', ['users' => $users]);
+        }else{
+            return view('errors/503',['message'=>"You are not allowed to be here!"]);
+        }
+    }
     public function create()
     {
         if (Session::isLogin()&&Session::getLoginUser()->role == 'admin') {

@@ -232,3 +232,29 @@ function getImageTypes(){
     return "gif|Gif|ico|ICO|jpg|JPG|jpeg|JPEG|BNG|png|PNG";
 }
 
+function sendMail($userEmail,$userName,$subject,$htmlBody)
+{
+    $mail = new PHPMailer;
+    $mail->SMTPDebug = 0;                               // Enable verbose debug output
+    $mail->isSMTP();                                      // Set mailer to use SMTP
+    $mail->Host = 'gator4235.hostgator.com';  // Specify main and backup SMTP servers
+    $mail->SMTPAuth = true;                               // Enable SMTP authentication
+    $mail->Username = 'habib@itqanapp.com';                 // SMTP username
+    $mail->Password = '123456789';                           // SMTP password
+    $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
+    $mail->Port = 465;                                    // TCP port to connect to
+
+    $mail->setFrom('habib@itqanapp.com', 'LMS-OS-37');
+    $mail->addAddress($userEmail, $userName);     // Add a recipient
+    $mail->isHTML(true);
+
+    $mail->Subject = $subject;
+    $mail->Body    = $htmlBody;
+    if(!$mail->send()) {
+        echo 'Message could not be sent.';
+        echo 'Mailer Error: ' . $mail->ErrorInfo;
+    } else {
+        echo 'Message has been sent';
+    }
+}
+
