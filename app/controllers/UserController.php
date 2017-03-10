@@ -94,7 +94,8 @@ class UserController extends Controller implements ResourceInterface
 
     public function show($id)
     {
-        if(Session::isLogin()){
+        if (Session::isLogin()&&Session::getLoginUser()->id == $id|| Session::isLogin()&&Session::getLoginUser()->role == "admin")
+            {
             $user = User::retrieveByPK($id);
             return view('admin/users/show', ['user' => $user]);
         }else{
@@ -104,7 +105,7 @@ class UserController extends Controller implements ResourceInterface
 
     public function edit($id)
     {
-        if (Session::isLogin()&&Session::getLoginUser()->id == $id) {
+        if (Session::isLogin()&&Session::getLoginUser()->id == $id|| Session::isLogin()&&Session::getLoginUser()->role == "admin") {
             $user = User::retrieveByPK($id);
             return view('admin/users/edit', ['user' => $user]);
         } else {

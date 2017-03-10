@@ -9,9 +9,12 @@ $fields=$request['fields'];
 <section class="content-header">
     <h1>
         Courses
-        <small>description</small>
+        <small>Admin</small>
     </h1>
-    breadcrumb
+    <ol class="breadcrumb">
+        <li><a href="/courses"><i class="fa fa-book"></i> Courses</a></li>
+        <li><a href="/courses/create">Create</a></li>
+    </ol>
 </section>
 <!-- Main content -->
 <section class="content">

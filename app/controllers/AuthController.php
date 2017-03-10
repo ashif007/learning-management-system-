@@ -15,8 +15,12 @@ class AuthController extends Controller
     public function showlogin()
     {
         if (Session::isLogin()) {
-            redirect('/users');
+            if (Session::isLogin()&&Session::getLoginUser()->role == "admin")
+                redirect('/users');
+            else
+                redirect('/users/'.Session::getLoginUser()->id);
         }
+        else
         return view('auth/login');
 
     }

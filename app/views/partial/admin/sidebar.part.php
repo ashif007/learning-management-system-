@@ -29,7 +29,7 @@
             <?php endif;?>
 
             <li><a href="/"><i class="fa fa-home"></i> <span>Home</span></a></li>
-            <li><a href="/courses"><i class="fa fa-book"></i> <span>Courses</span></a></li>
+            <li><a href="/courses"><i class="ion ion-ios-book"></i> <span>Courses</span></a></li>
             <li><a href="/users"><i class="fa fa-users"></i> <span>Students</span></a></li>
             <li><a href="/materials"><i class="fa fa-book"></i> <span>Materials</span></a></li>
             <li><a href="/requests"><i class="fa fa-inbox"></i> <span>Requests</span></a></li>

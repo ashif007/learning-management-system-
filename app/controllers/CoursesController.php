@@ -82,7 +82,8 @@ class CoursesController extends Controller implements ResourceInterface
 
     public function show($id)
     {
-        // TODO: Implement show() method.
+       $course=Course::retrieveByPK($id);
+       return view('admin/courses/show',['course'=>$course]);
     }
 
     public function edit($id)

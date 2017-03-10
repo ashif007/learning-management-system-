@@ -4,6 +4,8 @@ $router->resource('courses', 'CoursesController');
 $router->resource('cats', 'CategoryController');
 $router->resource('requests', 'RequestController');
 $router->resource('comments', 'CommentController');
+$router->resource('materials', 'MaterialController');
+$router->resource('materials/download', 'MaterialController@download');
 //Pages routes
 $router->get('', 'PagesController@home');
 $router->get('about', 'PagesController@about');

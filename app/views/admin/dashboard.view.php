@@ -21,7 +21,7 @@
                     <p>Requests</p>
                 </div>
                 <div class="icon">
-                    <i class="ion ion-bag"></i>
+                    <i class="fa fa-book"></i>
                 </div>
                 <a href="/requests/create" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
             </div>
@@ -36,7 +36,7 @@
                     <p>Materials</p>
                 </div>
                 <div class="icon">
-                    <i class="ion ion-stats-bars"></i>
+                    <i class="fa fa-inbox"></i>
                 </div>
                 <a href="/materials/create" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
             </div>
@@ -157,7 +157,90 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Materials Downloads</h3>
 
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <div class="table-responsive">
+                        <table class="table no-margin">
+                            <thead>
+                            <tr>
+                                <th>Course</th>
+                                <th>Name</th>
+                                <th>Status</th>
+                                <th>Type</th>
+                                <th>Downloads</th>
+                                <th>Added At</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php foreach ($materials as $material):?>
+                                <tr>
+                                    <td><?= $material->course()->title?></td>
+                                    <td><?= $material->name?></td>
+                                    <td><?=$material->status?></td>
+                                    <td><?= $material->type?></td>
+                                    <td><?= $material->downloaded?></td>
+                                    <td><?= $material->created_at?></td>
+                                </tr>
+                            <?php endforeach;?>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.table-responsive -->
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer clearfix">
+                    <a href="/materials/create" class="btn btn-sm btn-info btn-flat pull-left">Place New Material</a>
+                    <a href="/materials" class="btn btn-sm btn-default btn-flat pull-right">View All Materials</a>
+                </div>
+                <!-- /.box-footer -->
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="box box-danger">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Latest Courses</h3>
+
+                    <div class="box-tools pull-right">
+                        <span class="label label-danger"><?=count($courses)?> New Courses</span>
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body no-padding">
+                    <ul class="users-list clearfix">
+                        <?php foreach ($courses as $course):?>
+                            <li>
+                                <img src="<?=$course->image?>" alt="User Image">
+                                <a class="users-list-name" href="/courses/<?=$course->id?>"><?=$course->title?></a>
+                                <span class="users-list-date"><?=$course->created_at?></span>
+                            </li>
+                        <?php endforeach;?>
+                    </ul>
+                    <!-- /.users-list -->
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer text-center">
+                    <a href="/users" class="uppercase">View All Users</a>
+                </div>
+                <!-- /.box-footer -->
+            </div>
+        </div>
+    </div>
     <!-- /.row (main row) -->
 
 </section>
