@@ -4,6 +4,8 @@
         "ext-PDO": "*",
         "ext-fileinfo":"*",
         "ext-gettext": "*",
+        "ext-mbstring": "*",
+        "ext-json": "*",
         "froala/wysiwyg-editor-php-sdk" : "*",
         "phpmailer/phpmailer": "^5.2",
         "league/oauth2-client": "^2.2"
