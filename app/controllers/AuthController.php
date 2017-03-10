@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Core\Controller;
+use App\Core\DB\ORM;
 use App\Core\Helper;
 use App\Core\Request;
 use App\Core\Session;
@@ -34,6 +35,12 @@ class AuthController extends Controller
             if(!$errors){
                 $user = User::retrieveByEmail($request->get('email'))[0];
                 if ($request->get('email') == $user->email && password_verify($request->get('password'), $user->password)) {
+                    if ($user->state != "active")
+                    {
+                        Session::set('error',"Your account not active <br/>please go to your mail to verify you account");
+                        redirect('/login', $request->getLastFromSession());
+
+                    }
                     Session::saveLogin($user->username, $user->role, $user->password);
                     if($request->get('remember')){
                         Session::rememberLogin($user->username, $user->role, $user->password);
@@ -42,7 +49,6 @@ class AuthController extends Controller
                     $errors['login'] = "Wrong password or login";
                 }
             }
-
             if ($errors) {
                 $request->saveToSession($errors);
                 redirect('/login', $request->getLastFromSession());
@@ -92,23 +98,49 @@ class AuthController extends Controller
                     $user = new User();
                     $user->username = $request->get('username');
                     $user->email = $request->get('email');
+                    $user->code = md5(mt_rand());
                     $user->password = password_hash($request->get('password'), PASSWORD_DEFAULT);
                     $user->created_at = date("Y-m-d H:i:s");
                     $user->updated_at = date("Y-m-d H:i:s");
-                   // dispalyForDebug($user);
                     $user->save();
-                    die();
+                    $id = $user->getLastInserted();
+                    Session::set('message',"Your account created <br/> we sent confimation message to your registration mail <br> please go to your mail to verify you account");
                     $subject = "Welcome TO Our Learning Platform";
-                    $body = "Hi <b>$user->username</b> <br/>
+                    $body = 'Hi <b>'.$user->username.'</b> <br/>
                              Your login Information is:<br/>
-                             <h3>email: <b>$user->email</b> </h3>
-                             <h3>user : <b>$user->username</b> </h3>
-                             <h3>creation date : <b>$user->created_at</b></h3>
-                            ";
+                             <h3>email: <b>'.$user->email.'</b> </h3>
+                             <h3>user : <b>'.$user->username.'</b> </h3>
+                             <h3>creation date : <b>'.$user->created_at.'</b></h3>
+                             actaivation Link
+                             <a href="http://localhost:3000/activation?id='.$id.'&code='.$user->code.'&mail='.$user->email.'">click here to activate your acount</a><br/>
+                             this link for one use only
+                            ';
                     sendMail($user->email,$user->username,$subject,$body);
                     redirect("/login");
                 }
             }
+        }
+    }
+
+    public function  activeIt(Request $request)
+    {
+
+        $user = User::retrieveByEmail($request->get('mail'))[0];
+        if ($user->id == $request->get('id') && $user->code == $request->get('code') &&  $user->email == $request->get('mail'))
+        {
+            $user->code = null;
+            $user->state = "active";
+            $user->role="student";
+            $user->isbaned = 0;
+            $user->online = 0;
+            $user->update();
+            Session::saveLogin($user->username, $user->role, $user->password);
+            Session::set('message', "Your acount activated successfully <br/> please update your acount info");
+            redirect('/users/'.$user->id);
+
+        }
+        else{
+            redirect('/login');
         }
     }
 }

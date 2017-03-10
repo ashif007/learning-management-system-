@@ -102,4 +102,13 @@ class Session
         }
 
     }
+    public static function saveBackUrl(){
+        self::set('back_url',$_SERVER['REQUEST_URI']);
+    }
+
+    public static function getBackUrl(){
+        $url=self::get('back_url');
+        self::delete('back_url');
+        return $url;
+    }
 }

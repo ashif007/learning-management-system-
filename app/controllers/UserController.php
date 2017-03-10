@@ -115,7 +115,7 @@ class UserController extends Controller implements ResourceInterface
 
     public function update(Request $request, $id)
     {
-        if (Session::isLogin()&&Session::getLoginUser()->role == "admin") {
+        if (Session::isLogin()&&Session::getLoginUser()->role == "admin" || Session::isLogin()&&Session::getLoginUser()->id == $id) {
             $user = User::retrieveByPK($id);
             if (verifyCSRF($request)) {
                 $errors = $this->validator->validate($request, [
@@ -131,7 +131,7 @@ class UserController extends Controller implements ResourceInterface
                 }
                 if ($errors) {
                     $request->saveToSession($errors);
-                    redirect('users/' . $user->id . '/edit', $request->getLastFromSession());
+                    redirect('/users/'.$user->id, $request->getLastFromSession());
                 } else {
                     $user->firstname = $request->get('firstname');
                     $user->lastname = $request->get('lastname');
@@ -144,16 +144,22 @@ class UserController extends Controller implements ResourceInterface
                     }
                     $user->gender = $request->get('gender');
                     $user->country = $request->get('country');
-                    $user->role = $request->get('role');
+                    if ($request->get('role'))
+                    {
+                        $user->role = $request->get('role');
+                    }
                     if ($request->get('isbaned')) {
                         $user->isbaned = 1;
                     } else {
                         $user->isbaned = 0;
                     }
-                    $user->updated_at = date("Y-m-d H:i:s");
                     $user->update();
                     Session::set('message', "User Updated Successfully");
-                    redirect('/users');
+
+                    if (Session::isLogin()&&Session::getLoginUser()->role == "admin")
+                        redirect('/users');
+                    else
+                        redirect('/users/'.$id);
                 }
             }
         } else {
@@ -166,6 +172,7 @@ class UserController extends Controller implements ResourceInterface
     {
         if (Session::isLogin()&&Session::getLoginUser()->role == "admin") {
             $user = User::retrieveByPK($id);
+            delete_file($user->image);
             $user->delete();
             Session::set('message', "User Deleted Successfully");
             redirect('/users');

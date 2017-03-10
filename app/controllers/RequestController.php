@@ -113,7 +113,7 @@ class RequestController extends Controller implements ResourceInterface
             $req = UserRequest::retrieveByPK($id);
             $req->delete();
             Session::set('message', "Request Deleted Successfully");
-            redirect('/requests');
+            redirect(Session::getBackUrl());
         }else{
             return view("errors/503",['message'=>"You are not allowed to be here!"]);
         }

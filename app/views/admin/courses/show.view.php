@@ -1,10 +1,4 @@
 <?php partial('admin/header')?>
-<?php
-$request=\App\Core\Session::get('request');
-$errors=$request['errors'];
-$fields=$request['fields'];
-\App\Core\Session::delete('request');
-?>
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
@@ -71,15 +65,15 @@ $fields=$request['fields'];
                                                 <div class="form-group">
                                                     <label for="gender">Gender</label>
                                                     <select name="gender" id="" class="form-control">
-                                                        <option value="male" <?php if($user->gender=='male'){echo 'selected="selected"';}?>>Male</option>
-                                                        <option value="female" <?php if($user->gender=='female'){echo 'selected="selected"';}?>>Female</option>
+                                                        <option value="male">Male</option>
+                                                        <option value="female">Female</option>
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="country">Country</label>
                                                     <select name="country" id="" class="form-control">
-                                                        <option value="egypt" <?php if($user->country=='egypt'){echo 'selected="selected"';}?>>Egypt</option>
-                                                        <option value="other" <?php if($user->country=='others'){echo 'selected="selected"';}?>>Other</option>
+                                                        <option value="egypt">Egypt</option>
+                                                        <option value="other">Other</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -97,11 +91,11 @@ $fields=$request['fields'];
                                             <div class="box-body">
                                                 <div class="form-group">
                                                     <label for="username">User Name</label>
-                                                    <input type="text" name="username" class="form-control" value="<?=$user->username?>">
+                                                    <input type="text" name="username" class="form-control" value="<?=$user->lastname?>">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="email">Email</label>
-                                                    <input type="email" name="email" class="form-control" value="<?=$user->email?>">
+                                                    <input type="email" name="email" class="form-control" value="<?=$user->lastname?>">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="password">Password</label>
@@ -126,17 +120,23 @@ $fields=$request['fields'];
                                             <div class="box-body">
                                                 <div class="form-group">
                                                     <label for="image">Profile Photo</label>
-                                                    <br>
+                                                    <?php uploaded_image($user->image)?><br>
                                                     <input type="file" name="image" class="form-control">
-                                                    <img width="200" height="250" class="img-responsive img-circle" src="<?= $user->image?>">
-
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <?php if(count($errors)>0):?>
-                                   <?php partial('admin/verrors',['errors'=>$errors])?>
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            <?php foreach ($errors as $errors):?>
+                                                <?php foreach ($errors as $error):?>
+                                                    <p><?=$error?></p>
+                                                <?php endforeach;?>
+                                            <?php endforeach;?>
+                                        </ul>
+                                    </div>
                                 <?php endif;?>
                             </div>
                             <!-- /.box-body -->

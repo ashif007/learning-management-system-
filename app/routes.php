@@ -16,7 +16,12 @@ $router->get('register', 'AuthController@showregister');
 $router->post('login', 'AuthController@login');
 $router->get('logout', 'AuthController@logout');
 $router->post('register', 'AuthController@register');
-//Editor Api
+
+
+$router->get('activation', 'AuthController@activeIt');
+
+
+
 $router->get('image_load', 'AjaxController@image_load');
 $router->post('delete_image', 'AjaxController@delete_image');
 $router->post('file_upload', 'AjaxController@file_upload');

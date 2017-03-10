@@ -110,15 +110,15 @@ $fields=$request['fields'];
                                         <div class="form-group">
                                             <label for="gender">Gender</label>
                                             <select name="gender" id="" class="form-control">
-                                                <option value="male">Male</option>
-                                                <option value="female">Female</option>
+                                                <option value="male" <?php if(isset($fields['gender'])&&$fields['gender']=='male'){echo 'selected="selected"';}?>>Male</option>
+                                                <option value="female" <?php if(isset($fields['gender'])&&$fields['gender']=='female'){echo 'selected="selected"';}?>>Female</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label for="country">Country</label>
                                             <select name="country" id="" class="form-control">
-                                                <option value="egypt">Egypt</option>
-                                                <option value="other">Other</option>
+                                                <option value="egypt" <?php if(isset($fields['country'])&&$fields['country']=='egypt'){echo 'selected="selected"';}?>>Egypt</option>
+                                                <option value="other" <?php if(isset($fields['country'])&&$fields['country']=='others'){echo 'selected="selected"';}?>>Other</option>
                                             </select>
                                         </div>
                                     </div>
@@ -170,14 +170,13 @@ $fields=$request['fields'];
                                         <div class="form-group">
                                             <label for="role">Role</label>
                                             <select name="role" id="" class="form-control">
-                                                <option value="student">Student</option>
-                                                <option value="teacher">Teacher</option>
-                                                <option value="admin">Admin</option>
+                                                <option value="student" <?php if(isset($fields['role'])&&$fields['role']=='student'){echo 'selected="selected"';}?>>Student</option>
+                                                <option value="admin" <?php if(isset($fields['role'])&&$fields['role']=='admin'){echo 'selected="selected"';}?>>Admin</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <label for="confirm">Is Baned</label>
-                                            <input type="checkbox" name="isbaned" >
+                                            <label for="isbaned">Is Baned</label>
+                                            <input type="checkbox" name="isbaned" class="form-control" <?php if(isset($fields['isbaned'])){echo "checked";}?>>
                                         </div>
 
                                     </div>
@@ -185,21 +184,13 @@ $fields=$request['fields'];
                             </div>
                         </div>
                         <?php if(count($errors)>0):?>
-                        <div class="alert alert-danger">
-                            <ul>
-                                <?php foreach ($errors as $errors):?>
-                                    <?php foreach ($errors as $error):?>
-                                        <p><?=$error?></p>
-                                    <?php endforeach;?>
-                                <?php endforeach;?>
-                            </ul>
-                        </div>
+                            <?php partial('admin/verrors',['errors'=>$errors])?>
                         <?php endif;?>
                     </div>
                     <!-- /.box-body -->
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Create</button>
+                        <button type="submit" class="btn btn-primary">Update</button>
                     </div>
 
                 </div>

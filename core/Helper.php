@@ -235,7 +235,7 @@ function getImageTypes(){
 function sendMail($userEmail,$userName,$subject,$htmlBody)
 {
     $mail = new PHPMailer;
-    $mail->SMTPDebug = 0;                               // Enable verbose debug output
+    $mail->SMTPDebug = 2;                               // Enable verbose debug output
     $mail->isSMTP();                                      // Set mailer to use SMTP
     $mail->Host = 'gator4235.hostgator.com';  // Specify main and backup SMTP servers
     $mail->SMTPAuth = true;                               // Enable SMTP authentication

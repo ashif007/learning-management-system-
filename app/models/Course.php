@@ -16,13 +16,13 @@ class Course extends ORM
     protected static $pk="id";
 
     
-    public function teacher()
+    public function category()
     {
-        
+        return Category::retrieveByPK($this->cid);
     }
 
     public function materials()
     {
-        return Course::retrieveByPK($this->uid);
+        return Material::retrieveByField('cid',$this->id);
     }
 }

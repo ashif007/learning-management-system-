@@ -23,6 +23,31 @@ $fields=$request['fields'];
 
 </head>
 <body class="hold-transition login-page" style="background: url('../../../public/img/loginback.jpg') no-repeat;background-size: cover ">
+<?php if(\App\Core\Session::has('message')):?>
+    <div class="alert alert-success alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <h4><i class="icon fa fa-check"></i> Alert!</h4>
+        <p><?= \App\Core\Session::get('message')?></p>
+        <?php \App\Core\Session::delete('message')?>
+    </div>
+<?php endif;?>
+<?php if(\App\Core\Session::has('error')):?>
+    <div class="alert alert-danger alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <h4><i class="icon fa fa-check"></i> Alert!</h4>
+        <p><?= \App\Core\Session::get('error')?></p>
+        <?php \App\Core\Session::delete('error')?>
+    </div>
+<?php endif;?>
+<?php if(\App\Core\Session::has('urlerror')):?>
+    <div class="alert alert-danger alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <h4><i class="icon fa fa-check"></i> Alert!</h4>
+        <p><?= \App\Core\Session::get('urlerror')?></p>
+        <?php \App\Core\Session::delete('urlerror')?>
+        <i class="icon fa fa-arrow-circle-o-right"></i><a href="<?php \App\Core\Session::get('url')?>" class="btn-link">Go here</a>
+    </div>
+<?php endif;?>
 <div class="register-box">
     <div class="register-logo">
         <a href="/">
