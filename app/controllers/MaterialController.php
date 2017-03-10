@@ -22,8 +22,8 @@ class MaterialController extends Controller implements ResourceInterface
 
     public function index()
     {
-        $materials=Material::all();
-        return view('admin/materials/index',['materials'=>$materials]);
+        $courses=Course::all();
+        return view('admin/materials/index',['courses'=>$courses]);
     }
 
     public function create()
@@ -89,7 +89,8 @@ class MaterialController extends Controller implements ResourceInterface
     {
         if (Session::isLogin()&&Session::getLoginUser()->role=="admin") {
             $material = Material::retrieveByPK($id);
-            return view('admin/materials/edit', ['material' => $material]);
+            $courses=Course::all();
+            return view('admin/materials/edit', ['courses'=>$courses,'material' => $material]);
         } else {
             return view('errors/503',['message'=>"You are not allowed to be here!"]);
         }

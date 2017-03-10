@@ -6,9 +6,9 @@
         <small><?= $course->category()->name?></small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="/courses"><i class="fa fa-book"></i> Courses</a></li>
-        <li><a href="/cats/<?=$course->category()->id?>"><?=$course->category()->name?></a></li>
-        <li><a href="/courses/<?=$course->id?>"><?=$course->title?></a></li>
+        <li><a href="/courses"><i class="ion ion-ios-book"></i> Courses</a></li>
+        <li><a href="/cats/<?=$course->category()->id?>"><i class="ion ion-ios-list"></i><?=$course->category()->name?></a></li>
+        <li><a href="/courses/<?=$course->id?>"><i class="ion ion-ios-book"></i><?=$course->title?></a></li>
     </ol>
 </section>
 <!-- Main content -->

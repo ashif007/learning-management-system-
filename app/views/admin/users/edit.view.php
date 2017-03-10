@@ -11,7 +11,11 @@ $fields=$request['fields'];
         Users
         <small>User Edit</small>
     </h1>
-    breadcrumb
+    <ol class="breadcrumb">
+        <li><a href="/users"><i class="fa fa-users"></i>Users</a></li>
+        <li><a href="/users/<?=$user->id?>"><i class="fa fa-user"></i><?=$user->username?></a></li>
+        <li><a href="/users/<?=$user->id?>/edit"><i class="fa fa-edit"></i>Edit</a></li>
+    </ol>
 </section>
 <!-- Main content -->
 <section class="content">
@@ -44,6 +48,7 @@ $fields=$request['fields'];
                     </div>
                     <div class="col-sm-3">
                         <h5>Gender: <span class="text-green"><?=$user->gender?></span></h5>
+                        <h5>State: <span class="text-green"><?=$user->state?></span></h5>
                         <h5>Country: <span class="text-green"><?=$user->country?></span></h5>
                         <h5>Is Baned: <span class="text-green"><?=$user->isbaned?></span></h5>
                         <hr>

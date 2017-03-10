@@ -2,10 +2,13 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        Users
-        <small>description</small>
+        <?php $user->username?>
+        <small>Profile</small>
     </h1>
-    breadcrumb
+    <ol class="breadcrumb">
+        <li><a href="/users"><i class="fa fa-users"></i>Users</a></li>
+        <li><a href="/users/<?=$user->id?>"><i class="fa fa-user"></i><?=$user->username?></a></li>
+    </ol>
 </section>
 <!-- Main content -->
 <section class="content">

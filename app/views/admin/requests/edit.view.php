@@ -11,7 +11,11 @@ $fields=$request['fields'];
         Requests
         <small>Edit <?=$req->title?></small>
     </h1>
-    breadcrumb
+    <ol class="breadcrumb">
+        <li><a href="/requests"><i class="fa fa-inbox"></i>Requests</a></li>
+        <li><a href="/requests/<?=$req->id?>"><i class="fa fa-inbox"></i><?=$req->title?></a></li>
+        <li><a href="/requests/<?=$req->id?>/Edit"><i class="fa fa-edit"></i>Edit</a></li>
+    </ol>
 </section>
 <!-- Main content -->
 <section class="content">
@@ -19,6 +23,7 @@ $fields=$request['fields'];
     <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
             <li><h4 style="padding-left: 10px"><?=$req->title?></h4></li>
+            <li><a href="#details" data-toggle="tab">Request Info</a></li>
             <li><a href="#requests" data-toggle="tab">Comments</a></li>
             <li class="dropdown pull-right">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
@@ -31,9 +36,7 @@ $fields=$request['fields'];
         </ul>
         <div class="tab-content">
             <div class="tab-pane active" id="details">
-                <div class="row">
-                    <?=$req->body?>
-                </div>
+                <?=$req->body?>
             </div>
             <!-- /.tab-pane -->
             <div class="tab-pane" id="requests">

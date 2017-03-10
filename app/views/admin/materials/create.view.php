@@ -13,7 +13,7 @@ $fields=$request['fields'];
     </h1>
     <ol class="breadcrumb">
         <li><a href="/materials"><i class="fa fa-book"></i>Materials</a></li>
-        <li><a href="/materials/create">Create</a></li>
+        <li><a href="/materials/create"><i class="fa fa-plus">Create</a></li>
     </ol>
 </section>
 <!-- Main content -->
@@ -94,7 +94,7 @@ $fields=$request['fields'];
                         <span aria-hidden="true">×</span></button>
                     <h4 class="modal-title">Add Material</h4>
                 </div>
-                <?php start_form('post',"/materials")?>
+                <?php start_form('post',"/materials",['enctype'=>"multipart/form-data"])?>
                 <?php \App\Core\Session::saveBackUrl()?>
                 <div class="box box-solid">
                     <!-- /.box-header -->
@@ -115,7 +115,7 @@ $fields=$request['fields'];
                                             <label for="type">Course</label>
                                             <select name="cid" id="course" class="form-control">
                                                 <?php foreach ($courses as $course):?>
-                                                    <option value="<?=$course->id?>" <?php if(isset($mfields['type'])&&$mfields['type']=='pdf'){echo 'selected="selected"';}?>><?=$course->title?></option>
+                                                    <option value="<?=$course->id?>" <?php if(isset($mfields['cid'])&&$mfields['cid']==$course->id){echo 'selected="selected"';}?>><?=$course->title?></option>
                                                 <?php endforeach?>
                                             </select>
                                         </div>
@@ -177,3 +177,24 @@ $fields=$request['fields'];
 <!-- /.content -->
 
 <?php partial('admin/footer')?>
+<script>
+    $(document).ready(function () {
+        if($('#type').value=="video"){
+            $('#video').show();
+            $('#file').hide();
+        }else{
+            $('#video').hide();
+            $('#file').show();
+        };
+        $('#type').on('change',function (e) {
+            if(this.value=="video"){
+                $('#video').show();
+                $('#file').hide();
+            }else{
+                $('#video').hide();
+                $('#file').show();
+            }
+        });
+    });
+</script>
+

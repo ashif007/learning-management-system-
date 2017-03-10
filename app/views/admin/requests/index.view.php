@@ -5,7 +5,9 @@
         Request
         <small>List</small>
     </h1>
-    breadcrumb
+    <ol class="breadcrumb">
+        <li><a href="/requests"><i class="fa fa-inbox"></i>All Requests</a></li>
+    </ol>
 </section>
 <!-- Main content -->
 <section class="content">

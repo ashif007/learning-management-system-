@@ -5,7 +5,10 @@
         <?= $req->title?>
         <small>Added At: <?= $req->created_at?></small>
     </h1>
-    breadcrumb
+    <ol class="breadcrumb">
+        <li><a href="/requests"><i class="fa fa-inbox"></i>Requests</a></li>
+        <li><a href="/requests/<?=$req->id?>"><i class="fa fa-inbox"></i><?=$req->title?></a></li>
+    </ol>
 </section>
 <!-- Main content -->
 <section class="content">

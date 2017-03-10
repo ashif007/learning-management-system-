@@ -5,7 +5,9 @@
         Courses
         <small>List</small>
     </h1>
-    breadcrumb
+    <ol class="breadcrumb">
+        <li><a href="/courses"><i class="ion ion-ios-book"></i> All Courses</a></li>
+    </ol>
 </section>
 <!-- Main content -->
 <section class="content">

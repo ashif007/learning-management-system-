@@ -21,7 +21,12 @@ class AuthController extends Controller
     }
     public function admin()
     {
-        return view('auth/admin');
+        if(Session::isLogin()&&Session::getLoginUser()->role=='admin'){
+            return view('auth/admin');
+        }else{
+            return view('errors/503',['message'=>'Your not allowed to be here!']);
+        }
+
     }
 
     public function login(Request $request)
@@ -34,10 +39,17 @@ class AuthController extends Controller
             if(!$errors){
                 $user = User::retrieveByEmail($request->get('email'))[0];
                 if ($request->get('email') == $user->email && password_verify($request->get('password'), $user->password)) {
-                    Session::saveLogin($user->username, $user->role, $user->password);
-                    if($request->get('remember')){
-                        Session::rememberLogin($user->username, $user->role, $user->password);
+                    if($user->isbaned==1){
+                        $errors['login'] = "Your have been banned from login into the web site";
+                        $request->saveToSession($errors);
+                        redirect('/login', $request->getLastFromSession());
+                    }else{
+                        Session::saveLogin($user->username, $user->role, $user->password);
+                        if($request->get('remember')){
+                            Session::rememberLogin($user->username, $user->role, $user->password);
+                        }
                     }
+
                 } else {
                     $errors['login'] = "Wrong password or login";
                 }
@@ -50,7 +62,7 @@ class AuthController extends Controller
                 redirect('/');
             }
         } else {
-            echo "not allowed";
+           return view('errors/503',['message','You not allowed to do this action']);
         }
     }
 

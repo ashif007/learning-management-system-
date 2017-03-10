@@ -8,18 +8,21 @@ $fields=$request['fields'];
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        Requests
-        <small>Edit <?=$req->title?></small>
+        Materials
+        <small>Edit <?=$material->title?></small>
     </h1>
-    breadcrumb
+    <ol class="breadcrumb">
+        <li><a href="/materials"><i class="fa fa-book"></i>Materials</a></li>
+        <li><a href="/materials/<?=$material->id?>/edit"><i class="fa fa-book"></i><?=$material->name?></a></li>
+        <li><a href="/materials/<?=$material->id?>/edit"><i class="fa fa-edit"></i>Edit</a></li>
+    </ol>
 </section>
 <!-- Main content -->
 <section class="content">
 
     <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
-            <li><h4 style="padding-left: 10px"><?=$req->title?></h4></li>
-            <li><a href="#requests" data-toggle="tab">Comments</a></li>
+            <li><h4 style="padding-left: 10px"><?=$material->name?></h4></li>
             <li class="dropdown pull-right">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                     <i class="fa fa-gear"></i> Options <span class="caret"></span>
@@ -31,59 +34,14 @@ $fields=$request['fields'];
         </ul>
         <div class="tab-content">
             <div class="tab-pane active" id="details">
-                <div class="row">
-                    <?=$req->body?>
-                </div>
+                <p>Name: <?=$material->name?></p>
+                <p>Course: <?=$material->course()->title?></p>
+                <p>Link: <a href="<?=$material->link?>"><?=$material->link?></a></p>
+                <p>Status: <?=$material->status?></p>
+                <p>Type: <?=$material->type?></p>
+                <p>Description: <?=$material->description?></p>
             </div>
             <!-- /.tab-pane -->
-            <div class="tab-pane" id="requests">
-                <table id="indextable" class="table table-bordered table-striped">
-                    <thead>
-                    <tr>
-                        <th>User</th>
-                        <th>Content</th>
-                        <th>Created at</th>
-                        <th>Last update</th>
-                        <th>Edit</th>
-                        <th>View</th>
-                        <th>Delete</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <?php if(count($req->comments())>0):?>
-                        <?php foreach ($req->comments() as $comment):?>
-                            <tr>
-                                <td><?= $comment->user()->username?></td>
-                                <td><?= $comment->body?></td>
-                                <td><?= $comment->created_at?></td>
-                                <td><?= $comment->updated_at?></td>
-                                <td><a href="/comments/<?=$comment->id?>/edit"><span class="fa fa-edit"></span></a></td>
-                                <td><a href="/comments/<?=$comment->id?>"><span class="fa fa-book"></span></a></td>
-                                <td>
-                                    <?php start_form('delete',"/comments/$comment->id")?>
-                                    <button type="submit" style="border: none;background-color: rgba(0,0,0,0); color:#9f191f">
-                                        <span class="fa fa-remove"></span>
-                                    </button>
-                                    <?php close_form()?>
-                                </td>
-                            </tr>
-                        <?php endforeach;?>
-                    <?php endif;?>
-                    </tbody>
-                    <tfoot>
-                    <tr>
-                        <th>User</th>
-                        <th>Content</th>
-                        <th>Created at</th>
-                        <th>Last update</th>
-                        <th>Edit</th>
-                        <th>View</th>
-                        <th>Delete</th>
-                    </tr>
-                    </tfoot>
-                </table>
-            </div>
-
         </div>
         <!-- /.tab-content -->
     </div>
@@ -95,10 +53,11 @@ $fields=$request['fields'];
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span></button>
-                    <h4 class="modal-title">Edit <?= $req->title?> Info</h4>
+                    <h4 class="modal-title">Edit <?= $material->title?> Info</h4>
                 </div>
-                <?php start_form('put',"/requests/$req->id",['enctype'=>"multipart/form-data"])?>
-                    <div class="box box-solid">
+                <?php start_form('put',"/materials/$material->id",['enctype'=>"multipart/form-data"])?>
+                <?php \App\Core\Session::saveBackUrl()?>
+                <div class="box box-solid">
                     <!-- /.box-header -->
                     <div class="box-body">
                         <div class="box-group" id="accordion">
@@ -106,35 +65,59 @@ $fields=$request['fields'];
                             <div class="panel box box-primary">
                                 <div class="box-header with-border">
                                     <h4 class="box-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#request">
-                                            New Request
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#basicinfo">
+                                            Basic Info
                                         </a>
                                     </h4>
                                 </div>
-                                <div id="request" class="panel-collapse collapse in">
+                                <div id="basicinfo" class="panel-collapse collapse in">
                                     <div class="box-body">
                                         <div class="form-group">
-                                            <label for="title">Title</label>
-                                            <input type="text" name="title" class="form-control" value="<?= $req->title?>" >
+                                            <label for="type">Course</label>
+                                            <select name="cid" id="course" class="form-control">
+                                                <?php foreach ($courses as $course):?>
+                                                    <option value="<?=$course->id?>" <?php if($material->cid==$course->id){echo 'selected="selected"';}?>><?=$course->title?></option>
+                                                <?php endforeach?>
+                                            </select>
                                         </div>
                                         <div class="form-group">
-                                            <label for="body">Content</label>
-                                            <textarea name="body" id="editor" cols="30" rows="10" class="form-control"><?= $req->body?></textarea>
+                                            <label for="title">Name</label>
+                                            <input type="text" name="name" class="form-control" value="<?=$material->name?>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="type">Type</label>
+                                            <select name="type" id="type" class="form-control">
+                                                <option value="pdf" <?php if($material->type=='pdf'){echo 'selected="selected"';}?>>Pdf</option>
+                                                <option value="doc" <?php if($material->type=='doc'){echo 'selected="selected"';}?>>Word</option>
+                                                <option value="ppt" <?php if($material->type=='ppt'){echo 'selected="selected"';}?>>PowerPoint</option>
+                                                <option value="video" <?php if($material->type=='video'){echo 'selected="selected"';}?>>Video</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group" id="file">
+                                            <label for="link">File</label>
+                                            <input type="file"  name="link" class="form-control" value="<?php if($material->type!='video'){echo $material->link;}?>">
+                                        </div>
+                                        <div class="form-group" hidden id="video">
+                                            <label for="vlink">Video Link</label>
+                                            <input type="url" name="vlink"  class="form-control" value="<?php if($material->type=='video'){echo $material->link;}?>" >
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="desc">Status</label>
+                                            <select name="status" id="status" class="form-control">
+                                                <option value="show" <?php if($material->status=='show'){echo 'selected="selected"';}?>>Show</option>
+                                                <option value="hide" <?php if($material->status=='hide'){echo 'selected="selected"';}?>>Hide</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="date">Description</label>
+                                            <textarea name="description" id="editor" cols="30" rows="10"><?=$material->description?></textarea>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <?php if(count($errors)>0):?>
-                            <div class="alert alert-danger">
-                                <ul>
-                                    <?php foreach ($errors as $errors):?>
-                                        <?php foreach ($errors as $error):?>
-                                            <p><?=$error?></p>
-                                        <?php endforeach;?>
-                                    <?php endforeach;?>
-                                </ul>
-                            </div>
+                            <?php partial('admin/verrors',['errors'=>$errors]);?>
                         <?php endif;?>
                     </div>
                     <!-- /.box-body -->
@@ -145,6 +128,7 @@ $fields=$request['fields'];
 
                 </div>
                 <?php close_form()?>
+
             </div>
                 <!-- /.modal-dialog -->
         </div>
