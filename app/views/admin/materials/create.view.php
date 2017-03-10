@@ -1,4 +1,4 @@
-<?php partial('admin/header',['title','Materials Admin'])?>
+<?php partial('admin/header',['title'=>'Materials Admin'])?>
 <?php
 $request=\App\Core\Session::get('request');
 \App\Core\Session::delete('request');

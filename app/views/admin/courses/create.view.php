@@ -1,4 +1,4 @@
-<?php partial('admin/header',['title','Courses Admin'])?>
+<?php partial('admin/header',['title'=>'Courses Admin'])?>
 <?php
 $request=\App\Core\Session::get('request');
 \App\Core\Session::delete('request');

@@ -1,4 +1,4 @@
-<?php partial('admin/header',['title','All Requests'])?>
+<?php partial('admin/header',['title'=>'All Requests'])?>
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>

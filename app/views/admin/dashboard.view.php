@@ -1,4 +1,4 @@
-<?php partial('admin/header',['title','Dashboard'])?>
+<?php partial('admin/header',['title'=>'Dashboard'])?>
 
 <!-- Content Header (Page header) -->
 <section class="content-header">

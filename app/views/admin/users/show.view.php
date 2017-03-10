@@ -1,4 +1,4 @@
-<?php partial('admin/header',['title',$user->username])?>
+<?php partial('admin/header',['title'=>$user->username])?>
 <?php
 $request=\App\Core\Session::get('request');
 $errors=$request['errors'];

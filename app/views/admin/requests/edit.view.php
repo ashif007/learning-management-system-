@@ -1,4 +1,4 @@
-<?php partial('admin/header',['title','Request Edit'])?>
+<?php partial('admin/header',['title'=>'Request Edit'])?>
 <?php
 $request=\App\Core\Session::get('request');
 $errors=$request['errors'];
