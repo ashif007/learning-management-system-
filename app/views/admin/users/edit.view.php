@@ -3,7 +3,7 @@
 $request=\App\Core\Session::get('request');
 $errors=$request['errors'];
 $fields=$request['fields'];
-\App\Core\Session::delete('request');
+\App\Core\Session::delete('request',['title','User Edit']);
 ?>
 <!-- Content Header (Page header) -->
 <section class="content-header">

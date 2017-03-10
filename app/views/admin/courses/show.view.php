@@ -1,4 +1,4 @@
-<?php partial('admin/header')?>
+<?php partial('admin/header',['title',$course->title])?>
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
