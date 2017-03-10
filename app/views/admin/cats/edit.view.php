@@ -3,6 +3,7 @@
 $request=\App\Core\Session::get('request');
 $errors=$request['errors'];
 $fields=$request['fields'];
+//dispalyForDebug($cat);
 ?>
     <!-- Content Header (Page header) -->
     <section class="content-header">
