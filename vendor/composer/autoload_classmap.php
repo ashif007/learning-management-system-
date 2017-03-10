@@ -12,7 +12,7 @@ return array(
     'App\\Controllers\\CommentController' => $baseDir . '/app/controllers/CommentController.php',
     'App\\Controllers\\CoursesController' => $baseDir . '/app/controllers/CoursesController.php',
     'App\\Controllers\\PagesController' => $baseDir . '/app/controllers/PagesController.php',
-    'App\\Controllers\\PostController' => $baseDir . '/app/controllers/PostController.php',
+    'App\\Controllers\\PostController' => $baseDir . '/app/controllers/MaterialController.php',
     'App\\Controllers\\RequestController' => $baseDir . '/app/controllers/RequestController.php',
     'App\\Controllers\\UserController' => $baseDir . '/app/controllers/UserController.php',
     'App\\Core\\App' => $baseDir . '/core/App.php',

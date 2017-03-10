@@ -18,10 +18,17 @@
         <div class="box-comment">
             <!-- User image -->
             <img class="img-circle img-sm" src="<?=$comment->user()->image?>" alt="User Image">
-
+            <?php if(\App\Core\Session::getLoginUser()->id==$comment->uid):?>
+                <?php \App\Core\Session::saveBackUrl()?>
+                <?php start_form('delete',"/comments/$req->id")?>
+                <button type="submit" style="border: none;background-color: rgba(0,0,0,0); color:#9f191f" class="pull-right">
+                    <span class="fa fa-remove"></span>
+                </button>
+                <?php close_form()?>
+            <?php endif?>
             <div class="comment-text">
                       <span class="username">
-                        <?= $comment->user()->username?>
+                        <a href="/users/<?= $comment->user()->id?>"><?= $comment->user()->username?></a>
                         <span class="text-muted pull-right"><?= $comment->updated_at?></span>
                       </span><!-- /.username -->
                <?= $comment->body?>

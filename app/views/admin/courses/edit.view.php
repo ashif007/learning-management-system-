@@ -3,107 +3,284 @@
 $request=\App\Core\Session::get('request');
 $errors=$request['errors'];
 $fields=$request['fields'];
+if(isset($fields['cid'])){
+    $mfields=$fields;
+}
+\App\Core\Session::delete('request');
 ?>
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <h1>
-            Courses
-            <small>description</small>
-        </h1>
-        breadcrumb
-    </section>
-    <!-- Main content -->
-    <section class="content">
-            <div class="modal-dialog" style="width:60%">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title">Edit Course</h4>
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Courses
+        <small>Course Edit</small>
+    </h1>
+    breadcrumb
+</section>
+<!-- Main content -->
+<section class="content">
+
+    <div class="nav-tabs-custom">
+        <ul class="nav nav-tabs">
+            <li><h4 style="padding-left: 10px"><?=$course->title?></h4></li>
+            <li><a href="#materials" data-toggle="tab">Materials</a></li>
+            <li class="dropdown pull-right">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                    <i class="fa fa-gear"></i> Options <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-toggle="modal" data-target="#editdetails" ><i class="fa fa-edit"></i>Edit Details</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-toggle="modal" data-target="#addmaterial" ><i class="fa fa-edit"></i>Add Material</a></li>
+                </ul>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="details">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <img src="<?php asset($course->image)?>" alt="" class="img-responsive">
                     </div>
-                    <?php start_form('put',"/courses/$course->id",['enctype'=>"multipart/form-data"])?>
-                    <div class="box box-solid">
-                        <!-- /.box-header -->
-                        <div class="box-body">
-                            <div class="box-group" id="accordion">
-                                <!-- we are adding the .panel class so bootstrap.js collapse plugin detects it -->
-                                <div class="panel box box-primary">
-                                    <div class="box-header with-border">
+                    <div class="col-sm-3">
+                        <h5>Title: <span class="text-green"><?=$course->title?></span></h5>
+                        <h5>Category: <span class="text-green"><?=$course->category()->name?></span></h5>
+                        <h5>Start Date: <span class="text-green"><?=$course->start?></span></h5>
+                        <h5>End Date: <span class="text-green"><?=$course->end?></span></h5>
+                        <hr>
+                    </div>
+                    <div class="col-sm-3">
+                        <h5>Materials: <span class="text-green"><?=count($course->materials())?></span></h5>
+                        <h5>Rate: <span class="text-green"><?=$course->rate?></span></h5>
+                        <h5>Added At: <span class="text-green"><?=$course->created_at?></span></h5>
+                        <h5>Last Update: <span class="text-green"><?=$course->updated_at?></span></h5>
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <?= $course->description?>
+                </div>
+            </div>
+            <!-- /.tab-pane -->
+            <div class="tab-pane" id="materials">
+                <table id="indextable" class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Link</th>
+                        <th>Status</th>
+                        <th>Type</th>
+                        <th>Download Count</th>
+                        <th>Created at</th>
+                        <th>Last update</th>
+                        <th>Edit</th>
+                        <th>View</th>
+                        <th>Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php if(count($course->materials())>0):?>
+                        <?php foreach ($course->materials() as $material):?>
+                            <tr>
+                                <td><?= $material->name?></td>
+                                <td><a href="<?= $material->link ?>"><?= $material->link?></a></td>
+                                <td><?=$material->status?></td>
+                                <td><?=$material->type?></td>
+                                <td><?=$material->downloaded?></td>
+                                <td><?= $material->created_at?></td>
+                                <td><?= $material->updated_at?></td>
+                                <td><a href="/materials/<?=$material->id?>/edit"><span class="fa fa-edit"></span></a></td>
+                                <td><a href="/materials/<?=$material->id?>"><span class="fa fa-book"></span></a></td>
+                                <td>
+                                    <?php start_form('delete',"/materials/$material->id")?>
+                                    <?php \App\Core\Session::saveBackUrl()?>
+                                    <button type="submit" style="border: none;background-color: rgba(0,0,0,0); color:#9f191f">
+                                        <span class="fa fa-remove"></span>
+                                    </button>
+                                    <?php close_form()?>
+                                </td>
+                            </tr>
+                        <?php endforeach;?>
+                    <?php endif;?>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <th>Name</th>
+                        <th>Link</th>
+                        <th>Status</th>
+                        <th>Type</th>
+                        <th>Download Count</th>
+                        <th>Created at</th>
+                        <th>Last update</th>
+                        <th>Edit</th>
+                        <th>View</th>
+                        <th>Delete</th>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
 
-                                    </div>
-                                    <div id="basicinfo" class="panel-collapse collapse in">
-                                        <div class="box-body">
-                                            <div class="form-group">
-                                                <label for="title">title</label>
-                                                <input type="text" name="title" value="<?php echo $course->title; ?>" class="form-control">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="image">image</label>
-                                                <input type="file"  name="image" class="form-control">
-                                                <img src="/uploads/<?php echo $course->image;?>" height="200" width="300" />
+        </div>
+        <!-- /.tab-content -->
+    </div>
 
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="desc">Description</label>
-                                                <textarea id="desc" name="desc" class="form-control"><?php echo $course->description; ?></textarea>
 
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="date">start</label>
-                                                <input type="date" name="start" class="form-control">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="date">end</label>
-                                                <input type="date" name="end" class="form-control">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="cat">Category</label>
-                                                <select name="cat" id="cat" class="form-control">
-                                                    <?php foreach ($cats as $cat):?>
-                                                        <?php if ($cat->id == $course->cid) : ?>
-                                                            <option value="<?= $cat->id ?>" selected><?= $cat->name ?></option>
-                                                        <?php else  : ?>
-                                                            <option value="<?= $cat->id ?>" selected><?= $cat->name ?></option>
-                                                        <?php endif; ?>
-                                                    <?php endforeach?>
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="rank">Rate</label>
-                                                <input type="number" value="<?php echo $course->rate; ?>" id="rank" name="rank" class="form-control">
-                                            </div>
+    <div class="modal fade" id="editdetails" tabindex="-1" role="dialog" aria-labelledby="Edit Details" aria-hidden="true" >
+        <div class="modal-dialog" style="width:60%">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title">Edit <?= $course->title?> Info</h4>
+                </div>
+                <?php start_form('put',"/courses/$course->id")?>
+                <div class="box box-solid">
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <div class="box-group" id="accordion">
+                            <!-- we are adding the .panel class so bootstrap.js collapse plugin detects it -->
+                            <div class="panel box box-primary">
+                                <div class="box-header with-border">
+                                    <h4 class="box-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#basicinfo">
+                                            Basic Info
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="basicinfo" class="panel-collapse collapse in">
+                                    <div class="box-body">
+                                        <div class="form-group">
+                                            <label for="title">Title</label>
+                                            <input type="text" name="title" class="form-control" value="<?=$course->title?>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="image">Image</label>
+                                            <img src="<?=$course->image?>" alt="">
+                                            <input type="file" name="image" class="form-control" >
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="desc">Description</label>
+                                            <textarea id="editor" name="desc" class="form-control"><?=$course->description?>"</textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="date">Start Date</label>
+                                            <input type="date" name="start" class="form-control" value="<?=date("Y-m-d",strtotime($course->start))?>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="date">End Date</label>
+                                            <input type="date" name="end" class="form-control" value="<?=date("Y-m-d",strtotime($course->end))?>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="cat">Category</label>
+                                            <select name="cat" id="cat" class="form-control">
+                                                <?php foreach ($cats as $cat):?>
+                                                    <?php if($cat->id==$course->cid):?>
+                                                        <option value="<?= $cat->id ?>" selected="selected"><?= $cat->name ?></option>
+                                                    <?php else:?>
+                                                        <option value="<?= $cat->id ?>"><?= $cat->name ?></option>
+                                                    <?php endif?>
+                                                <?php endforeach?>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="rank">Rate</label>
+                                            <input type="number" id="rank" name="rank" class="form-control" value="<?=$course->rate?>">
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <?php if(count($errors)>0):?>
-                                <div class="alert alert-danger">
-                                    <ul>
-                                        <?php foreach ($errors as $field=>$error):?>
-                                            <li><strong><?= $field.' ' ?></strong><?= ' '.$error[0] ?></li>
-                                        <?php endforeach;?>
-                                    </ul>
-                                </div>
-                            <?php endif;?>
                         </div>
-                        <!-- /.box-body -->
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Create</button>
-                        </div>
-
+                        <?php if(count($errors)>0):?>
+                            <?php partial('admin/verrors',['errors'=>$errors]);?>
+                        <?php endif;?>
                     </div>
-                    <?php close_form()?>
-                </div>
-            </div>
-    </section>
-    <!-- /.content -->
+                    <!-- /.box-body -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </div>
 
+                </div>
+                <?php close_form()?>
+
+            </div>
+                <!-- /.modal-dialog -->
+        </div>
+    </div>
+    <div class="modal fade" id="addmaterial" tabindex="-1" role="dialog" aria-labelledby="Edit Details" aria-hidden="true" >
+        <div class="modal-dialog" style="width:60%">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title">Add Material</h4>
+                </div>
+                <?php start_form('post',"/materials")?>
+                <div class="box box-solid">
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <div class="box-group" id="accordion">
+                            <!-- we are adding the .panel class so bootstrap.js collapse plugin detects it -->
+                            <div class="panel box box-primary">
+                                <div class="box-header with-border">
+                                    <h4 class="box-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#basicinfo">
+                                            Basic Info
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="basicinfo" class="panel-collapse collapse in">
+                                    <div class="box-body">
+                                        <input type="hidden" name="cid" value="<?=$course->id?>">
+                                        <div class="form-group">
+                                            <label for="title">Name</label>
+                                            <input type="text" name="name" class="form-control" value="<?=isset($mfields['name'])?$mfields['name']:''?>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="type">Type</label>
+                                            <select name="type" id="type" class="form-control">
+                                                <option value="pdf" <?php if($mfields['type']=='pdf'){echo 'selected="selected"';}?>>Pdf</option>
+                                                <option value="doc" <?php if($mfields['type']=='doc'){echo 'selected="selected"';}?>>Word</option>
+                                                <option value="ppt" <?php if($mfields['type']=='ppt'){echo 'selected="selected"';}?>>PowerPoint</option>
+                                                <option value="video" <?php if($mfields['type']=='video'){echo 'selected="selected"';}?>>Video</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="link">File</label>
+                                            <input type="file" name="link" class="form-control" value="<?php if($mfields['type']!='video'){echo $mfields['link'];}?>">
+                                            <label for="vlink">Video Link</label>
+                                            <input type="url" name="vlink" id="video" class="form-control" value="<?php if($mfields['type']=='video'){echo $mfields['link'];}?>" >
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="desc">Status</label>
+                                            <select name="status" id="status" class="form-control">
+                                                <option value="show" <?php if($mfields['status']=='show'){echo 'selected="selected"';}?>>Show</option>
+                                                <option value="hide" <?php if($mfields['status']=='hide'){echo 'selected="selected"';}?>>Hide</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="date">Description</label>
+                                            <textarea name="description" id="editor" cols="30" rows="10"><?=isset($mfields['description'])?$mfields['description']:''?></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <?php if(count($errors)>0):?>
+                            <?php partial('admin/verrors',['errors'=>$errors]);?>
+                        <?php endif;?>
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </div>
+
+                </div>
+                <?php close_form()?>
+
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+    </div>
+
+</section>
+    <!-- /.content -->
 <?php partial('admin/footer')?>
-    <script src="<?php echo views_dir(); ?>admin/courses/course.js" type="text/javascript" ></script>
-<?php if(count($errors)>0):?>
-    <script>
-        console.log(jquery);
-        document.getElementById('addBt').click();
-    </script>
-    <?php \App\Core\Session::delete('request');
-endif;
-?>

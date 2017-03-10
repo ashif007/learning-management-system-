@@ -78,7 +78,7 @@ class ComposerStaticInit9a5fb7a4ecd58ccb19e25949a456f083
         'App\\Controllers\\CommentController' => __DIR__ . '/../..' . '/app/controllers/CommentController.php',
         'App\\Controllers\\CoursesController' => __DIR__ . '/../..' . '/app/controllers/CoursesController.php',
         'App\\Controllers\\PagesController' => __DIR__ . '/../..' . '/app/controllers/PagesController.php',
-        'App\\Controllers\\PostController' => __DIR__ . '/../..' . '/app/controllers/PostController.php',
+        'App\\Controllers\\PostController' => __DIR__ . '/../..',
         'App\\Controllers\\RequestController' => __DIR__ . '/../..' . '/app/controllers/RequestController.php',
         'App\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/controllers/UserController.php',
         'App\\Core\\App' => __DIR__ . '/../..' . '/core/App.php',

@@ -86,5 +86,8 @@ class CategoryController extends Controller implements ResourceInterface
         $category=Category::retrieveByPK($id);
         $category->delete();
         Session::set('message',"Category Deleted Successfully");
+        $url=Session::get('back_url');
+        Session::delete('back_url');
+        redirect($url);
     }
 }

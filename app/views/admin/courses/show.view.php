@@ -65,15 +65,15 @@
                                                 <div class="form-group">
                                                     <label for="gender">Gender</label>
                                                     <select name="gender" id="" class="form-control">
-                                                        <option value="male" <?php if($user->gender=='male'){echo 'selected="selected"';}?>>Male</option>
-                                                        <option value="female" <?php if($user->gender=='female'){echo 'selected="selected"';}?>>Female</option>
+                                                        <option value="male">Male</option>
+                                                        <option value="female">Female</option>
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="country">Country</label>
                                                     <select name="country" id="" class="form-control">
-                                                        <option value="egypt" <?php if($user->country=='egypt'){echo 'selected="selected"';}?>>Egypt</option>
-                                                        <option value="other" <?php if($user->country=='others'){echo 'selected="selected"';}?>>Other</option>
+                                                        <option value="egypt">Egypt</option>
+                                                        <option value="other">Other</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -128,7 +128,15 @@
                                     </div>
                                 </div>
                                 <?php if(count($errors)>0):?>
-                                   <?php partial('admin/verrors',['errors'=>$errors])?>
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            <?php foreach ($errors as $errors):?>
+                                                <?php foreach ($errors as $error):?>
+                                                    <p><?=$error?></p>
+                                                <?php endforeach;?>
+                                            <?php endforeach;?>
+                                        </ul>
+                                    </div>
                                 <?php endif;?>
                             </div>
                             <!-- /.box-body -->

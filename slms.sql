@@ -27,7 +27,7 @@ CREATE TABLE `category` (
   `name` varchar(75) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -47,7 +47,7 @@ CREATE TABLE `comments` (
   PRIMARY KEY (`id`),
   KEY `fk_comments_1_idx` (`uid`),
   CONSTRAINT `fk_comments_1` FOREIGN KEY (`uid`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -65,7 +65,6 @@ CREATE TABLE `course` (
   `end` timestamp NULL DEFAULT NULL,
   `title` varchar(255) NOT NULL,
   `description` text NOT NULL,
-  `tid` int(10) NOT NULL,
   `rate` int(5) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -73,10 +72,8 @@ CREATE TABLE `course` (
   KEY `cat_id` (`cid`),
   KEY `cat_id_2` (`cid`),
   KEY `cat_id_3` (`cid`),
-  KEY `teacher_id` (`tid`),
-  CONSTRAINT `course_ibfk_1` FOREIGN KEY (`cid`) REFERENCES `category` (`id`),
-  CONSTRAINT `course_ibfk_2` FOREIGN KEY (`tid`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  CONSTRAINT `course_ibfk_1` FOREIGN KEY (`cid`) REFERENCES `category` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -89,10 +86,11 @@ DROP TABLE IF EXISTS `material`;
 CREATE TABLE `material` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `cid` int(10) NOT NULL,
+  `downloaded` int(11) NOT NULL DEFAULT '0',
   `link` varchar(255) NOT NULL,
   `status` varchar(50) NOT NULL DEFAULT 'show',
   `name` varchar(255) NOT NULL,
-  `type` enum('pdf','ppt','word','video') NOT NULL,
+  `type` enum('pdf','ppt','doc','video') NOT NULL,
   `description` text NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -100,7 +98,7 @@ CREATE TABLE `material` (
   KEY `course_id` (`cid`),
   KEY `course_id_2` (`cid`),
   CONSTRAINT `material_ibfk_1` FOREIGN KEY (`cid`) REFERENCES `course` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -115,10 +113,12 @@ CREATE TABLE `requests` (
   `uid` int(11) NOT NULL,
   `title` varchar(255) DEFAULT NULL,
   `body` longtext,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `fk_requests_1_idx` (`uid`),
   CONSTRAINT `fk_requests_1` FOREIGN KEY (`uid`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -137,7 +137,9 @@ CREATE TABLE `users` (
   `image` varchar(255) NOT NULL DEFAULT 'profile.jpg',
   `lastname` varchar(255) NOT NULL,
   `gender` enum('male','female') NOT NULL DEFAULT 'male',
+  `state` varchar(75) NOT NULL DEFAULT 'disabled',
   `country` varchar(75) NOT NULL DEFAULT 'egypt',
+  `online` tinyint(4) NOT NULL DEFAULT '0',
   `isbaned` tinyint(4) NOT NULL DEFAULT '0',
   `role` enum('student','teacher','admin') NOT NULL DEFAULT 'student',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -155,4 +157,4 @@ CREATE TABLE `users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-03-08  7:09:41
+-- Dump completed on 2017-03-10 18:02:10

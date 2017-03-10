@@ -33,7 +33,7 @@ $fields=$request['fields'];
             <div class="tab-pane active" id="details">
                 <div class="row">
                     <div class="col-sm-3">
-                        <img src="<?php asset($users->image)?>" alt="" class="img-responsive">
+                        <img src="<?php asset($user->image)?>" alt="" class="img-responsive">
                     </div>
                     <div class="col-sm-3">
                         <h5>First Name: <span class="text-green"><?=$user->firstname?></span></h5>
@@ -142,15 +142,15 @@ $fields=$request['fields'];
                                         <div class="form-group">
                                             <label for="gender">Gender</label>
                                             <select name="gender" id="">
-                                                <option value="male">Male</option>
-                                                <option value="female">Female</option>
+                                                <option value="male" <?php if($user->gender=='male'){echo 'selected="selected"';}?>>Male</option>
+                                                <option value="female" <?php if($user->gender=='female'){echo 'selected="selected"';}?>>Female</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label for="country">Country</label>
                                             <select name="country" id="" class="form-control">
-                                                <option value="egypt">Egypt</option>
-                                                <option value="other">Other</option>
+                                                <option value="egypt" <?php if($user->country=='egypt'){echo 'selected="selected"';}?>>Egypt</option>
+                                                <option value="other" <?php if($user->country=='others'){echo 'selected="selected"';}?>>Other</option>
                                             </select>
                                         </div>
                                     </div>
@@ -203,9 +203,8 @@ $fields=$request['fields'];
                                         <div class="form-group">
                                             <label for="role">Role</label>
                                             <select name="role" id="" class="form-control">
-                                                <option value="student">Student</option>
-                                                <option value="teacher">Teacher</option>
-                                                <option value="admin">Admin</option>
+                                                <option value="student" <?php if($user->role=='student'){echo 'selected="selected"';}?>>Student</option>
+                                                <option value="admin" <?php if($user->role=='admin'){echo 'selected="selected"';}?>>Admin</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
@@ -218,15 +217,7 @@ $fields=$request['fields'];
                             </div>
                         </div>
                         <?php if(count($errors)>0):?>
-                            <div class="alert alert-danger">
-                                <ul>
-                                    <?php foreach ($errors as $errors):?>
-                                        <?php foreach ($errors as $error):?>
-                                            <p><?=$error?></p>
-                                        <?php endforeach;?>
-                                    <?php endforeach;?>
-                                </ul>
-                            </div>
+                            <?php partial('admin/verrors',['errors'=>$errors]);?>
                         <?php endif;?>
                     </div>
                     <!-- /.box-body -->

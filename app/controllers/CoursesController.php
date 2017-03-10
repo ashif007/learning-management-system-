@@ -27,7 +27,6 @@ class CoursesController extends Controller implements ResourceInterface
 
     public function create()
     {
-        dispalyForDebug($mail = new \PHPMailer());die();
         $courses = Course::all();
         $cats = Category::all();
         return view('admin/courses/create',['courses'=>$courses, 'cats'=>$cats]);
@@ -55,13 +54,8 @@ class CoursesController extends Controller implements ResourceInterface
             $course->end = $request->get('end');
             $course->cid = $request->get('cat');
             $course->rate = $request->get('rank');
-            $course->tid =1; // dummy
-
-            try {
-                $image = uploadFile("image",$_SERVER["DOCUMENT_ROOT"]."/uploads/","",time(),getImageTypes());
-                $course->image = $image['name'];
-            } catch (\Exception $e) {
-                $e->getMessage();
+            if($request->getfile('image')){
+                $course->image=upload_file('image');
             }
             $course->save();
             Session::set('message',"User Added Successfully");
@@ -107,15 +101,10 @@ class CoursesController extends Controller implements ResourceInterface
             $course->end = $request->get('end');
             $course->cid = $request->get('cat');
             $course->rate = $request->get('rank');
-            $course->tid =2; // dummy
-            if ($_FILES['image']['name'])
-            {
-                try {
-                    $image = uploadFile("image",$_SERVER["DOCUMENT_ROOT"]."/uploads/","",time(),getImageTypes());
-                    $course->image = $image['name'];
-                } catch (\Exception $e) {
-                    $e->getMessage();
-                }
+//            $course->tid =2; // not required
+            if($request->getfile('image')){
+                delete_file($course->image);
+                $course->image=upload_file('image');
             }
             $course->update();
             Session::set('message',"Course Updated Successfully");
@@ -126,10 +115,11 @@ class CoursesController extends Controller implements ResourceInterface
 
     public function destroy($id)
     {
-        // TODO: Implement destroy() method.
         $course=Course::retrieveByPK($id);
+        delete_file($course->image);
         $course->delete();
         Session::set('message',"Course Deleted Successfully");
+        redirect(Session::getBackUrl());
     }
 
 
