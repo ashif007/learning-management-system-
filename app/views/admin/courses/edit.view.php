@@ -3,6 +3,7 @@
 $request=\App\Core\Session::get('request');
 $errors=$request['errors'];
 $fields=$request['fields'];
+$mfields=[];
 if(isset($fields['cid'])){
     $mfields=$fields;
 }
@@ -22,6 +23,7 @@ if(isset($fields['cid'])){
     <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
             <li><h4 style="padding-left: 10px"><?=$course->title?></h4></li>
+            <li><a href="#details" data-toggle="tab">Course Info</a></li>
             <li><a href="#materials" data-toggle="tab">Materials</a></li>
             <li class="dropdown pull-right">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
@@ -29,7 +31,7 @@ if(isset($fields['cid'])){
                 </a>
                 <ul class="dropdown-menu">
                     <li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-toggle="modal" data-target="#editdetails" ><i class="fa fa-edit"></i>Edit Details</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-toggle="modal" data-target="#addmaterial" ><i class="fa fa-edit"></i>Add Material</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-toggle="modal" data-target="#addmaterial" ><i class="fa fa-plus"></i>Add Material</a></li>
                 </ul>
             </li>
         </ul>
@@ -120,8 +122,6 @@ if(isset($fields['cid'])){
         </div>
         <!-- /.tab-content -->
     </div>
-
-
     <div class="modal fade" id="editdetails" tabindex="-1" role="dialog" aria-labelledby="Edit Details" aria-hidden="true" >
         <div class="modal-dialog" style="width:60%">
             <div class="modal-content">
@@ -213,6 +213,7 @@ if(isset($fields['cid'])){
                     <h4 class="modal-title">Add Material</h4>
                 </div>
                 <?php start_form('post',"/materials")?>
+                <?php \App\Core\Session::saveBackUrl()?>
                 <div class="box box-solid">
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -236,23 +237,25 @@ if(isset($fields['cid'])){
                                         <div class="form-group">
                                             <label for="type">Type</label>
                                             <select name="type" id="type" class="form-control">
-                                                <option value="pdf" <?php if($mfields['type']=='pdf'){echo 'selected="selected"';}?>>Pdf</option>
-                                                <option value="doc" <?php if($mfields['type']=='doc'){echo 'selected="selected"';}?>>Word</option>
-                                                <option value="ppt" <?php if($mfields['type']=='ppt'){echo 'selected="selected"';}?>>PowerPoint</option>
-                                                <option value="video" <?php if($mfields['type']=='video'){echo 'selected="selected"';}?>>Video</option>
+                                                <option value="pdf" <?php if(isset($mfields['type'])&&$mfields['type']=='pdf'){echo 'selected="selected"';}?>>Pdf</option>
+                                                <option value="doc" <?php if(isset($mfields['type'])&&$mfields['type']=='doc'){echo 'selected="selected"';}?>>Word</option>
+                                                <option value="ppt" <?php if(isset($mfields['type'])&&$mfields['type']=='ppt'){echo 'selected="selected"';}?>>PowerPoint</option>
+                                                <option value="video" <?php if(isset($mfields['type'])&&$mfields['type']=='video'){echo 'selected="selected"';}?>>Video</option>
                                             </select>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group" id="file">
                                             <label for="link">File</label>
-                                            <input type="file" name="link" class="form-control" value="<?php if($mfields['type']!='video'){echo $mfields['link'];}?>">
+                                            <input type="file"  name="link" class="form-control" value="<?php if(isset($mfields['type'])&&$mfields['type']!='video'){echo $mfields['link'];}?>">
+                                        </div>
+                                        <div class="form-group" hidden id="video">
                                             <label for="vlink">Video Link</label>
-                                            <input type="url" name="vlink" id="video" class="form-control" value="<?php if($mfields['type']=='video'){echo $mfields['link'];}?>" >
+                                            <input type="url" name="vlink"  class="form-control" value="<?php if(isset($mfields['type'])&&$mfields['type']=='video'){echo $mfields['link'];}?>" >
                                         </div>
                                         <div class="form-group">
                                             <label for="desc">Status</label>
                                             <select name="status" id="status" class="form-control">
-                                                <option value="show" <?php if($mfields['status']=='show'){echo 'selected="selected"';}?>>Show</option>
-                                                <option value="hide" <?php if($mfields['status']=='hide'){echo 'selected="selected"';}?>>Hide</option>
+                                                <option value="show" <?php if(isset($mfields['status'])&&$mfields['status']=='show'){echo 'selected="selected"';}?>>Show</option>
+                                                <option value="hide" <?php if(isset($mfields['status'])&&$mfields['status']=='hide'){echo 'selected="selected"';}?>>Hide</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
@@ -270,7 +273,7 @@ if(isset($fields['cid'])){
                     <!-- /.box-body -->
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Update</button>
+                        <button type="submit" class="btn btn-primary">Add</button>
                     </div>
 
                 </div>
@@ -284,3 +287,23 @@ if(isset($fields['cid'])){
 </section>
     <!-- /.content -->
 <?php partial('admin/footer')?>
+<script>
+    $(document).ready(function () {
+        if($('#type').value=="video"){
+            $('#video').show();
+            $('#file').hide();
+        }else{
+            $('#video').hide();
+            $('#file').show();
+        };
+       $('#type').on('change',function (e) {
+            if(this.value=="video"){
+                $('#video').show();
+                $('#file').hide();
+            }else{
+                $('#video').hide();
+                $('#file').show();
+            }
+       });
+    });
+</script>
