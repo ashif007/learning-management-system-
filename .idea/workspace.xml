@@ -2,28 +2,480 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0521964e-6624-4062-8120-78c30d83fba9" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/partial/admin/materials.part.php" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploads/1489150793cat_32_main_30_pro_62_1482338529hqdefault.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploads/21655a4c8db0e2cc82a94aa1fc58adec768ef78b.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploads/233dce8fd18b98a3b56c0ccd46882e360abc4ee9.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploads/3a14d114040a2827b9f3e0fe622cbac2e1a1b238.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploads/55b710e916cc7e9520645399cf5d1e3b30bfb7a3.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploads/59b06d68a40014299c0c7fb670c25a5c2d5b1cec.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploads/663ec2b5686609e6039d59154fa344597409fb83.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploads/a4d18f8dcf4c4ddf2791f9620c9d6f441fbdb546.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploads/ca450f15b11d2a3bc05879aaf9eb0d3c6d8b0677.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploads/ebf654dfd4611c64798425828729682e7433f786.jpg" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/config.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/autoload.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bin/heroku-hhvm-apache2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bin/heroku-hhvm-nginx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bin/heroku-php-apache2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bin/heroku-php-nginx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/composer/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/composer/autoload_files.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/composer/autoload_real.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/composer/installed.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/froala/wysiwyg-editor-php-sdk/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/froala/wysiwyg-editor-php-sdk/.gitmodules" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/froala/wysiwyg-editor-php-sdk/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/froala/wysiwyg-editor-php-sdk/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/froala/wysiwyg-editor-php-sdk/composer.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/froala/wysiwyg-editor-php-sdk/lib/FroalaEditor.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/froala/wysiwyg-editor-php-sdk/lib/FroalaEditor/File.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/froala/wysiwyg-editor-php-sdk/lib/FroalaEditor/Image.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/froala/wysiwyg-editor-php-sdk/lib/FroalaEditor/S3.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/froala/wysiwyg-editor-php-sdk/lib/FroalaEditor/Utils/DiskManagement.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/froala/wysiwyg-editor-php-sdk/lib/FroalaEditor/Utils/Utils.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/froala/wysiwyg-editor-php-sdk/lib/autoload.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/.travis.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/CHANGELOG.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/UPGRADING.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/composer.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Client.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/ClientInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Cookie/CookieJar.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Cookie/CookieJarInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Cookie/FileCookieJar.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Cookie/SessionCookieJar.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Cookie/SetCookie.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Exception/BadResponseException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Exception/ClientException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Exception/ConnectException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Exception/GuzzleException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Exception/SeekException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Exception/ServerException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Exception/TooManyRedirectsException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Exception/TransferException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Handler/CurlFactory.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Handler/CurlFactoryInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Handler/CurlHandler.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Handler/CurlMultiHandler.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Handler/EasyHandle.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Handler/MockHandler.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Handler/Proxy.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Handler/StreamHandler.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/HandlerStack.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/MessageFormatter.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Middleware.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/Pool.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/PrepareBodyMiddleware.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/RedirectMiddleware.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/RequestOptions.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/RetryMiddleware.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/TransferStats.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/UriTemplate.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/functions.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/src/functions_include.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/CHANGELOG.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/Makefile" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/composer.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/AggregateException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/CancellationException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/Coroutine.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/EachPromise.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/FulfilledPromise.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/Promise.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/PromiseInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/PromisorInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/RejectedPromise.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/RejectionException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/TaskQueue.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/TaskQueueInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/functions.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/promises/src/functions_include.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/CHANGELOG.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/composer.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/AppendStream.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/BufferStream.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/CachingStream.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/DroppingStream.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/FnStream.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/InflateStream.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/LazyOpenStream.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/LimitStream.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/MessageTrait.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/MultipartStream.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/NoSeekStream.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/PumpStream.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/Request.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/Response.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/ServerRequest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/Stream.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/StreamDecoratorTrait.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/StreamWrapper.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/UploadedFile.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/Uri.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/UriNormalizer.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/UriResolver.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/functions.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/guzzlehttp/psr7/src/functions_include.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/.travis.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/CHANGELOG.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/bin/compile" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/bin/detect" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/bin/heroku-hhvm-apache2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/bin/heroku-hhvm-nginx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/bin/heroku-php-apache2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/bin/heroku-php-nginx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/bin/release" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/bin/test-compile" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/bin/util/autotune.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/bin/util/blackfire.sh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/bin/util/common.sh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/bin/util/newrelic.sh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/bin/util/platform.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/composer.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/conf/apache2/default_include.conf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/conf/apache2/heroku.conf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/conf/hhvm/php.ini.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/conf/nginx/default_include.conf.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/conf/nginx/heroku.conf.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/conf/php/php-fpm.conf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/requirements.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/_conf/apache2/httpd.conf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/_conf/nginx/nginx.conf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/_conf/php/conf.d/010-ext-zend_opcache.ini" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/_conf/php/php.ini" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/_docker/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/_docker/cedar-14.Dockerfile" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/_docker/env.default" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/_docker/heroku-16.Dockerfile" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/_util/deploy.sh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/_util/include/manifest.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/_util/include/manifest.sh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/_util/mkrepo.sh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/_util/remove.sh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/_util/sync.sh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/apache" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/apache-2.4.20" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/composer" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/composer-1.3.2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20121212/apcu" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20121212/apcu-4.0.11" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20121212/blackfire" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20121212/blackfire-1.14.3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20121212/cassandra" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20121212/cassandra-1.2.2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20121212/cassandra-bare" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20121212/cassandra-bare-1.2.2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20121212/ev" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20121212/ev-1.0.4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20121212/event" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20121212/event-2.2.1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20121212/imagick" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20121212/imagick-3.4.3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20121212/memcached" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20121212/memcached-2.2.0" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20121212/memcached-bare" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20121212/memcached-bare-2.2.0" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20121212/mongo" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20121212/mongo-1.6.14" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20121212/mongodb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20121212/mongodb-1.2.5" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20121212/newrelic" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20121212/newrelic-6.9.0.182" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20121212/oauth" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20121212/oauth-1.2.3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20121212/phalcon" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20121212/phalcon-2.0.13" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20121212/phalcon-3.0.3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20121212/pq" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20121212/pq-1.1.1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20121212/raphf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20121212/raphf-1.1.2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20121212/rdkafka" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20121212/rdkafka-3.0.1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20121212/rdkafka-bare" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20121212/rdkafka-bare-3.0.1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20121212/redis" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20121212/redis-3.1.1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20131226/amqp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20131226/amqp-1.8.0" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20131226/apcu-4.0.11" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20131226/blackfire" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20131226/blackfire-1.14.3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20131226/cassandra-1.2.2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20131226/cassandra-bare-1.2.2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20131226/ev-1.0.4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20131226/event-2.2.1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20131226/imagick-3.4.3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20131226/memcached-2.2.0" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20131226/memcached-bare-2.2.0" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20131226/mongo-1.6.14" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20131226/mongodb-1.2.5" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20131226/newrelic-6.9.0.182" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20131226/oauth-1.2.3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20131226/phalcon-2.0.13" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20131226/phalcon-3.0.3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20131226/pq-1.1.1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20131226/raphf-1.1.2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20131226/rdkafka-3.0.1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20131226/rdkafka-bare-3.0.1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20131226/redis-3.1.1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20151012/amqp-1.8.0" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20151012/apcu" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20151012/apcu-5.1.8" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20151012/blackfire" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20151012/blackfire-1.14.3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20151012/cassandra-1.2.2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20151012/cassandra-bare-1.2.2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20151012/ev-1.0.4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20151012/event-2.2.1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20151012/imagick-3.4.3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20151012/memcached-3.0.3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20151012/memcached-bare-3.0.3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20151012/mongodb-1.2.5" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20151012/newrelic-6.9.0.182" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20151012/oauth-2.0.2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20151012/phalcon-3.0.3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20151012/pq-2.1.1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20151012/raphf-2.0.0" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20151012/rdkafka-3.0.1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20151012/rdkafka-bare-3.0.1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20151012/redis-3.1.1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20160303/amqp-1.8.0" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20160303/apcu-5.1.8" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20160303/blackfire" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20160303/blackfire-1.14.3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20160303/cassandra-1.2.2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20160303/cassandra-bare-1.2.2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20160303/ev-1.0.4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20160303/event-2.2.1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20160303/imagick-3.4.3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20160303/memcached-3.0.3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20160303/memcached-bare-3.0.3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20160303/mongodb-1.2.5" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20160303/newrelic-6.9.0.182" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20160303/oauth-2.0.2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20160303/pq-2.1.1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20160303/raphf-2.0.0" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20160303/rdkafka-3.0.1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20160303/rdkafka-bare-3.0.1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/no-debug-non-zts-20160303/redis-3.1.1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/extensions/pecl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/hhvm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/hhvm-3.5.1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/libraries/libc-client" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/libraries/libc-client-2007f" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/libraries/libcassandra" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/libraries/libcassandra-2.4.2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/libraries/libmcrypt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/libraries/libmcrypt-2.5.8" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/libraries/libmemcached" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/libraries/libmemcached-1.0.18" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/libraries/librdkafka" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/libraries/librdkafka-0.9.3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/nginx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/nginx-1.8.1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/php-5.5.38" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/php-5.6.30" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/php-7.0.16" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/php-7.1.2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/php-min" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/build/php-min-7.0.16" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/installer/composer.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/installer/src/ComposerInstaller.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/installer/src/ComposerInstallerPlugin.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/heroku/heroku-buildpack-php/support/installer/src/Downloader.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/league/oauth2-client/CHANGELOG.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/league/oauth2-client/CONTRIBUTING.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/league/oauth2-client/CREDITS.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/league/oauth2-client/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/league/oauth2-client/README.PROVIDER-GUIDE.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/league/oauth2-client/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/league/oauth2-client/composer.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/league/oauth2-client/src/Grant/AbstractGrant.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/league/oauth2-client/src/Grant/AuthorizationCode.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/league/oauth2-client/src/Grant/ClientCredentials.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/league/oauth2-client/src/Grant/Exception/InvalidGrantException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/league/oauth2-client/src/Grant/GrantFactory.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/league/oauth2-client/src/Grant/Password.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/league/oauth2-client/src/Grant/RefreshToken.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/league/oauth2-client/src/Provider/AbstractProvider.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/league/oauth2-client/src/Provider/Exception/IdentityProviderException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/league/oauth2-client/src/Provider/GenericProvider.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/league/oauth2-client/src/Provider/GenericResourceOwner.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/league/oauth2-client/src/Provider/ResourceOwnerInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/league/oauth2-client/src/Token/AccessToken.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/league/oauth2-client/src/Tool/ArrayAccessorTrait.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/league/oauth2-client/src/Tool/BearerAuthorizationTrait.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/league/oauth2-client/src/Tool/MacAuthorizationTrait.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/league/oauth2-client/src/Tool/QueryBuilderTrait.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/league/oauth2-client/src/Tool/RequestFactory.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/league/oauth2-client/src/Tool/RequiredParameterTrait.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/paragonie/random_compat/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/paragonie/random_compat/build-phar.sh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/paragonie/random_compat/composer.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/paragonie/random_compat/dist/random_compat.phar.pubkey" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/paragonie/random_compat/dist/random_compat.phar.pubkey.asc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/paragonie/random_compat/lib/byte_safe_strings.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/paragonie/random_compat/lib/cast_to_int.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/paragonie/random_compat/lib/error_polyfill.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/paragonie/random_compat/lib/random.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/paragonie/random_compat/lib/random_bytes_com_dotnet.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/paragonie/random_compat/lib/random_bytes_dev_urandom.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/paragonie/random_compat/lib/random_bytes_libsodium.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/paragonie/random_compat/lib/random_bytes_libsodium_legacy.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/paragonie/random_compat/lib/random_bytes_mcrypt.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/paragonie/random_compat/lib/random_int.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/paragonie/random_compat/other/build_phar.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/paragonie/random_compat/psalm-autoload.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/paragonie/random_compat/psalm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/PHPMailerAutoload.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/VERSION" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/class.phpmailer.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/class.phpmaileroauth.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/class.phpmaileroauthgoogle.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/class.pop3.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/class.smtp.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/composer.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/composer.lock" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/examples/DKIM.phps" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/examples/code_generator.phps" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/examples/contactform.phps" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/examples/contents.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/examples/contentsutf8.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/examples/exceptions.phps" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/examples/gmail.phps" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/examples/gmail_xoauth.phps" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/examples/images/phpmailer.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/examples/images/phpmailer_mini.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/examples/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/examples/mail.phps" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/examples/mailing_list.phps" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/examples/pop_before_smtp.phps" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/examples/scripts/XRegExp.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/examples/scripts/shAutoloader.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/examples/scripts/shBrushPhp.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/examples/scripts/shCore.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/examples/scripts/shLegacy.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/examples/send_file_upload.phps" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/examples/send_multiple_file_upload.phps" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/examples/sendmail.phps" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/examples/signed-mail.phps" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/examples/smtp.phps" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/examples/smtp_check.phps" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/examples/smtp_no_auth.phps" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/examples/ssl_options.phps" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/examples/styles/shCore.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/examples/styles/shCoreDefault.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/examples/styles/shCoreDjango.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/examples/styles/shCoreEclipse.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/examples/styles/shCoreEmacs.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/examples/styles/shCoreFadeToGrey.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/examples/styles/shCoreMDUltra.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/examples/styles/shCoreMidnight.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/examples/styles/shCoreRDark.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/examples/styles/shThemeAppleScript.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/examples/styles/shThemeDefault.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/examples/styles/shThemeDjango.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/examples/styles/shThemeEclipse.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/examples/styles/shThemeEmacs.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/examples/styles/shThemeFadeToGrey.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/examples/styles/shThemeMDUltra.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/examples/styles/shThemeMidnight.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/examples/styles/shThemeRDark.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/examples/styles/shThemeVisualStudio.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/examples/styles/wrapping.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/extras/EasyPeasyICS.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/extras/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/extras/htmlfilter.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/extras/ntlm_sasl_client.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/get_oauth_token.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/language/phpmailer.lang-am.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/language/phpmailer.lang-ar.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/language/phpmailer.lang-az.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/language/phpmailer.lang-be.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/language/phpmailer.lang-bg.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/language/phpmailer.lang-ca.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/language/phpmailer.lang-ch.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/language/phpmailer.lang-cs.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/language/phpmailer.lang-da.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/language/phpmailer.lang-de.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/language/phpmailer.lang-el.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/language/phpmailer.lang-eo.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/language/phpmailer.lang-es.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/language/phpmailer.lang-et.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/language/phpmailer.lang-fa.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/language/phpmailer.lang-fi.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/language/phpmailer.lang-fo.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/language/phpmailer.lang-fr.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/language/phpmailer.lang-gl.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/language/phpmailer.lang-he.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/language/phpmailer.lang-hr.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/language/phpmailer.lang-hu.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/language/phpmailer.lang-id.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/language/phpmailer.lang-it.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/language/phpmailer.lang-ja.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/language/phpmailer.lang-ka.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/language/phpmailer.lang-ko.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/language/phpmailer.lang-lt.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/language/phpmailer.lang-lv.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/language/phpmailer.lang-ms.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/language/phpmailer.lang-nb.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/language/phpmailer.lang-nl.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/language/phpmailer.lang-pl.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/language/phpmailer.lang-pt.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/language/phpmailer.lang-pt_br.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/language/phpmailer.lang-ro.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/language/phpmailer.lang-ru.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/language/phpmailer.lang-sk.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/language/phpmailer.lang-sl.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/language/phpmailer.lang-sr.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/language/phpmailer.lang-sv.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/language/phpmailer.lang-tr.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/language/phpmailer.lang-uk.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/language/phpmailer.lang-vi.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/language/phpmailer.lang-zh.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/phpmailer/phpmailer/language/phpmailer.lang-zh_cn.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/psr/http-message/CHANGELOG.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/psr/http-message/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/psr/http-message/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/psr/http-message/composer.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/psr/http-message/src/MessageInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/psr/http-message/src/RequestInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/psr/http-message/src/ResponseInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/psr/http-message/src/ServerRequestInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/psr/http-message/src/StreamInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/psr/http-message/src/UploadedFileInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/psr/http-message/src/UriInterface.php" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/AuthController.php" afterPath="$PROJECT_DIR$/app/controllers/AuthController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/MaterialController.php" afterPath="$PROJECT_DIR$/app/controllers/MaterialController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/courses/create.view.php" afterPath="$PROJECT_DIR$/app/views/admin/courses/create.view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/courses/edit.view.php" afterPath="$PROJECT_DIR$/app/views/admin/courses/edit.view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/courses/index.view.php" afterPath="$PROJECT_DIR$/app/views/admin/courses/index.view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/courses/show.view.php" afterPath="$PROJECT_DIR$/app/views/admin/courses/show.view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/dashboard.view.php" afterPath="$PROJECT_DIR$/app/views/admin/dashboard.view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/materials/create.view.php" afterPath="$PROJECT_DIR$/app/views/admin/materials/create.view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/materials/edit.view.php" afterPath="$PROJECT_DIR$/app/views/admin/materials/edit.view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/materials/index.view.php" afterPath="$PROJECT_DIR$/app/views/admin/materials/index.view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/materials/show.view.php" afterPath="$PROJECT_DIR$/app/views/admin/materials/show.view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/requests/create.view.php" afterPath="$PROJECT_DIR$/app/views/admin/requests/create.view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/requests/edit.view.php" afterPath="$PROJECT_DIR$/app/views/admin/requests/edit.view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/requests/index.view.php" afterPath="$PROJECT_DIR$/app/views/admin/requests/index.view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/requests/show.view.php" afterPath="$PROJECT_DIR$/app/views/admin/requests/show.view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/users/create.view.php" afterPath="$PROJECT_DIR$/app/views/admin/users/create.view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/CoursesController.php" afterPath="$PROJECT_DIR$/app/controllers/CoursesController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/UserController.php" afterPath="$PROJECT_DIR$/app/controllers/UserController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes.php" afterPath="$PROJECT_DIR$/app/routes.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/users/edit.view.php" afterPath="$PROJECT_DIR$/app/views/admin/users/edit.view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/users/index.view.php" afterPath="$PROJECT_DIR$/app/views/admin/users/index.view.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/users/show.view.php" afterPath="$PROJECT_DIR$/app/views/admin/users/show.view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/Session.php" afterPath="$PROJECT_DIR$/core/Session.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/auth/login.view.php" afterPath="$PROJECT_DIR$/app/views/auth/login.view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/auth/register.view.php" afterPath="$PROJECT_DIR$/app/views/auth/register.view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/Helper.php" afterPath="$PROJECT_DIR$/core/Helper.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/database/ORM.php" afterPath="$PROJECT_DIR$/core/database/ORM.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -38,104 +490,21 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.view.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/admin/requests/index.view.php">
+      <file leaf-file-name="AuthController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/AuthController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="8" column="53" lean-forward="false" selection-start-line="8" selection-start-column="53" selection-end-line="8" selection-end-column="53" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="show.view.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/admin/requests/show.view.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="9" column="67" lean-forward="false" selection-start-line="9" selection-start-column="67" selection-end-line="9" selection-end-column="67" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="create.view.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/admin/materials/create.view.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="15" column="60" lean-forward="false" selection-start-line="15" selection-start-column="60" selection-end-line="15" selection-end-column="60" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="edit.view.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/admin/materials/edit.view.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="16" column="77" lean-forward="false" selection-start-line="16" selection-start-column="77" selection-end-line="16" selection-end-column="77" />
-              <folding>
-                <marker date="1489182666035" expanded="true" signature="5579:5769" ph="..." />
-                <marker date="1489182666035" expanded="true" signature="5950:6147" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.view.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/admin/materials/index.view.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="8" column="39" lean-forward="false" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="show.view.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/admin/materials/show.view.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="9" column="44" lean-forward="true" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="create.view.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/admin/courses/create.view.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="14" column="31" lean-forward="true" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="63" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="edit.view.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/admin/courses/edit.view.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="20" column="75" lean-forward="false" selection-start-line="20" selection-start-column="75" selection-end-line="20" selection-end-column="75" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.view.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/admin/courses/index.view.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="8" column="63" lean-forward="false" selection-start-line="8" selection-start-column="63" selection-end-line="8" selection-end-column="63" />
+            <state relative-caret-position="528">
+              <caret line="54" column="94" lean-forward="false" selection-start-line="54" selection-start-column="94" selection-end-line="54" selection-end-column="94" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="show.view.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/admin/courses/show.view.php">
+        <entry file="file://$PROJECT_DIR$/app/views/admin/users/show.view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="7" column="27" lean-forward="true" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+            <state relative-caret-position="24">
+              <caret line="9" column="8" lean-forward="false" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -175,12 +544,10 @@
         <option value="$PROJECT_DIR$/app/views/partial/admin/sidebar.part.php" />
         <option value="$PROJECT_DIR$/app/views/partial/admin/material.part.php" />
         <option value="$PROJECT_DIR$/core/Session.php" />
-        <option value="$PROJECT_DIR$/app/controllers/AuthController.php" />
         <option value="$PROJECT_DIR$/app/views/admin/materials/index.view.php" />
         <option value="$PROJECT_DIR$/app/views/admin/materials/show.view.php" />
         <option value="$PROJECT_DIR$/app/controllers/MaterialController.php" />
         <option value="$PROJECT_DIR$/app/views/admin/dashboard.view.php" />
-        <option value="$PROJECT_DIR$/app/views/admin/users/show.view.php" />
         <option value="$PROJECT_DIR$/app/views/admin/users/index.view.php" />
         <option value="$PROJECT_DIR$/app/views/admin/users/create.view.php" />
         <option value="$PROJECT_DIR$/app/views/admin/users/edit.view.php" />
@@ -194,6 +561,8 @@
         <option value="$PROJECT_DIR$/app/views/admin/courses/edit.view.php" />
         <option value="$PROJECT_DIR$/app/views/admin/courses/index.view.php" />
         <option value="$PROJECT_DIR$/app/views/admin/courses/show.view.php" />
+        <option value="$PROJECT_DIR$/app/controllers/AuthController.php" />
+        <option value="$PROJECT_DIR$/app/views/admin/users/show.view.php" />
       </list>
     </option>
   </component>
@@ -327,7 +696,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="courses" />
+              <option name="myItemId" value="users" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -476,24 +845,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1489088198978</updated>
-      <workItem from="1489088206954" duration="34841000" />
+      <workItem from="1489088206954" duration="35168000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34841000" />
+    <option name="totallyTimeSpent" value="35168000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="41" y="24" width="1325" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Regex Tester" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16563468" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38390094" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13622291" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.64551085" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24941361" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="LuaJ" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -609,12 +978,12 @@
         <state relative-caret-position="104">
           <caret line="809" column="0" lean-forward="false" selection-start-line="809" selection-start-column="0" selection-end-line="809" selection-end-column="0" />
           <folding>
-            <marker date="1489004235023" expanded="true" signature="3520:3552" ph="SELECT * FRO... " />
-            <marker date="1489004235023" expanded="true" signature="8048:8079" ph="INSERT INTO " />
-            <marker date="1489004235023" expanded="true" signature="10672:10701" ph="DELETE FROM " />
-            <marker date="1489004235023" expanded="true" signature="17339:17359" ph="SELECT * FRO... table" />
-            <marker date="1489004235023" expanded="true" signature="19745:19782" ph="SELECT * FRO... table" />
-            <marker date="1489004235023" expanded="true" signature="20235:20255" ph="SELECT * FRO... table" />
+            <marker date="1489182940472" expanded="true" signature="3520:3552" ph="SELECT * FRO... " />
+            <marker date="1489182940472" expanded="true" signature="8048:8079" ph="INSERT INTO " />
+            <marker date="1489182940472" expanded="true" signature="10672:10701" ph="DELETE FROM " />
+            <marker date="1489182940472" expanded="true" signature="17339:17359" ph="SELECT * FRO... table" />
+            <marker date="1489182940472" expanded="true" signature="19745:19782" ph="SELECT * FRO... table" />
+            <marker date="1489182940472" expanded="true" signature="20235:20255" ph="SELECT * FRO... table" />
           </folding>
         </state>
       </provider>
@@ -731,14 +1100,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/AuthController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="912">
-          <caret line="42" column="94" lean-forward="false" selection-start-line="42" selection-start-column="94" selection-end-line="42" selection-end-column="94" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/partial/admin/course.part.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="218">
@@ -789,14 +1150,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/users/show.view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="9" column="64" lean-forward="false" selection-start-line="9" selection-start-column="64" selection-end-line="9" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/admin/requests/create.view.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -810,41 +1163,6 @@
         <state relative-caret-position="240">
           <caret line="16" column="71" lean-forward="false" selection-start-line="16" selection-start-column="71" selection-end-line="16" selection-end-column="71" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/requests/index.view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="8" column="53" lean-forward="false" selection-start-line="8" selection-start-column="53" selection-end-line="8" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/requests/show.view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="9" column="67" lean-forward="false" selection-start-line="9" selection-start-column="67" selection-end-line="9" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/materials/create.view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="15" column="60" lean-forward="false" selection-start-line="15" selection-start-column="60" selection-end-line="15" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/materials/edit.view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="16" column="77" lean-forward="false" selection-start-line="16" selection-start-column="77" selection-end-line="16" selection-end-column="77" />
-          <folding>
-            <marker date="1489182666035" expanded="true" signature="5579:5769" ph="..." />
-            <marker date="1489182666035" expanded="true" signature="5950:6147" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -892,6 +1210,57 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="7" column="27" lean-forward="true" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/materials/edit.view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="16" column="77" lean-forward="false" selection-start-line="16" selection-start-column="77" selection-end-line="16" selection-end-column="77" />
+          <folding>
+            <marker date="1489182666035" expanded="true" signature="5579:5769" ph="..." />
+            <marker date="1489182666035" expanded="true" signature="5950:6147" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/materials/create.view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="15" column="60" lean-forward="false" selection-start-line="15" selection-start-column="60" selection-end-line="15" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/requests/show.view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="9" column="67" lean-forward="false" selection-start-line="9" selection-start-column="67" selection-end-line="9" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/requests/index.view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="8" column="53" lean-forward="false" selection-start-line="8" selection-start-column="53" selection-end-line="8" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/AuthController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="54" column="94" lean-forward="false" selection-start-line="54" selection-start-column="94" selection-end-line="54" selection-end-column="94" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/users/show.view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="9" column="8" lean-forward="false" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
           <folding />
         </state>
       </provider>

@@ -173,11 +173,11 @@ $fields=$request['fields'];
                                     <div class="box-body">
                                         <div class="form-group">
                                             <label for="username">User Name</label>
-                                            <input type="text" name="username" class="form-control" value="<?=$user->lastname?>">
+                                            <input type="text" name="username" class="form-control" value="<?=$user->username?>">
                                         </div>
                                         <div class="form-group">
                                             <label for="email">Email</label>
-                                            <input type="email" name="email" class="form-control" value="<?=$user->lastname?>">
+                                            <input type="email" name="email" class="form-control" value="<?=$user->email?>">
                                         </div>
                                         <div class="form-group">
                                             <label for="password">Password</label>

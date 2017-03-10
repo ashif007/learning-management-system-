@@ -18,13 +18,16 @@ use App\Models\User;
 
 class UserController extends Controller implements ResourceInterface
 {
-
     public function index()
     {
-        $users = User::all();
-        return view('admin/users/index', ['users' => $users]);
-    }
+        if (Session::isLogin()&&Session::getLoginUser()->role == 'admin') {
 
+            $users = User::all();
+            return view('admin/users/index', ['users' => $users]);
+        }else{
+            return view('errors/503',['message'=>"You are not allowed to be here!"]);
+        }
+    }
     public function create()
     {
         if (Session::isLogin()&&Session::getLoginUser()->role == 'admin') {
@@ -91,7 +94,8 @@ class UserController extends Controller implements ResourceInterface
 
     public function show($id)
     {
-        if(Session::isLogin()){
+        if (Session::isLogin()&&Session::getLoginUser()->id == $id|| Session::isLogin()&&Session::getLoginUser()->role == "admin")
+            {
             $user = User::retrieveByPK($id);
             return view('admin/users/show', ['user' => $user]);
         }else{
@@ -101,7 +105,7 @@ class UserController extends Controller implements ResourceInterface
 
     public function edit($id)
     {
-        if (Session::isLogin()&&Session::getLoginUser()->id == $id) {
+        if (Session::isLogin()&&Session::getLoginUser()->id == $id|| Session::isLogin()&&Session::getLoginUser()->role == "admin") {
             $user = User::retrieveByPK($id);
             return view('admin/users/edit', ['user' => $user]);
         } else {
@@ -112,7 +116,7 @@ class UserController extends Controller implements ResourceInterface
 
     public function update(Request $request, $id)
     {
-        if (Session::isLogin()&&Session::getLoginUser()->role == "admin") {
+        if (Session::isLogin()&&Session::getLoginUser()->role == "admin" || Session::isLogin()&&Session::getLoginUser()->id == $id) {
             $user = User::retrieveByPK($id);
             if (verifyCSRF($request)) {
                 $errors = $this->validator->validate($request, [
@@ -128,7 +132,7 @@ class UserController extends Controller implements ResourceInterface
                 }
                 if ($errors) {
                     $request->saveToSession($errors);
-                    redirect('users/' . $user->id . '/edit', $request->getLastFromSession());
+                    redirect('/users/'.$user->id, $request->getLastFromSession());
                 } else {
                     $user->firstname = $request->get('firstname');
                     $user->lastname = $request->get('lastname');
@@ -141,16 +145,22 @@ class UserController extends Controller implements ResourceInterface
                     }
                     $user->gender = $request->get('gender');
                     $user->country = $request->get('country');
-                    $user->role = $request->get('role');
+                    if ($request->get('role'))
+                    {
+                        $user->role = $request->get('role');
+                    }
                     if ($request->get('isbaned')) {
                         $user->isbaned = 1;
                     } else {
                         $user->isbaned = 0;
                     }
-                    $user->updated_at = date("Y-m-d H:i:s");
                     $user->update();
                     Session::set('message', "User Updated Successfully");
-                    redirect('/users');
+
+                    if (Session::isLogin()&&Session::getLoginUser()->role == "admin")
+                        redirect('/users');
+                    else
+                        redirect('/users/'.$id);
                 }
             }
         } else {

@@ -1,4 +1,10 @@
 <?php partial('admin/header')?>
+<?php
+$request=\App\Core\Session::get('request');
+$errors=$request['errors'];
+$fields=$request['fields'];
+\App\Core\Session::delete('request');
+?>
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
@@ -94,11 +100,11 @@
                                             <div class="box-body">
                                                 <div class="form-group">
                                                     <label for="username">User Name</label>
-                                                    <input type="text" name="username" class="form-control" value="<?=$user->lastname?>">
+                                                    <input type="text" name="username" class="form-control" value="<?=$user->username?>">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="email">Email</label>
-                                                    <input type="email" name="email" class="form-control" value="<?=$user->lastname?>">
+                                                    <input type="email" name="email" class="form-control" value="<?=$user->email?>">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="password">Password</label>
@@ -123,8 +129,10 @@
                                             <div class="box-body">
                                                 <div class="form-group">
                                                     <label for="image">Profile Photo</label>
-                                                    <?php uploaded_image($user->image)?><br>
+                                                    <br>
                                                     <input type="file" name="image" class="form-control">
+                                                    <img width="200" height="250" class="img-responsive img-circle" src="<?= $user->image?>">
+
                                                 </div>
                                             </div>
                                         </div>
