@@ -1,50 +1,20 @@
--- phpMyAdmin SQL Dump
--- version 4.5.4.1deb2ubuntu2
--- http://www.phpmyadmin.net
---
--- Host: localhost
--- Generation Time: Mar 10, 2017 at 11:57 PM
--- Server version: 5.7.17-0ubuntu0.16.04.1
--- PHP Version: 7.0.15-0ubuntu0.16.04.4
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `lms`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `category`
---
 
 CREATE TABLE `category` (
   `id` int(5) NOT NULL,
   `name` varchar(75) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 
--- --------------------------------------------------------
 
---
--- Table structure for table `comments`
---
 
 CREATE TABLE `comments` (
   `id` int(11) NOT NULL,
   `uid` int(11) NOT NULL,
   `mid` varchar(50) NOT NULL,
   `body` longtext NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `created_at` timestamp NOT NULL,
+  `updated_at` timestamp NOT NULL 
+);
 
 -- --------------------------------------------------------
 
@@ -61,9 +31,9 @@ CREATE TABLE `course` (
   `title` varchar(255) NOT NULL,
   `description` text NOT NULL,
   `rate` int(5) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `created_at` timestamp NOT NULL,
+  `updated_at` timestamp NOT NULL 
+);
 
 -- --------------------------------------------------------
 
@@ -80,9 +50,9 @@ CREATE TABLE `material` (
   `name` varchar(255) NOT NULL,
   `type` enum('pdf','ppt','doc','video') NOT NULL,
   `description` text NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `created_at` timestamp NOT NULL ,
+  `updated_at` timestamp NOT NULL 
+);
 
 -- --------------------------------------------------------
 
@@ -95,9 +65,9 @@ CREATE TABLE `requests` (
   `uid` int(11) NOT NULL,
   `title` varchar(255) DEFAULT NULL,
   `body` longtext,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `created_at` timestamp NOT NULL ,
+  `updated_at` timestamp NOT NULL 
+);
 
 -- --------------------------------------------------------
 
@@ -120,70 +90,46 @@ CREATE TABLE `users` (
   `isbaned` tinyint(4) DEFAULT NULL,
   `role` enum('student','teacher','admin') DEFAULT NULL,
   `code` varchar(50) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `created_at` timestamp NOT NULL,
+  `updated_at` timestamp NOT NULL
+);
 
---
--- Indexes for dumped tables
---
 
---
--- Indexes for table `category`
---
 ALTER TABLE `category`
   ADD PRIMARY KEY (`id`),
   ADD KEY `name` (`name`);
 
---
--- Indexes for table `comments`
---
+
 ALTER TABLE `comments`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_comments_1_idx` (`uid`);
 
---
--- Indexes for table `course`
---
+
 ALTER TABLE `course`
   ADD PRIMARY KEY (`id`),
   ADD KEY `cat_id` (`cid`),
   ADD KEY `cat_id_2` (`cid`),
   ADD KEY `cat_id_3` (`cid`);
 
---
--- Indexes for table `material`
---
+
 ALTER TABLE `material`
   ADD PRIMARY KEY (`id`),
   ADD KEY `course_id` (`cid`),
   ADD KEY `course_id_2` (`cid`);
 
---
--- Indexes for table `requests`
---
+
 ALTER TABLE `requests`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_requests_1_idx` (`uid`);
 
---
--- Indexes for table `users`
---
+
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
---
--- AUTO_INCREMENT for dumped tables
---
 
---
--- AUTO_INCREMENT for table `category`
---
 ALTER TABLE `category`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `comments`
---
+
 ALTER TABLE `comments`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
@@ -234,6 +180,3 @@ ALTER TABLE `material`
 ALTER TABLE `requests`
   ADD CONSTRAINT `fk_requests_1` FOREIGN KEY (`uid`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
