@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8fd2ded2b90e95218b26e940ff2ee7f0",
+    "content-hash": "c18b91232c26c0ee9ca04c1ae0436e72",
     "packages": [
         {
             "name": "froala/wysiwyg-editor-php-sdk",
@@ -522,7 +522,9 @@
         "php": "~7.0@beta",
         "ext-pdo": "*",
         "ext-fileinfo": "*",
-        "ext-gettext": "*"
+        "ext-gettext": "*",
+        "ext-mbstring": "*",
+        "ext-json": "*"
     },
     "platform-dev": []
 }
