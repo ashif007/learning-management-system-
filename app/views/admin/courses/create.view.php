@@ -1,6 +1,7 @@
 <?php partial('admin/header')?>
 <?php
 $request=\App\Core\Session::get('request');
+\App\Core\Session::delete('request');
 $errors=$request['errors'];
 $fields=$request['fields'];
 ?>
@@ -8,9 +9,12 @@ $fields=$request['fields'];
 <section class="content-header">
     <h1>
         Courses
-        <small>description</small>
+        <small>Admin</small>
     </h1>
-    breadcrumb
+    <ol class="breadcrumb">
+        <li><a href="/courses"><i class="fa fa-book"></i> Courses</a></li>
+        <li><a href="/courses/create">Create</a></li>
+    </ol>
 </section>
 <!-- Main content -->
 <section class="content">
@@ -26,8 +30,10 @@ $fields=$request['fields'];
                 <thead>
                 <tr>
                     <th>Title</th>
-                    <th>start</th>
-                    <th>end</th>
+                    <th>Category</th>
+                    <th>Rate</th>
+                    <th>Start</th>
+                    <th>End</th>
                     <th>Edit</th>
                     <th>View</th>
                     <th>Delete</th>
@@ -37,12 +43,15 @@ $fields=$request['fields'];
                 <?php foreach ($courses as $course):?>
                 <tr>
                     <td><?= $course->title?></td>
+                    <td><?= $course->category()->name?></td>
+                    <td><?= $course->rate?></td>
                     <td><?= $course->start?></td>
                     <td><?= $course->end?></td>
                     <td><a href="/courses/<?=$course->id?>/edit"><span class="fa fa-edit"></span></a></td>
                     <td><a href="/courses/<?=$course->id?>"><span class="fa fa-book"></span></a></td>
                     <td>
                         <?php start_form('delete',"/courses/$course->id")?>
+                        <?php \App\Core\Session::saveBackUrl()?>
                         <button type="submit" class="delete" style="border: none;background-color: rgba(0,0,0,0); color:#9f191f">
                             <span class="fa fa-remove"></span>
                         </button>
@@ -54,8 +63,10 @@ $fields=$request['fields'];
                 <tfoot>
                 <tr>
                     <th>Title</th>
-                    <th>start</th>
-                    <th>end</th>
+                    <th>Category</th>
+                    <th>Rate</th>
+                    <th>Start</th>
+                    <th>End</th>
                     <th>Edit</th>
                     <th>View</th>
                     <th>Delete</th>
@@ -92,24 +103,24 @@ $fields=$request['fields'];
                                 <div id="basicinfo" class="panel-collapse collapse in">
                                     <div class="box-body">
                                         <div class="form-group">
-                                            <label for="title">title</label>
+                                            <label for="title">Title</label>
                                             <input type="text" name="title" class="form-control">
                                         </div>
                                         <div class="form-group">
-                                            <label for="image">image</label>
+                                            <label for="image">Image</label>
                                             <input type="file" name="image" class="form-control">
                                         </div>
                                         <div class="form-group">
                                             <label for="desc">Description</label>
-                                            <textarea id="desc" name="desc" class="form-control"></textarea>
+                                            <textarea id="editor" name="desc" class="form-control"></textarea>
 
                                         </div>
                                         <div class="form-group">
-                                            <label for="date">start</label>
+                                            <label for="date">Start Date</label>
                                             <input type="date" name="start" class="form-control">
                                         </div>
                                         <div class="form-group">
-                                            <label for="date">end</label>
+                                            <label for="date">End Date</label>
                                             <input type="date" name="end" class="form-control">
                                         </div>
                                         <div class="form-group">
@@ -129,13 +140,7 @@ $fields=$request['fields'];
                             </div>
                         </div>
                         <?php if(count($errors)>0):?>
-                        <div class="alert alert-danger">
-                            <ul>
-                                <?php foreach ($errors as $field=>$error):?>
-                                <li><strong><?= $field.' ' ?></strong><?= ' '.$error[0] ?></li>
-                                <?php endforeach;?>
-                            </ul>
-                        </div>
+                            <?php partial('admin/verrors',['errors'=>$errors]);?>
                         <?php endif;?>
                     </div>
                     <!-- /.box-body -->
@@ -155,11 +160,3 @@ $fields=$request['fields'];
     <!-- /.content -->
 
 <?php partial('admin/footer')?>
-<script src="<?php echo views_dir(); ?>admin/courses/course.js" type="text/javascript" ></script>
-<?php if(count($errors)>0):?>
-<script>
-     document.getElementById('addBt').click();
-</script>
-<?php \App\Core\Session::delete('request');
- endif;
- ?>

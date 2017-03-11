@@ -1,16 +1,30 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: salamaashoush
+ * Date: 05/03/17
+ * Time: 10:54 م
+ */
 
 namespace App\Models;
 
+
 use App\Core\DB\ORM;
 
-class UserRequest extends ORM {
+class UserRequest extends ORM
+{
+    protected static $table='requests';
+    protected static $pk='id';
 
-	protected static $table = "requests";
-	protected static $pk    = "userid";// we need to get the user id
 
-	static function userid() {
+    public function user()
+    {
+        return User::retrieveByPK($this->uid);
+    }
 
-	}
 
+    public function comments(){
+        $mid="UserRequest:".$this->id;
+        return Comment::retrieveByMid($mid);
+    }
 }

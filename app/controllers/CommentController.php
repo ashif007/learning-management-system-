@@ -59,6 +59,6 @@ class CommentController extends Controller implements ResourceInterface
     {
        $comment=Comment::retrieveByPK($id);
        $comment->delete();
-//       redirect("/posts/".$comment->post()->id);
+       redirect(Session::getBackUrl());
     }
 }

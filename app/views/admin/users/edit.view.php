@@ -9,7 +9,7 @@ $fields=$request['fields'];
 <section class="content-header">
     <h1>
         Users
-        <small>description</small>
+        <small>User Edit</small>
     </h1>
     breadcrumb
 </section>
@@ -19,7 +19,6 @@ $fields=$request['fields'];
     <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
             <li><h4 style="padding-left: 10px"><?=$user->username?></h4></li>
-            <li ><a href="#details" data-toggle="tab">Details</a></li>
             <li><a href="#requests" data-toggle="tab">Requests</a></li>
             <li class="dropdown pull-right">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
@@ -34,7 +33,8 @@ $fields=$request['fields'];
             <div class="tab-pane active" id="details">
                 <div class="row">
                     <div class="col-sm-3">
-                        <img src="<?php asset($users->image)?>" alt="" class="img-responsive">                    </div>
+                        <img src="<?php asset($user->image)?>" alt="" class="img-responsive">
+                    </div>
                     <div class="col-sm-3">
                         <h5>First Name: <span class="text-green"><?=$user->firstname?></span></h5>
                         <h5>Last Name: <span class="text-green"><?=$user->lastname?></span></h5>
@@ -51,33 +51,33 @@ $fields=$request['fields'];
                 </div>
             </div>
             <!-- /.tab-pane -->
-            <div class="tab-pane" id="courses">
+            <div class="tab-pane" id="requests">
                 <table id="indextable" class="table table-bordered table-striped">
                     <thead>
                     <tr>
+                        <th>User</th>
                         <th>Title</th>
-                        <th>Start</th>
-                        <th>End</th>
-                        <th>Category</th>
-                        <th>Teacher</th>
+                        <th>Comments</th>
+                        <th>Created at</th>
+                        <th>Last update</th>
                         <th>Edit</th>
                         <th>View</th>
                         <th>Delete</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <?php if(count($user->courses())>0):?>
-                        <?php foreach ($user->courses() as $course):?>
+                    <?php if(count($user->requests())>0):?>
+                        <?php foreach ($user->requests() as $req):?>
                             <tr>
-                                <td><?= $course->title?></td>
-                                <td><?= $course->start?></td>
-                                <td><?= $course->end?></td>
-                                <td><?= $course->category()->name?></td>
-                                <td><?= $course->teacher()->username?></td>
-                                <td><a href="/courses/<?=$course->id?>/edit"><span class="fa fa-edit"></span></a></td>
-                                <td><a href="/courses/<?=$course->id?>"><span class="fa fa-book"></span></a></td>
+                                <td><?= $req->user()->username?></td>
+                                <td><?= $req->title?></td>
+                                <td><?=count($req->comments())?></td>
+                                <td><?= $req->created_at?></td>
+                                <td><?= $req->updated_at?></td>
+                                <td><a href="/requests/<?=$req->id?>/edit"><span class="fa fa-edit"></span></a></td>
+                                <td><a href="/requests/<?=$req->id?>"><span class="fa fa-book"></span></a></td>
                                 <td>
-                                    <?php start_form('delete',"/courses/$course->id")?>
+                                    <?php start_form('delete',"/requests/$req->id")?>
                                     <button type="submit" style="border: none;background-color: rgba(0,0,0,0); color:#9f191f">
                                         <span class="fa fa-remove"></span>
                                     </button>
@@ -89,11 +89,11 @@ $fields=$request['fields'];
                     </tbody>
                     <tfoot>
                     <tr>
+                        <th>User</th>
                         <th>Title</th>
-                        <th>Start</th>
-                        <th>End</th>
-                        <th>Category</th>
-                        <th>Teacher</th>
+                        <th>Comments</th>
+                        <th>Created at</th>
+                        <th>Last update</th>
                         <th>Edit</th>
                         <th>View</th>
                         <th>Delete</th>
@@ -101,10 +101,7 @@ $fields=$request['fields'];
                     </tfoot>
                 </table>
             </div>
-            <!-- /.tab-pane -->
-            <div class="tab-pane" id="requests">
 
-            </div>
         </div>
         <!-- /.tab-content -->
     </div>
@@ -145,15 +142,15 @@ $fields=$request['fields'];
                                         <div class="form-group">
                                             <label for="gender">Gender</label>
                                             <select name="gender" id="">
-                                                <option value="male">Male</option>
-                                                <option value="female">Female</option>
+                                                <option value="male" <?php if($user->gender=='male'){echo 'selected="selected"';}?>>Male</option>
+                                                <option value="female" <?php if($user->gender=='female'){echo 'selected="selected"';}?>>Female</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label for="country">Country</label>
                                             <select name="country" id="" class="form-control">
-                                                <option value="egypt">Egypt</option>
-                                                <option value="other">Other</option>
+                                                <option value="egypt" <?php if($user->country=='egypt'){echo 'selected="selected"';}?>>Egypt</option>
+                                                <option value="other" <?php if($user->country=='others'){echo 'selected="selected"';}?>>Other</option>
                                             </select>
                                         </div>
                                     </div>
@@ -206,9 +203,8 @@ $fields=$request['fields'];
                                         <div class="form-group">
                                             <label for="role">Role</label>
                                             <select name="role" id="" class="form-control">
-                                                <option value="student">Student</option>
-                                                <option value="teacher">Teacher</option>
-                                                <option value="admin">Admin</option>
+                                                <option value="student" <?php if($user->role=='student'){echo 'selected="selected"';}?>>Student</option>
+                                                <option value="admin" <?php if($user->role=='admin'){echo 'selected="selected"';}?>>Admin</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
@@ -221,15 +217,7 @@ $fields=$request['fields'];
                             </div>
                         </div>
                         <?php if(count($errors)>0):?>
-                            <div class="alert alert-danger">
-                                <ul>
-                                    <?php foreach ($errors as $errors):?>
-                                        <?php foreach ($errors as $error):?>
-                                            <p><?=$error?></p>
-                                        <?php endforeach;?>
-                                    <?php endforeach;?>
-                                </ul>
-                            </div>
+                            <?php partial('admin/verrors',['errors'=>$errors]);?>
                         <?php endif;?>
                     </div>
                     <!-- /.box-body -->

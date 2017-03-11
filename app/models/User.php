@@ -17,6 +17,32 @@ class User extends ORM
 
     public function requests()
     {
-        return Request::retrieveByField('uid',$this->id);
+        return UserRequest::retrieveByField('uid',$this->id);
     }
+
+    public static function online()
+    {
+        return self::retrieveByField('online','1')[0];
+    }
+
+    public static function active()
+    {
+        return self::retrieveByField('state','active')[0];
+    }
+
+    public static function offline()
+    {
+        return self::retrieveByField('online','0')[0];
+    }
+
+    public static function disabled()
+    {
+        return self::retrieveByField('state','disabled')[0];
+    }
+
+    public static function banned()
+    {
+        return self::retrieveByField('isbaned',0)[0];
+    }
+
 }

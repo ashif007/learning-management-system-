@@ -67,18 +67,20 @@ class CategoryController extends Controller implements ResourceInterface
 
     public function show($id)
     {
-        // TODO: Implement show() method.
+        $category=Category::retrieveByPK($id);
+        return view('admin/cats/show',['cat'=>$category]);
     }
 
     public function edit($id)
     {
+       // $course=Course::retrieveByPK($id);
         $category=Category::retrieveByPK($id);
         return view('admin/cats/edit',['cat'=>$category]);
     }
 
     public function update(Request $request, $id)
     {
-        // TODO: Implement update() method.
+
         $category=Category::retrieveByPK($id);
         if(verifyCSRF($request)){
             $errors = $this->validator->validate($request, [
@@ -106,6 +108,12 @@ class CategoryController extends Controller implements ResourceInterface
         $category=Category::retrieveByPK($id);
         $category->delete();
         Session::set('message',"Category Deleted Successfully");
+
        // redirect('cats/create');
+
+        $url=Session::get('back_url');
+        Session::delete('back_url');
+        redirect($url);
+
     }
 }

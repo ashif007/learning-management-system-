@@ -34,7 +34,7 @@
 
     <script>
         $(function () {
-            $('textarea#articlebody').froalaEditor({
+            $('textarea#editor').froalaEditor({
                 // Set the image upload parameter.
 //                imageUploadParam: 'image',
 

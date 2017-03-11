@@ -54,7 +54,7 @@ class Session
     public static function getCookie($cookie)
     {
         if(isset($_COOKIE[$cookie])) {
-           return $cookie;
+           return $_COOKIE[$cookie];
         } else {
             return null;
         }
@@ -95,6 +95,20 @@ class Session
 
     public static function getLoginUser()
     {
-        return User::retrieveByUsername(self::get('username'))[0];
+        if(self::get('username')){
+            return User::retrieveByUsername(self::get('username'))[0];
+        }else{
+            return User::retrieveByUsername(self::getCookie('username'))[0];
+        }
+
+    }
+    public static function saveBackUrl(){
+        self::set('back_url',$_SERVER['REQUEST_URI']);
+    }
+
+    public static function getBackUrl(){
+        $url=self::get('back_url');
+        self::delete('back_url');
+        return $url;
     }
 }

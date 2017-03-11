@@ -65,15 +65,15 @@
                                                 <div class="form-group">
                                                     <label for="gender">Gender</label>
                                                     <select name="gender" id="" class="form-control">
-                                                        <option value="male">Male</option>
-                                                        <option value="female">Female</option>
+                                                        <option value="male" <?php if($user->gender=='male'){echo 'selected="selected"';}?>>Male</option>
+                                                        <option value="female" <?php if($user->gender=='female'){echo 'selected="selected"';}?>>Female</option>
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="country">Country</label>
                                                     <select name="country" id="" class="form-control">
-                                                        <option value="egypt">Egypt</option>
-                                                        <option value="other">Other</option>
+                                                        <option value="egypt" <?php if($user->country=='egypt'){echo 'selected="selected"';}?>>Egypt</option>
+                                                        <option value="other" <?php if($user->country=='others'){echo 'selected="selected"';}?>>Other</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -128,15 +128,7 @@
                                     </div>
                                 </div>
                                 <?php if(count($errors)>0):?>
-                                    <div class="alert alert-danger">
-                                        <ul>
-                                            <?php foreach ($errors as $errors):?>
-                                                <?php foreach ($errors as $error):?>
-                                                    <p><?=$error?></p>
-                                                <?php endforeach;?>
-                                            <?php endforeach;?>
-                                        </ul>
-                                    </div>
+                                   <?php partial('admin/verrors',['errors'=>$errors])?>
                                 <?php endif;?>
                             </div>
                             <!-- /.box-body -->
@@ -156,7 +148,5 @@
         <!-- /.col -->
     </div>
     <!-- /.row -->
-
-    <div style="padding: 10px 0px; text-align: center;"><div class="text-muted">Excuse the ads! We need some help to keep our site up.</div><script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><div class="visible-xs visible-sm"><!-- AdminLTE --><ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-4495360934352473" data-ad-slot="5866534244"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div><div class="hidden-xs hidden-sm"><!-- Home large leaderboard --><ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4495360934352473" data-ad-slot="1170479443"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></section>
 <?php partial('admin/footer')?>
 

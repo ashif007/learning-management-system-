@@ -30,4 +30,20 @@ class Material extends ORM
         $mid="Material:".$this->id;
         return Comment::retrieveByMid($mid);
     }
+
+    public static function pdfs(){
+        return self::retrieveByField('type','pdf');
+    }
+
+    public static function docs(){
+        return self::retrieveByField('type','doc');
+    }
+
+    public static function ppts(){
+        return self::retrieveByField('type','ppt');
+    }
+
+    public static function videos(){
+        return self::retrieveByField('type','video');
+    }
 }

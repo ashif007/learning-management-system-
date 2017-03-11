@@ -2,9 +2,10 @@
 $router->resource('users', 'UserController');
 $router->resource('courses', 'CoursesController');
 $router->resource('cats', 'CategoryController');
-$router->resource('request', 'RequestController');
-$router->resource('request/admin', 'RequestController@requset_list');
-
+$router->resource('requests', 'RequestController');
+$router->resource('comments', 'CommentController');
+$router->resource('materials', 'MaterialController');
+$router->resource('materials/download', 'MaterialController@download');
 //Pages routes
 $router->get('', 'PagesController@home');
 $router->get('about', 'PagesController@about');
