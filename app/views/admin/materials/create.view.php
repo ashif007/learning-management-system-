@@ -13,7 +13,7 @@ $fields=$request['fields'];
     </h1>
     <ol class="breadcrumb">
         <li><a href="/materials"><i class="fa fa-book"></i>Materials</a></li>
-        <li><a href="/materials/create"><i class="fa fa-plus">Create</a></li>
+        <li><a href="/materials/create"><i class="fa fa-plus"></i>Create</a></li>
     </ol>
 </section>
 <!-- Main content -->
@@ -34,6 +34,7 @@ $fields=$request['fields'];
                     <th>Link</th>
                     <th>Status</th>
                     <th>Type</th>
+                    <th>Comments</th>
                     <th>Downloads</th>
                     <th>Last update</th>
                     <th>Edit</th>
@@ -50,6 +51,7 @@ $fields=$request['fields'];
                             <td><a href="<?= $material->link ?>"><?= $material->link?></a></td>
                             <td><?=$material->status?></td>
                             <td><?=$material->type?></td>
+                            <td> <?=count($material->comments())?></td>
                             <td><?=$material->downloaded?></td>
                             <td><?= $material->updated_at?></td>
                             <td><a href="/materials/<?=$material->id?>/edit"><span class="fa fa-edit"></span></a></td>
@@ -73,6 +75,7 @@ $fields=$request['fields'];
                     <th>Link</th>
                     <th>Status</th>
                     <th>Type</th>
+                    <th>Comments</th>
                     <th>Downloads</th>
                     <th>Last update</th>
                     <th>Edit</th>
