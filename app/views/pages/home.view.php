@@ -468,8 +468,8 @@
                 <ul class="address-list">
                     <li><i class="ion-ios-location" style="background-color: rgb(255, 102, 0);"></i> <span>ITI - Nasr City <br>Cairo-Egypt</span></li>
                     <li><i class="ion-ios-telephone" style="background-color: #63cfea;"></i> <span>01007349461</span></li>
-                    <li><i class="ion-email" style="background-color: #6ecba9;"></i> <span>info@inform-me.com</span></li>
-                    <li><i class="ion-earth" style="background-color: #ff6969;"></i> <span>www.inform-me.com</span></li>
+                    <li><i class="ion-email" style="background-color: #6ecba9;"></i> <span>info@OS-LMS.com</span></li>
+                    <li><i class="ion-earth" style="background-color: #ff6969;"></i> <span>www.OS-LMS.com</span></li>
                 </ul>
             </div>
         </div>
@@ -521,7 +521,7 @@
                 </h1>
             </div>
             <div class="col-sm-6">
-                <p class="copyright">All &copy; Copyright Inform-Me 2016 </p>
+                <p class="copyright">All &copy; Copyright OS-LMS 2016 </p>
             </div>
         </section>
     </section>
