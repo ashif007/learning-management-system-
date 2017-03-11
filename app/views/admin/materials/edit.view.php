@@ -156,6 +156,7 @@ $fields=$request['fields'];
                                             <select name="status" id="status" class="form-control">
                                                 <option value="show" <?php if($material->status=='show'){echo 'selected="selected"';}?>>Show</option>
                                                 <option value="hide" <?php if($material->status=='hide'){echo 'selected="selected"';}?>>Hide</option>
+                                                <option value="lock" <?php if($material->status=='lock'){echo 'selected="selected"';}?>>Lock</option>
                                             </select>
                                         </div>
                                         <div class="form-group">

@@ -260,6 +260,7 @@ if(isset($fields['cid'])){
                                             <select name="status" id="status" class="form-control">
                                                 <option value="show" <?php if(isset($mfields['status'])&&$mfields['status']=='show'){echo 'selected="selected"';}?>>Show</option>
                                                 <option value="hide" <?php if(isset($mfields['status'])&&$mfields['status']=='hide'){echo 'selected="selected"';}?>>Hide</option>
+                                                <option value="lock" <?php if(isset($mfields['status'])&&$mfields['status']=='lock'){echo 'selected="selected"';}?>>Lock</option>
                                             </select>
                                         </div>
                                         <div class="form-group">

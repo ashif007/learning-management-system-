@@ -82,6 +82,9 @@ class MaterialController extends Controller implements ResourceInterface
     {
         try{
             $material = Material::retrieveByPK($id);
+            if($material->status=='hide'){
+                return view('errors/503',['message'=>'You are not allowed to view this material']);
+            }
             return view('admin/materials/show', ['material' => $material]);
         }catch (\Exception $e){
             return view('errors/404');
@@ -164,6 +167,9 @@ class MaterialController extends Controller implements ResourceInterface
     public function download($request)
     {
         $material=Material::retrieveByPK($request->get('mat'));
+        if($material->status=='lock'){
+            return view('errors/503',['message'=>'Sorry this material is locked from download']);
+        }
         $material->downloaded=$material->downloaded+1;
         $material->update();
         if($material->type!='video'){
