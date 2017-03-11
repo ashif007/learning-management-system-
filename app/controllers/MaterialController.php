@@ -59,7 +59,17 @@ class MaterialController extends Controller implements ResourceInterface
                     $material->status = $request->get('status');
                     $material->downloaded = 0;
                     if($request->get('type')=='video'){
-                        $material->link=$request->get('vlink');
+                        if(strpos($request->get('vlink'),"watch?v=")){
+                            $vlink=explode("watch?v=",$request->get('vlink'));
+                            $material->link=$vlink[0]."embed/".$vlink[1];
+                        }else if(strpos($request->get('vlink'),"embed")){
+                            $material->link=$vlink[0]."embed/".$vlink[1];
+                        }else{
+                            $request->saveToSession($errors);
+                            Session::set('error', "invalid youtube link");
+                            redirect(Session::getBackUrl(), $request->getLastFromSession());
+                        }
+
                     }else{
                         $material->link=upload_file("link");
                     }
@@ -115,7 +125,6 @@ class MaterialController extends Controller implements ResourceInterface
             if (verifyCSRF($request)) {
                 $errors = $this->validator->validate($request, [
                     'cid' => 'required',
-                    'link' => 'required',
                     'name'=>'required',
                     'type'=>'required'
                 ]);
