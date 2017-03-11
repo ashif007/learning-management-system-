@@ -64,18 +64,26 @@ class Session
         setcookie($cookie, "", time() - 3600);
     }
 
-    public static function saveLogin($username,$role,$password)
+    public static function saveLogin($username,$role,$password,$isbaned=false)
     {
         self::set('username',$username);
         self::set('password',$password);
         self::set('role',$role);
+        if($isbaned){
+            self::set('isbaned',true);
+        }
+
     }
 
-    public static function rememberLogin($username,$role,$password)
+    public static function rememberLogin($username,$role,$password,$isbaned=false)
     {
         self::setCookie('username',$username);
         self::setCookie('password',$password);
         self::setCookie('role',$role);
+        if($isbaned){
+            self::setCookie('isbaned',true);
+        }
+
     }
 
     public static function forgetLogin()
@@ -83,8 +91,14 @@ class Session
         self::deleteCookie('username');
         self::deleteCookie('password');
         self::deleteCookie('role');
+        self::deleteCookie('isbaned');
     }
-
+    public function isBaned(){
+        if(self::get('isbaned')||self::getCookie('isbaned')){
+            return true;
+        }
+        return false;
+    }
     public static function isLogin()
     {
         if(self::get('username')||self::getCookie('username')){

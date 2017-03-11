@@ -15,7 +15,11 @@ if(isset($fields['cid'])){
         Courses
         <small>Course Edit</small>
     </h1>
-    breadcrumb
+    <ol class="breadcrumb">
+        <li><a href="/courses"><i class="ion ion-ios-book"></i> Courses</a></li>
+        <li><a href="/courses/<?=$course->id?>"><i class="ion ion-ios-book"></i><?=$course->title?></a></li>
+        <li><a href="/courses/<?=$course->id?>/edit"><i class="ion ion-edit"></i>Edit</a></li>
+    </ol>
 </section>
 <!-- Main content -->
 <section class="content">
@@ -130,7 +134,7 @@ if(isset($fields['cid'])){
                         <span aria-hidden="true">×</span></button>
                     <h4 class="modal-title">Edit <?= $course->title?> Info</h4>
                 </div>
-                <?php start_form('put',"/courses/$course->id")?>
+                <?php start_form('put',"/courses/$course->id",['enctype'=>"multipart/form-data"])?>
                 <div class="box box-solid">
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -212,7 +216,7 @@ if(isset($fields['cid'])){
                         <span aria-hidden="true">×</span></button>
                     <h4 class="modal-title">Add Material</h4>
                 </div>
-                <?php start_form('post',"/materials")?>
+                <?php start_form('post',"/materials",['enctype'=>"multipart/form-data"])?>
                 <?php \App\Core\Session::saveBackUrl()?>
                 <div class="box box-solid">
                     <!-- /.box-header -->

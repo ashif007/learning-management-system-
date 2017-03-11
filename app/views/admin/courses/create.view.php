@@ -12,8 +12,8 @@ $fields=$request['fields'];
         <small>Admin</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="/courses"><i class="fa fa-book"></i> Courses</a></li>
-        <li><a href="/courses/create">Create</a></li>
+        <li><a href="/courses"><i class="ion ion-ios-book"></i> Courses</a></li>
+        <li><a href="/courses/create"><i class="ion ion-plus"></i>Create</a></li>
     </ol>
 </section>
 <!-- Main content -->
@@ -86,7 +86,7 @@ $fields=$request['fields'];
                         <span aria-hidden="true">×</span></button>
                     <h4 class="modal-title">Add New Course</h4>
                 </div>
-                <?php start_form('post',"/courses")?>
+                <?php start_form('post',"/courses",['enctype'=>"multipart/form-data"])?>
                 <div class="box box-solid">
                     <!-- /.box-header -->
                     <div class="box-body">

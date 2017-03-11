@@ -3,10 +3,12 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        Heading
-        <small>description</small>
+        DashBord
+        <small>Admin</small>
     </h1>
-    breadcrumb
+    <ol class="breadcrumb">
+        <li><a href="/admin"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+    </ol>
 </section>
 <!-- Main content -->
 <section class="content">

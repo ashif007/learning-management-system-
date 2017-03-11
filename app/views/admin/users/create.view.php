@@ -9,9 +9,12 @@ $fields=$request['fields'];
 <section class="content-header">
     <h1>
         Users
-        <small>description</small>
+        <small>Admin</small>
     </h1>
-    breadcrumb
+    <ol class="breadcrumb">
+        <li><a href="/users"><i class="fa fa-users"></i>Users</a></li>
+        <li><a href="/users/create"><i class="fa fa-plus"></i>Create</a></li>
+    </ol>
 </section>
 <!-- Main content -->
 <section class="content">
@@ -32,6 +35,7 @@ $fields=$request['fields'];
                     <th>User Name</th>
                     <th>Email</th>
                     <th>Gender</th>
+                    <th>State</th>
                     <th>Edit</th>
                     <th>View</th>
                     <th>Delete</th>
@@ -45,6 +49,7 @@ $fields=$request['fields'];
                     <td><?= $user->username?></td>
                     <td><?= $user->email?></td>
                     <td><?= $user->gender?></td>
+                    <td><?= $user->state?></td>
                     <td><a href="/users/<?=$user->id?>/edit"><span class="fa fa-edit"></span></a></td>
                     <td><a href="/users/<?=$user->id?>"><span class="fa fa-book"></span></a></td>
                     <td>
@@ -64,6 +69,7 @@ $fields=$request['fields'];
                     <th>User Name</th>
                     <th>Email</th>
                     <th>Gender</th>
+                    <th>State</th>
                     <th>Edit</th>
                     <th>View</th>
                     <th>Delete</th>
