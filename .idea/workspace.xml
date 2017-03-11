@@ -2,22 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0521964e-6624-4062-8120-78c30d83fba9" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/0da0e3e98c8f320db0c0fee3cbfd310d6962c417.jpg" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/CoursesController.php" afterPath="$PROJECT_DIR$/app/controllers/CoursesController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/MaterialController.php" afterPath="$PROJECT_DIR$/app/controllers/MaterialController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/RequestController.php" afterPath="$PROJECT_DIR$/app/controllers/RequestController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/UserController.php" afterPath="$PROJECT_DIR$/app/controllers/UserController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/courses/edit.view.php" afterPath="$PROJECT_DIR$/app/views/admin/courses/edit.view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/materials/show.view.php" afterPath="$PROJECT_DIR$/app/views/admin/materials/show.view.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/requests/create.view.php" afterPath="$PROJECT_DIR$/app/views/admin/requests/create.view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/requests/index.view.php" afterPath="$PROJECT_DIR$/app/views/admin/requests/index.view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/requests/edit.view.php" afterPath="$PROJECT_DIR$/app/views/admin/requests/edit.view.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/requests/show.view.php" afterPath="$PROJECT_DIR$/app/views/admin/requests/show.view.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/users/create.view.php" afterPath="$PROJECT_DIR$/app/views/admin/users/create.view.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/users/edit.view.php" afterPath="$PROJECT_DIR$/app/views/admin/users/edit.view.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/users/show.view.php" afterPath="$PROJECT_DIR$/app/views/admin/users/show.view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/partial/admin/sidebar.part.php" afterPath="$PROJECT_DIR$/app/views/partial/admin/sidebar.part.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.php" afterPath="$PROJECT_DIR$/config.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,71 +25,41 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="show.view.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/admin/requests/show.view.php">
+      <file leaf-file-name="edit.view.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/admin/requests/edit.view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="404">
-              <caret line="18" column="44" lean-forward="false" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="44" />
+            <state relative-caret-position="3216">
+              <caret line="134" column="82" lean-forward="false" selection-start-line="134" selection-start-column="82" selection-end-line="134" selection-end-column="82" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.view.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/admin/requests/index.view.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1608">
+              <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="show.view.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/admin/materials/show.view.php">
+        <entry file="file://$PROJECT_DIR$/app/views/admin/requests/show.view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="39" column="25" lean-forward="false" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
+            <state relative-caret-position="122">
+              <caret line="18" column="14" lean-forward="false" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/UserController.php">
+      <file leaf-file-name="RequestController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/RequestController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="151" column="24" lean-forward="true" selection-start-line="151" selection-start-column="24" selection-end-line="151" selection-end-column="63" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MaterialController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/MaterialController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="134" column="25" lean-forward="true" selection-start-line="134" selection-start-column="25" selection-end-line="134" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CoursesController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/CoursesController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="134" column="48" lean-forward="false" selection-start-line="134" selection-start-column="48" selection-end-line="134" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="show.view.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/admin/courses/show.view.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="26" column="26" lean-forward="true" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="edit.view.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/admin/courses/edit.view.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="45" column="51" lean-forward="false" selection-start-line="45" selection-start-column="51" selection-end-line="45" selection-end-column="51" />
+            <state relative-caret-position="256">
+              <caret line="125" column="31" lean-forward="false" selection-start-line="125" selection-start-column="31" selection-end-line="125" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -105,9 +68,11 @@
       <file leaf-file-name="create.view.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/admin/users/create.view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2118">
-              <caret line="175" column="40" lean-forward="false" selection-start-line="175" selection-start-column="40" selection-end-line="178" selection-end-column="46" />
-              <folding />
+            <state relative-caret-position="336">
+              <caret line="56" column="64" lean-forward="false" selection-start-line="56" selection-start-column="64" selection-end-line="56" selection-end-column="64" />
+              <folding>
+                <element signature="n#div#1;n#section#1;n#!!top" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -115,8 +80,8 @@
       <file leaf-file-name="edit.view.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/admin/users/edit.view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1968">
-              <caret line="39" column="49" lean-forward="false" selection-start-line="39" selection-start-column="49" selection-end-line="39" selection-end-column="49" />
+            <state relative-caret-position="2040">
+              <caret line="85" column="76" lean-forward="false" selection-start-line="85" selection-start-column="76" selection-end-line="85" selection-end-column="76" />
               <folding />
             </state>
           </provider>
@@ -125,8 +90,18 @@
       <file leaf-file-name="show.view.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/admin/users/show.view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-288">
-              <caret line="129" column="44" lean-forward="false" selection-start-line="129" selection-start-column="44" selection-end-line="132" selection-end-column="50" />
+            <state relative-caret-position="722">
+              <caret line="197" column="96" lean-forward="false" selection-start-line="197" selection-start-column="96" selection-end-line="197" selection-end-column="96" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="create.view.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/admin/requests/create.view.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="148">
+              <caret line="120" column="80" lean-forward="false" selection-start-line="120" selection-start-column="80" selection-end-line="120" selection-end-column="80" />
               <folding />
             </state>
           </provider>
@@ -164,7 +139,6 @@
         <option value="$PROJECT_DIR$/app/views/admin/dashboard.view.php" />
         <option value="$PROJECT_DIR$/app/views/admin/courses/index.view.php" />
         <option value="$PROJECT_DIR$/app/views/admin/materials/index.view.php" />
-        <option value="$PROJECT_DIR$/app/views/admin/requests/edit.view.php" />
         <option value="$PROJECT_DIR$/app/views/admin/users/index.view.php" />
         <option value="$PROJECT_DIR$/app/controllers/CommentController.php" />
         <option value="$PROJECT_DIR$/app/views/partial/admin/request.part.php" />
@@ -188,19 +162,20 @@
         <option value="$PROJECT_DIR$/app/views/partial/admin/material.part.php" />
         <option value="$PROJECT_DIR$/config.php" />
         <option value="$PROJECT_DIR$/app/views/partial/admin/sidebar.part.php" />
-        <option value="$PROJECT_DIR$/app/controllers/RequestController.php" />
         <option value="$PROJECT_DIR$/app/views/admin/requests/index.view.php" />
-        <option value="$PROJECT_DIR$/app/views/admin/requests/create.view.php" />
         <option value="$PROJECT_DIR$/.htaccess" />
-        <option value="$PROJECT_DIR$/app/views/admin/users/create.view.php" />
-        <option value="$PROJECT_DIR$/app/views/admin/users/show.view.php" />
-        <option value="$PROJECT_DIR$/app/views/admin/requests/show.view.php" />
-        <option value="$PROJECT_DIR$/app/controllers/UserController.php" />
         <option value="$PROJECT_DIR$/app/controllers/MaterialController.php" />
         <option value="$PROJECT_DIR$/app/controllers/CoursesController.php" />
         <option value="$PROJECT_DIR$/app/views/admin/courses/edit.view.php" />
-        <option value="$PROJECT_DIR$/app/views/admin/users/edit.view.php" />
         <option value="$PROJECT_DIR$/app/views/admin/materials/show.view.php" />
+        <option value="$PROJECT_DIR$/app/controllers/UserController.php" />
+        <option value="$PROJECT_DIR$/app/views/admin/users/create.view.php" />
+        <option value="$PROJECT_DIR$/app/views/admin/users/edit.view.php" />
+        <option value="$PROJECT_DIR$/app/views/admin/requests/create.view.php" />
+        <option value="$PROJECT_DIR$/app/views/admin/requests/edit.view.php" />
+        <option value="$PROJECT_DIR$/app/controllers/RequestController.php" />
+        <option value="$PROJECT_DIR$/app/views/admin/users/show.view.php" />
+        <option value="$PROJECT_DIR$/app/views/admin/requests/show.view.php" />
       </list>
     </option>
   </component>
@@ -256,7 +231,25 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="uploads" />
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lms" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -289,6 +282,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lms" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -336,25 +351,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="materials" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lms" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
+              <option name="myItemId" value="requests" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -491,12 +488,12 @@
       <option name="presentableId" value="Default" />
       <updated>1489088198978</updated>
       <workItem from="1489088206954" duration="43861000" />
-      <workItem from="1489217305444" duration="18694000" />
+      <workItem from="1489217305444" duration="21013000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62555000" />
+    <option name="totallyTimeSpent" value="64874000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="41" y="24" width="1325" height="744" extended-state="6" />
@@ -506,9 +503,9 @@
       <window_info id="Regex Tester" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.249226" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40557274" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18111455" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5882353" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17826428" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="LuaJ" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -537,20 +534,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/controllers/AuthController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="124" column="74" lean-forward="false" selection-start-line="124" selection-start-column="74" selection-end-line="124" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/AjaxController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="61" column="54" lean-forward="true" selection-start-line="61" selection-start-column="54" selection-end-line="61" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/composer.lock">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -828,38 +811,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/RequestController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-48">
-          <caret line="53" column="33" lean-forward="true" selection-start-line="53" selection-start-column="33" selection-end-line="53" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/requests/index.view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="38" column="53" lean-forward="true" selection-start-line="38" selection-start-column="53" selection-end-line="38" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/requests/create.view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="89" column="50" lean-forward="false" selection-start-line="89" selection-start-column="50" selection-end-line="89" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/requests/edit.view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2816">
-          <caret line="25" column="47" lean-forward="true" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.htaccess">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -868,42 +819,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/users/create.view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2118">
-          <caret line="175" column="40" lean-forward="false" selection-start-line="175" selection-start-column="40" selection-end-line="178" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/users/show.view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-288">
-          <caret line="129" column="44" lean-forward="false" selection-start-line="129" selection-start-column="44" selection-end-line="132" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/requests/show.view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="18" column="44" lean-forward="false" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/MaterialController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="233">
           <caret line="134" column="25" lean-forward="true" selection-start-line="134" selection-start-column="25" selection-end-line="134" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="151" column="24" lean-forward="true" selection-start-line="151" selection-start-column="24" selection-end-line="151" selection-end-column="63" />
           <folding />
         </state>
       </provider>
@@ -932,18 +851,100 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/users/edit.view.php">
+    <entry file="file://$PROJECT_DIR$/app/views/admin/materials/show.view.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1968">
-          <caret line="39" column="49" lean-forward="false" selection-start-line="39" selection-start-column="49" selection-end-line="39" selection-end-column="49" />
+        <state relative-caret-position="-72">
+          <caret line="39" column="25" lean-forward="true" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/materials/show.view.php">
+    <entry file="file://$PROJECT_DIR$/app/controllers/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="39" column="25" lean-forward="false" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
+        <state relative-caret-position="480">
+          <caret line="57" column="50" lean-forward="false" selection-start-line="57" selection-start-column="50" selection-end-line="57" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/users/create.view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="56" column="64" lean-forward="false" selection-start-line="56" selection-start-column="64" selection-end-line="56" selection-end-column="64" />
+          <folding>
+            <element signature="n#div#1;n#section#1;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/users/edit.view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2040">
+          <caret line="85" column="76" lean-forward="false" selection-start-line="85" selection-start-column="76" selection-end-line="85" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/requests/create.view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="120" column="80" lean-forward="false" selection-start-line="120" selection-start-column="80" selection-end-line="120" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/requests/edit.view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3216">
+          <caret line="134" column="82" lean-forward="false" selection-start-line="134" selection-start-column="82" selection-end-line="134" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="524" column="41" lean-forward="true" selection-start-line="524" selection-start-column="41" selection-end-line="524" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/pages/home.view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1872">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/RequestController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="125" column="31" lean-forward="false" selection-start-line="125" selection-start-column="31" selection-end-line="125" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/users/show.view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="722">
+          <caret line="197" column="96" lean-forward="false" selection-start-line="197" selection-start-column="96" selection-end-line="197" selection-end-column="96" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/requests/index.view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1608">
+          <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/requests/show.view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="18" column="14" lean-forward="false" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
           <folding />
         </state>
       </provider>

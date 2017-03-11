@@ -54,6 +54,7 @@ $fields=$request['fields'];
                     <td><a href="/users/<?=$user->id?>"><span class="fa fa-book"></span></a></td>
                     <td>
                         <?php start_form('delete',"/users/$user->id")?>
+                        <?php \App\Core\Session::saveBackUrl()?>
                         <button type="submit" style="border: none;background-color: rgba(0,0,0,0); color:#9f191f">
                             <span class="fa fa-remove"></span>
                         </button>
@@ -90,6 +91,7 @@ $fields=$request['fields'];
                     <h4 class="modal-title">Add New User</h4>
                 </div>
                 <?php start_form('post',"/users",['enctype'=>"multipart/form-data"])?>
+                <?php \App\Core\Session::saveBackUrl()?>
                 <div class="box box-solid">
                     <!-- /.box-header -->
                     <div class="box-body">

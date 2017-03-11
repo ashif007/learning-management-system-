@@ -64,6 +64,7 @@ $fields=$request['fields'];
                                 <td><a href="/comments/<?=$comment->id?>"><span class="fa fa-book"></span></a></td>
                                 <td>
                                     <?php start_form('delete',"/comments/$comment->id")?>
+                                    <?php \App\Core\Session::saveBackUrl()?>
                                     <button type="submit" style="border: none;background-color: rgba(0,0,0,0); color:#9f191f">
                                         <span class="fa fa-remove"></span>
                                     </button>
@@ -101,6 +102,7 @@ $fields=$request['fields'];
                     <h4 class="modal-title">Edit <?= $req->title?> Info</h4>
                 </div>
                 <?php start_form('put',"/requests/$req->id",['enctype'=>"multipart/form-data"])?>
+                <?php \App\Core\Session::saveBackUrl()?>
                     <div class="box box-solid">
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -130,13 +132,7 @@ $fields=$request['fields'];
                         </div>
                         <?php if(count($errors)>0):?>
                             <div class="alert alert-danger">
-                                <ul>
-                                    <?php foreach ($errors as $errors):?>
-                                        <?php foreach ($errors as $error):?>
-                                            <p><?=$error?></p>
-                                        <?php endforeach;?>
-                                    <?php endforeach;?>
-                                </ul>
+                               <?php partial('admin/errors',['errors'=>$errors])?>
                             </div>
                         <?php endif;?>
                     </div>

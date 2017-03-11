@@ -118,13 +118,7 @@ $fields=$request['fields'];
                         </div>
                         <?php if(count($errors)>0):?>
                         <div class="alert alert-danger">
-                            <ul>
-                                <?php foreach ($errors as $errors):?>
-                                    <?php foreach ($errors as $error):?>
-                                        <p><?=$error?></p>
-                                    <?php endforeach;?>
-                                <?php endforeach;?>
-                            </ul>
+                            <?php partial('admin/errors',['errors'=>$errors]);?>
                         </div>
                         <?php endif;?>
                     </div>

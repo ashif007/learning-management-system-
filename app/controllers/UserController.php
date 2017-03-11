@@ -55,12 +55,12 @@ class UserController extends Controller implements ResourceInterface
                 }
                 if (!empty(User::retrieveByEmail($request->get('email')))) {
                     Session::set('error', "User already exists");
-                    redirect('/users/create', $request->getLastFromSession());
+                    redirect(Session::getBackUrl(), $request->getLastFromSession());
                 } else {
                     if ($errors) {
                         $request->saveToSession($errors);
                         Session::set('error', "non valid data");
-                        redirect('/users/create', $request->getLastFromSession());
+                        redirect(Session::getBackUrl(), $request->getLastFromSession());
                     } else {
                         $user = new User();
                         $user->firstname = $request->get('firstname');
@@ -83,7 +83,7 @@ class UserController extends Controller implements ResourceInterface
                         $user->save();
 
                         Session::set('message', "User Added Successfully");
-                        redirect("/users/$user->id");
+                        redirect(Session::getBackUrl());
                     }
                 }
             }
@@ -169,9 +169,9 @@ class UserController extends Controller implements ResourceInterface
                     Session::set('message', "User Updated Successfully");
 
                     if (Session::isLogin()&&Session::getLoginUser()->role == "admin")
-                        redirect('/users');
+                        redirect(Session::getBackUrl());
                     else
-                        redirect('/users/'.$id);
+                        redirect(Session::getBackUrl());
                 }
             }
         } else {

@@ -83,6 +83,7 @@ $fields=$request['fields'];
                                 <td><a href="/requests/<?=$req->id?>"><span class="fa fa-book"></span></a></td>
                                 <td>
                                     <?php start_form('delete',"/requests/$req->id")?>
+                                    <?php \App\Core\Session::saveBackUrl()?>
                                     <button type="submit" style="border: none;background-color: rgba(0,0,0,0); color:#9f191f">
                                         <span class="fa fa-remove"></span>
                                     </button>
@@ -121,6 +122,7 @@ $fields=$request['fields'];
                     <h4 class="modal-title">Edit <?= $user->name?> Info</h4>
                 </div>
                 <?php start_form('put',"/users/$user->id",['enctype'=>"multipart/form-data"])?>
+                <?php \App\Core\Session::saveBackUrl()?>
                 <div class="box box-solid">
                     <!-- /.box-header -->
                     <div class="box-body">
