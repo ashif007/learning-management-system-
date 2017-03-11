@@ -185,6 +185,9 @@ class UserController extends Controller implements ResourceInterface
         if (Session::isLogin()&&Session::getLoginUser()->role == "admin") {
             $user = User::retrieveByPK($id);
             delete_file($user->image);
+            foreach ($user->requests() as $req){
+                $req->delete();
+            }
             $user->delete();
             Session::set('message', "User Deleted Successfully");
             redirect('/users');

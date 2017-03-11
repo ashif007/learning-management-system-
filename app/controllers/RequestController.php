@@ -121,6 +121,9 @@ class RequestController extends Controller implements ResourceInterface
     {
         if (Session::isLogin()) {
             $req = UserRequest::retrieveByPK($id);
+            foreach ($req->comments() as $comment){
+                $comment->delete();
+            }
             $req->delete();
             Session::set('message', "Request Deleted Successfully");
             redirect(Session::getBackUrl());

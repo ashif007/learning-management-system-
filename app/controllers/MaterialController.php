@@ -156,6 +156,9 @@ class MaterialController extends Controller implements ResourceInterface
     {
         if (Session::isLogin()&&Session::getLoginUser()->role=="admin") {
             $material = Material::retrieveByPK($id);
+            foreach ($material->comments() as $comment){
+                $comment->delete();
+            }
             if($material->type!='video'){
                 delete_file($material->link);
             }

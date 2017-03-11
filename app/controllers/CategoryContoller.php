@@ -113,6 +113,9 @@ class CategoryController extends Controller implements ResourceInterface
     public function destroy($id)
     {
         $category=Category::retrieveByPK($id);
+        foreach ($category->courses() as $course){
+            $course->delete();
+        }
         $category->delete();
         Session::set('message',"Category Deleted Successfully");
         redirect(Session::getBackUrl());

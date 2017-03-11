@@ -1,8 +1,9 @@
-<?php partial('admin/header')?>
+<?php partial('admin/header',['title'=>'Category Edit'])?>
 <?php
 $request=\App\Core\Session::get('request');
 $errors=$request['errors'];
 $fields=$request['fields'];
+\App\Core\Session::delete('request');
 ?>
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -80,7 +81,6 @@ $fields=$request['fields'];
                         </tfoot>
                     </table>
                 </div>
-
             </div>
             <!-- /.tab-content -->
         </div>
@@ -205,7 +205,6 @@ $fields=$request['fields'];
                 <!-- /.modal-dialog -->
             </div>
         </div>
-
     </section>
     <!-- /.content -->
 

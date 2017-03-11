@@ -1,3 +1,4 @@
+
 <?php partial('admin/header',['title'=>'All Categories'])?>
 <!-- Content Header (Page header) -->
 <section class="content-header">
@@ -34,3 +35,4 @@
 </section>
 
 <?php partial('admin/footer')?>
+

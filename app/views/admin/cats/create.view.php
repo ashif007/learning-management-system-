@@ -1,8 +1,9 @@
-<?php partial('admin/header')?>
+<?php partial('admin/header',['title'=>'Categories Admin'])?>
 <?php
 $request=\App\Core\Session::get('request');
-$error=$request['errors'];
+$errors=$request['errors'];
 $fields=$request['fields'];
+\App\Core\Session::delete('request');
 ?>
 <!-- Content Header (Page header) -->
 <section class="content-header">
@@ -23,7 +24,7 @@ $fields=$request['fields'];
         <div class="box-header with-border">
             <h3 class="box-title">All Categories</h3>
             <button class="btn btn-primary pull-right" id="add" data-toggle="modal" data-target="#AddUser">
-                Add new
+                Add new Category
             </button>
         </div>
         <div class="box-body">

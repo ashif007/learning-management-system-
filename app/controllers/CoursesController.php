@@ -148,8 +148,13 @@ class CoursesController extends Controller implements ResourceInterface
     {
         if(Session::isLogin() && Session::getLoginUser()->role == 'admin') {
             $course = Course::retrieveByPK($id);
+            foreach ($course->materials() as $material){
+                $material->delete();
+            }
+            delete_file($course->image);
             $course->delete();
             Session::set('message', "Course Deleted Successfully");
+            redirect(Session::getBackUrl());
         }else{
             return view('errors/503',['message'=>"You are not allowed to be here!"]);
         }
