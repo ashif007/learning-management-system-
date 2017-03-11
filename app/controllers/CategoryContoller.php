@@ -22,72 +22,99 @@ class CategoryController extends Controller implements ResourceInterface
     public function index()
     {
         $cats=Category::all();
-        return view('admin/cat',['cats'=>$cats]);
-        //var_dump($cats);
+        return view('admin/cats/index',['cats'=>$cats]);
     }
 
     public function create()
     {
-        $cats=Category::all();
-        return view('admin/cats/create',['cats'=>$cats]);
+        if (Session::isLogin()&&Session::getLoginUser()->role == 'admin') {
+            $cats = Category::all();
+            return view('admin/cats/create', ['cats' => $cats]);
+        }else{
+            return view('errors/503',['message'=>"You are not allowed to be here!"]);
+        }
     }
 
     public function store(Request $request)
     {
-
-
-        $errors = $this->validator->validate($request, [
-            'name' => 'required',
-
-        ]);
-
-
-
-        if ($errors) {
-            $request->saveToSession($errors);
-            dispalyForDebug();
-            redirect('cats/create', ['errors'=>$request->getLastFromSession()]);
-        }else {
-
-            $category = new Category();
-            $category->name = $request->get('name');
-
-
-            // dispalyForDebug($category);die();
-            $category->save();
-            Session::set('message',"Category Added Successfully");
-            redirect('cats/create');
+        if (Session::isLogin()&&Session::getLoginUser()->role == 'admin') {
+            if (verifyCSRF($request)) {
+                $errors = $this->validator->validate($request, [
+                    'name' => 'required',
+                ]);
+                if ($errors) {
+                    $request->saveToSession($errors);
+                    redirect('cats/create', ['errors'=>$request->getLastFromSession()]);
+                }else {
+                    $category = new Category();
+                    $category->name = $request->get('name');
+                    $category->save();
+                    Session::set('message',"Category Added Successfully");
+                    redirect('cats/create');
+                }
+            }else{
+                return view('errors/503', ['message' => "You are not allowed to be here!"]);
+            }
+        }else{
+            return view('errors/503', ['message' => "You are not allowed to be here!"]);
         }
-
-
-        dispalyForDebug($errors);die();
-
 
     }
 
     public function show($id)
     {
-        // TODO: Implement show() method.
+        try{
+            $cat=Category::retrieveByPK($id);
+            return view('admin/cats/show',['cat'=>$cat]);
+        }catch (\Exception $e){
+            return view('errors/404');
+        }
     }
 
     public function edit($id)
     {
-        // TODO: Implement edit() method.
+        try{
+            if(Session::isLogin() && Session::getLoginUser()->role == 'admin') {
+                $cat = Category::retrieveByPK($id);
+                return view('admin/cats/edit', ['cat' => $cat]);
+            }else{
+                return view('errors/503',['message'=>"You are not allowed to be here!"]);
+            }
+        }catch (\Exception $e){
+            return view('errors/404');
+        }
     }
 
     public function update(Request $request, $id)
     {
-        // TODO: Implement update() method.
+        if (Session::isLogin()&&Session::getLoginUser()->role == 'admin') {
+            if (verifyCSRF($request)) {
+                $errors = $this->validator->validate($request, [
+                    'name' => 'required',
+                ]);
+                if ($errors) {
+                    $request->saveToSession($errors);
+                    redirect('cats/create', ['errors'=>$request->getLastFromSession()]);
+                }else {
+                    $category = Category::retrieveByPK($id);
+                    $category->name = $request->get('name');
+                    $category->update();
+                    Session::set('message',"Category Updated Successfully");
+                    redirect('cats/create');
+                }
+            }else{
+                return view('errors/503', ['message' => "You are not allowed to be here!"]);
+            }
+        }else{
+            return view('errors/503', ['message' => "You are not allowed to be here!"]);
+        }
     }
 
     public function destroy($id)
     {
-        // TODO: Implement destroy() method.
         $category=Category::retrieveByPK($id);
         $category->delete();
         Session::set('message',"Category Deleted Successfully");
-        $url=Session::get('back_url');
-        Session::delete('back_url');
-        redirect($url);
+        redirect(Session::getBackUrl());
     }
 }

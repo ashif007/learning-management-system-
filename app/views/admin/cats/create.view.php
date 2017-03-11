@@ -7,10 +7,13 @@ $fields=$request['fields'];
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        Category
-        <small>description</small>
+        Categories
+        <small>Admin</small>
     </h1>
-    breadcrumb
+    <ol class="breadcrumb">
+        <li><a href="/cats"><i class="ion ion-ios-list"></i> Categories</a></li>
+        <li><a href="/cats/create"><i class="ion ion-plus"></i>Create</a></li>
+    </ol>
 </section>
 <!-- Main content -->
 <section class="content">
@@ -27,8 +30,8 @@ $fields=$request['fields'];
             <table id="indextable" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-
                     <th>Name</th>
+                    <th>Courses</th>
                     <th>Edit</th>
                     <th>View</th>
                     <th>Delete</th>
@@ -38,10 +41,12 @@ $fields=$request['fields'];
                 <?php foreach ($cats as $cat):?>
                 <tr>
                     <td><?= $cat->name?></td>
+                    <td><?= count($cat->courses())?></td>
                     <td><a href="/cats/<?=$cat->id?>/edit"><span class="fa fa-edit"></span></a></td>
                     <td><a href="/cats/<?=$cat->id?>"><span class="fa fa-book"></span></a></td>
                     <td>
                         <?php start_form('delete',"/cats/$cat->id")?>
+                        <?php \App\Core\Session::saveBackUrl()?>
                         <button type="submit" class="delete" style="border: none;background-color: rgba(0,0,0,0); color:#9f191f">
                             <span class="fa fa-remove"></span>
                         </button>
@@ -53,6 +58,7 @@ $fields=$request['fields'];
                 <tfoot>
                 <tr>
                     <th>Name</th>
+                    <th>Courses</th>
                     <th>Edit</th>
                     <th>View</th>
                     <th>Delete</th>
@@ -98,13 +104,7 @@ $fields=$request['fields'];
 
                         </div>
                         <?php if(count($errors)>0):?>
-                        <div class="alert alert-danger">
-                            <ul>
-                                <?php foreach ($errors as $filed=>$error):?>
-                                <li><strong><?= $field?></strong><?= $error?></li>
-                                <?php endforeach;?>
-                            </ul>
-                        </div>
+                            <?php partial('admin/verrors',['errors'=>$errors]);?>
                         <?php endif;?>
                     </div>
                     <!-- /.box-body -->
@@ -124,13 +124,5 @@ $fields=$request['fields'];
 </section>
 <!-- /.content -->
 <?php partial('admin/footer')?>
-<script src="<?php echo views_dir(); ?>admin/cats/cats.js" type="text/javascript" ></script>
-<?php if(count($errors)>0):?>
-    <script>
-        document.getElementById('add').click();
-    </script>
-    <?php \App\Core\Session::delete('request');
-endif;
-?>
 
 
