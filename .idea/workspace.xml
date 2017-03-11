@@ -2,13 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0521964e-6624-4062-8120-78c30d83fba9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/CommentController.php" afterPath="$PROJECT_DIR$/app/controllers/CommentController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/materials/create.view.php" afterPath="$PROJECT_DIR$/app/views/admin/materials/create.view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/materials/edit.view.php" afterPath="$PROJECT_DIR$/app/views/admin/materials/edit.view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/materials/show.view.php" afterPath="$PROJECT_DIR$/app/views/admin/materials/show.view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/requests/show.view.php" afterPath="$PROJECT_DIR$/app/views/admin/requests/show.view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/partial/admin/request.part.php" afterPath="$PROJECT_DIR$/app/views/partial/admin/request.part.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.php" afterPath="$PROJECT_DIR$/config.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -83,7 +76,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit.view.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="edit.view.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/admin/materials/edit.view.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="321">
@@ -94,6 +87,16 @@
                 <marker date="1489210216696" expanded="true" signature="8099:8289" ph="..." />
                 <marker date="1489210216696" expanded="true" signature="8470:8667" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -123,16 +126,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-216">
               <caret line="15" column="66" lean-forward="false" selection-start-line="15" selection-start-column="66" selection-end-line="15" selection-end-column="66" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CommentController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/CommentController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
-              <caret line="37" column="51" lean-forward="true" selection-start-line="37" selection-start-column="51" selection-end-line="37" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -191,7 +184,6 @@
         <option value="$PROJECT_DIR$/app/views/admin/users/edit.view.php" />
         <option value="$PROJECT_DIR$/app/views/admin/users/index.view.php" />
         <option value="$PROJECT_DIR$/app/views/admin/users/show.view.php" />
-        <option value="$PROJECT_DIR$/config.php" />
         <option value="$PROJECT_DIR$/app/views/admin/requests/index.view.php" />
         <option value="$PROJECT_DIR$/app/controllers/CommentController.php" />
         <option value="$PROJECT_DIR$/app/views/admin/requests/show.view.php" />
@@ -199,6 +191,7 @@
         <option value="$PROJECT_DIR$/app/views/admin/materials/show.view.php" />
         <option value="$PROJECT_DIR$/app/views/admin/materials/create.view.php" />
         <option value="$PROJECT_DIR$/app/views/admin/materials/edit.view.php" />
+        <option value="$PROJECT_DIR$/config.php" />
       </list>
     </option>
   </component>
@@ -520,12 +513,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1489088198978</updated>
-      <workItem from="1489088206954" duration="43785000" />
+      <workItem from="1489088206954" duration="43834000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43785000" />
+    <option name="totallyTimeSpent" value="43834000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="41" y="24" width="1325" height="744" extended-state="6" />
@@ -849,14 +842,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="12" column="19" lean-forward="false" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/admin/users/edit.view.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="24">
@@ -988,6 +973,14 @@
             <marker date="1489210216696" expanded="true" signature="8099:8289" ph="..." />
             <marker date="1489210216696" expanded="true" signature="8470:8667" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
