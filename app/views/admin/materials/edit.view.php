@@ -188,3 +188,23 @@ $fields=$request['fields'];
 </section>
     <!-- /.content -->
 <?php partial('admin/footer')?>
+<script>
+    $(document).ready(function () {
+        if($('#type').value=="video"){
+            $('#video').show();
+            $('#file').hide();
+        }else{
+            $('#video').hide();
+            $('#file').show();
+        };
+        $('#type').on('change',function (e) {
+            if(this.value=="video"){
+                $('#video').show();
+                $('#file').hide();
+            }else{
+                $('#video').hide();
+                $('#file').show();
+            }
+        });
+    });
+</script>
