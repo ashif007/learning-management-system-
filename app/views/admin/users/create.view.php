@@ -174,6 +174,10 @@ $fields=$request['fields'];
                                             <input type="file" name="image" class="form-control">
                                         </div>
                                         <div class="form-group">
+                                            <label for="signature">Signature</label>
+                                            <textarea  name="signature" class="form-control" id="editor"><?= isset($fields['signature'])?$fields['signature']:''?></textarea>
+                                        </div>
+                                        <div class="form-group">
                                             <label for="role">Role</label>
                                             <select name="role" id="" class="form-control">
                                                 <option value="student" <?php if(isset($fields['role'])&&$fields['role']=='student'){echo 'selected="selected"';}?>>Student</option>

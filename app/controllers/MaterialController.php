@@ -128,15 +128,18 @@ class MaterialController extends Controller implements ResourceInterface
                     $material = Material::retrieveByPK($id);
                     $material->cid = $request->get('cid');
                     $material->name = $request->get('name');
-                    $material->type = $request->get('type');
-                    if($request->get('type')=='video'){
-                        $material->link=$request->get('vlink');
-                    }else{
-                        if($material->type!='video'){
+                    if($request->get('type')=='video'&&$request->get('vlink')!=''){
+                        if($material->type!='video') {
                             delete_file($material->link);
+                            $material->link=$request->get('vlink');
                         }
-                        $material->link=upload_file("link");
+                    }else{
+                        if($request->getFile('link')['size']!=0){
+                            delete_file($material->link);
+                            $material->link=upload_file("link");
+                        }
                     }
+                    $material->type = $request->get('type');
                     $material->description=$request->get('description');
                     $material->updated_at = date("Y-m-d H:i:s");
                     $material->update();

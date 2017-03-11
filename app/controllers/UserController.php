@@ -66,6 +66,7 @@ class UserController extends Controller implements ResourceInterface
                         $user->firstname = $request->get('firstname');
                         $user->lastname = $request->get('lastname');
                         $user->username = $request->get('username');
+                        $user->signature = $request->get('signature');
                         $user->email = $request->get('email');
                         $user->password = password_hash($request->get('password'), PASSWORD_DEFAULT);
                         $user->image = upload_file("image");
@@ -145,9 +146,10 @@ class UserController extends Controller implements ResourceInterface
                     $user->firstname = $request->get('firstname');
                     $user->lastname = $request->get('lastname');
                     $user->username = $request->get('username');
+                    $user->signature = $request->get('signature');
                     $user->email = $request->get('email');
                     $user->password = password_hash($request->get('password'), PASSWORD_DEFAULT);
-                    if ($request->getFile('image')) {
+                    if ($request->getFile('image')['size'] != 0) {
                         delete_file($user->image);
                         $user->image = upload_file("image");
                     }
@@ -162,6 +164,7 @@ class UserController extends Controller implements ResourceInterface
                     } else {
                         $user->isbaned = 0;
                     }
+                    $user->updated_at = date("Y-m-d H:i:s");
                     $user->update();
                     Session::set('message', "User Updated Successfully");
 

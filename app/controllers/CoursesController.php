@@ -131,7 +131,8 @@ class CoursesController extends Controller implements ResourceInterface
                 $course->cid = $request->get('cat');
                 $course->rate = $request->get('rank');
                 $course->tid = Session::getLoginUser()->id;
-                if($request->getFile('image')){
+                if($request->getFile('image')['size']!=0){
+                    delete_file($course->image);
                     $course->image=upload_file('image');
                 }
                 $course->update();

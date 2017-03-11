@@ -87,7 +87,8 @@ $fields=$request['fields'];
                         <span aria-hidden="true">×</span></button>
                     <h4 class="modal-title">Add New User</h4>
                 </div>
-                <?php start_form('post',"/request",['enctype'=>"multipart/form-data"])?>
+                <?php start_form('post',"/requests",['enctype'=>"multipart/form-data"])?>
+                <?php \App\Core\Session::saveBackUrl()?>
                 <div class="box box-solid">
                     <!-- /.box-header -->
                     <div class="box-body">

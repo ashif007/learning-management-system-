@@ -43,7 +43,7 @@ if(isset($fields['cid'])){
             <div class="tab-pane active" id="details">
                 <div class="row">
                     <div class="col-sm-3">
-                        <img src="<?php asset($course->image)?>" alt="" class="img-responsive">
+                        <img src="<?=$course->image?>" alt="" class="img-responsive">
                     </div>
                     <div class="col-sm-3">
                         <h5>Title: <span class="text-green"><?=$course->title?></span></h5>

@@ -41,6 +41,7 @@ $fields=$request['fields'];
                 </ul>
                 <div class="tab-content">
                     <div class="active tab-pane" id="activity">
+                        <a href="/requests/create" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Add New Request</a>
                         <?php foreach ($user->requests() as $req):?>
                             <?php partial('admin/request',['req'=>$req])?>
                         <?php endforeach;?>
@@ -126,13 +127,16 @@ $fields=$request['fields'];
                                             </h4>
                                         </div>
                                         <div id="profileinfo" class="panel-collapse collapse in">
+                                            <div class="form-group">
+                                                <label for="signature">Signature</label>
+                                                <textarea  name="signature" class="form-control" id="editor"><?= isset($fields['signature'])?$fields['signature']:''?></textarea>
+                                            </div>
                                             <div class="box-body">
                                                 <div class="form-group">
                                                     <label for="image">Profile Photo</label>
                                                     <br>
                                                     <input type="file" name="image" class="form-control">
                                                     <img width="200" height="250" class="img-responsive img-circle" src="<?= $user->image?>">
-
                                                 </div>
                                             </div>
                                         </div>

@@ -37,7 +37,7 @@ $fields=$request['fields'];
             <div class="tab-pane active" id="details">
                 <div class="row">
                     <div class="col-sm-3">
-                        <img src="<?php asset($user->image)?>" alt="" class="img-responsive">
+                        <img src="<?=$user->image?>" alt="" class="img-responsive">
                     </div>
                     <div class="col-sm-3">
                         <h5>First Name: <span class="text-green"><?=$user->firstname?></span></h5>
@@ -202,8 +202,12 @@ $fields=$request['fields'];
                                     <div class="box-body">
                                         <div class="form-group">
                                             <label for="image">Profile Photo</label>
-                                            <?php uploaded_image($user->image)?><br>
+                                            <?php uploaded_image($user->image,['width'=>'100px'])?><br>
                                             <input type="file" name="image" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="signature">Signature</label>
+                                            <textarea  name="signature" class="form-control" id="editor"><?= isset($fields['signature'])?$fields['signature']:''?></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label for="role">Role</label>
