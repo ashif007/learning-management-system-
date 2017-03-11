@@ -31,12 +31,12 @@
                 Meanwhile, you may <a href="/">return to home page</a> or try using the search form.
             </p>
 
-            <form class="search-form" action="/search">
+            <form class="search-form" action="/search" method="get">
                 <div class="input-group">
                     <input type="text" name="q" class="form-control" placeholder="Search">
 
                     <div class="input-group-btn">
-                        <button type="submit" name="submit" class="btn btn-danger btn-flat"><i class="fa fa-search"></i>
+                        <button type="submit" class="btn btn-danger btn-flat"><i class="fa fa-search"></i>
                         </button>
                     </div>
                 </div>

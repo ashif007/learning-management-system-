@@ -11,6 +11,7 @@ $router->get('', 'PagesController@home');
 $router->get('about', 'PagesController@about');
 $router->get('contact', 'PagesController@contact');
 $router->get('admin', 'PagesController@admin');
+$router->get('search', 'PagesController@search');
 
 //Authentication routes
 $router->get('login', 'AuthController@showlogin');

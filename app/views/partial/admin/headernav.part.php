@@ -51,12 +51,6 @@
                     </ul>
                 </li>
 
-                <!-- Control Sidebar Toggle Button -->
-                    <?php if(\App\Core\Session::getLoginUser()->role=="admin"):?>
-                        <li>
-                            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-                        </li>
-                    <?php endif;?>
                 <?php else:?>
                     <li>
                         <a href="/login"><i class="fa fa-sign-in"></i> Login</a>
@@ -71,7 +65,7 @@
             <div class="input-group input-group-sm">
                 <input type="text" name="q" class="form-control" placeholder="Search...">
                 <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-primary btn-flat"><i class="fa fa-search"></i>
+                <button type="submit"  id="search-btn" class="btn btn-primary btn-flat"><i class="fa fa-search"></i>
                 </button>
               </span>
             </div>

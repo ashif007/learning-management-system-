@@ -82,19 +82,29 @@ class CoursesController extends Controller implements ResourceInterface
 
     public function show($id)
     {
-       $course=Course::retrieveByPK($id);
-       return view('admin/courses/show',['course'=>$course]);
+       try{
+           $course=Course::retrieveByPK($id);
+           return view('admin/courses/show',['course'=>$course]);
+       }catch (\Exception $e){
+           return view('errors/404');
+       }
+
     }
 
     public function edit($id)
     {
-        if(Session::isLogin() && Session::getLoginUser()->role == 'admin') {
-            $course = Course::retrieveByPK($id);
-            $cats = Category::all();
-            return view('admin/courses/edit', ['course' => $course, 'cats' => $cats]);
-        }else{
-            return view('errors/503',['message'=>"You are not allowed to be here!"]);
+        try{
+            if(Session::isLogin() && Session::getLoginUser()->role == 'admin') {
+                $course = Course::retrieveByPK($id);
+                $cats = Category::all();
+                return view('admin/courses/edit', ['course' => $course, 'cats' => $cats]);
+            }else{
+                return view('errors/503',['message'=>"You are not allowed to be here!"]);
+            }
+        }catch (\Exception $e){
+            return view('errors/404');
         }
+
     }
 
     public function update(Request $request, $id)

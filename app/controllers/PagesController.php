@@ -2,7 +2,6 @@
 namespace App\Controllers;
 use App\Core\App;
 use App\Core\Controller;
-use App\Core\Request;
 use App\Core\RSS;
 use App\Core\Session;
 use App\Models\Course;
@@ -42,6 +41,13 @@ class PagesController extends Controller {
         redirect('/#contact');
     }
 
+    public function search($request){
+        $courses=Course::retrieveByField('title',$request->get('q'));
+        $materials=Material::retrieveByField('name',$request->get('q'));
+        $reqs=UserRequest::retrieveByField('title',$request->get('q'));
+        $users=User::retrieveByField('username',$request->get('q'));
+        return view('pages/search',['courses'=>$courses,'users'=>$users,'materials'=>$materials,'reqs'=>$reqs]);
+    }
 
 
     public function rss()

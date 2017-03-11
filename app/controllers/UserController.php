@@ -94,24 +94,32 @@ class UserController extends Controller implements ResourceInterface
 
     public function show($id)
     {
-        if (Session::isLogin()&&Session::getLoginUser()->id == $id|| Session::isLogin()&&Session::getLoginUser()->role == "admin")
+        try{
+            if (Session::isLogin()&&Session::getLoginUser()->id == $id|| Session::isLogin()&&Session::getLoginUser()->role == "admin")
             {
-            $user = User::retrieveByPK($id);
-            return view('admin/users/show', ['user' => $user]);
-        }else{
-            redirect('/login');
+                $user = User::retrieveByPK($id);
+                return view('admin/users/show', ['user' => $user]);
+            }else{
+                redirect('/login');
+            }
+        }catch (\Exception $e){
+            return view('errors/404');
         }
+
     }
 
     public function edit($id)
     {
-        if (Session::isLogin()&&Session::getLoginUser()->id == $id|| Session::isLogin()&&Session::getLoginUser()->role == "admin") {
-            $user = User::retrieveByPK($id);
-            return view('admin/users/edit', ['user' => $user]);
-        } else {
-            return view('errors/503',['message'=>"You are not allowed to be here!"]);
+        try{
+            if (Session::isLogin()&&Session::getLoginUser()->id == $id|| Session::isLogin()&&Session::getLoginUser()->role == "admin") {
+                $user = User::retrieveByPK($id);
+                return view('admin/users/edit', ['user' => $user]);
+            } else {
+                return view('errors/503',['message'=>"You are not allowed to be here!"]);
+            }
+        }catch (\Exception $e){
+            return view('errors/404');
         }
-
     }
 
     public function update(Request $request, $id)

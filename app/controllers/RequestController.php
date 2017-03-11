@@ -63,19 +63,29 @@ class RequestController extends Controller implements ResourceInterface
 
     public function show($id)
     {
-        $req = UserRequest::retrieveByPK($id);
-        return view('admin/requests/show', ['req' => $req]);
+        try{
+            $req = UserRequest::retrieveByPK($id);
+            return view('admin/requests/show', ['req' => $req]);
+        }catch (\Exception $e){
+            return view('errors/404');
+        }
+
 
     }
 
     public function edit($id)
     {
-        if (Session::isLogin()) {
-            $req = UserRequest::retrieveByPK($id);
-            return view('admin/requests/edit', ['req' => $req]);
-        } else {
-            return view('errors/503',['message'=>"You are not allowed to be here!"]);
+        try{
+            if (Session::isLogin()) {
+                $req = UserRequest::retrieveByPK($id);
+                return view('admin/requests/edit', ['req' => $req]);
+            } else {
+                return view('errors/503',['message'=>"You are not allowed to be here!"]);
+            }
+        }catch (\Exception $e){
+            return view('errors/404');
         }
+
     }
 
     public function update(Request $request, $id)

@@ -80,20 +80,30 @@ class MaterialController extends Controller implements ResourceInterface
 
     public function show($id)
     {
-        $material = Material::retrieveByPK($id);
-        return view('admin/materials/show', ['material' => $material]);
+        try{
+            $material = Material::retrieveByPK($id);
+            return view('admin/materials/show', ['material' => $material]);
+        }catch (\Exception $e){
+            return view('errors/404');
+        }
+
 
     }
 
     public function edit($id)
     {
-        if (Session::isLogin()&&Session::getLoginUser()->role=="admin") {
-            $material = Material::retrieveByPK($id);
-            $courses=Course::all();
-            return view('admin/materials/edit', ['courses'=>$courses,'material' => $material]);
-        } else {
-            return view('errors/503',['message'=>"You are not allowed to be here!"]);
+        try{
+            if (Session::isLogin()&&Session::getLoginUser()->role=="admin") {
+                $material = Material::retrieveByPK($id);
+                $courses=Course::all();
+                return view('admin/materials/edit', ['courses'=>$courses,'material' => $material]);
+            } else {
+                return view('errors/503',['message'=>"You are not allowed to be here!"]);
+            }
+        }catch (\Exception $e){
+            return view('errors/404');
         }
+
     }
 
     public function update(Request $request, $id)
