@@ -15,7 +15,19 @@
     <div class="box">
         <div class="box-header with-border">
             <h3 class="box-title"><?=$material->name?></h3>
-            <a class="btn btn-primary btn-xs pull-right" href="/materials/download?mat=<?=$material->id?>"><span class="badge bg-red"><?=$material->downloaded?></span> Download Material</a>
+            <div class="text-center pull-right">
+                <?php if($material->type=="video"):?>
+                    <a class="btn btn-social-icon btn-facebook" href="https://www.facebook.com/sharer/sharer.php?u=<?=$material->link?>"><i class="fa fa-facebook"></i></a>
+                    <a class="btn btn-social-icon btn-google"><i class="fa fa-google-plus" href="https://plus.google.com/share?url=<?=$material->link?>"></i></a>
+                    <a class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter" href="https://twitter.com/home?status=<?=$material->link?>"></i></a>
+                <?php else:?>
+                    <a class="btn btn-social-icon btn-facebook" href="https://www.facebook.com/sharer/sharer.php?u=<?=$_SERVER['HTTP_HOST'].$material->link?>"><i class="fa fa-facebook"></i></a>
+                    <a class="btn btn-social-icon btn-google"><i class="fa fa-google-plus" href="https://plus.google.com/share?url=<?=$_SERVER['HTTP_HOST'].$material->link?>" ></i></a>
+                    <a class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter" href="https://twitter.com/home?status=<?=$_SERVER['HTTP_HOST'].$material->link?>"></i></a>
+                <?php endif?>
+                <a class="btn btn-primary" href="/materials/download?mat=<?=$material->id?>"><span class="badge bg-red"><?=$material->downloaded?></span> Download Material</a>
+            </div>
+
         </div>
         <div class="box-body">
             <?=$material->description?>
