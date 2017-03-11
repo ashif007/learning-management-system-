@@ -200,16 +200,16 @@
         <section class="row">
             <div class="col-xs-12">
                 <div id="screenshots" class="owl-carousel owl-theme">
-                    <div class="item"><img src="img/screenshot-1.png" class="img_res wow animated zoomIn"></div>
-                    <div class="item"><img src="img/screenshot-2.png" class="img_res wow animated zoomIn"></div>
-                    <div class="item"><img src="img/screenshot-3.png" class="img_res wow animated zoomIn"></div>
-                    <div class="item"><img src="img/screenshot-4.png" class="img_res wow animated zoomIn"></div>
-                    <div class="item"><img src="img/screenshot-5.png" class="img_res wow animated zoomIn"></div>
-                    <div class="item"><img src="img/screenshot-6.png" class="img_res wow animated zoomIn"></div>
-                    <div class="item"><img src="img/screenshot-7.png" class="img_res wow animated zoomIn"></div>
-                    <div class="item"><img src="img/screenshot-3.png" class="img_res wow animated zoomIn"></div>
-                    <div class="item"><img src="img/screenshot-5.png" class="img_res wow animated zoomIn"></div>
-                    <div class="item"><img src="img/screenshot-1.png" class="img_res wow animated zoomIn"></div>
+                    <div class="item"><img src="<?php asset('img/screen1.png')?>" class="img_res wow animated zoomIn"></div>
+                    <div class="item"><img src="<?php asset('img/screen2.png')?>" class="img_res wow animated zoomIn"></div>
+                    <div class="item"><img src="<?php asset('img/screen3.png')?>" class="img_res wow animated zoomIn"></div>
+                    <div class="item"><img src="<?php asset('img/screen4.png')?>" class="img_res wow animated zoomIn"></div>
+                    <div class="item"><img src="<?php asset('img/screen5.png')?>" class="img_res wow animated zoomIn"></div>
+                    <div class="item"><img src="<?php asset('img/screen6.png')?>" class="img_res wow animated zoomIn"></div>
+                    <div class="item"><img src="<?php asset('img/screen7.png')?>" class="img_res wow animated zoomIn"></div>
+                    <div class="item"><img src="<?php asset('img/screen8.png')?>" class="img_res wow animated zoomIn"></div>
+                    <div class="item"><img src="<?php asset('img/screen9.png')?>" class="img_res wow animated zoomIn"></div>
+                    <div class="item"><img src="<?php asset('img/screen10.png')?>" class="img_res wow animated zoomIn"></div>
                 </div>
                 <div class="customNavigation">
                     <a class="btn prev gallery-nav wow animated bounceInLeft"><i class="ion-ios-arrow-left"></i></a>
@@ -241,7 +241,7 @@
         <section class="row ">
             <section class="col-md-3 col-sm-6 ">
                 <div class="team-member wow animated fadeIn " data-wow-delay=="0.3s">
-                    <img  src="img/dev-1.jpg" class="img_res team-pic ">
+                    <img  src="<?php asset('img/salama.JPG')?>" class="img_res team-pic ">
                     <h2 class="wow animated fadeInDown" data-wow-delay=="0.7s">Salama  Ashoush</h2>
                     <p class="wow animated fadeIn" data-wow-delay=="0.7s"> Salama is a very active member who is
                     interested in open source technology and graphic designs </p>
@@ -283,7 +283,7 @@
             </section>
             <section class="col-md-3 col-sm-6 ">
                 <div class="team-member wow animated fadeIn " data-wow-delay=="0.3s">
-                    <img  src="img/hanan.jpg" class="img_res team-pic ">
+                    <img  src="<?php asset('img/hanan.jpg')?>" class="img_res team-pic ">
                     <h2 class="wow animated fadeInDown" data-wow-delay=="0.7s">Hanan Abozaid</h2>
                     <p class="wow animated fadeIn" data-wow-delay=="0.7s"> Hanan is a member who likes to add a value
                     to our service by building our products </p>
@@ -321,7 +321,7 @@
                     <div class="item">
                         <div class="row">
                             <div class="col-sm-4 col-sm-offset-1">
-                                <div class="client-pic"><img class="img_res" src="img/client-one.png"></div>
+                                <div class="client-pic"><img class="img_res" src="<?php asset('img/islam.JPG')?>"></div>
                                 <p class="review-star">
                                     <i class="ion-ios-star"></i>
                                     <i class="ion-ios-star"></i>
@@ -346,7 +346,7 @@
                     <div class="item">
                         <div class="row">
                             <div class="col-sm-4 col-sm-offset-1">
-                                <div class="client-pic"><img class="img_res" src="img/client-one.png"></div>
+                                <div class="client-pic"><img class="img_res" src="<?php asset('img/shreen.JPG')?>"></div>
                                 <p class="review-star">
                                     <i class="ion-ios-star"></i>
                                     <i class="ion-ios-star"></i>
@@ -368,7 +368,7 @@
                     <div class="item">
                         <div class="row">
                             <div class="col-sm-4 col-sm-offset-1">
-                                <div class="client-pic"><img class="img_res" src="img/client-one.png"></div>
+                                <div class="client-pic"><img class="img_res" src="<?php asset('img/moad.JPG')?>"></div>
                                 <p class="review-star">
                                     <i class="ion-ios-star"></i>
                                     <i class="ion-ios-star"></i>
@@ -390,7 +390,7 @@
                     <div class="item">
                         <div class="row">
                             <div class="col-sm-4 col-sm-offset-1">
-                                <div class="client-pic"><img class="img_res" src="img/client-one.png"></div>
+                                <div class="client-pic"><img class="img_res" src="<?php asset('img/kesha.JPG')?>"></div>
                                 <p class="review-star">
                                     <i class="ion-ios-star"></i>
                                     <i class="ion-ios-star"></i>
