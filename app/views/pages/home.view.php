@@ -54,7 +54,7 @@
 <header class="sticky" id="header">
     <section class="container">
         <section class="row" id="logo_menu">
-            <section class="col-xs-6"><a class="logo" href="">OPEN SOURCE</a></section>
+            <section class="col-xs-6"><a class="logo" href="">OPEN SOURCE - LMS</a></section>
             <section class="col-xs-6"><a id="menu-toggle" href="#" class="toggle wow rotateIn" data-wow-delay="1s"><i class="ion-navicon"></i></a></section>
         </section>
     </section>
@@ -241,7 +241,7 @@
         <section class="row ">
             <section class="col-md-3 col-sm-6 ">
                 <div class="team-member wow animated fadeIn " data-wow-delay=="0.3s">
-                    <img  src="img/dev-2.jpg" class="img_res team-pic ">
+                    <img  src="img/dev-1.jpg" class="img_res team-pic ">
                     <h2 class="wow animated fadeInDown" data-wow-delay=="0.7s">Salama  Ashoush</h2>
                     <p class="wow animated fadeIn" data-wow-delay=="0.7s"> Salama is a very active member who is
                     interested in open source technology and graphic designs </p>
@@ -283,7 +283,7 @@
             </section>
             <section class="col-md-3 col-sm-6 ">
                 <div class="team-member wow animated fadeIn " data-wow-delay=="0.3s">
-                    <img  src="img/dev-2.jpg" class="img_res team-pic ">
+                    <img  src="img/hanan.jpg" class="img_res team-pic ">
                     <h2 class="wow animated fadeInDown" data-wow-delay=="0.7s">Hanan Abozaid</h2>
                     <p class="wow animated fadeIn" data-wow-delay=="0.7s"> Hanan is a member who likes to add a value
                     to our service by building our products </p>
