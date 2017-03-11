@@ -71,7 +71,13 @@
                 <div class="headings">
                     <img class="img-responsive" src="<?php asset('img/logo.png')?>" alt="inform me Logo" title="Inform Me" width="150px" height="200px"/>
 
-                    <p class="wow animated fadeInLeft">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci minus nobis placeat possimus quo quos, sint velit. Inventore molestiae perspiciatis quam! Aut blanditiis eligendi eos harum nemo repellendus tempora!<br> WE LOVE OPEN SOURCE</p>
+                    <p class="wow animated fadeInLeft" style="text-decoration: brown" , "font-weight: bold"; >
+
+                        Full Cycle Learning
+                        Create the complete learning cycle from content creation to the final analysis of results.
+                        No need for any additional tools or technical skills.
+
+                        <br> WE LOVE OPEN SOURCE</p>
                     <?php if(! \App\Core\Session::isLogin()):?>
                     <div class="row">
                         <div class="col-xs-6 col-sm-6 col-md-5">
@@ -130,7 +136,8 @@
                 <div class="feature-box wow animated flipInX" data-wow-delay="0.3s">
                     <i class="ion-search" style="color:#9b59b6;"></i>
                     <h2>Search</h2>
-                    <p>Lorem ipsum dolor sit ami aspernatur iores consequuntur distinctio, impedit ipsum porro possimus quo quod ullam voluptates!
+                    <p> we offer a very simple search feature through our whole learning management system
+
                     </p>
                 </div>
             </div>
@@ -139,36 +146,37 @@
                     <i class="ion-ios-book" style="color:#d35400;"></i>
                     <h2>Courses</h2>
                     <p>
-                       Lorem ipsum dolor sit amet, eveniet harum minus molestias nesciunt numquam officiis, perspiciatis repellendus soluta sunt, vel.
+                        we offer very big diversity of courses , you can create , edit , list and delete courses
                     </p>
                 </div>
             </div>
             <div class="col-sm-6 col-md-4">
                 <div class="feature-box wow animated flipInX" data-wow-delay="0.3s">
                     <i class="ion-speedometer" style="color:#00ceb8;"></i>
-                    <h2>Fast </h2>
-                    <p>Lorem ipsum dolor sit amet, erunt dolor eos necessitatibus nulla obcaecati omnis quaerat, tenetur ut voluptate voluptatum.</p>
+                    <h2>Materials </h2>
+                    <p>we offer very big diversity of materials , you can create , edit , list and delete materials </p>
                 </div>
             </div>
             <div class="col-sm-6 col-md-4">
                 <div class="feature-box wow animated flipInX" data-wow-delay="0.6s">
                     <i class="ion-gear-a" style="color:#c0392b;"></i>
-                    <h2>Service</h2>
-                    <p> Lorem is commodi consequuntur nesciunt oluptatibus! Ab beatae impedit iure necessitatibus nesciunt odit officiis quam sapiente vitae?</p>
+                    <h2>Categories</h2>
+                    <p> we offer very big diversity of categories , you can create , edit , list and delete categories</p>
                 </div>
             </div>
             <div class="col-sm-6 col-md-4">
                 <div class="feature-box wow animated flipInX" data-wow-delay="0.6s">
                     <i class="ion-link" style="color:#27ae60;"></i>
-                    <h2>Materials</h2>
-                    <p>Lorem ipsum dolor o sequi tempora voluptatem? At, distinctio perspiciatis? Facere ipsam nobis obcaecati.</p>
+                    <h2>Users</h2>
+                    <p>we support our users with very stable service with a lot of features </p>
                 </div>
             </div>
             <div class="col-sm-6 col-md-4">
                 <div class="feature-box wow animated flipInX" data-wow-delay="0.6s">
                     <i class="ion-information" style="color:#2c3e50;"></i>
                     <h2>Information</h2>
-                    <p>Lorem ipsum dolor sit amet, epedita, fugit id itaque modi, molestias quae temporibus ut.</p>
+                    <p> we provide  the complete learning cycle from content creation to the final analysis of results.
+                        No need for any additional tools or technical skills.</p>
                 </div>
             </div>
         </section>
@@ -234,8 +242,9 @@
             <section class="col-md-3 col-sm-6 ">
                 <div class="team-member wow animated fadeIn " data-wow-delay=="0.3s">
                     <img  src="img/dev-2.jpg" class="img_res team-pic ">
-                    <h2 class="wow animated fadeInDown" data-wow-delay=="0.7s">Lorem ipsum dolor</h2>
-                    <p class="wow animated fadeIn" data-wow-delay=="0.7s">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur dicta doloremque eaque eveniet, harum id incidunt iusto labore molestiae necessitatibus nihil nobis nulla pariatur quaerat temporibus unde vero vitae, voluptas..</p>
+                    <h2 class="wow animated fadeInDown" data-wow-delay=="0.7s">Salama  Ashoush</h2>
+                    <p class="wow animated fadeIn" data-wow-delay=="0.7s"> Salama is a very active member who is
+                    interested in open source technology and graphic designs </p>
                     <ul class="team-social">
                         <li class="wow animated fadeInLeft facebook"><a href="#"><i class="ion-social-facebook"></i></a></li>
                         <li class="wow animated fadeInLeft linkedin"><a href="#"><i class="ion-social-linkedin"></i></a></li>
@@ -247,8 +256,9 @@
             <section class="col-md-3 col-sm-6 ">
                 <div class="team-member wow animated fadeIn " data-wow-delay=="0.3s">
                     <img  src="img/dev-2.jpg" class="img_res team-pic ">
-                    <h2 class="wow animated fadeInDown" data-wow-delay=="0.7s">Lorem ipsum dolor</h2>
-                    <p class="wow animated fadeIn" data-wow-delay=="0.7s">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur dicta doloremque eaque eveniet, harum id incidunt iusto labore molestiae necessitatibus nihil nobis nulla pariatur quaerat temporibus unde vero vitae, voluptas..</p>
+                    <h2 class="wow animated fadeInDown" data-wow-delay=="0.7s">Mohammed Habib</h2>
+                    <p class="wow animated fadeIn" data-wow-delay=="0.7s">Mohammed is our major php developer and
+                    has a wide range of web technologies techniques </p>
                     <ul class="team-social">
                         <li class="wow animated fadeInLeft facebook"><a href="#"><i class="ion-social-facebook"></i></a></li>
                         <li class="wow animated fadeInLeft linkedin"><a href="#"><i class="ion-social-linkedin"></i></a></li>
@@ -260,8 +270,9 @@
             <section class="col-md-3 col-sm-6 ">
                 <div class="team-member wow animated fadeIn " data-wow-delay=="0.3s">
                     <img  src="img/dev-2.jpg" class="img_res team-pic ">
-                    <h2 class="wow animated fadeInDown" data-wow-delay=="0.7s">Lorem ipsum dolor</h2>
-                    <p class="wow animated fadeIn" data-wow-delay=="0.7s">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur dicta doloremque eaque eveniet, harum id incidunt iusto labore molestiae necessitatibus nihil nobis nulla pariatur quaerat temporibus unde vero vitae, voluptas..</p>
+                    <h2 class="wow animated fadeInDown" data-wow-delay=="0.7s">Khaled Mohammed</h2>
+                    <p class="wow animated fadeIn" data-wow-delay=="0.7s"> Khaled is one of our active member who loves open source
+                    technologies and like to contribute in the community </p>
                     <ul class="team-social">
                         <li class="wow animated fadeInLeft facebook"><a href="#"><i class="ion-social-facebook"></i></a></li>
                         <li class="wow animated fadeInLeft linkedin"><a href="#"><i class="ion-social-linkedin"></i></a></li>
@@ -273,8 +284,9 @@
             <section class="col-md-3 col-sm-6 ">
                 <div class="team-member wow animated fadeIn " data-wow-delay=="0.3s">
                     <img  src="img/dev-2.jpg" class="img_res team-pic ">
-                    <h2 class="wow animated fadeInDown" data-wow-delay=="0.7s">Lorem ipsum dolor</h2>
-                    <p class="wow animated fadeIn" data-wow-delay=="0.7s">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur dicta doloremque eaque eveniet, harum id incidunt iusto labore molestiae necessitatibus nihil nobis nulla pariatur quaerat temporibus unde vero vitae, voluptas..</p>
+                    <h2 class="wow animated fadeInDown" data-wow-delay=="0.7s">Hanan Abozaid</h2>
+                    <p class="wow animated fadeIn" data-wow-delay=="0.7s"> Hanan is a member who likes to add a value
+                    to our service by building our products </p>
                     <ul class="team-social">
                         <li class="wow animated fadeInLeft facebook"><a href="#"><i class="ion-social-facebook"></i></a></li>
                         <li class="wow animated fadeInLeft linkedin"><a href="#"><i class="ion-social-linkedin"></i></a></li>
@@ -320,12 +332,13 @@
                             </div>
                             <div class="col-sm-6">
                                 <p class="review-desc">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                    As a learning management tool  , i think OS could take online instruction to another level
+                                    . it's one more way to spice up boring readings and discussions  , and we are learning ,
+                                    creative design results in higher learning outcomes .
                                 </p>
                                 <p class="client-name">
-                                    <a href="dr.salah.pdf">More</a>
+
+                                    Eslam Askar
                                 </p>
                             </div>
                         </div>
@@ -344,12 +357,10 @@
                             </div>
                             <div class="col-sm-6">
                                 <p class="review-desc">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                    very helpful and easy to use learning management system.
                                 </p>
                                 <p class="client-name">
-                                    Shahjahan Jewel
+                                    Shereen Bhader
                                 </p>
                             </div>
                         </div>
@@ -368,12 +379,10 @@
                             </div>
                             <div class="col-sm-6">
                                 <p class="review-desc">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                    interesting platform that makes me organize the materials of courses in a very easy way.
                                 </p>
                                 <p class="client-name">
-                                    <a href="#">More</a>
+                                    Ahmed Moawad
                                 </p>
                             </div>
                         </div>
@@ -392,12 +401,10 @@
                             </div>
                             <div class="col-sm-6">
                                 <p class="review-desc">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                    very simple ,  helpful and organized , for it was very interesting and oriented trial .
                                 </p>
                                 <p class="client-name">
-                                    Shahjahan Jewel
+                                    Ahmed Kesha
                                 </p>
                             </div>
                         </div>
@@ -459,7 +466,7 @@
         <div class="container">
             <div class="col-sm-12">
                 <ul class="address-list">
-                    <li><i class="ion-ios-location" style="background-color: rgb(255, 102, 0);"></i> <span>8st Elsahapa-New Elmarg  <br>Cairo-Egypt</span></li>
+                    <li><i class="ion-ios-location" style="background-color: rgb(255, 102, 0);"></i> <span>ITI - Nasr City <br>Cairo-Egypt</span></li>
                     <li><i class="ion-ios-telephone" style="background-color: #63cfea;"></i> <span>01007349461</span></li>
                     <li><i class="ion-email" style="background-color: #6ecba9;"></i> <span>info@inform-me.com</span></li>
                     <li><i class="ion-earth" style="background-color: #ff6969;"></i> <span>www.inform-me.com</span></li>
