@@ -3,6 +3,12 @@
 $request=\App\Core\Session::get('request');
 $errors=$request['errors'];
 $fields=$request['fields'];
+//////////////generate facebook link//////////////////
+$helper = getFacebookObj()->getRedirectLoginHelper();
+$permissions = ['email']; // Optional permissions
+$loginUrl = $helper->getLoginUrl('https://opensourcelms.herokuapp.com/fblogin', $permissions);
+
+//////////////////////////////////////////////////////
 ?>
 <head>
     <meta charset="utf-8">
@@ -97,7 +103,7 @@ $fields=$request['fields'];
 
         <div class="social-auth-links text-center">
             <p>- OR -</p>
-            <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using Facebook</a>
+            <a href="<?php echo htmlspecialchars($loginUrl)?>" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using Facebook</a>
             <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using Google+</a>
         </div>
         <!-- /.social-auth-links -->

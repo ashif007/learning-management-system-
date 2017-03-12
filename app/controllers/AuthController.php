@@ -8,6 +8,8 @@ use App\Core\Helper;
 use App\Core\Request;
 use App\Core\Session;
 use App\Models\User;
+use Facebook\Exceptions\FacebookResponseException;
+use Facebook\Exceptions\FacebookSDKException;
 
 class AuthController extends Controller
 {
@@ -49,6 +51,10 @@ class AuthController extends Controller
                         Session::set('error',"Your account not active <br/>please go to your mail to verify you account");
                         redirect('/login', $request->getLastFromSession());
 
+                    }
+                    if($user->isbaned){
+                        Session::set('error',"you have been baned from login !!!");
+                        redirect('/login', $request->getLastFromSession());
                     }
                     Session::saveLogin($user->username, $user->role, $user->password);
                     if($request->get('remember')){
@@ -152,5 +158,44 @@ class AuthController extends Controller
         else{
             redirect('/login');
         }
+    }
+
+    public function fbLogin(Request $request)
+    {
+        $fb = getFacebookObj();
+        $helper = $fb->getRedirectLoginHelper();
+
+        try {
+            $accessToken = $helper->getAccessToken();
+        } catch(FacebookResponseException $e) {
+            // When Graph returns an error
+            echo 'Graph returned an error: ' . $e->getMessage();
+            exit;
+        } catch(FacebookSDKException $e) {
+            // When validation fails or other local issues
+            echo 'Facebook SDK returned an error: ' . $e->getMessage();
+            exit;
+        }
+
+        if (! isset($accessToken)) {
+            if ($helper->getError()) {
+                header('HTTP/1.0 401 Unauthorized');
+                echo "Error: " . $helper->getError() . "\n";
+                echo "Error Code: " . $helper->getErrorCode() . "\n";
+                echo "Error Reason: " . $helper->getErrorReason() . "\n";
+                echo "Error Description: " . $helper->getErrorDescription() . "\n";
+            } else {
+                header('HTTP/1.0 400 Bad Request');
+                echo 'Bad request';
+            }
+            exit;
+        }
+
+        $oAuth2Client = $fb->getOAuth2Client();
+        $response = $fb->get('/me?fields=id,name,email,picture', $accessToken);
+
+        var_dump($response);
+
+
     }
 }
