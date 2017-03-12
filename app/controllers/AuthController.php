@@ -194,8 +194,8 @@ class AuthController extends Controller
 
         $oAuth2Client = $fb->getOAuth2Client();
         $response = $fb->get('/me?fields=id,name,email,picture', $accessToken);
-        $user = $response->getGraphUser();
-        $user = User::retrieveByEmail($user['email'])[0];
+        $fbUser = $response->getGraphUser();
+        $user = User::retrieveByEmail($fbUser['email'])[0];
         if ($user->email)
         {
             Session::saveLogin($user->username, $user->role, $user->password);
@@ -203,21 +203,21 @@ class AuthController extends Controller
         }
         else{
             $user = new User();
-            $user->username = $user['name'];
-            $user->email = $user['email'];
+            $user->username = $fbUser['name'];
+            $user->email = $fbUser['email'];
             $user->code = null;
             $user->state = "active";
             $user->role="admin";
             $user->isbaned = 0;
             $user->online = 0;
-            $user->password = password_hash($user['email'], PASSWORD_DEFAULT);
+            $user->password = password_hash($fbUser['email'], PASSWORD_DEFAULT);
             $user->created_at = date("Y-m-d H:i:s");
             $user->updated_at = date("Y-m-d H:i:s");
             $subject = "Welcome TO Our Learning Platform";
             $body = 'Hi <b>'.$user->username.'</b> <br/>
                              Your login Information is:<br/>
-                             <h3>email: <b>'.$user['email'].'</b> </h3>
-                             <h3>user : <b>'.$user['name'].'</b> </h3>
+                             <h3>email: <b>'.$fbUser['email'].'</b> </h3>
+                             <h3>user : <b>'.$fbUser['name'].'</b> </h3>
                              <h3>password : <b> is your email please change it immediately</b> </h3>
                              <h3>creation date : <b>'.$user->created_at.'</b></h3>
                             ';
