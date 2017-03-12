@@ -23,7 +23,7 @@ function redirect($url, $data=[], $statusCode = 303)
 }
 function asset($path)
 {
-    echo public_dir()."/$path";
+    echo public_dir()."$path";
 }
 function resource($type, $name)
 {
