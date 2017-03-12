@@ -162,8 +162,6 @@ class AuthController extends Controller
 
     public function fbLogin(Request $request)
     {
-        ini_set('display_errors', 1);
-        error_reporting(E_ALL ^ E_NOTICE);
         $fb = getFacebookObj();
         $helper = $fb->getRedirectLoginHelper();
         try {
@@ -202,13 +200,14 @@ class AuthController extends Controller
             redirect('/');
         }
         else{
-            dispalyForDebug($fbUser['picture']);die();
+
             $user = new User();
             $user->username = $fbUser['name'];
             $user->email = $fbUser['email'];
             $user->code = null;
             $user->state = "active";
-            $user->role="admin";
+            $user->image = $fbUser['picture']['url'];
+            $user->role="student";
             $user->isbaned = 0;
             $user->online = 0;
             $user->password = password_hash($fbUser['email'], PASSWORD_DEFAULT);
