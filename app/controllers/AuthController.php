@@ -225,11 +225,9 @@ class AuthController extends Controller
         if ($user->email)
         {
             Session::saveLogin($user->username, $user->role, $user->password);
-            Session::set('message', "Your acount activated successfully <br/> please update your acount info");
             redirect('/users/'.$user->id);
         }
         else{
-            $user = new User();
             $user->username = $gmUser->name;
             $user->email = $gmUser->email;
             $user->code = null;
@@ -238,12 +236,19 @@ class AuthController extends Controller
             $user->isbaned = 0;
             $user->online = 0;
             $user->password = password_hash($gmUser->email, PASSWORD_DEFAULT);
-            dispalyForDebug($user);die();
+            $user->created_at = date("Y-m-d H:i:s");
+            $user->updated_at = date("Y-m-d H:i:s");
+            $subject = "Welcome TO Our Learning Platform";
+            $body = 'Hi <b>'.$user->username.'</b> <br/>
+                             Your login Information is:<br/>
+                             <h3>email: <b>'.$user->email.'</b> </h3>
+                             <h3>user : <b>'.$user->username.'</b> </h3>
+                             <h3>password : <b> is your email please change it immediately</b> </h3>
+                             <h3>creation date : <b>'.$user->created_at.'</b></h3>
+                            ';
+            sendMail($user->email,$user->username,$subject,$body);
+            Session::set('message', "Your acount activated successfully <br/> please check your email now and update your acount info");
             $user->save();
         }
-
-        echo '<pre>';
-        print_r($user);
-        echo '</pre>';
     }
 }
