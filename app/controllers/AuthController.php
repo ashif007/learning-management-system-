@@ -206,7 +206,7 @@ class AuthController extends Controller
         if (isset($_GET['code'])) {
             $client->authenticate($_GET['code']);
             $_SESSION['access_token'] = $client->getAccessToken();
-            $redirect_uri = 'https://opensourcelms.herokuapp.com/gmLogin';
+            $redirect_uri = 'https://opensourcelms.herokuapp.com/gmlogin';
             header('Location: ' . filter_var($redirect_uri, FILTER_SANITIZE_URL));
             exit;
         }
