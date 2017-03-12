@@ -234,7 +234,7 @@ $fields=$request['fields'];
                     <!-- /.box-body -->
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Create</button>
+                        <button type="submit" class="btn btn-primary">Edit</button>
                     </div>
 
                 </div>
