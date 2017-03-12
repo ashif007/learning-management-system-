@@ -194,6 +194,25 @@ class AuthController extends Controller
         $oAuth2Client = $fb->getOAuth2Client();
         $response = $fb->get('/me?fields=id,name,email,picture', $accessToken);
 
+        $name=//get name;
+        $email=//get email;
+        if(!empty(User::retrieveByEmail($email))){
+            $user=User::retrieveByField('email',$email)[0];
+            Session::saveLogin($user->username, $user->role, $user->password);
+            redirect("/");
+        }else{
+            $user=new User();
+            $user->email=;
+            $user->username=explode(" ",$name)[0];
+            $user->role="student";
+            $user->firstname=explode(" ",$name)[0];
+            $user->password = password_hash("password", PASSWORD_DEFAULT);
+            $user->created_at = date("Y-m-d H:i:s");
+            $user->updated_at = date("Y-m-d H:i:s");
+            $user->save();
+            Session::set('Please Complete Your profile');
+            redirect("/users/$user->id");
+        }
 
 
 
