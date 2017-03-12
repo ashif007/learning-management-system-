@@ -105,30 +105,34 @@ $fields=$request['fields'];
                                     <div class="box-body">
                                         <div class="form-group">
                                             <label for="title">Title</label>
-                                            <input type="text" name="title" class="form-control">
+                                            <input type="text" name="title" class="form-control" value="<?=isset($fields['title'])?$fields['title']:''?>">
                                         </div>
                                         <div class="form-group">
                                             <label for="image">Image</label>
-                                            <input type="file" name="image" class="form-control">
+                                            <input type="file" name="image" class="form-control" >
                                         </div>
                                         <div class="form-group">
                                             <label for="desc">Description</label>
-                                            <textarea id="editor" name="desc" class="form-control"></textarea>
+                                            <textarea id="editor" name="desc" class="form-control"><?=isset($fields['description'])?$fields['description']:''?></textarea>
 
                                         </div>
                                         <div class="form-group">
                                             <label for="date">Start Date</label>
-                                            <input type="date" name="start" class="form-control">
+                                            <input type="date" name="start" class="form-control" value="<?=isset($fields['start'])?date("Y-m-d",strtotime($fields['title'])):date("Y-m-d")?>">
                                         </div>
                                         <div class="form-group">
                                             <label for="date">End Date</label>
-                                            <input type="date" name="end" class="form-control">
+                                            <input type="date" name="end" class="form-control" value="<?=isset($fields['end'])?date("Y-m-d",strtotime($fields['title'])):date("Y-m-d")?>">
                                         </div>
                                         <div class="form-group">
                                             <label for="cat">Category</label>
                                             <select name="cat" id="cat" class="form-control">
                                                 <?php foreach ($cats as $cat):?>
-                                                    <option value="<?= $cat->id ?>"><?= $cat->name ?></option>
+                                                    <?php if($cat->id==$fields['cat']):?>
+                                                        <option value="<?= $cat->id ?>" selected="selected"><?= $cat->name ?></option>
+                                                    <?php else:?>
+                                                        <option value="<?= $cat->id ?>"><?= $cat->name ?></option>
+                                                    <?php endif?>
                                                 <?php endforeach?>
                                             </select>
                                         </div>

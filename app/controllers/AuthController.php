@@ -60,9 +60,9 @@ class AuthController extends Controller
                     if($request->get('remember')){
                         Session::rememberLogin($user->username, $user->role, $user->password);
                     }
-
-                } else {
-                    $errors['login'] = "Wrong password or login";
+                }else{
+                    Session::set('error',"Your account is Suspended <br/>please call us to see your issue");
+                    redirect('/login', $request->getLastFromSession());
                 }
             }
             if ($errors) {

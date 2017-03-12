@@ -10,6 +10,17 @@ $loginUrl = $helper->getLoginUrl('https://opensourcelms.herokuapp.com/fblogin', 
 
 //////////////////////////////////////////////////////
 ?>
+<?php
+$openid = new LightOpenID("my-domain.com");
+
+$openid->identity = 'https://www.google.com/accounts/o8/id';
+$openid->required = array(
+'namePerson/first',
+'namePerson/last',
+'contact/email',
+);
+$openid->returnUrl = 'http://my-domain.com/login.php'
+?>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
