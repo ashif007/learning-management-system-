@@ -202,7 +202,7 @@ class AuthController extends Controller
             redirect('/');
         }
         else{
-            dispalyForDebug($fbUser['picture']['items']['url']);die();
+            dispalyForDebug($fbUser['picture']['url']);die();
             $user = new User();
             $user->username = $fbUser['name'];
             $user->email = $fbUser['email'];
