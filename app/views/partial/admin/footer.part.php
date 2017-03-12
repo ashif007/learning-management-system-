@@ -30,5 +30,15 @@
      user experience. Slimscroll is required when using the
      fixed layout. -->
 <?php partial('admin/froala/scripts')?>
+<script src="<?php asset('js/plugins/iCheck/icheck.min.js')?>"></script>
+<script>
+    $(function () {
+        $('input').iCheck({
+            checkboxClass: 'icheckbox_square-blue',
+            radioClass: 'iradio_square-blue',
+            increaseArea: '20%' // optional
+        });
+    });
+</script>
 </body>
 </html>

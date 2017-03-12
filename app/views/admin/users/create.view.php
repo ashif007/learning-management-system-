@@ -186,16 +186,11 @@ $fields=$request['fields'];
                                                 <option value="admin" <?php if(isset($fields['role'])&&$fields['role']=='admin'){echo 'selected="selected"';}?>>Admin</option>
                                             </select>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="isbaned">Is Baned</label>
-                                            <div class="checkbox icheck">
-                                                <label>
-                                                    <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false" style="position: relative;">
-                                                        <input type="checkbox" name="isbaned" class="form-control" <?php if(isset($fields['isbaned'])){echo "checked";}?>>
-                                                        <ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div> Remember Me
-                                                </label>
-                                            </div>
-                                        </div>
+                                        <select name="state" id="" class="form-control">
+                                            <option value="active" <?php if(isset($fields['state'])&&$fields['state']=='active'){echo 'selected="selected"';}?>>Active</option>
+                                            <option value="baned" <?php if(isset($fields['state'])&&$fields['state']=='banned'){echo 'selected="selected"';}?>>Baned</option>
+                                            <option value="disabled" <?php if(isset($fields['state'])&&$fields['state']=='disabled'){echo 'selected="selected"';}?>>Disable</option>
+                                        </select>
 
                                     </div>
                                 </div>

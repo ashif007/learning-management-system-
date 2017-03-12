@@ -52,7 +52,7 @@ class PagesController extends Controller {
 
     public function rss()
     {
-        $rss=new RSS('salama.com',App::get('config')['rss'],'salama.com','salama.com',true);
+        $rss=new RSS('opensourcelms.herokuapp.com',App::get('config')['rss'],'opensourcelms.herokuapp.com','Open Source LMS',true);
         header('Content-Type: application/rss+xml; charset=utf-8');
         echo $rss->create_feed();
     }

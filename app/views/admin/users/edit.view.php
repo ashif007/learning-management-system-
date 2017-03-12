@@ -148,7 +148,7 @@ $fields=$request['fields'];
                                         </div>
                                         <div class="form-group">
                                             <label for="gender">Gender</label>
-                                            <select name="gender" id="">
+                                            <select name="gender" id="" class="form-control">
                                                 <option value="male" <?php if($user->gender=='male'){echo 'selected="selected"';}?>>Male</option>
                                                 <option value="female" <?php if($user->gender=='female'){echo 'selected="selected"';}?>>Female</option>
                                             </select>
@@ -219,14 +219,12 @@ $fields=$request['fields'];
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <label for="isbaned">Is Baned</label>
-                                            <div class="checkbox icheck">
-                                                <label>
-                                                    <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false" style="position: relative;">
-                                                        <input type="checkbox" name="isbaned" class="form-control" <?php if(isset($fields['isbaned'])){echo "checked";}?>>
-                                                        <ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div> Remember Me
-                                                </label>
-                                            </div>
+                                            <label for="state">State</label>
+                                            <select name="state" id="" class="form-control">
+                                                <option value="active" <?php if($user->stete=='active'){echo 'selected="selected"';}?>>Active</option>
+                                                <option value="baned" <?php if($user->state=='baned'){echo 'selected="selected"';}?>>Baned</option>
+                                                <option value="disabled" <?php if($user->state=='disabled'){echo 'selected="selected"';}?>>Disable</option>
+                                            </select>
                                         </div>
 
                                     </div>
@@ -253,3 +251,12 @@ $fields=$request['fields'];
 </section>
     <!-- /.content -->
 <?php partial('admin/footer')?>
+<script>
+    $(function () {
+        $('input').iCheck({
+            checkboxClass: 'icheckbox_square-blue',
+            radioClass: 'iradio_square-blue',
+            increaseArea: '20%' // optional
+        });
+    });
+</script>

@@ -73,11 +73,7 @@ class UserController extends Controller implements ResourceInterface
                         $user->gender = $request->get('gender');
                         $user->country = $request->get('country');
                         $user->role = $request->get('role');
-                        if ($request->get('isbaned')) {
-                            $user->isbaned = 1;
-                        } else {
-                            $user->isbaned = 0;
-                        }
+                        $user->state=$request->get('state');
                         $user->created_at = date("Y-m-d H:i:s");
                         $user->updated_at = date("Y-m-d H:i:s");
                         $user->save();
@@ -166,11 +162,7 @@ class UserController extends Controller implements ResourceInterface
                     {
                         $user->role = $request->get('role');
                     }
-                    if ($request->get('isbaned')) {
-                        $user->isbaned = 1;
-                    } else {
-                        $user->isbaned = 0;
-                    }
+                    $user->state=$request->get('state');
                     $user->updated_at = date("Y-m-d H:i:s");
                     $user->update();
                     Session::set('message', "User Updated Successfully");
