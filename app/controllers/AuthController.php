@@ -233,7 +233,7 @@ class AuthController extends Controller
             $user->email = $gmUser->email;
             $user->code = null;
             $user->state = "active";
-            $user->role="admin";
+            $user->role="student";
             $user->isbaned = 0;
             $user->online = 0;
             $user->password = password_hash($gmUser->email, PASSWORD_DEFAULT);
