@@ -166,7 +166,7 @@ class AuthController extends Controller
         error_reporting(E_ALL ^ E_NOTICE);
         $fb = getFacebookObj();
         $helper = $fb->getRedirectLoginHelper();
-        try {
+        try {``
             $accessToken = $helper->getAccessToken();
         } catch(FacebookResponseException $e) {
             // When Graph returns an error
