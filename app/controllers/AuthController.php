@@ -194,7 +194,9 @@ class AuthController extends Controller
 
         $oAuth2Client = $fb->getOAuth2Client();
         $response = $fb->get('/me?fields=id,name,email,picture', $accessToken);
-        dispalyForDebug($response);
+        $user = $response->getGraphUser();
+
+        dispalyForDebug($user);
 
 
 
