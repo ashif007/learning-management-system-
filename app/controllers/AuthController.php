@@ -205,29 +205,43 @@ class AuthController extends Controller
         error_reporting(E_ALL ^ E_NOTICE);
         $client_id = '60269544916-gvohmgl6dcudacgjevh1vdffhja86usi.apps.googleusercontent.com';
         $client_secret = '5aogBhoJNqOwU_1kyuNyHYlt';
-        $redirect_uri = 'https://opensourcelms.herokuapp.com/gmlogin';
-
+        $redirect_uri = 'https://opensourcelms.herokuapp.com/gmlogin?';
         $client = new \Google_Client();
         $client->setClientId($client_id);
         $client->setClientSecret($client_secret);
         $client->setRedirectUri($redirect_uri);
-
-
         $service = new \Google_Service_Oauth2($client);
-
-
         if (isset($_GET['code'])) {
             $client->authenticate($_GET['code']);
             $_SESSION['access_token'] = $client->getAccessToken();
             header('Location: ' . filter_var($redirect_uri, FILTER_SANITIZE_URL));
             exit;
         }
-
         if (isset($_SESSION['access_token']) && $_SESSION['access_token']) {
             $client->setAccessToken($_SESSION['access_token']);
         }
+        $gmUser = $service->userinfo->get(); //get user info
+        $user = User::retrieveByEmail($gmUser->email)[0];
+        if ($user->email)
+        {
+            Session::saveLogin($user->username, $user->role, $user->password);
+            Session::set('message', "Your acount activated successfully <br/> please update your acount info");
+            redirect('/users/'.$user->id);
+        }
+        else{
+            $user = new User();
+            $user->username = $gmUser->name;
+            $user->email = $gmUser->email;
+            $user->code = null;
+            $user->state = "active";
+            $user->role="student";
+            $user->isbaned = 0;
+            $user->online = 0;
+            $user->password = password_hash($gmUser->email, PASSWORD_DEFAULT);
+            dispalyForDebug($user);die();
+            $user->save();
+        }
 
-        $user = $service->userinfo->get(); //get user info
         echo '<pre>';
         print_r($user);
         echo '</pre>';
