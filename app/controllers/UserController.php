@@ -188,7 +188,7 @@ class UserController extends Controller implements ResourceInterface
 
     public function destroy($id)
     {
-        if (Session::isLogin()&&Session::getLoginUser()->role == "admin") {
+        if (Session::isLogin()&&Session::getLoginUser()->role == "admin"&&$id!=1) {
             $user = User::retrieveByPK($id);
             delete_file($user->image);
             foreach ($user->requests() as $req){
@@ -198,7 +198,7 @@ class UserController extends Controller implements ResourceInterface
             Session::set('message', "User Deleted Successfully");
             redirect('/users');
         }else{
-            return view("errors/503",['message'=>"You are not allowed to be here!"]);
+            return view("errors/503",['message'=>"You are not allowed to do this action!"]);
         }
     }
 }
