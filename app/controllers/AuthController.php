@@ -259,9 +259,9 @@ class AuthController extends Controller
             redirect('/');
         }
         else{
-            dispalyForDebug($gmUser);die();
             $user = new User();
             $user->username = $gmUser->name;
+            $user->image = $gmUser->picture;
             $user->email = $gmUser->email;
             $user->code = null;
             $user->state = "active";
