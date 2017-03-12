@@ -132,6 +132,10 @@ class UserController extends Controller implements ResourceInterface
     public function update(Request $request, $id)
     {
         if (Session::isLogin()&&Session::getLoginUser()->role == "admin" || Session::isLogin()&&Session::getLoginUser()->id == $id) {
+            if($id ==1 && Session::getLoginUser()->id!=1 )
+            {
+                return view("errors/503",['message'=>"You are not allowed to do this action!"]);
+            }
             $user = User::retrieveByPK($id);
             if (verifyCSRF($request)) {
                 $errors = $this->validator->validate($request, [
