@@ -334,7 +334,7 @@ class AuthController extends Controller
             if($request->get('code')==$user->code){
                 return view('auth/passwords/reset',['user'=>$user]);
             }else{
-                Session::set('error','Somthing Wrong happened Please try agin');
+                Session::set('error','Sorry this link is expired!! try new one');
                 redirect('/login');
             }
         }else{
