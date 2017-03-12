@@ -21,8 +21,14 @@ class CoursesController extends Controller implements ResourceInterface
 {
     public function index()
     {
-        $courses = Course::all();
-        return view('admin/courses/index',['courses'=>$courses]);
+        if(Session::isLogin()){
+            $courses = Course::all();
+            return view('admin/courses/index',['courses'=>$courses]);
+        }else{
+            Session::set('message','Please Login to Start Learning');
+            redirect('/login');
+        }
+
     }
 
     public function create()
@@ -80,12 +86,18 @@ class CoursesController extends Controller implements ResourceInterface
 
     public function show($id)
     {
-       try{
-           $course=Course::retrieveByPK($id);
-           return view('admin/courses/show',['course'=>$course]);
-       }catch (\Exception $e){
-           return view('errors/404');
-       }
+        if(Session::isLogin()){
+            try{
+                $course=Course::retrieveByPK($id);
+                return view('admin/courses/show',['course'=>$course]);
+            }catch (\Exception $e){
+                return view('errors/404');
+            }
+        }else{
+            Session::set('message','Please Login to Start Learning');
+            redirect('/login');
+        }
+
 
     }
 

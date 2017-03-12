@@ -30,14 +30,19 @@ class CommentController extends Controller implements ResourceInterface
 
     public function store(Request $request)
     {
-        $comment=new Comment();
-        $comment->body=$request->get('body');
-        $comment->mid=$request->get('mid');
-        $comment->uid=Session::getLoginUser()->id;
-        $comment->created_at = date("Y-m-d H:i:s");
-        $comment->updated_at = date("Y-m-d H:i:s");
-        $comment->save();
-        redirect(Session::getBackUrl());
+        if(Session::isLogin()){
+            $comment=new Comment();
+            $comment->body=$request->get('body');
+            $comment->mid=$request->get('mid');
+            $comment->uid=Session::getLoginUser()->id;
+            $comment->created_at = date("Y-m-d H:i:s");
+            $comment->updated_at = date("Y-m-d H:i:s");
+            $comment->save();
+            redirect(Session::getBackUrl());
+        }else{
+            return view('errors/404');
+        }
+
     }
 
     public function show($id)
@@ -57,8 +62,13 @@ class CommentController extends Controller implements ResourceInterface
 
     public function destroy($id)
     {
-       $comment=Comment::retrieveByPK($id);
-       $comment->delete();
-       redirect(Session::getBackUrl());
+        if(Session::isLogin()){
+            $comment=Comment::retrieveByPK($id);
+            $comment->delete();
+            redirect(Session::getBackUrl());
+        }else{
+            return view('errors/404');
+        }
+
     }
 }

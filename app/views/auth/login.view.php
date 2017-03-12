@@ -15,6 +15,7 @@ $authUrl = $client->createAuthUrl();
 
 <head>
     <meta charset="utf-8">
+    <link rel="shortcut icon" href="<?=asset('favicon.ico')?>" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Open Source LMS| Log in</title>
     <!-- Tell the browser to be responsive to screen width -->

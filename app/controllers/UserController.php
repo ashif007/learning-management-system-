@@ -20,12 +20,12 @@ class UserController extends Controller implements ResourceInterface
 {
     public function index()
     {
-        if (Session::isLogin()&&Session::getLoginUser()->role == 'admin') {
-
+        if (Session::isLogin()) {
             $users = User::all();
             return view('admin/users/index', ['users' => $users]);
         }else{
-            return view('errors/503',['message'=>"You are not allowed to be here!"]);
+            $reqs = UserRequest::all();
+            return view('admin/requests/index', ['reqs' => $reqs]);
         }
     }
     public function create()
@@ -95,17 +95,23 @@ class UserController extends Controller implements ResourceInterface
 
     public function show($id)
     {
-        try{
-            if (Session::isLogin()&&Session::getLoginUser()->id == $id|| Session::isLogin()&&Session::getLoginUser()->role == "admin")
-            {
-                $user = User::retrieveByPK($id);
-                return view('admin/users/show', ['user' => $user]);
-            }else{
-                redirect('/login');
+        if(Session::isLogin()){
+            try{
+                if (Session::isLogin()&&Session::getLoginUser()->id == $id|| Session::isLogin()&&Session::getLoginUser()->role == "admin")
+                {
+                    $user = User::retrieveByPK($id);
+                    return view('admin/users/show', ['user' => $user]);
+                }else{
+                    redirect('/login');
+                }
+            }catch (\Exception $e){
+                return view('errors/404');
             }
-        }catch (\Exception $e){
-            return view('errors/404');
+        }else{
+            $reqs = UserRequest::all();
+            return view('admin/requests/index', ['reqs' => $reqs]);
         }
+
 
     }
 
