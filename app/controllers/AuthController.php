@@ -228,6 +228,7 @@ class AuthController extends Controller
             redirect('/users/'.$user->id);
         }
         else{
+            $user = new User();
             $user->username = $gmUser->name;
             $user->email = $gmUser->email;
             $user->code = null;
