@@ -148,7 +148,6 @@ class AuthController extends Controller
             $user->code = null;
             $user->state = "active";
             $user->role="student";
-            $user->isbaned = 0;
             $user->online = 0;
             $user->update();
             Session::saveLogin($user->username, $user->role, $user->password);
@@ -209,7 +208,6 @@ class AuthController extends Controller
             $user->state = "active";
             $user->image = $fbUser['picture']['url'];
             $user->role="student";
-            $user->isbaned = 0;
             $user->online = 0;
             $user->password = password_hash($fbUser['email'], PASSWORD_DEFAULT);
             $user->created_at = date("Y-m-d H:i:s");
@@ -267,7 +265,6 @@ class AuthController extends Controller
             $user->code = null;
             $user->state = "active";
             $user->role="student";
-            $user->isbaned = 0;
             $user->online = 0;
             $user->password = password_hash($gmUser->email, PASSWORD_DEFAULT);
             $user->created_at = date("Y-m-d H:i:s");
