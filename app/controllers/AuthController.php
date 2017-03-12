@@ -196,7 +196,7 @@ class AuthController extends Controller
         $response = $fb->get('/me?fields=id,name,email,picture', $accessToken);
         $user = $response->getGraphUser();
 
-        dispalyForDebug($user->id);
+        dispalyForDebug($user['name']);
 
 
 
