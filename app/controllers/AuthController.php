@@ -346,21 +346,24 @@ class AuthController extends Controller
         if(verifyCSRF($request)){
             if($request->get('password')==$request->get('confirm')){
                 $user=User::retrieveByField('email',$request->get('email'));
+                var_dump($user->code);
+                var_dump($request->get('code'));
+                die();
                 if($request->get('code')==$user->code){
-                    var_dump($user);
-                    die();
+
                     $user->password=password_hash($request->get('password'),PASSWORD_DEFAULT);
                     $user->code="";
                     $user->update();
                     Session::get('message','You can now login with the new password');
                     redirect('/login');
                 }else{
-                    Session::set('error','password not match');
+                    Session::set('error','Somthing Wrong happened Please try agin');
                     redirect(Session::getBackUrl());
                 }
             }else{
-                Session::set('error','Somthing Wrong happened Please try agin');
-                return view('/login');
+                Session::set('error','password not match');
+                redirect(Session::getBackUrl());
+
             }
 
         }else{
