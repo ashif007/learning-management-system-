@@ -356,7 +356,7 @@ class AuthController extends Controller
                     redirect('/login');
                 }else{
                     Session::set('error','password not match');
-                    return view(Session::getBackUrl());
+                    redirect(Session::getBackUrl());
                 }
             }else{
                 Session::set('error','Somthing Wrong happened Please try agin');
