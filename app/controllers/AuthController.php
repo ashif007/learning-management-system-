@@ -317,6 +317,8 @@ class AuthController extends Controller
                     $user->password=$request->get('password');
                     $user->code="";
                     $user->update();
+                    Session::get('message','You can now login with the new password');
+                    redirect('/login');
                 }else{
                     return view('errors/404');
                 }
