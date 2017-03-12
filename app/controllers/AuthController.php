@@ -201,6 +201,8 @@ class AuthController extends Controller
 
     function gmLogin()
     {
+        ini_set('display_errors', 1);
+        error_reporting(E_ALL ^ E_NOTICE);
         $client_id = '60269544916-gvohmgl6dcudacgjevh1vdffhja86usi.apps.googleusercontent.com';
         $client_secret = '5aogBhoJNqOwU_1kyuNyHYlt';
         $redirect_uri = 'https://opensourcelms.herokuapp.com/gmlogin';
