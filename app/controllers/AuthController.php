@@ -213,23 +213,23 @@ class AuthController extends Controller
         $client->setRedirectUri($redirect_uri);
 
 
-//        $service = new Google_Service_Oauth2($client);
-//
-//
-//        if (isset($_GET['code'])) {
-//            $client->authenticate($_GET['code']);
-//            $_SESSION['access_token'] = $client->getAccessToken();
-//            header('Location: ' . filter_var($redirect_uri, FILTER_SANITIZE_URL));
-//            exit;
-//        }
-//
-//        if (isset($_SESSION['access_token']) && $_SESSION['access_token']) {
-//            $client->setAccessToken($_SESSION['access_token']);
-//        }
-//
-//        $user = $service->userinfo->get(); //get user info
-//        echo '<pre>';
-//        print_r($user);
-//        echo '</pre>';
+        $service = new \Google_Service_Oauth2($client);
+
+
+        if (isset($_GET['code'])) {
+            $client->authenticate($_GET['code']);
+            $_SESSION['access_token'] = $client->getAccessToken();
+            header('Location: ' . filter_var($redirect_uri, FILTER_SANITIZE_URL));
+            exit;
+        }
+
+        if (isset($_SESSION['access_token']) && $_SESSION['access_token']) {
+            $client->setAccessToken($_SESSION['access_token']);
+        }
+
+        $user = $service->userinfo->get(); //get user info
+        echo '<pre>';
+        print_r($user);
+        echo '</pre>';
     }
 }
