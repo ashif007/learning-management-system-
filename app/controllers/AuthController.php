@@ -249,7 +249,7 @@ class AuthController extends Controller
                             ';
             sendMail($user->email,$user->username,$subject,$body);
             Session::set('message', "Your acount activated successfully <br/> please check your email now and update your acount info");
-            dispalyForDebug($user);die();
+            Session::saveLogin($user->username, $user->role, $user->password);
             $user->save();
             redirect('/users/'.$user->id);
 
