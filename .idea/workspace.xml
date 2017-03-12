@@ -1,146 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9753aaed-0f88-4a03-a8fe-cd5c5612ca3f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Auth/Abstract.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Auth/AppIdentity.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Auth/AssertionCredentials.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Auth/ComputeEngine.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Auth/Exception.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Auth/LoginTicket.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Auth/OAuth2.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Auth/Simple.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Cache/Abstract.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Cache/Apc.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Cache/Exception.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Cache/File.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Cache/Memcache.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Cache/Null.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Client.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Collection.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Config.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Exception.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Http/Batch.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Http/CacheParser.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Http/MediaFileUpload.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Http/REST.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Http/Request.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/IO/Abstract.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/IO/Curl.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/IO/Exception.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/IO/Stream.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/IO/cacerts.pem" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Logger/Abstract.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Logger/Exception.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Logger/File.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Logger/Null.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Logger/Psr.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Model.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/AdExchangeBuyer.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/AdExchangeSeller.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/AdSense.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/AdSenseHost.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Admin.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Analytics.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/AndroidEnterprise.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/AndroidPublisher.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/AppState.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Appsactivity.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Audit.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Autoscaler.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Bigquery.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Blogger.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Books.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Calendar.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/CivicInfo.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Classroom.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/CloudMonitoring.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/CloudUserAccounts.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Cloudlatencytest.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Cloudresourcemanager.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Cloudsearch.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Compute.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Computeaccounts.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Container.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Coordinate.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Customsearch.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Dataflow.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Datastore.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/DeploymentManager.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Dfareporting.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Directory.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Dns.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/DoubleClickBidManager.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Doubleclicksearch.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Drive.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Exception.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Fitness.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Freebase.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Fusiontables.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Games.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/GamesConfiguration.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/GamesManagement.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Genomics.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Gmail.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/GroupsMigration.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Groupssettings.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/IdentityToolkit.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Licensing.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Logging.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Manager.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/MapsEngine.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Mirror.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Oauth2.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Pagespeedonline.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Playmoviespartner.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Plus.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/PlusDomains.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Prediction.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Pubsub.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/QPXExpress.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Replicapool.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Replicapoolupdater.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Reports.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Reseller.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Resource.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Resourceviews.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/SQLAdmin.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/ShoppingContent.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/SiteVerification.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Spectrum.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Storage.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/TagManager.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Taskqueue.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Tasks.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Translate.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Urlshortener.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Webfonts.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/Webmasters.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/YouTube.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Service/YouTubeAnalytics.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Signer/Abstract.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Signer/P12.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Task/Exception.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Task/Retryable.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Task/Runner.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Utils.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Utils/URITemplate.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Verifier/Abstract.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/Verifier/Pem.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/google/autoload.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/lms.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/lms_iti.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/AuthController.php" afterPath="$PROJECT_DIR$/app/controllers/AuthController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/auth/login.view.php" afterPath="$PROJECT_DIR$/app/views/auth/login.view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.php" afterPath="$PROJECT_DIR$/config.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/Helper.php" afterPath="$PROJECT_DIR$/core/Helper.php" />
-    </list>
+    <list default="true" id="9753aaed-0f88-4a03-a8fe-cd5c5612ca3f" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -262,7 +123,29 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lms" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="auth" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -296,16 +179,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1489333457904</updated>
-      <workItem from="1489333461383" duration="956000" />
+      <workItem from="1489333461383" duration="1133000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="956000" />
+    <option name="totallyTimeSpent" value="1133000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="41" y="24" width="1325" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24941361" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -316,7 +199,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.69195044" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
