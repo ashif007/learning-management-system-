@@ -346,7 +346,7 @@ class AuthController extends Controller
             if($request->get('password')==$request->get('confirm')){
                 $user=User::retrieveByField('email',$request->get('email'));
                 if($request->get('code')==$user->code){
-                    $user->password=$request->get('password');
+                    $user->password=password_hash($request->get('password'),PASSWORD_DEFAULT);
                     $user->code="";
                     $user->update();
                     Session::get('message','You can now login with the new password');
