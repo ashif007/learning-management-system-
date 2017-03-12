@@ -25,5 +25,15 @@
         </SOURCES>
       </library>
     </orderEntry>
+    <orderEntry type="module-library">
+      <library name="PHARS">
+        <CLASSES>
+          <root url="phar://$MODULE_DIR$/vendor/gplus-quickstart-php-master/composer.phar/" />
+        </CLASSES>
+        <SOURCES>
+          <root url="phar://$MODULE_DIR$/vendor/gplus-quickstart-php-master/composer.phar/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>
