@@ -202,10 +202,13 @@ class AuthController extends Controller
             Session::saveLogin($user->username, $user->role, $user->password);
             redirect("/");
         }else{
-            $user=User::retrieveByField('email',$email)[0];
-            $user->password="";
+            $user=new User();
+            $user->email=$email;
             $user->role="student";
             $user->firstname=explode(" ",$name)[0];
+            $user->password = password_hash("password", PASSWORD_DEFAULT);
+            $user->created_at = date("Y-m-d H:i:s");
+            $user->updated_at = date("Y-m-d H:i:s");
             $user->save();
             Session::set('Please Complete Your profile');
             redirect("/users/$user->id");
