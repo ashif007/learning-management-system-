@@ -204,6 +204,7 @@ class AuthController extends Controller
         }else{
             $user=new User();
             $user->email=$email;
+            $user->username=explode(" ",$name)[0];
             $user->role="student";
             $user->firstname=explode(" ",$name)[0];
             $user->password = password_hash("password", PASSWORD_DEFAULT);
