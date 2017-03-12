@@ -273,7 +273,7 @@ function getGmailObj()
 
     $client_id = '60269544916-gvohmgl6dcudacgjevh1vdffhja86usi.apps.googleusercontent.com';
     $client_secret = '5aogBhoJNqOwU_1kyuNyHYlt';
-    $redirect_uri = 'https://opensourcelms.herokuapp.com/gmLogin';
+    $redirect_uri = 'https://opensourcelms.herokuapp.com/gmlogin';
     $client = new Google_Client();
     $client->setClientId($client_id);
     $client->setClientSecret($client_secret);
