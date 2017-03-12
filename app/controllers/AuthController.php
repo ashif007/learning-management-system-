@@ -201,19 +201,33 @@ class AuthController extends Controller
 
     function gmLogin()
     {
-        $client = getGmailObj();
+        $client_id = '60269544916-gvohmgl6dcudacgjevh1vdffhja86usi.apps.googleusercontent.com';
+        $client_secret = '5aogBhoJNqOwU_1kyuNyHYlt';
+        $redirect_uri = 'https://opensourcelms.herokuapp.com/gmlogin';
+
+        $client = new Google_Client();
+        $client->setClientId($client_id);
+        $client->setClientSecret($client_secret);
+        $client->setRedirectUri($redirect_uri);
+
+
         $service = new Google_Service_Oauth2($client);
+
+
         if (isset($_GET['code'])) {
             $client->authenticate($_GET['code']);
             $_SESSION['access_token'] = $client->getAccessToken();
-            $redirect_uri = 'https://opensourcelms.herokuapp.com/gmlogin';
             header('Location: ' . filter_var($redirect_uri, FILTER_SANITIZE_URL));
             exit;
         }
+
         if (isset($_SESSION['access_token']) && $_SESSION['access_token']) {
             $client->setAccessToken($_SESSION['access_token']);
         }
+
         $user = $service->userinfo->get(); //get user info
-        echo $user->name."/n".$user->picture."/n".$user->email."/n".$user->id;
+        echo '<pre>';
+        print_r($user);
+        echo '</pre>';
     }
 }
