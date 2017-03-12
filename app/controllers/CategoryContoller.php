@@ -21,8 +21,14 @@ class CategoryController extends Controller implements ResourceInterface
 
     public function index()
     {
-        $cats=Category::all();
-        return view('admin/cats/index',['cats'=>$cats]);
+        if(Session::isLogin()){
+            $cats=Category::all();
+            return view('admin/cats/index',['cats'=>$cats]);
+        }else{
+            Session::set('message','Please Login to Start Learning');
+            redirect('/login');
+        }
+
     }
 
     public function create()
@@ -63,12 +69,18 @@ class CategoryController extends Controller implements ResourceInterface
 
     public function show($id)
     {
-        try{
-            $cat=Category::retrieveByPK($id);
-            return view('admin/cats/show',['cat'=>$cat]);
-        }catch (\Exception $e){
-            return view('errors/404');
+        if(Session::isLogin()){
+            try{
+                $cat=Category::retrieveByPK($id);
+                return view('admin/cats/show',['cat'=>$cat]);
+            }catch (\Exception $e){
+                return view('errors/404');
+            }
+        }else{
+            Session::set('message','Please Login to Start Learning');
+            redirect('/login');
         }
+
     }
 
     public function edit($id)
@@ -112,12 +124,16 @@ class CategoryController extends Controller implements ResourceInterface
 
     public function destroy($id)
     {
-        $category=Category::retrieveByPK($id);
-        foreach ($category->courses() as $course){
-            $course->delete();
+        if (Session::isLogin()&&Session::getLoginUser()->role == 'admin') {
+            $category=Category::retrieveByPK($id);
+            foreach ($category->courses() as $course){
+                $course->delete();
+            }
+            $category->delete();
+            Session::set('message',"Category Deleted Successfully");
+            redirect(Session::getBackUrl());
+        }else{
+            return view('errors/503', ['message' => "You are not allowed to be here!"]);
         }
-        $category->delete();
-        Session::set('message',"Category Deleted Successfully");
-        redirect(Session::getBackUrl());
     }
 }

@@ -22,13 +22,19 @@ class MaterialController extends Controller implements ResourceInterface
 
     public function index()
     {
-        $courses=Course::all();
-        return view('admin/materials/index',['courses'=>$courses]);
+        if(Session::isLogin()){
+            $courses=Course::all();
+            return view('admin/materials/index',['courses'=>$courses]);
+        }else{
+            Session::set('message','Please Login to Start Learning');
+            redirect('/login');
+        }
+
     }
 
     public function create()
     {
-        if (Session::isLogin()) {
+        if (Session::isLogin()&&Session::getLoginUser()->role=='admin') {
             $materials=Material::all();
             $courses=Course::all();
             return view('admin/materials/create',['materials'=>$materials,'courses'=>$courses]);
@@ -91,15 +97,21 @@ class MaterialController extends Controller implements ResourceInterface
 
     public function show($id)
     {
-        try{
-            $material = Material::retrieveByPK($id);
-            if($material->status=='hide'){
-                return view('errors/503',['message'=>'You are not allowed to view this material']);
+        if(Session::isLogin()){
+            try{
+                $material = Material::retrieveByPK($id);
+                if($material->status=='hide'){
+                    return view('errors/503',['message'=>'You are not allowed to view this material']);
+                }
+                return view('admin/materials/show', ['material' => $material]);
+            }catch (\Exception $e){
+                return view('errors/404');
             }
-            return view('admin/materials/show', ['material' => $material]);
-        }catch (\Exception $e){
-            return view('errors/404');
+        }else{
+            Session::set('message','Please Login to Start Learning');
+            redirect('/login');
         }
+
 
 
     }
@@ -196,18 +208,24 @@ class MaterialController extends Controller implements ResourceInterface
 
     public function download($request)
     {
-        $material=Material::retrieveByPK($request->get('mat'));
-        if($material->status=='lock'){
-            return view('errors/503',['message'=>'Sorry this material is locked from download']);
-        }
-        $material->downloaded=$material->downloaded+1;
-        $material->update();
-        if($material->type!='video'){
-            header("Location:$material->link");
+        if(Session::isLogin()){
+            $material=Material::retrieveByPK($request->get('mat'));
+            if($material->status=='lock'){
+                return view('errors/503',['message'=>'Sorry this material is locked from download']);
+            }
+            $material->downloaded=$material->downloaded+1;
+            $material->update();
+            if($material->type!='video'){
+                header("Location:$material->link");
+            }else{
+                header("Location:$material->link");
+                exit();
+            }
         }else{
-            header("Location:$material->link");
-            exit();
+            Session::set('message','Please Login to Start Learning');
+            redirect('/login');
         }
+
 
     }
 }

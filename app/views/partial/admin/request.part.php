@@ -1,5 +1,16 @@
 <div class="box box-widget">
+
     <div class="box-header with-border">
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                <i class="fa fa-minus"></i></button>
+            <?php if(\App\Core\Session::getLoginUser()->id==$req->uid):?>
+                <?php start_form('delete',"/requests/$req->id")?>
+                <button type="submit" class="btn btn-box-tool"  title="" data-original-title="Remove">
+                    <i class="fa fa-times"></i></button>
+                <?php close_form()?>
+            <?php endif;?>
+        </div>
         <div class="user-block">
             <img class="img-circle" src="<?= $req->user()->image?>" alt="User Image">
             <span class="username"><a href="/users/<?= $req->user()->id?>"><?= $req->user()->username?></a></span>

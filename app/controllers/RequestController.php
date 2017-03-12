@@ -17,8 +17,14 @@ class RequestController extends Controller implements ResourceInterface
 
     public function index()
     {
-        $reqs = UserRequest::all();
-        return view('admin/requests/index', ['reqs' => $reqs]);
+        if(Session::isLogin()){
+            $reqs = UserRequest::all();
+            return view('admin/requests/index', ['reqs' => $reqs]);
+        }else{
+            Session::set('message','Please Login to Start Learning');
+            redirect('/login');
+        }
+
     }
 
     public function create()
@@ -63,12 +69,18 @@ class RequestController extends Controller implements ResourceInterface
 
     public function show($id)
     {
-        try{
-            $req = UserRequest::retrieveByPK($id);
-            return view('admin/requests/show', ['req' => $req]);
-        }catch (\Exception $e){
-            return view('errors/404');
+        if(Session::isLogin()){
+            try{
+                $req = UserRequest::retrieveByPK($id);
+                return view('admin/requests/show', ['req' => $req]);
+            }catch (\Exception $e){
+                return view('errors/404');
+            }
+        }else{
+            Session::set('message','Please Login to Start Learning');
+            redirect('/login');
         }
+
 
 
     }
