@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <title>Open Source - LMS</title>
-
+    <link rel="shortcut icon" href="<?=asset('favicon.ico')?>" />
     <!-- meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
