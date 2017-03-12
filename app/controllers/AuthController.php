@@ -343,7 +343,7 @@ class AuthController extends Controller
 
     public function changepass(Request $request)
     {
-        var_dump(verifyCSRF());
+        var_dump(verifyCSRF($request));
         var_dump(Session::get('token'));
         var_dump($request->getCSRF());
         die();
