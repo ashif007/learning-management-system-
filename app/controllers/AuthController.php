@@ -162,9 +162,10 @@ class AuthController extends Controller
 
     public function fbLogin(Request $request)
     {
+        ini_set('display_errors', 1);
+        error_reporting(E_ALL ^ E_NOTICE);
         $fb = getFacebookObj();
         $helper = $fb->getRedirectLoginHelper();
-
         try {
             $accessToken = $helper->getAccessToken();
         } catch(FacebookResponseException $e) {
@@ -193,6 +194,9 @@ class AuthController extends Controller
 
         $oAuth2Client = $fb->getOAuth2Client();
         $response = $fb->get('/me?fields=id,name,email,picture', $accessToken);
+        $user = $response->getGraphUser();
+
+        dispalyForDebug($user['name']);
 
 
 
@@ -200,8 +204,6 @@ class AuthController extends Controller
 
     function gmLogin()
     {
-        ini_set('display_errors', 1);
-        error_reporting(E_ALL ^ E_NOTICE);
         $client_id = '60269544916-gvohmgl6dcudacgjevh1vdffhja86usi.apps.googleusercontent.com';
         $client_secret = '5aogBhoJNqOwU_1kyuNyHYlt';
         $redirect_uri = 'https://opensourcelms.herokuapp.com/gmlogin?';
