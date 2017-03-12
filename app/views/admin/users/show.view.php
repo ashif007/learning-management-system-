@@ -170,7 +170,7 @@ $fields=$request['fields'];
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span></button>
-                    <h4 class="modal-title">Add New User</h4>
+                    <h4 class="modal-title">Add New Request</h4>
                 </div>
                 <?php start_form('post',"/requests",['enctype'=>"multipart/form-data"])?>
                 <?php \App\Core\Session::saveBackUrl()?>

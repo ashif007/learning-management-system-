@@ -16,7 +16,11 @@
         <div class="box">
         <div class="box-header with-border">
             <h3 class="box-title"><?=$cat->name?></h3>
-            <a class="btn btn-primary btn-xs pull-right" href="/cats/<?=$cat->id?>">View Category</a>
+            <div class="box-tools pull-right">
+                <a class="btn btn-primary btn-xs" href="/cats/<?=$cat->id?>">View Category</a>
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+            </div>
         </div>
         <div class="box-body">
             <?php foreach (array_chunk($cat->courses(),4) as $coursechunk):?>

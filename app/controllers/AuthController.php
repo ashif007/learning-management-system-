@@ -45,22 +45,20 @@ class AuthController extends Controller
             ]);
             if(!$errors){
                 $user = User::retrieveByEmail($request->get('email'))[0];
-                if($user->isbaned)
-                {
-                    if ($request->get('email') == $user->email && password_verify($request->get('password'), $user->password)) {
-                        if ($user->state != "active")
-                        {
-                            Session::set('error',"Your account not active <br/>please go to your mail to verify you account");
-                            redirect('/login', $request->getLastFromSession());
+                if ($request->get('email') == $user->email && password_verify($request->get('password'), $user->password)) {
+                    if ($user->state != "active")
+                    {
+                        Session::set('error',"Your account not active <br/>please go to your mail to verify you account");
+                        redirect('/login', $request->getLastFromSession());
 
-                        }
-                        Session::saveLogin($user->username, $user->role, $user->password);
-                        if($request->get('remember')){
-                            Session::rememberLogin($user->username, $user->role, $user->password);
-                        }
-
-                    } else {
-                        $errors['login'] = "Wrong password or login";
+                    }
+                    if($user->isbaned){
+                        Session::set('error',"you have been baned from login !!!");
+                        redirect('/login', $request->getLastFromSession());
+                    }
+                    Session::saveLogin($user->username, $user->role, $user->password);
+                    if($request->get('remember')){
+                        Session::rememberLogin($user->username, $user->role, $user->password);
                     }
                 }else{
                     Session::set('error',"Your account is Suspended <br/>please call us to see your issue");

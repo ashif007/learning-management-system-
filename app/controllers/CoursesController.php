@@ -51,6 +51,7 @@ class CoursesController extends Controller implements ResourceInterface
 
                 if ($errors) {
                     $request->saveToSession($errors);
+                    Session::set('error','invalid data check the form');
                     redirect(Session::getBackUrl(), ['errors' => $request->getLastFromSession()]);
                 } else {
                     $course = new Course();
@@ -63,7 +64,7 @@ class CoursesController extends Controller implements ResourceInterface
                     $course->tid = Session::getLoginUser()->id;
                     $course->image=upload_file('image');
                     $course->save();
-                    Session::set('message', "User Added Successfully");
+                    Session::set('message', "Course Added Successfully");
                     redirect(Session::getBackUrl());
                 }
 
@@ -122,6 +123,7 @@ class CoursesController extends Controller implements ResourceInterface
             if ($errors)
             {
                 $request->saveToSession($errors);
+                Session::set('error','invalid data check the form');
                 redirect("/courses/".$course->id.'/edit', $request->getLastFromSession());
             }else{
                 $course->title = $request->get('title');

@@ -63,6 +63,7 @@ class MaterialController extends Controller implements ResourceInterface
                             $vlink=explode("watch?v=",$request->get('vlink'));
                             $material->link=$vlink[0]."embed/".$vlink[1];
                         }else if(strpos($request->get('vlink'),"embed")){
+                            $vlink=explode("watch?v=",$request->get('vlink'));
                             $material->link=$vlink[0]."embed/".$vlink[1];
                         }else{
                             $request->saveToSession($errors);
@@ -137,15 +138,29 @@ class MaterialController extends Controller implements ResourceInterface
                     $material = Material::retrieveByPK($id);
                     $material->cid = $request->get('cid');
                     $material->name = $request->get('name');
-                    if($request->get('type')=='video'&&$request->get('vlink')!=''){
+                    if($request->get('type')=='video'){
                         if($material->type!='video') {
                             delete_file($material->link);
-                            $material->link=$request->get('vlink');
+                        }
+                        if(strpos($request->get('vlink'),"watch?v=")){
+                            $vlink=explode("watch?v=",$request->get('vlink'));
+                            $material->link=$vlink[0]."embed/".$vlink[1];
+                        }else if(strpos($request->get('vlink'),"embed")){
+                            $vlink=explode("watch?v=",$request->get('vlink'));
+                            $material->link=$vlink[0]."embed/".$vlink[1];
+                        }else{
+                            $request->saveToSession($errors);
+                            Session::set('error', "invalid youtube link");
+                            redirect(Session::getBackUrl(), $request->getLastFromSession());
                         }
                     }else{
                         if($request->getFile('link')['size']!=0){
                             delete_file($material->link);
                             $material->link=upload_file("link");
+                        }else{
+                            $request->saveToSession($errors);
+                            Session::set('error', "invalid file");
+                            redirect(Session::getBackUrl(), $request->getLastFromSession());
                         }
                     }
                     $material->type = $request->get('type');

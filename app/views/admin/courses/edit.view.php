@@ -161,7 +161,7 @@ if(isset($fields['cid'])){
                                         </div>
                                         <div class="form-group">
                                             <label for="desc">Description</label>
-                                            <textarea id="editor" name="desc" class="form-control"><?=$course->description?>"</textarea>
+                                            <textarea id="editor" name="desc" class="form-control"><?=$course->description?></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label for="date">Start Date</label>

@@ -47,8 +47,6 @@ $fields=$request['fields'];
                         <th>Content</th>
                         <th>Created at</th>
                         <th>Last update</th>
-                        <th>Edit</th>
-                        <th>View</th>
                         <th>Delete</th>
                     </tr>
                     </thead>
@@ -60,8 +58,6 @@ $fields=$request['fields'];
                                 <td><?= $comment->body?></td>
                                 <td><?= $comment->created_at?></td>
                                 <td><?= $comment->updated_at?></td>
-                                <td><a href="/comments/<?=$comment->id?>/edit"><span class="fa fa-edit"></span></a></td>
-                                <td><a href="/comments/<?=$comment->id?>"><span class="fa fa-book"></span></a></td>
                                 <td>
                                     <?php start_form('delete',"/comments/$comment->id")?>
                                     <?php \App\Core\Session::saveBackUrl()?>
@@ -80,8 +76,6 @@ $fields=$request['fields'];
                         <th>Content</th>
                         <th>Created at</th>
                         <th>Last update</th>
-                        <th>Edit</th>
-                        <th>View</th>
                         <th>Delete</th>
                     </tr>
                     </tfoot>
