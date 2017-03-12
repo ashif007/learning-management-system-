@@ -207,7 +207,7 @@ class AuthController extends Controller
         $client_secret = '5aogBhoJNqOwU_1kyuNyHYlt';
         $redirect_uri = 'https://opensourcelms.herokuapp.com/gmlogin';
 
-        $client = new Google_Client();
+        $client = new \Google_Client();
         $client->setClientId($client_id);
         $client->setClientSecret($client_secret);
         $client->setRedirectUri($redirect_uri);
