@@ -19,7 +19,10 @@ $router->get('register', 'AuthController@showregister');
 $router->post('login', 'AuthController@login');
 $router->get('logout', 'AuthController@logout');
 $router->post('register', 'AuthController@register');
-
+$router->get('reset','AuthController@showreset');
+$router->get('resetpass','AuthController@resetpass');
+$router->post('changepass','AuthController@changepass');
+$router->post('resetemail','AuthController@resetemail');
 
 $router->get('activation', 'AuthController@activeIt');
 $router->get('fblogin', 'AuthController@fbLogin');

@@ -198,7 +198,6 @@ class AuthController extends Controller
 
 
 
-
     }
 
     function gmLogin()
@@ -254,5 +253,80 @@ class AuthController extends Controller
             redirect('/users/'.$user->id);
 
         }
+    }
+
+
+    public function showreset()
+    {
+        return view('auth/passwords/email');
+    }
+
+    public function resetemail(Request $request)
+    {
+        $errors=$this->validator->validate($request,['email'=>'required']);
+        if($errors){
+            Session::set('error','none valid data');
+            $request->saveToSession($errors);
+            redirect('/reset', $request->getLastFromSession());
+        }else{
+            if(empty(User::retrieveByField('email',$request->get('email')))){
+                Session::set('error','Your are not registered on our website');
+                redirect('/reset');
+            }else{
+                $user=User::retrieveByField('email',$request->get('email'))[0];
+                $code=md5(mt_rand());
+                $user->code = $code;
+                $user->update();
+                $subject = "Open Source LMS Password Reset";
+                $body = 'Hi <b>'.$user->username.'</b> <br/>
+                             Your can reset your password from this link<br/>
+                             <h3>email: <b>'.$user->email.'</b> </h3>
+                             <h3>user : <b>'.$user->username.'</b> </h3>
+                             <h3>creation date : <b>'.$user->created_at.'</b></h3>
+                             <a href="https://opensourcelms.herokuapp.com/resetpass?code='.$code.'&email='.$user->email.'">click here to reset your password</a><br/>
+                             this link for one use only';
+                sendMail($user->email,$user->username,$subject,$body);
+                return view('auth/passwords/sent');
+                redirect('/');
+            }
+        }
+
+    }
+
+    public function resetpass(Request $request)
+    {
+        if($request->get('email')){
+            $user=User::retrieveByField('email',$request->get('email'))[0];
+            if($request->get('code')==$user->code){
+                return view('auth/passwords/reset',['user'=>$user]);
+            }else{
+                return view('errors/404');
+            }
+        }else{
+            return view('errors/404');
+        }
+
+    }
+
+    public function changepass(Request $request)
+    {
+        if(verifyCSRF($request)){
+            if($request->get('password')==$request->get('confirm')){
+                $user=User::retrieveByField('email',$request->get('email'));
+                if($request->get('code')==$user->code){
+                    $user->password=$request->get('password');
+                    $user->code="";
+                    $user->update();
+                }else{
+                    return view('errors/404');
+                }
+            }else{
+                return view('errors/404');
+            }
+
+        }else{
+            return view('errors/404');
+        }
+
     }
 }

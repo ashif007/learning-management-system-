@@ -76,7 +76,7 @@ $authUrl = $client->createAuthUrl();
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 <?php if(count($errors)>0):?>
                 <span class="help-block">
-                        <strong><?= $errors['email'] ?></strong>
+                        <strong><?= $errors['email'][0] ?></strong>
                 </span>
                 <?php endif;?>
             </div>
@@ -85,7 +85,7 @@ $authUrl = $client->createAuthUrl();
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 <?php if(count($errors)>0):?>
                     <span class="help-block">
-                        <strong><?= $errors['email'] ?></strong>
+                        <strong><?= $errors['password'][0] ?></strong>
                     </span>
                 <?php endif;?>
             </div>
@@ -112,7 +112,7 @@ $authUrl = $client->createAuthUrl();
         </div>
         <!-- /.social-auth-links -->
 
-        <a href="/password/reset">I forgot my password</a><br>
+        <a href="/reset">I forgot my password</a><br>
         <a href="/register" class="text-center">Register a new membership</a>
 
     </div>
