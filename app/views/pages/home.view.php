@@ -255,7 +255,7 @@
             </section>
             <section class="col-md-3 col-sm-6 ">
                 <div class="team-member wow animated fadeIn " data-wow-delay=="0.3s">
-                    <img  src="img/dev-2.jpg" class="img_res team-pic ">
+                    <img  src="<?php asset('img/habib.jpg')?>" class="img_res team-pic ">
                     <h2 class="wow animated fadeInDown" data-wow-delay=="0.7s">Mohammed Habib</h2>
                     <p class="wow animated fadeIn" data-wow-delay=="0.7s">Mohammed is our major php developer and
                     has a wide range of web technologies techniques </p>
