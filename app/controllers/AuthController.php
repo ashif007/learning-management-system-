@@ -343,14 +343,12 @@ class AuthController extends Controller
 
     public function changepass(Request $request)
     {
-        var_dump(verifyCSRF($request));
-        var_dump(Session::get('token'));
-        var_dump($request->getCSRF());
-        die();
         if(verifyCSRF($request)){
             if($request->get('password')==$request->get('confirm')){
                 $user=User::retrieveByField('email',$request->get('email'));
                 if($request->get('code')==$user->code){
+                    var_dump($user);
+                    die();
                     $user->password=password_hash($request->get('password'),PASSWORD_DEFAULT);
                     $user->code="";
                     $user->update();
