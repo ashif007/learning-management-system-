@@ -222,6 +222,7 @@ class AuthController extends Controller
         }
         $gmUser = $service->userinfo->get(); //get user info
         $user = User::retrieveByEmail($gmUser->email)[0];
+        dispalyForDebug($user);die();
         if ($user->email)
         {
             Session::saveLogin($user->username, $user->role, $user->password);
