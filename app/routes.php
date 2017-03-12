@@ -21,6 +21,8 @@ $router->post('register', 'AuthController@register');
 
 
 $router->get('activation', 'AuthController@activeIt');
+$router->get('fblogin', 'AuthController@fbLogin');
+
 
 
 

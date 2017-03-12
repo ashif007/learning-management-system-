@@ -235,7 +235,7 @@ function getImageTypes(){
 function sendMail($userEmail,$userName,$subject,$htmlBody)
 {
     $mail = new PHPMailer;
-    $mail->SMTPDebug = 2;                               // Enable verbose debug output
+    $mail->SMTPDebug = 0;                               // Enable verbose debug output
     $mail->isSMTP();                                      // Set mailer to use SMTP
     $mail->Host = 'gator4235.hostgator.com';  // Specify main and backup SMTP servers
     $mail->SMTPAuth = true;                               // Enable SMTP authentication
@@ -256,5 +256,16 @@ function sendMail($userEmail,$userName,$subject,$htmlBody)
     } else {
         echo 'Message has been sent';
     }
+}
+
+function getFacebookObj()
+{
+    $fb = new \Facebook\Facebook([
+        'app_id' => '385244185170219',
+        'app_secret' => '44ee21e007fdf0c42a7a2e6946488a17',
+        'default_graph_version' => 'v2.8',
+    ]);
+
+    return $fb;
 }
 
