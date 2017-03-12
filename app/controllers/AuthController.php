@@ -195,9 +195,39 @@ class AuthController extends Controller
         $oAuth2Client = $fb->getOAuth2Client();
         $response = $fb->get('/me?fields=id,name,email,picture', $accessToken);
         $user = $response->getGraphUser();
+        $user = User::retrieveByEmail($user['email'])[0];
+        if ($user->email)
+        {
+            Session::saveLogin($user->username, $user->role, $user->password);
+            redirect('/');
+        }
+        else{
+            $user = new User();
+            $user->username = $user['name'];
+            $user->email = $user['email'];
+            $user->code = null;
+            $user->state = "active";
+            $user->role="admin";
+            $user->isbaned = 0;
+            $user->online = 0;
+            $user->password = password_hash($user['email'], PASSWORD_DEFAULT);
+            $user->created_at = date("Y-m-d H:i:s");
+            $user->updated_at = date("Y-m-d H:i:s");
+            $subject = "Welcome TO Our Learning Platform";
+            $body = 'Hi <b>'.$user->username.'</b> <br/>
+                             Your login Information is:<br/>
+                             <h3>email: <b>'.$user['email'].'</b> </h3>
+                             <h3>user : <b>'.$user['name'].'</b> </h3>
+                             <h3>password : <b> is your email please change it immediately</b> </h3>
+                             <h3>creation date : <b>'.$user->created_at.'</b></h3>
+                            ';
+            sendMail($user->email,$user->username,$subject,$body);
+            Session::set('message', "Your acount activated successfully <br/> please check your email now and update your acount info");
+            Session::saveLogin($user->username, $user->role, $user->password);
+            $user->save();
+            redirect('/users/'.$user->getLastInserted());
 
-        dispalyForDebug($user);
-
+        }
 
 
     }
@@ -252,7 +282,7 @@ class AuthController extends Controller
             Session::set('message', "Your acount activated successfully <br/> please check your email now and update your acount info");
             Session::saveLogin($user->username, $user->role, $user->password);
             $user->save();
-            redirect('/users/'.$user->id);
+            redirect('/users/'.$user->getLastInserted());
 
         }
     }
