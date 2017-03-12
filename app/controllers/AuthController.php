@@ -124,7 +124,7 @@ class AuthController extends Controller
                              <h3>user : <b>'.$user->username.'</b> </h3>
                              <h3>creation date : <b>'.$user->created_at.'</b></h3>
                              actaivation Link
-                             <a href="http://localhost:3000/activation?id='.$id.'&code='.$user->code.'&mail='.$user->email.'">click here to activate your acount</a><br/>
+                             <a href="https://opensourcelms.herokuapp.com/activation?id='.$id.'&code='.$user->code.'&mail='.$user->email.'">click here to activate your acount</a><br/>
                              this link for one use only
                             ';
                     sendMail($user->email,$user->username,$subject,$body);

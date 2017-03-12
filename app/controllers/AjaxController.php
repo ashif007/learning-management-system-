@@ -56,12 +56,7 @@ class AjaxController extends Controller
 
     public function file_upload()
     {
-//    $options = array(
-//        'validation' => array(
-//            'allowedExts' => array('txt', 'pdf', 'doc'),
-//            'allowedMimeTypes' => array('text/plain', 'application/msword', 'application/x-pdf', 'application/pdf')
-//        )
-//    );
+
         try {
             $response = \FroalaEditor_File::upload('/uploads/');
             echo stripslashes(json_encode($response));
@@ -80,13 +75,4 @@ class AjaxController extends Controller
         }
     }
 
-//    public function image_upload()
-//    {
-//        try {
-//            $response = FroalaEditor_Image::upload('/uploads/');
-//            echo stripslashes(json_encode($response));
-//        } catch (Exception $e) {
-//            http_response_code(404);
-//        }
-//    }
 }

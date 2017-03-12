@@ -43,7 +43,7 @@ class RequestController extends Controller implements ResourceInterface
                 if ($errors) {
                     $request->saveToSession($errors);
                     Session::set('error', "none valid data");
-                    redirect('/requests/create', $request->getLastFromSession());
+                    redirect(Session::getBackUrl(), $request->getLastFromSession());
                 } else {
                     $req = new UserRequest();
                     $req->title = $request->get('title');
@@ -53,7 +53,7 @@ class RequestController extends Controller implements ResourceInterface
                     $req->updated_at = date("Y-m-d H:i:s");
                     $req->save();
                     Session::set('message', "Request Added Successfully");
-                    redirect("/requests/$req->id");
+                    redirect(Session::getBackUrl());
                 }
             } else {
                 return view('errors/503', ['message' => "You are not allowed to be here!"]);
@@ -63,19 +63,29 @@ class RequestController extends Controller implements ResourceInterface
 
     public function show($id)
     {
-        $req = UserRequest::retrieveByPK($id);
-        return view('admin/requests/show', ['req' => $req]);
+        try{
+            $req = UserRequest::retrieveByPK($id);
+            return view('admin/requests/show', ['req' => $req]);
+        }catch (\Exception $e){
+            return view('errors/404');
+        }
+
 
     }
 
     public function edit($id)
     {
-        if (Session::isLogin()) {
-            $req = UserRequest::retrieveByPK($id);
-            return view('admin/requests/edit', ['req' => $req]);
-        } else {
-            return view('errors/503',['message'=>"You are not allowed to be here!"]);
+        try{
+            if (Session::isLogin()) {
+                $req = UserRequest::retrieveByPK($id);
+                return view('admin/requests/edit', ['req' => $req]);
+            } else {
+                return view('errors/503',['message'=>"You are not allowed to be here!"]);
+            }
+        }catch (\Exception $e){
+            return view('errors/404');
         }
+
     }
 
     public function update(Request $request, $id)
@@ -90,7 +100,7 @@ class RequestController extends Controller implements ResourceInterface
                 if ($errors) {
                     $request->saveToSession($errors);
                     Session::set('error', "none valid data");
-                    redirect('/requests/create', $request->getLastFromSession());
+                    redirect(Session::getBackUrl(), $request->getLastFromSession());
                 } else {
                     $req = UserRequest::retrieveByPK($id);
                     $req->title = $request->get('title');
@@ -99,7 +109,7 @@ class RequestController extends Controller implements ResourceInterface
                     $req->updated_at = date("Y-m-d H:i:s");
                     $req->update();
                     Session::set('message', "Request Updated Successfully");
-                    redirect("/requests/$req->id");
+                    redirect(Session::getBackUrl());
                 }
             } else {
                 return view('errors/503', ['message' => "You are not allowed to be here!"]);
@@ -111,6 +121,9 @@ class RequestController extends Controller implements ResourceInterface
     {
         if (Session::isLogin()) {
             $req = UserRequest::retrieveByPK($id);
+            foreach ($req->comments() as $comment){
+                $comment->delete();
+            }
             $req->delete();
             Session::set('message', "Request Deleted Successfully");
             redirect(Session::getBackUrl());

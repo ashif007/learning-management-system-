@@ -1,4 +1,4 @@
-<?php partial('admin/header')?>
+<?php partial('admin/header',['title'=>$course->title])?>
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
@@ -21,7 +21,7 @@
             <div class="tab-content">
                 <div class="tab-pane active" id="info">
                     <div class="center-block">
-                        <img src="<?=$course->image?>" alt="" class="img-responsive center-block">
+                        <img src="<?=$course->image?>" alt="" class="img-responsive center-block" width="400">
                         <p class="text-center">Course Rate: <i class="fa fa-star"></i> <?=$course->rate?> </p>
                         <hr>
                     </div>

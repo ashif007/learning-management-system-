@@ -8,6 +8,8 @@
     </div>
     <!-- /.box-header -->
     <div class="box-body">
+        <a href="/requests/<?=$req->id?>"><h3><?=$req->title?></h3></a>
+
         <!-- post text -->
         <p><?= $req->body?></p>
         <span class="pull-right text-muted"><?=count($req->comments())?> Comments</span>
@@ -18,9 +20,9 @@
         <div class="box-comment">
             <!-- User image -->
             <img class="img-circle img-sm" src="<?=$comment->user()->image?>" alt="User Image">
-            <?php if(\App\Core\Session::getLoginUser()->id==$comment->uid):?>
+            <?php if(\App\Core\Session::getLoginUser()->id==$comment->uid||\App\Core\Session::getLoginUser()->role=='admin'):?>
                 <?php \App\Core\Session::saveBackUrl()?>
-                <?php start_form('delete',"/comments/$req->id")?>
+                <?php start_form('delete',"/comments/$comment->id")?>
                 <button type="submit" style="border: none;background-color: rgba(0,0,0,0); color:#9f191f" class="pull-right">
                     <span class="fa fa-remove"></span>
                 </button>
@@ -42,14 +44,13 @@
     <div class="box-footer">
         <?php start_form('post','/comments/')?>
         <form class="form-horizontal">
-            <input type="hidden" name="uid" value="<?= \App\Core\Session::getLoginUser()->id?>">
             <input type="hidden" name="mid" value="<?="UserRequest:$req->id"?>">
-            <input type="hidden" name="url" value="/users/<?=$req->user()->id?>">
+            <?php \App\Core\Session::saveBackUrl()?>
             <div class="form-group margin-bottom-none">
-                <div class="col-sm-9">
+                <div class="col-sm-10">
                     <input class="form-control input-sm" placeholder="Comment" name="body">
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-2">
                     <button type="submit" class="btn btn-primary pull-right btn-block btn-sm">Comment</button>
                 </div>
             </div>

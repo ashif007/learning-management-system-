@@ -580,7 +580,9 @@
         "php": "~7.0@beta",
         "ext-pdo": "*",
         "ext-fileinfo": "*",
-        "ext-gettext": "*"
+        "ext-gettext": "*",
+        "ext-mbstring": "*",
+        "ext-json": "*"
     },
     "platform-dev": []
 }

@@ -241,7 +241,7 @@
         <section class="row ">
             <section class="col-md-3 col-sm-6 ">
                 <div class="team-member wow animated fadeIn " data-wow-delay=="0.3s">
-                    <img  src="<?php asset('img/salama.JPG')?>" class="img_res team-pic ">
+                    <img  src="<?php asset('img/salama.jpg')?>" class="img_res team-pic ">
                     <h2 class="wow animated fadeInDown" data-wow-delay=="0.7s">Salama  Ashoush</h2>
                     <p class="wow animated fadeIn" data-wow-delay=="0.7s"> Salama is a very active member who is
                     interested in open source technology and graphic designs </p>
@@ -368,7 +368,7 @@
                     <div class="item">
                         <div class="row">
                             <div class="col-sm-4 col-sm-offset-1">
-                                <div class="client-pic"><img class="img_res" src="<?php asset('img/moad.JPG')?>"></div>
+                                <div class="client-pic"><img class="img_res" src="<?php asset('img/moad.jpg')?>"></div>
                                 <p class="review-star">
                                     <i class="ion-ios-star"></i>
                                     <i class="ion-ios-star"></i>

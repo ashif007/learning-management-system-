@@ -127,7 +127,6 @@ function getResponse()
 function upload_file($fieldname)
 {
     try {
-
         $response = \FroalaEditor\Utils\DiskManagement::upload('/uploads/',['fieldname' => "$fieldname"]);
     } catch (Exception $e) {
         var_dump($e->getMessage());

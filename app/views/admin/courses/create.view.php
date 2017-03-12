@@ -1,4 +1,4 @@
-<?php partial('admin/header')?>
+<?php partial('admin/header',['title'=>'Courses Admin'])?>
 <?php
 $request=\App\Core\Session::get('request');
 \App\Core\Session::delete('request');
@@ -87,6 +87,7 @@ $fields=$request['fields'];
                     <h4 class="modal-title">Add New Course</h4>
                 </div>
                 <?php start_form('post',"/courses",['enctype'=>"multipart/form-data"])?>
+                <?php \App\Core\Session::saveBackUrl()?>
                 <div class="box box-solid">
                     <!-- /.box-header -->
                     <div class="box-body">

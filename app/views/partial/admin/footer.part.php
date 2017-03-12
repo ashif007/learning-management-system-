@@ -12,7 +12,6 @@
     <strong>Copyright &copy; 2017 <a href="#">OSLMS</a>.</strong> All rights reserved.
 </footer>
 <!-- Control Sidebar -->
-<?php partial('admin/controlsidebar')?>
 </div>
 <!-- ./wrapper -->
 

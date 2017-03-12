@@ -1,4 +1,4 @@
-<?php if($material->status=='show'):?>
+<?php if($material->status!='hide'):?>
 <?php if($material->type=='pdf'){?>
     <li>
         <i class="fa fa-file-pdf-o bg-red"></i>

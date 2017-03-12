@@ -1,4 +1,4 @@
-<?php partial('admin/header')?>
+<?php partial('admin/header',['title'=>'Material Edit'])?>
 <?php
 $request=\App\Core\Session::get('request');
 $errors=$request['errors'];
@@ -13,7 +13,7 @@ $fields=$request['fields'];
     </h1>
     <ol class="breadcrumb">
         <li><a href="/materials"><i class="fa fa-book"></i>Materials</a></li>
-        <li><a href="/materials/<?=$material->id?>/edit"><i class="fa fa-book"></i><?=$material->name?></a></li>
+        <li><a href="/materials/<?=$material->id?>"><i class="fa fa-book"></i><?=$material->name?></a></li>
         <li><a href="/materials/<?=$material->id?>/edit"><i class="fa fa-edit"></i>Edit</a></li>
     </ol>
 </section>
@@ -23,6 +23,8 @@ $fields=$request['fields'];
     <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
             <li><h4 style="padding-left: 10px"><?=$material->name?></h4></li>
+            <li><a href="#details" data-toggle="tab">Material Info</a></li>
+            <li><a href="#comments" data-toggle="tab">Comments</a></li>
             <li class="dropdown pull-right">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                     <i class="fa fa-gear"></i> Options <span class="caret"></span>
@@ -39,7 +41,55 @@ $fields=$request['fields'];
                 <p>Link: <a href="<?=$material->link?>"><?=$material->link?></a></p>
                 <p>Status: <?=$material->status?></p>
                 <p>Type: <?=$material->type?></p>
+                <p>Comments: <?=count($material->comments())?></p>
                 <p>Description: <?=$material->description?></p>
+            </div>
+            <div class="tab-pane" id="comments">
+                <table id="indextable" class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Content</th>
+                        <th>Created at</th>
+                        <th>Last update</th>
+                        <th>Edit</th>
+                        <th>View</th>
+                        <th>Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php if(count($material->comments())>0):?>
+                        <?php foreach ($material->comments() as $comment):?>
+                            <tr>
+                                <td><?= $comment->user()->username?></td>
+                                <td><?= $comment->body?></td>
+                                <td><?= $comment->created_at?></td>
+                                <td><?= $comment->updated_at?></td>
+                                <td><a href="/comments/<?=$comment->id?>/edit"><span class="fa fa-edit"></span></a></td>
+                                <td><a href="/comments/<?=$comment->id?>"><span class="fa fa-book"></span></a></td>
+                                <td>
+                                    <?php start_form('delete',"/comments/$comment->id")?>
+                                    <button type="submit" style="border: none;background-color: rgba(0,0,0,0); color:#9f191f">
+                                        <span class="fa fa-remove"></span>
+                                    </button>
+                                    <?php close_form()?>
+                                </td>
+                            </tr>
+                        <?php endforeach;?>
+                    <?php endif;?>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <th>User</th>
+                        <th>Content</th>
+                        <th>Created at</th>
+                        <th>Last update</th>
+                        <th>Edit</th>
+                        <th>View</th>
+                        <th>Delete</th>
+                    </tr>
+                    </tfoot>
+                </table>
             </div>
             <!-- /.tab-pane -->
         </div>
@@ -106,6 +156,7 @@ $fields=$request['fields'];
                                             <select name="status" id="status" class="form-control">
                                                 <option value="show" <?php if($material->status=='show'){echo 'selected="selected"';}?>>Show</option>
                                                 <option value="hide" <?php if($material->status=='hide'){echo 'selected="selected"';}?>>Hide</option>
+                                                <option value="lock" <?php if($material->status=='lock'){echo 'selected="selected"';}?>>Lock</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
@@ -137,3 +188,23 @@ $fields=$request['fields'];
 </section>
     <!-- /.content -->
 <?php partial('admin/footer')?>
+<script>
+    $(document).ready(function () {
+        if($('#type').value=="video"){
+            $('#video').show();
+            $('#file').hide();
+        }else{
+            $('#video').hide();
+            $('#file').show();
+        };
+        $('#type').on('change',function (e) {
+            if(this.value=="video"){
+                $('#video').show();
+                $('#file').hide();
+            }else{
+                $('#video').hide();
+                $('#file').show();
+            }
+        });
+    });
+</script>

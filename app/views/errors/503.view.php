@@ -2,7 +2,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Open Source | Log in</title>
+    <title>Open Source | 503</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -31,12 +31,12 @@
                 Meanwhile, you may <a href="/">return to home page</a> or try using the search form.
             </p>
 
-            <form class="search-form" action="/search">
+            <form class="search-form" action="/search" method="get">
                 <div class="input-group">
                     <input type="text" name="q" class="form-control" placeholder="Search">
 
                     <div class="input-group-btn">
-                        <button type="submit" name="submit" class="btn btn-danger btn-flat"><i class="fa fa-search"></i>
+                        <button type="submit" class="btn btn-danger btn-flat"><i class="fa fa-search"></i>
                         </button>
                     </div>
                 </div>

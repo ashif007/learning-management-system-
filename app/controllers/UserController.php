@@ -55,17 +55,18 @@ class UserController extends Controller implements ResourceInterface
                 }
                 if (!empty(User::retrieveByEmail($request->get('email')))) {
                     Session::set('error', "User already exists");
-                    redirect('/users/create', $request->getLastFromSession());
+                    redirect(Session::getBackUrl(), $request->getLastFromSession());
                 } else {
                     if ($errors) {
                         $request->saveToSession($errors);
                         Session::set('error', "non valid data");
-                        redirect('/users/create', $request->getLastFromSession());
+                        redirect(Session::getBackUrl(), $request->getLastFromSession());
                     } else {
                         $user = new User();
                         $user->firstname = $request->get('firstname');
                         $user->lastname = $request->get('lastname');
                         $user->username = $request->get('username');
+                        $user->signature = $request->get('signature');
                         $user->email = $request->get('email');
                         $user->password = password_hash($request->get('password'), PASSWORD_DEFAULT);
                         $user->image = upload_file("image");
@@ -82,7 +83,7 @@ class UserController extends Controller implements ResourceInterface
                         $user->save();
 
                         Session::set('message', "User Added Successfully");
-                        redirect("/users/$user->id");
+                        redirect(Session::getBackUrl());
                     }
                 }
             }
@@ -94,24 +95,32 @@ class UserController extends Controller implements ResourceInterface
 
     public function show($id)
     {
-        if (Session::isLogin()&&Session::getLoginUser()->id == $id|| Session::isLogin()&&Session::getLoginUser()->role == "admin")
+        try{
+            if (Session::isLogin()&&Session::getLoginUser()->id == $id|| Session::isLogin()&&Session::getLoginUser()->role == "admin")
             {
-            $user = User::retrieveByPK($id);
-            return view('admin/users/show', ['user' => $user]);
-        }else{
-            redirect('/login');
+                $user = User::retrieveByPK($id);
+                return view('admin/users/show', ['user' => $user]);
+            }else{
+                redirect('/login');
+            }
+        }catch (\Exception $e){
+            return view('errors/404');
         }
+
     }
 
     public function edit($id)
     {
-        if (Session::isLogin()&&Session::getLoginUser()->id == $id|| Session::isLogin()&&Session::getLoginUser()->role == "admin") {
-            $user = User::retrieveByPK($id);
-            return view('admin/users/edit', ['user' => $user]);
-        } else {
-            return view('errors/503',['message'=>"You are not allowed to be here!"]);
+        try{
+            if (Session::isLogin()&&Session::getLoginUser()->id == $id|| Session::isLogin()&&Session::getLoginUser()->role == "admin") {
+                $user = User::retrieveByPK($id);
+                return view('admin/users/edit', ['user' => $user]);
+            } else {
+                return view('errors/503',['message'=>"You are not allowed to be here!"]);
+            }
+        }catch (\Exception $e){
+            return view('errors/404');
         }
-
     }
 
     public function update(Request $request, $id)
@@ -137,9 +146,10 @@ class UserController extends Controller implements ResourceInterface
                     $user->firstname = $request->get('firstname');
                     $user->lastname = $request->get('lastname');
                     $user->username = $request->get('username');
+                    $user->signature = $request->get('signature');
                     $user->email = $request->get('email');
                     $user->password = password_hash($request->get('password'), PASSWORD_DEFAULT);
-                    if ($request->getFile('image')) {
+                    if ($request->getFile('image')['size'] != 0) {
                         delete_file($user->image);
                         $user->image = upload_file("image");
                     }
@@ -154,13 +164,14 @@ class UserController extends Controller implements ResourceInterface
                     } else {
                         $user->isbaned = 0;
                     }
+                    $user->updated_at = date("Y-m-d H:i:s");
                     $user->update();
                     Session::set('message', "User Updated Successfully");
 
                     if (Session::isLogin()&&Session::getLoginUser()->role == "admin")
-                        redirect('/users');
+                        redirect(Session::getBackUrl());
                     else
-                        redirect('/users/'.$id);
+                        redirect(Session::getBackUrl());
                 }
             }
         } else {
@@ -174,6 +185,9 @@ class UserController extends Controller implements ResourceInterface
         if (Session::isLogin()&&Session::getLoginUser()->role == "admin") {
             $user = User::retrieveByPK($id);
             delete_file($user->image);
+            foreach ($user->requests() as $req){
+                $req->delete();
+            }
             $user->delete();
             Session::set('message', "User Deleted Successfully");
             redirect('/users');

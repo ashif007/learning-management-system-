@@ -59,7 +59,17 @@ class MaterialController extends Controller implements ResourceInterface
                     $material->status = $request->get('status');
                     $material->downloaded = 0;
                     if($request->get('type')=='video'){
-                        $material->link=$request->get('vlink');
+                        if(strpos($request->get('vlink'),"watch?v=")){
+                            $vlink=explode("watch?v=",$request->get('vlink'));
+                            $material->link=$vlink[0]."embed/".$vlink[1];
+                        }else if(strpos($request->get('vlink'),"embed")){
+                            $material->link=$vlink[0]."embed/".$vlink[1];
+                        }else{
+                            $request->saveToSession($errors);
+                            Session::set('error', "invalid youtube link");
+                            redirect(Session::getBackUrl(), $request->getLastFromSession());
+                        }
+
                     }else{
                         $material->link=upload_file("link");
                     }
@@ -80,20 +90,33 @@ class MaterialController extends Controller implements ResourceInterface
 
     public function show($id)
     {
-        $material = Material::retrieveByPK($id);
-        return view('admin/materials/show', ['material' => $material]);
+        try{
+            $material = Material::retrieveByPK($id);
+            if($material->status=='hide'){
+                return view('errors/503',['message'=>'You are not allowed to view this material']);
+            }
+            return view('admin/materials/show', ['material' => $material]);
+        }catch (\Exception $e){
+            return view('errors/404');
+        }
+
 
     }
 
     public function edit($id)
     {
-        if (Session::isLogin()&&Session::getLoginUser()->role=="admin") {
-            $material = Material::retrieveByPK($id);
-            $courses=Course::all();
-            return view('admin/materials/edit', ['courses'=>$courses,'material' => $material]);
-        } else {
-            return view('errors/503',['message'=>"You are not allowed to be here!"]);
+        try{
+            if (Session::isLogin()&&Session::getLoginUser()->role=="admin") {
+                $material = Material::retrieveByPK($id);
+                $courses=Course::all();
+                return view('admin/materials/edit', ['courses'=>$courses,'material' => $material]);
+            } else {
+                return view('errors/503',['message'=>"You are not allowed to be here!"]);
+            }
+        }catch (\Exception $e){
+            return view('errors/404');
         }
+
     }
 
     public function update(Request $request, $id)
@@ -102,7 +125,6 @@ class MaterialController extends Controller implements ResourceInterface
             if (verifyCSRF($request)) {
                 $errors = $this->validator->validate($request, [
                     'cid' => 'required',
-                    'link' => 'required',
                     'name'=>'required',
                     'type'=>'required'
                 ]);
@@ -115,15 +137,18 @@ class MaterialController extends Controller implements ResourceInterface
                     $material = Material::retrieveByPK($id);
                     $material->cid = $request->get('cid');
                     $material->name = $request->get('name');
-                    $material->type = $request->get('type');
-                    if($request->get('type')=='video'){
-                        $material->link=$request->get('vlink');
-                    }else{
-                        if($material->type!='video'){
+                    if($request->get('type')=='video'&&$request->get('vlink')!=''){
+                        if($material->type!='video') {
                             delete_file($material->link);
+                            $material->link=$request->get('vlink');
                         }
-                        $material->link=upload_file("link");
+                    }else{
+                        if($request->getFile('link')['size']!=0){
+                            delete_file($material->link);
+                            $material->link=upload_file("link");
+                        }
                     }
+                    $material->type = $request->get('type');
                     $material->description=$request->get('description');
                     $material->updated_at = date("Y-m-d H:i:s");
                     $material->update();
@@ -140,6 +165,9 @@ class MaterialController extends Controller implements ResourceInterface
     {
         if (Session::isLogin()&&Session::getLoginUser()->role=="admin") {
             $material = Material::retrieveByPK($id);
+            foreach ($material->comments() as $comment){
+                $comment->delete();
+            }
             if($material->type!='video'){
                 delete_file($material->link);
             }
@@ -154,6 +182,9 @@ class MaterialController extends Controller implements ResourceInterface
     public function download($request)
     {
         $material=Material::retrieveByPK($request->get('mat'));
+        if($material->status=='lock'){
+            return view('errors/503',['message'=>'Sorry this material is locked from download']);
+        }
         $material->downloaded=$material->downloaded+1;
         $material->update();
         if($material->type!='video'){

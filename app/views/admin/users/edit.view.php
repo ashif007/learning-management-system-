@@ -3,7 +3,7 @@
 $request=\App\Core\Session::get('request');
 $errors=$request['errors'];
 $fields=$request['fields'];
-\App\Core\Session::delete('request');
+\App\Core\Session::delete('request',['title'=>'User Edit']);
 ?>
 <!-- Content Header (Page header) -->
 <section class="content-header">
@@ -37,7 +37,7 @@ $fields=$request['fields'];
             <div class="tab-pane active" id="details">
                 <div class="row">
                     <div class="col-sm-3">
-                        <img src="<?php asset($user->image)?>" alt="" class="img-responsive">
+                        <img src="<?=$user->image?>" alt="" class="img-responsive">
                     </div>
                     <div class="col-sm-3">
                         <h5>First Name: <span class="text-green"><?=$user->firstname?></span></h5>
@@ -83,6 +83,7 @@ $fields=$request['fields'];
                                 <td><a href="/requests/<?=$req->id?>"><span class="fa fa-book"></span></a></td>
                                 <td>
                                     <?php start_form('delete',"/requests/$req->id")?>
+                                    <?php \App\Core\Session::saveBackUrl()?>
                                     <button type="submit" style="border: none;background-color: rgba(0,0,0,0); color:#9f191f">
                                         <span class="fa fa-remove"></span>
                                     </button>
@@ -121,6 +122,7 @@ $fields=$request['fields'];
                     <h4 class="modal-title">Edit <?= $user->name?> Info</h4>
                 </div>
                 <?php start_form('put',"/users/$user->id",['enctype'=>"multipart/form-data"])?>
+                <?php \App\Core\Session::saveBackUrl()?>
                 <div class="box box-solid">
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -202,8 +204,12 @@ $fields=$request['fields'];
                                     <div class="box-body">
                                         <div class="form-group">
                                             <label for="image">Profile Photo</label>
-                                            <?php uploaded_image($user->image)?><br>
+                                            <?php uploaded_image($user->image,['width'=>'100px'])?><br>
                                             <input type="file" name="image" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="signature">Signature</label>
+                                            <textarea  name="signature" class="form-control" id="editor"><?= isset($fields['signature'])?$fields['signature']:''?></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label for="role">Role</label>

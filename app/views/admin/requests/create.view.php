@@ -1,4 +1,4 @@
-<?php partial('admin/header')?>
+<?php partial('admin/header',['title'=>'Request Admin'])?>
 <?php
 $request=\App\Core\Session::get('request');
 $errors=$request['errors'];
@@ -87,7 +87,8 @@ $fields=$request['fields'];
                         <span aria-hidden="true">×</span></button>
                     <h4 class="modal-title">Add New User</h4>
                 </div>
-                <?php start_form('post',"/request",['enctype'=>"multipart/form-data"])?>
+                <?php start_form('post',"/requests",['enctype'=>"multipart/form-data"])?>
+                <?php \App\Core\Session::saveBackUrl()?>
                 <div class="box box-solid">
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -117,13 +118,7 @@ $fields=$request['fields'];
                         </div>
                         <?php if(count($errors)>0):?>
                         <div class="alert alert-danger">
-                            <ul>
-                                <?php foreach ($errors as $errors):?>
-                                    <?php foreach ($errors as $error):?>
-                                        <p><?=$error?></p>
-                                    <?php endforeach;?>
-                                <?php endforeach;?>
-                            </ul>
+                            <?php partial('admin/errors',['errors'=>$errors]);?>
                         </div>
                         <?php endif;?>
                     </div>
