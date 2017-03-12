@@ -334,7 +334,7 @@ class AuthController extends Controller
                 return view('auth/passwords/reset',['user'=>$user]);
             }else{
                 Session::set('error','Somthing Wrong happened Please try agin');
-                return view('/login');
+                redirect('/login');
             }
         }else{
             return view('errors/404');
@@ -351,7 +351,7 @@ class AuthController extends Controller
                     $user->password=password_hash($request->get('password'),PASSWORD_DEFAULT);
                     $user->code="";
                     $user->update();
-                    Session::get('message','You can now login with the new password');
+                    Session::set('message','You can now login with the new password');
                     redirect('/login');
                 }else{
                     Session::set('error','Somthing Wrong happened Please try agin');
