@@ -225,7 +225,7 @@ class AuthController extends Controller
         if ($user->email)
         {
             Session::saveLogin($user->username, $user->role, $user->password);
-            redirect('/users/'.$user->id);
+            redirect('/');
         }
         else{
             $user = new User();
@@ -250,6 +250,8 @@ class AuthController extends Controller
             sendMail($user->email,$user->username,$subject,$body);
             Session::set('message', "Your acount activated successfully <br/> please check your email now and update your acount info");
             $user->save();
+            redirect('/users/'.$user->id);
+
         }
     }
 }
