@@ -194,8 +194,28 @@ class AuthController extends Controller
         $oAuth2Client = $fb->getOAuth2Client();
         $response = $fb->get('/me?fields=id,name,email,picture', $accessToken);
 
-        var_dump($response);
+        $name=$response->decodeBody()['name'];
+        $email=$response->decodeBody()['email'];
+
+        if(!empty(User::retrieveByEmail($email))){
+            $user=User::retrieveByField('email',$email)[0];
+            Session::saveLogin($user->username, $user->role, $user->password);
+            redirect("/");
+        }else{
+            $user=User::retrieveByField('email',$email)[0];
+            $user->password="";
+            $user->role="student";
+            $user->firstname=explode(" ",$name)[0];
+            $user->save();
+            Session::set('Please Complete Your profile');
+            redirect("/users/$user->id");
+        }
 
 
+    }
+
+    function gmLogin()
+    {
+        $client = getGmailObj();
     }
 }
