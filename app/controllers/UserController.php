@@ -143,12 +143,7 @@ class UserController extends Controller implements ResourceInterface
                     'lastname' => 'required',
                     'username' => 'required',
                     'email' => 'required|email',
-                    'password' => 'required|min:8',
-                    'confirm' => 'required|min:8'
                 ]);
-                if ($request->get('password') !== $request->get('confirm')) {
-                    $errors['confirm'] = "Password not match";
-                }
                 if ($errors) {
                     $request->saveToSession($errors);
                     redirect('/users/'.$user->id, $request->getLastFromSession());
@@ -158,7 +153,9 @@ class UserController extends Controller implements ResourceInterface
                     $user->username = $request->get('username');
                     $user->signature = $request->get('signature');
                     $user->email = $request->get('email');
-                    $user->password = password_hash($request->get('password'), PASSWORD_DEFAULT);
+                    if($request->get('password')!=""){
+                        $user->password = password_hash($request->get('password'), PASSWORD_DEFAULT);
+                    }
                     if ($request->getFile('image')['size'] != 0) {
                         delete_file($user->image);
                         $user->image = upload_file("image");
@@ -177,11 +174,7 @@ class UserController extends Controller implements ResourceInterface
                     $user->updated_at = date("Y-m-d H:i:s");
                     $user->update();
                     Session::set('message', "User Updated Successfully");
-
-                    if (Session::isLogin()&&Session::getLoginUser()->role == "admin")
-                        redirect(Session::getBackUrl());
-                    else
-                        redirect(Session::getBackUrl());
+                    redirect(Session::getBackUrl());
                 }
             }
         } else {

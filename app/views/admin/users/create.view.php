@@ -188,7 +188,13 @@ $fields=$request['fields'];
                                         </div>
                                         <div class="form-group">
                                             <label for="isbaned">Is Baned</label>
-                                            <input type="checkbox" name="isbaned" class="form-control" <?php if(isset($fields['isbaned'])){echo "checked";}?>>
+                                            <div class="checkbox icheck">
+                                                <label>
+                                                    <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false" style="position: relative;">
+                                                        <input type="checkbox" name="isbaned" class="form-control" <?php if(isset($fields['isbaned'])){echo "checked";}?>>
+                                                        <ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div> Remember Me
+                                                </label>
+                                            </div>
                                         </div>
 
                                     </div>
