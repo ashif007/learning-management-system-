@@ -302,7 +302,8 @@ class AuthController extends Controller
             if($request->get('code')==$user->code){
                 return view('auth/passwords/reset',['user'=>$user]);
             }else{
-                return view('errors/404');
+                Session::set('error','Somthing Wrong happened Please try agin');
+                return view('/login');
             }
         }else{
             return view('errors/404');
