@@ -200,4 +200,9 @@ class AuthController extends Controller
 
 
     }
+
+    function gmLogin()
+    {
+        $client = getGmailObj();
+    }
 }

@@ -8,19 +8,11 @@ $helper = getFacebookObj()->getRedirectLoginHelper();
 $permissions = ['email']; // Optional permissions
 $loginUrl = $helper->getLoginUrl('https://opensourcelms.herokuapp.com/fblogin', $permissions);
 
-//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////gmail///////////////////////
+$client  = getGmailObj();
+$authUrl = $client->createAuthUrl();
 ?>
-<?php
-$openid = new LightOpenID("my-domain.com");
 
-$openid->identity = 'https://www.google.com/accounts/o8/id';
-$openid->required = array(
-'namePerson/first',
-'namePerson/last',
-'contact/email',
-);
-$openid->returnUrl = 'http://my-domain.com/login.php'
-?>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -115,7 +107,7 @@ $openid->returnUrl = 'http://my-domain.com/login.php'
         <div class="social-auth-links text-center">
             <p>- OR -</p>
             <a href="<?php echo htmlspecialchars($loginUrl)?>" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using Facebook</a>
-            <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using Google+</a>
+            <a href="<?php echo $authUrl;?>" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using Google+</a>
         </div>
         <!-- /.social-auth-links -->
 
