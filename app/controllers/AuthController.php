@@ -346,12 +346,8 @@ class AuthController extends Controller
     {
         if(verifyCSRF($request)){
             if($request->get('password')==$request->get('confirm')){
-                $user=User::retrieveByField('email',$request->get('email'));
-                var_dump($user->code);
-                var_dump($request->get('code'));
-                die();
+                $user=User::retrieveByEmail($request->get('email'))[0];
                 if($request->get('code')==$user->code){
-
                     $user->password=password_hash($request->get('password'),PASSWORD_DEFAULT);
                     $user->code="";
                     $user->update();
