@@ -196,8 +196,6 @@ class AuthController extends Controller
 
         $name=$response->decodeBody()['name'];
         $email=$response->decodeBody()['email'];
-        var_dump($response);
-        die();
         if(!empty(User::retrieveByEmail($email))){
             $user=User::retrieveByField('email',$email)[0];
             Session::saveLogin($user->username, $user->role, $user->password);
