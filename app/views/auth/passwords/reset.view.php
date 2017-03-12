@@ -63,6 +63,7 @@ $fields=$request['fields'];
 
         <form method="POST" action="/changepass">
             <?php csrf_field()?>
+            <?php \App\Core\Session::saveBackUrl()?>
             <input type="hidden" name="code" value="<?=$user->code?>">
             <input type="hidden" name="email" value="<?=$user->email?>">
             <div class="form-group has-feedback<?= isset($errors['password']) ? ' has-error' : '' ?>">

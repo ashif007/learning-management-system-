@@ -343,7 +343,13 @@ class AuthController extends Controller
 
     public function changepass(Request $request)
     {
+        var_dump($request->get('password'));
+        var_dump($request->get('email'));
+        var_dump($request->get('code'));
+        var_dump($request->get('confirm'));
+        die();
         if(verifyCSRF($request)){
+
             if($request->get('password')==$request->get('confirm')){
                 $user=User::retrieveByField('email',$request->get('email'));
                 if($request->get('code')==$user->code){
@@ -353,10 +359,12 @@ class AuthController extends Controller
                     Session::get('message','You can now login with the new password');
                     redirect('/login');
                 }else{
-                    return view('errors/404');
+                    Session::set('error','password not match');
+                    return view(Session::getBackUrl());
                 }
             }else{
-                return view('errors/404');
+                Session::set('error','Somthing Wrong happened Please try agin');
+                return view('/login');
             }
 
         }else{
